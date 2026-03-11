@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ricche Ltd — Institutional Research Whitepaper</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    color: #1a1a2e;
+    line-height: 1.75;
+    font-size: 11.5pt;
+    background: #fff;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 60px 72px;
+    page-break-after: always;
+  }
+
+  /* Title page */
+  .title-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 297mm;
+  }
+  .title-page h1 {
+    font-size: 28pt;
+    font-weight: 800;
+    color: #1a1a2e;
+    margin-bottom: 16px;
+  }
+  .title-page .subtitle {
+    font-size: 14pt;
+    font-weight: 400;
+    color: #444;
+    margin-bottom: 8px;
+  }
+  .title-page .tagline {
+    font-size: 12pt;
+    font-weight: 400;
+    color: #666;
+  }
+
+  /* Content pages */
+  h2 {
+    font-size: 16pt;
+    font-weight: 800;
+    color: #1a1a2e;
+    margin-top: 36px;
+    margin-bottom: 14px;
+  }
+  h2:first-child {
+    margin-top: 0;
+  }
+  p {
+    margin-bottom: 18px;
+    text-align: left;
+  }
+  .flow {
+    font-family: 'Inter', sans-serif;
+    margin: 10px 0 18px;
+    color: #333;
+  }
+  ul {
+    margin: 0 0 18px 24px;
+    list-style: disc;
+  }
+  ul li {
+    margin-bottom: 4px;
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page {
+      width: auto;
+      padding: 48px 60px;
+      margin: 0;
+      page-break-after: always;
+    }
+    .title-page {
+      min-height: 100vh;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: Title -->
+<div class="page title-page">
+  <h1>Ricche Ltd</h1>
+  <div class="subtitle">Institutional Research Whitepaper</div>
+  <div class="tagline">AI Infrastructure for Quantitative Market Research</div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+  <h2>Executive Summary</h2>
+  <p>
+    Ricche Ltd is developing artificial intelligence research infrastructure designed to explore
+    financial markets through machine learning, computational modelling, and large-scale
+    data analysis. Financial markets generate vast quantities of complex time-series data
+    influenced by economic forces, information flows, and participant behaviour. The Ricche
+    platform is designed as a structured research environment combining data engineering,
+    machine learning experimentation, simulation environments, and validation frameworks.
+    This approach supports disciplined experimentation and reproducible research workflows.
+  </p>
+
+  <h2>Industry Context</h2>
+  <p>
+    Financial markets represent one of the most data-rich and computationally challenging
+    domains. Researchers must analyse high-dimensional time-series data, non-linear
+    behavioural patterns, and rapidly evolving market dynamics. Advances in artificial
+    intelligence and high-performance computing now allow researchers to study these
+    systems using modern computational approaches.
+  </p>
+
+  <h2>Platform Overview</h2>
+  <p>The Ricche research platform integrates several key components within a unified architecture:</p>
+  <ul>
+    <li>Data infrastructure for ingesting and preparing market datasets</li>
+    <li>Machine learning experimentation environments</li>
+    <li>Simulation frameworks for evaluating models</li>
+    <li>Validation and governance systems</li>
+    <li>Monitoring and observability infrastructure</li>
+  </ul>
+
+  <h2>Architecture Design</h2>
+  <p>
+    The platform architecture is structured as a layered system supporting the lifecycle of
+    computational research.
+  </p>
+  <p class="flow">
+    Market Data &rarr; Data Infrastructure &rarr; Machine Learning Research &rarr; Simulation Framework &rarr; Validation Systems &rarr; Monitoring &amp; Observability
+  </p>
+
+  <h2>Machine Learning Research</h2>
+  <p>
+    Machine learning experimentation forms a central component of the Ricche research
+    platform. Researchers can explore financial datasets using modern modelling approaches
+    including representation learning, time-series modelling, and anomaly detection.
+  </p>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+  <h2>Simulation Environments</h2>
+  <p>
+    Simulation environments allow candidate research outputs to be evaluated across multiple
+    market scenarios. This enables researchers to test model behaviour under varied
+    conditions before progressing to further evaluation stages.
+  </p>
+
+  <h2>Validation &amp; Governance</h2>
+  <p>
+    Ricche emphasises disciplined research processes. Models and experimental outputs
+    progress through structured validation stages designed to ensure reproducibility and
+    robustness.
+  </p>
+
+  <h2>Accelerated Compute</h2>
+  <p>
+    Machine learning training and simulation environments can benefit significantly from
+    accelerated compute infrastructure such as GPU-based systems. These environments
+    allow larger datasets, faster experimentation cycles, and more extensive simulation
+    workflows.
+  </p>
+
+  <h2>Research Workflow</h2>
+  <p>A typical Ricche research workflow progresses through several stages:</p>
+  <p class="flow">
+    Research Hypothesis &rarr; Data Preparation &rarr; Model Development &rarr; Simulation Testing &rarr; Validation &rarr; Controlled Evaluation
+  </p>
+
+  <h2>Use of Data</h2>
+  <p>
+    Financial market datasets provide rich information about economic activity and market
+    behaviour. Data engineering pipelines are designed to prepare these datasets for
+    computational research environments.
+  </p>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page">
+  <h2>Monitoring &amp; Observability</h2>
+  <p>
+    The Ricche platform includes monitoring infrastructure designed to provide visibility into
+    research workflows, system health, and computational workloads.
+  </p>
+
+  <h2>Long-Term Vision</h2>
+  <p>
+    Ricche aims to develop scalable research infrastructure capable of supporting advanced
+    machine learning experimentation and computational modelling of financial markets.
+  </p>
+
+  <h2>Collaboration Opportunities</h2>
+  <p>
+    Ricche welcomes collaboration with organisations working at the intersection of artificial
+    intelligence, financial data science, and computational infrastructure.
+  </p>
+
+  <h2>Conclusion</h2>
+  <p>
+    The Ricche research platform represents a structured approach to studying financial
+    markets through artificial intelligence and computational modelling. By combining machine
+    learning research environments, simulation frameworks, and validation processes, the
+    platform aims to support disciplined quantitative research.
+  </p>
+</div>
+
+</body>
+</html>

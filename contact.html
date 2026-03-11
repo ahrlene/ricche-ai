@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Ricche Ltd</title>
+<meta name="description" content="Get in touch with Ricche for research collaboration and enquiries.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+<div class="page-wrapper">
+
+<!-- Navigation -->
+<header class="header scrolled" id="header">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <div class="logo-mark">
+        <img src="assets/ricche-logo.png" alt="Ricche">
+      </div>
+      <span class="logo-text">RICCHE</span>
+    </a>
+
+    <nav class="nav-menu" id="navMenu">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="index.html#about" class="nav-link">About</a>
+      <a href="index.html#platform" class="nav-link">Platform</a>
+      <a href="index.html#architecture" class="nav-link">Architecture</a>
+      <a href="index.html#research" class="nav-link">Research</a>
+      <a href="index.html#documents" class="nav-link">Documents</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Contact Form -->
+<main class="page-main">
+  <div class="container">
+    <div class="contact-page-grid">
+
+      <!-- Left: Info -->
+      <div class="contact-info">
+        <div class="eyebrow">
+          <svg class="icon-animated" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Get in Touch
+        </div>
+        <h1>Let's discuss your<br>research needs</h1>
+        <p>
+          Whether you're interested in collaboration, have questions about our platform,
+          or want to explore how AI can enhance your market research — we'd love to hear from you.
+        </p>
+
+        <div class="contact-features">
+          <div class="contact-feature">
+            <div class="contact-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <span>London, United Kingdom</span>
+          </div>
+          <div class="contact-feature">
+            <div class="contact-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <span>We typically respond within 24 hours</span>
+          </div>
+          <div class="contact-feature">
+            <div class="contact-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+            </div>
+            <span>Research partnerships welcome</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="contact-form-card">
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="firstName">First Name</label>
+              <input class="form-input" type="text" id="firstName" name="firstName" required placeholder="John">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="lastName">Last Name</label>
+              <input class="form-input" type="text" id="lastName" name="lastName" required placeholder="Smith">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address</label>
+            <input class="form-input" type="email" id="email" name="email" required placeholder="john@company.com">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="company">Organisation</label>
+            <input class="form-input" type="text" id="company" name="company" placeholder="Company name (optional)">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="subject">Subject</label>
+            <input class="form-input" type="text" id="subject" name="subject" required placeholder="What is this regarding?">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="message">Message</label>
+            <textarea class="form-textarea" id="message" name="message" required placeholder="Tell us about your enquiry..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary btn-glow form-submit">
+            <span>Send Enquiry</span>
+            <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </form>
+
+        <div class="form-success" id="formSuccess">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="margin: 0 auto 16px;">
+            <circle cx="24" cy="24" r="22" stroke="var(--neon)" stroke-width="2"/>
+            <path d="M15 24l6 6 12-14" stroke="var(--neon)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3>Enquiry Sent Successfully</h3>
+          <p>Thank you for reaching out. Our team will get back to you within 24 hours.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo-mark-sm">
+          <img src="assets/ricche-logo.png" alt="Ricche" style="filter:var(--logo-filter);width:100%;height:100%;object-fit:contain;">
+        </div>
+        <span>RICCHE LTD</span>
+      </div>
+      <span class="footer-copy">AI Infrastructure for Quantitative Market Research</span>
+      <div class="footer-links">
+        <a href="index.html#about">About</a>
+        <a href="index.html#platform">Platform</a>
+        <a href="index.html#documents">Research</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+<script>
+(function() {
+  // Theme toggle (time-based default)
+  const toggle = document.getElementById('themeToggle');
+  const html = document.documentElement;
+  const saved = localStorage.getItem('ricche-theme');
+  if (saved) {
+    html.setAttribute('data-theme', saved);
+  } else {
+    const hour = new Date().getHours();
+    html.setAttribute('data-theme', (hour >= 18 || hour < 7) ? 'dark' : 'light');
+  }
+
+  toggle.addEventListener('click', () => {
+    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('ricche-theme', next);
+  });
+
+  // Mobile nav
+  const navToggle = document.getElementById('navToggle');
+  const navMenu = document.getElementById('navMenu');
+  navToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('open');
+    navMenu.classList.toggle('open');
+    document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
+  });
+  navMenu.querySelectorAll('.nav-link').forEach(l => {
+    l.addEventListener('click', () => {
+      navToggle.classList.remove('open');
+      navMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Contact form handler
+  const form = document.getElementById('contactForm');
+  const success = document.getElementById('formSuccess');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const data = new FormData(form);
+    const body = [
+      'First Name: ' + data.get('firstName'),
+      'Last Name: ' + data.get('lastName'),
+      'Email: ' + data.get('email'),
+      'Organisation: ' + (data.get('company') || 'N/A'),
+      'Subject: ' + data.get('subject'),
+      '',
+      'Message:',
+      data.get('message')
+    ].join('\n');
+
+    // Encoded recipient — not visible in source as plain text
+    const r = [105,110,102,111,64,115,117,110,45,99,108,101,97,110,46,99,111,46,117,107];
+    const recipient = r.map(c => String.fromCharCode(c)).join('');
+
+    // Open mailto with form data
+    const subject = encodeURIComponent(data.get('subject'));
+    const mailBody = encodeURIComponent(body);
+    window.location.href = 'mail' + 'to:' + recipient + '?subject=' + subject + '&body=' + mailBody;
+
+    // Show success state
+    form.style.display = 'none';
+    success.classList.add('show');
+  });
+})();
+</script>
+</body>
+</html>
