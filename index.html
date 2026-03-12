@@ -142,7 +142,7 @@
     <div class="bg-orb bg-orb-1"></div>
     <div class="bg-orb bg-orb-2"></div>
   </div>
-  <div class="section-bg-image"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&q=80" alt="" loading="lazy"></div>
+  <div class="section-bg-image"><img src="assets/about-bg.jpg" alt="" loading="lazy"></div>
   <div class="section-divider">
     <div class="divider-line"></div>
     <div class="divider-dot"></div>
@@ -322,7 +322,7 @@
     <div class="bg-orb bg-orb-2"></div>
     <div class="bg-orb bg-orb-1"></div>
   </div>
-  <div class="section-bg-image"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80" alt="" loading="lazy"></div>
+  <div class="section-bg-image"><img src="assets/architecture-bg.jpg" alt="" loading="lazy"></div>
   <div class="section-divider">
     <div class="divider-line"></div>
     <div class="divider-dot"></div>
@@ -668,6 +668,7 @@
   </div>
 </div>
 
+<script defer src="/_vercel/insights/script.js"></script>
 <script src="js/ai-network.js"></script>
 <script src="js/animations.js"></script>
 <script>
@@ -733,9 +734,19 @@
 })();
 
 // Planet video — start 1s in, end 2s before end, loop
+// Skip video load on mobile to save bandwidth
 (function() {
   var v = document.getElementById('planetVideo');
   if (!v) return;
+
+  if (window.innerWidth <= 768) {
+    v.removeAttribute('autoplay');
+    v.removeAttribute('src');
+    v.querySelectorAll('source').forEach(function(s) { s.remove(); });
+    v.load();
+    return;
+  }
+
   var startTime = 1.5;
   var endTime;
   v.addEventListener('loadedmetadata', function() {
