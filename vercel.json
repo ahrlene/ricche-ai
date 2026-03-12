@@ -41,6 +41,7 @@
       ]
     }
   ],
+  "cleanUrls": false,
   "rewrites": [
     { "source": "/contact", "destination": "/contact.html" }
   ],
