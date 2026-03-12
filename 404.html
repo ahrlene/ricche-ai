@@ -2,7 +2,7 @@
 <html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>404 — Ricche</title>
 <meta name="description" content="Page not found — return to Ricche's AI research infrastructure for financial markets.">
 <meta name="robots" content="noindex, follow">
@@ -60,7 +60,7 @@
 </style>
 </head>
 <body>
-<div class="error-page">
+<main class="error-page">
   <div>
     <a href="/" style="display:inline-block;margin-bottom:32px;">
       <img src="assets/ricche-logo.png" alt="Ricche" width="64" height="64" style="filter:var(--logo-filter);">
@@ -70,10 +70,10 @@
     <p class="error-text">The page you're looking for doesn't exist or has been moved.</p>
     <a href="/" class="btn-primary btn-glow">
       <span>Back to Home</span>
-      <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
   </div>
-</div>
+</main>
 <script>
   const saved = localStorage.getItem('ricche-theme');
   if (saved) document.documentElement.setAttribute('data-theme', saved);

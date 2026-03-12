@@ -8,7 +8,8 @@
 <meta name="robots" content="index, follow">
 
 <!-- Theme Color -->
-<meta name="theme-color" content="#0055FF">
+<meta name="theme-color" content="#0055FF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#060a14" media="(prefers-color-scheme: dark)">
 
 <!-- Favicon -->
 <link rel="icon" type="image/png" href="assets/ricche-logo.png">
@@ -54,7 +55,7 @@
   "@type": "ContactPage",
   "name": "Contact Ricche",
   "description": "Get in touch with Ricche for research collaboration and enquiries.",
-  "url": "https://ricche.ai/contact.html",
+  "url": "https://ricche.ai/contact",
   "mainEntity": {
     "@type": "Organization",
     "name": "Ricche",
@@ -78,6 +79,23 @@
 
 <!-- Security: Referrer Policy -->
 <meta name="referrer" content="strict-origin-when-cross-origin">
+
+<!-- Critical CSS: prevent FOUC for header and form layout -->
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  :root{--font-display:'Space Grotesk',sans-serif;--font-body:'Inter',sans-serif;--neon:#0055FF;--neon-bright:#0088FF;--neon-cyan:#00C8FF;--neon-glow:rgba(0,85,255,.35);--neon-subtle:rgba(0,85,255,.08);--ease:cubic-bezier(.16,1,.3,1)}
+  [data-theme="light"]{--bg:#f5f7fb;--bg-alt:#fff;--text:#0a1628;--text-strong:#000;--text-body:#2d3748;--text-secondary:#4a5568;--border-color:rgba(0,0,0,.1);--logo-filter:none;--section-border:rgba(0,0,0,.06);--shadow-sm:0 1px 3px rgba(0,0,0,.06)}
+  [data-theme="dark"]{--bg:#060a14;--bg-alt:#0c1424;--text:#eef2f8;--text-strong:#fff;--text-body:#c5cdd8;--text-secondary:#8a96aa;--border-color:rgba(255,255,255,.08);--logo-filter:invert(1) brightness(1.8);--section-border:rgba(255,255,255,.05);--shadow-sm:0 1px 3px rgba(0,0,0,.3)}
+  html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+  body{font-family:var(--font-body);font-size:16px;background:var(--bg);color:var(--text-body);overflow-x:hidden;line-height:1.7}
+  img{max-width:100%;display:block}
+  .header{position:fixed;top:0;left:0;right:0;z-index:1000;border-bottom:1px solid transparent}
+  .header.scrolled{background:var(--bg-alt);border-bottom-color:var(--section-border);box-shadow:var(--shadow-sm)}
+  .nav-container{max-width:1280px;margin:0 auto;padding:0 36px;display:flex;align-items:center;justify-content:space-between;height:76px}
+  .logo{display:flex;align-items:center;gap:14px;font-family:var(--font-display);font-weight:700;font-size:1.45rem;letter-spacing:.2em;color:var(--text-strong);z-index:1001}
+  .logo-mark{width:54px;height:54px;display:flex;align-items:center;justify-content:center}
+  .logo-mark img{width:100%;height:100%;object-fit:contain;filter:var(--logo-filter)}
+</style>
 
 <!-- DNS Prefetch for form backend -->
 <link rel="dns-prefetch" href="https://formsubmit.co">
@@ -251,6 +269,7 @@
         <a href="index.html#about">About</a>
         <a href="index.html#platform">Platform</a>
         <a href="index.html#documents">Research</a>
+        <a href="contact.html" aria-current="page">Contact</a>
       </nav>
     </div>
   </div>
