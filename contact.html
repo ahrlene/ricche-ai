@@ -209,7 +209,8 @@
 
           <div class="form-group">
             <label class="form-label" for="message">Message</label>
-            <textarea class="form-textarea" id="message" name="Message" required minlength="20" placeholder="Tell us about your enquiry..."></textarea>
+            <textarea class="form-textarea" id="message" name="Message" required minlength="20" placeholder="Tell us about your enquiry..." aria-describedby="messageHint"></textarea>
+            <span class="form-hint" id="messageHint">Minimum 20 characters</span>
           </div>
 
           <button type="submit" class="btn-primary btn-glow form-submit">
@@ -243,11 +244,11 @@
         <span>RICCHE LTD</span>
       </div>
       <span class="footer-copy">AI Infrastructure for Quantitative Market Research</span>
-      <div class="footer-links">
+      <nav class="footer-links" aria-label="Footer navigation">
         <a href="index.html#about">About</a>
         <a href="index.html#platform">Platform</a>
         <a href="index.html#documents">Research</a>
-      </div>
+      </nav>
     </div>
   </div>
 </footer>

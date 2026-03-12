@@ -120,6 +120,9 @@
     .hero-planet video { display: none; }
     #networkCanvas { display: none; }
     .scroll-cue { display: none; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg:#060a14;--bg-alt:#0c1424;--text:#eef2f8;--text-strong:#fff;--text-body:#c5cdd8;--text-secondary:#8a96aa;--border-color:rgba(255,255,255,.08);--logo-filter:invert(1) brightness(1.8);--section-border:rgba(255,255,255,.05);--shadow-sm:0 1px 3px rgba(0,0,0,.3) }
+    }
   </style>
 </noscript>
 
@@ -726,12 +729,12 @@
         <span>RICCHE LTD</span>
       </div>
       <span class="footer-copy">AI Infrastructure for Quantitative Market Research</span>
-      <div class="footer-links">
+      <nav class="footer-links" aria-label="Footer navigation">
         <a href="#about">About</a>
         <a href="#platform">Platform</a>
         <a href="#documents">Research</a>
         <a href="contact.html">Contact</a>
-      </div>
+      </nav>
     </div>
   </div>
 </footer>
@@ -758,8 +761,8 @@
 </div>
 
 <script defer src="/_vercel/insights/script.js"></script>
-<script src="js/ai-network.js"></script>
-<script src="js/animations.js"></script>
-<script src="js/main.js"></script>
+<script defer src="js/ai-network.js"></script>
+<script defer src="js/animations.js"></script>
+<script defer src="js/main.js"></script>
 </body>
 </html>

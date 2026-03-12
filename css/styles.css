@@ -2017,6 +2017,13 @@ button.pdf-trigger { border: none; font-family: inherit; cursor: pointer; }
   min-height: 140px;
 }
 
+.form-hint {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -2518,4 +2525,39 @@ button:focus-visible,
     max-width: 100% !important;
     padding: 0 !important;
   }
+}
+
+/* ---- Reduced Motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .hero-orb,
+  .bg-orb,
+  .orbital-ring,
+  .orbital-dot,
+  .icon-float,
+  .scroll-cue,
+  .preloader-logo img,
+  .badge-pulse {
+    animation: none !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ---- Content Visibility (skip rendering of offscreen sections) ---- */
+.section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
+}
+
+/* ---- Touch Action (eliminate 300ms tap delay) ---- */
+a, button, [role="button"], .nav-toggle, .theme-toggle, .pdf-trigger {
+  touch-action: manipulation;
 }
