@@ -9,6 +9,24 @@
   box-sizing: border-box;
 }
 
+/* ---- Skip Link (Accessibility) ---- */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 100000;
+  padding: 8px 16px;
+  background: var(--neon);
+  color: #fff;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 16px;
+}
+
 /* ---- Theme Variables ---- */
 :root {
   --font-display: 'Space Grotesk', sans-serif;
