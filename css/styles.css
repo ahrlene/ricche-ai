@@ -2561,3 +2561,8 @@ button:focus-visible,
 a, button, [role="button"], .nav-toggle, .theme-toggle, .pdf-trigger {
   touch-action: manipulation;
 }
+
+/* ---- Programmatic focus on sections (no visible ring) ---- */
+.section:focus {
+  outline: none;
+}

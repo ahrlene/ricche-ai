@@ -2,9 +2,10 @@
 <html lang="en" hreflang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Ricche — AI Research Infrastructure for Financial Markets</title>
 <meta name="description" content="Ricche builds AI infrastructure to study financial markets through machine learning, simulation, and large-scale data analysis.">
+<meta name="robots" content="index, follow">
 
 <!-- Theme Color -->
 <meta name="theme-color" content="#0055FF">
@@ -94,6 +95,7 @@
   .logo{display:flex;align-items:center;gap:14px;font-family:var(--font-display);font-weight:700;font-size:1.45rem;letter-spacing:.2em;color:var(--text-strong);z-index:1001}
   .logo-mark{width:54px;height:54px;display:flex;align-items:center;justify-content:center}
   .logo-mark img{width:100%;height:100%;object-fit:contain;filter:var(--logo-filter)}
+  @font-face{font-family:'Space Grotesk';font-display:optional;src:local('Space Grotesk')}
 </style>
 
 <!-- DNS Prefetch for external origins -->
@@ -229,12 +231,12 @@
 </section>
 
 <!-- ===================== ABOUT ===================== -->
-<section class="section" id="about">
+<section class="section" id="about" tabindex="-1">
   <div class="section-bg-anim">
     <div class="bg-orb bg-orb-1"></div>
     <div class="bg-orb bg-orb-2"></div>
   </div>
-  <div class="section-bg-image"><img src="assets/about-bg.jpg" srcset="assets/about-bg-768w.jpg 768w, assets/about-bg.jpg 1920w" sizes="100vw" alt="" loading="lazy" decoding="async" width="1920" height="1280"></div>
+  <div class="section-bg-image"><img src="assets/about-bg.jpg" srcset="assets/about-bg-768w.jpg 768w, assets/about-bg.jpg 1920w" sizes="100vw" alt="" loading="lazy" decoding="async" fetchpriority="low" width="1920" height="1280"></div>
   <div class="section-divider">
     <div class="divider-line"></div>
     <div class="divider-dot"></div>
@@ -275,7 +277,7 @@
     </div>
 
     <!-- Visual: Animated data stream -->
-    <div class="hero-visual reveal">
+    <div class="hero-visual reveal" role="img" aria-label="Animated chart showing data flow through five pipeline stages: Market Feed, Data Pipeline, ML Training, Simulation, and Validation">
       <div class="data-stream">
         <div class="stream-row"><span class="stream-label">Market Feed</span><div class="stream-bar"><div class="stream-fill stream-fill-1"></div></div></div>
         <div class="stream-row"><span class="stream-label">Data Pipeline</span><div class="stream-bar"><div class="stream-fill stream-fill-2"></div></div></div>
@@ -310,8 +312,8 @@
       </div>
       <div class="stat-divider"></div>
       <div class="stat reveal reveal-d3">
-        <span class="stat-status">
-          <span class="status-dot"></span>
+        <span class="stat-status" role="status">
+          <span class="status-dot" aria-hidden="true"></span>
           Healthy
         </span>
         <span class="stat-label">Infrastructure Status</span>
@@ -321,7 +323,7 @@
 </section>
 
 <!-- ===================== PLATFORM ===================== -->
-<section class="section section-alt" id="platform">
+<section class="section section-alt" id="platform" tabindex="-1">
   <div class="section-pattern pattern-dots"></div>
   <div class="section-bg-anim">
     <div class="bg-orb bg-orb-1"></div>
@@ -408,13 +410,13 @@
 </section>
 
 <!-- ===================== ARCHITECTURE ===================== -->
-<section class="section" id="architecture">
+<section class="section" id="architecture" tabindex="-1">
   <div class="section-pattern pattern-lines"></div>
   <div class="section-bg-anim">
     <div class="bg-orb bg-orb-2"></div>
     <div class="bg-orb bg-orb-1"></div>
   </div>
-  <div class="section-bg-image"><img src="assets/architecture-bg.jpg" srcset="assets/architecture-bg-768w.jpg 768w, assets/architecture-bg.jpg 1920w" sizes="100vw" alt="" loading="lazy" decoding="async" width="1920" height="1280"></div>
+  <div class="section-bg-image"><img src="assets/architecture-bg.jpg" srcset="assets/architecture-bg-768w.jpg 768w, assets/architecture-bg.jpg 1920w" sizes="100vw" alt="" loading="lazy" decoding="async" fetchpriority="low" width="1920" height="1280"></div>
   <div class="section-divider">
     <div class="divider-line"></div>
     <div class="divider-dot"></div>
@@ -498,13 +500,13 @@
 </section>
 
 <!-- ===================== RESEARCH WORKFLOW ===================== -->
-<section class="section section-alt" id="research">
+<section class="section section-alt" id="research" tabindex="-1">
   <div class="section-pattern pattern-dots"></div>
   <div class="section-bg-anim">
     <div class="bg-orb bg-orb-3"></div>
     <div class="bg-orb bg-orb-2"></div>
   </div>
-  <div class="section-bg-image"><img src="assets/research-bg.jpg" srcset="assets/research-bg-768w.jpg 768w, assets/research-bg.jpg 1920w" sizes="100vw" alt="" loading="lazy" decoding="async" width="1920" height="1080"></div>
+  <div class="section-bg-image"><img src="assets/research-bg.jpg" srcset="assets/research-bg-768w.jpg 768w, assets/research-bg.jpg 1920w" sizes="100vw" alt="" loading="lazy" decoding="async" fetchpriority="low" width="1920" height="1080"></div>
   <div class="section-divider">
     <div class="divider-line"></div>
     <div class="divider-dot"></div>
@@ -588,7 +590,7 @@
 </section>
 
 <!-- ===================== RESEARCH DOCUMENTS ===================== -->
-<section class="section" id="documents">
+<section class="section" id="documents" tabindex="-1">
   <div class="section-pattern pattern-hex"></div>
   <div class="section-bg-anim">
     <div class="bg-orb bg-orb-1"></div>
@@ -755,7 +757,7 @@
       <button class="pdf-modal-close" id="pdfModalClose" aria-label="Close document viewer">&times;</button>
     </div>
     <div class="pdf-modal-body">
-      <iframe id="pdfModalFrame" src="" loading="lazy"></iframe>
+      <iframe id="pdfModalFrame" src="" loading="lazy" sandbox="allow-same-origin"></iframe>
     </div>
   </div>
 </div>
