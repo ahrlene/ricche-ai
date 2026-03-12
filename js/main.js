@@ -9,6 +9,15 @@
 
   document.querySelectorAll('.pdf-trigger').forEach(function(el) {
     el.style.cursor = 'pointer';
+
+    // Keyboard support for div[role="button"] triggers
+    el.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        this.click();
+      }
+    });
+
     el.addEventListener('click', function() {
       var pdfSrc = this.getAttribute('data-pdf');
       var pdfTitle = this.getAttribute('data-title') || 'Document';

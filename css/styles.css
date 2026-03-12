@@ -347,6 +347,7 @@ img { max-width: 100%; display: block; }
   padding: 130px 0;
   position: relative;
   overflow: hidden;
+  scroll-margin-top: 76px;
 }
 
 .section-alt {
@@ -2412,6 +2413,8 @@ button.pdf-trigger { border: none; font-family: inherit; cursor: pointer; }
 /* ========================================
    FOCUS VISIBLE (Keyboard Accessibility)
    ======================================== */
+a:focus-visible,
+button:focus-visible,
 .btn-primary:focus-visible,
 .btn-ghost:focus-visible,
 .btn-nav:focus-visible,
@@ -2420,7 +2423,8 @@ button.pdf-trigger { border: none; font-family: inherit; cursor: pointer; }
 .nav-toggle:focus-visible,
 .nav-link:focus-visible,
 .doc-card:focus-visible,
-.pdf-trigger:focus-visible {
+.pdf-trigger:focus-visible,
+[role="button"]:focus-visible {
   outline: 2px solid var(--neon);
   outline-offset: 3px;
   border-radius: 8px;
@@ -2428,6 +2432,19 @@ button.pdf-trigger { border: none; font-family: inherit; cursor: pointer; }
 .pdf-modal-close:focus-visible {
   outline: 2px solid var(--neon);
   outline-offset: 2px;
+}
+
+/* ========================================
+   FORM VALIDATION STYLES
+   ======================================== */
+.form-input:user-invalid,
+.form-textarea:user-invalid {
+  border-color: #e53e3e;
+  box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.15);
+}
+.form-input:user-valid,
+.form-textarea:user-valid {
+  border-color: #38a169;
 }
 
 /* ========================================

@@ -29,10 +29,14 @@
   }
 
   if (toggle) {
+    // Sync aria-checked with initial theme
+    toggle.setAttribute('aria-checked', html.getAttribute('data-theme') === 'dark');
+
     toggle.addEventListener('click', () => {
       const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       html.setAttribute('data-theme', next);
       localStorage.setItem('ricche-theme', next);
+      toggle.setAttribute('aria-checked', next === 'dark');
     });
   }
 
