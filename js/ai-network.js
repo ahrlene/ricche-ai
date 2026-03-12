@@ -63,8 +63,16 @@
     }
   }
 
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   function animate(t) {
     ctx.clearRect(0, 0, width, height);
+
+    // Respect reduced-motion: draw one static frame then stop
+    if (prefersReduced) {
+      return;
+    }
+
     const c = getColor();
 
     const globalPulse = 0.88 + Math.sin(t * 0.0003) * 0.12;

@@ -49,17 +49,37 @@
   const navMenu = document.getElementById('navMenu');
 
   if (navToggle && navMenu) {
+    function lockScroll() {
+      var scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = '-' + scrollY + 'px';
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+    }
+    function unlockScroll() {
+      var scrollY = parseInt(document.body.style.top || '0', 10) * -1;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+      window.scrollTo(0, scrollY);
+    }
+
     navToggle.addEventListener('click', () => {
       navToggle.classList.toggle('open');
       navMenu.classList.toggle('open');
-      document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
+      if (navMenu.classList.contains('open')) {
+        lockScroll();
+      } else {
+        unlockScroll();
+      }
     });
 
     navMenu.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', () => {
         navToggle.classList.remove('open');
         navMenu.classList.remove('open');
-        document.body.style.overflow = '';
+        unlockScroll();
       });
     });
   }

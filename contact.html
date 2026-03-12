@@ -127,7 +127,7 @@
           <!-- FormSubmit config -->
           <input type="hidden" name="_subject" value="New enquiry from ricche.ai">
           <input type="hidden" name="_captcha" value="false">
-          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+          <input type="text" name="_honey" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" tabindex="-1" autocomplete="off" aria-hidden="true">
 
           <div class="form-row">
             <div class="form-group">
@@ -221,19 +221,34 @@
     localStorage.setItem('ricche-theme', next);
   });
 
-  // Mobile nav
+  // Mobile nav (iOS-safe scroll lock)
   const navToggle = document.getElementById('navToggle');
   const navMenu = document.getElementById('navMenu');
+  function lockScroll() {
+    var scrollY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = '-' + scrollY + 'px';
+    document.body.style.width = '100%';
+    document.body.style.overflow = 'hidden';
+  }
+  function unlockScroll() {
+    var scrollY = parseInt(document.body.style.top || '0', 10) * -1;
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    document.body.style.overflow = '';
+    window.scrollTo(0, scrollY);
+  }
   navToggle.addEventListener('click', () => {
     navToggle.classList.toggle('open');
     navMenu.classList.toggle('open');
-    document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
+    if (navMenu.classList.contains('open')) { lockScroll(); } else { unlockScroll(); }
   });
   navMenu.querySelectorAll('.nav-link').forEach(l => {
     l.addEventListener('click', () => {
       navToggle.classList.remove('open');
       navMenu.classList.remove('open');
-      document.body.style.overflow = '';
+      unlockScroll();
     });
   });
 
@@ -251,6 +266,7 @@
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     submitBtn.disabled = true;
+    submitBtn.setAttribute('aria-busy', 'true');
     submitBtn.querySelector('span').textContent = 'Sending...';
 
     fetch(form.action, {
@@ -268,6 +284,7 @@
     })
     .catch(function() {
       submitBtn.disabled = false;
+      submitBtn.setAttribute('aria-busy', 'false');
       submitBtn.querySelector('span').textContent = 'Send Enquiry';
       alert('Something went wrong. Please try again or email us directly.');
     });
