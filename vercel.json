@@ -41,9 +41,6 @@
       ]
     }
   ],
-  "cleanUrls": false,
-  "rewrites": [
-    { "source": "/contact", "destination": "/contact.html" }
-  ],
+  "cleanUrls": true,
   "errorDocument": "404.html"
 }
