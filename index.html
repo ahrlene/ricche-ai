@@ -109,10 +109,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
 <link rel="preload" as="style" href="css/styles.css">
 <link rel="stylesheet" href="css/styles.css">
+<link rel="prefetch" href="contact.html">
 <script>if(window.innerWidth>768){var l=document.createElement('link');l.rel='preload';l.as='video';l.type='video/mp4';l.href='assets/Make_it_rotate_full_360_all_the_way_around_and_mae_83b088be40.mp4';document.head.appendChild(l);}</script>
 </head>
 
-<body>
+<body aria-busy="true">
 
 <!-- No-JS Fallback -->
 <noscript>
@@ -180,15 +181,15 @@
 <main>
 <section class="hero" id="hero">
   <canvas id="networkCanvas" aria-hidden="true" role="presentation"></canvas>
-  <div class="hero-gradient"></div>
+  <div class="hero-gradient" aria-hidden="true"></div>
 
   <!-- Rotating planet -->
   <div class="hero-planet" id="heroPlanet">
-    <div class="planet-glow"></div>
+    <div class="planet-glow" aria-hidden="true"></div>
     <video id="planetVideo" autoplay muted playsinline disablepictureinpicture disableremoteplayback aria-label="Rotating 3D globe visualization" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Ccircle cx='300' cy='300' r='280' fill='%23060a14'/%3E%3Ccircle cx='300' cy='300' r='280' fill='url(%23g)' opacity='.3'/%3E%3Cdefs%3E%3CradialGradient id='g'%3E%3Cstop offset='0' stop-color='%230055FF'/%3E%3Cstop offset='1' stop-color='transparent'/%3E%3C/radialGradient%3E%3C/defs%3E%3C/svg%3E">
       <source src="assets/Make_it_rotate_full_360_all_the_way_around_and_mae_83b088be40.mp4" type="video/mp4">
     </video>
-    <div class="planet-atmosphere"></div>
+    <div class="planet-atmosphere" aria-hidden="true"></div>
   </div>
 
   <!-- Floating glow orbs -->
@@ -232,12 +233,12 @@
 
 <!-- ===================== ABOUT ===================== -->
 <section class="section" id="about" tabindex="-1">
-  <div class="section-bg-anim">
+  <div class="section-bg-anim" aria-hidden="true">
     <div class="bg-orb bg-orb-1"></div>
     <div class="bg-orb bg-orb-2"></div>
   </div>
   <div class="section-bg-image"><img src="assets/about-bg.jpg" srcset="assets/about-bg-768w.jpg 768w, assets/about-bg.jpg 1920w" sizes="100vw" alt="" loading="lazy" decoding="async" fetchpriority="low" width="1920" height="1280"></div>
-  <div class="section-divider">
+  <div class="section-divider" aria-hidden="true">
     <div class="divider-line"></div>
     <div class="divider-dot"></div>
     <div class="divider-line"></div>
@@ -293,7 +294,7 @@
 
 <!-- ===================== NUMBERS ===================== -->
 <section class="section section-stats" id="numbers">
-  <div class="section-pattern pattern-graph"></div>
+  <div class="section-pattern pattern-graph" aria-hidden="true"></div>
   <div class="container">
     <div class="stats-strip">
       <div class="stat reveal">
@@ -324,12 +325,12 @@
 
 <!-- ===================== PLATFORM ===================== -->
 <section class="section section-alt" id="platform" tabindex="-1">
-  <div class="section-pattern pattern-dots"></div>
-  <div class="section-bg-anim">
+  <div class="section-pattern pattern-dots" aria-hidden="true"></div>
+  <div class="section-bg-anim" aria-hidden="true">
     <div class="bg-orb bg-orb-1"></div>
     <div class="bg-orb bg-orb-3"></div>
   </div>
-  <div class="section-divider">
+  <div class="section-divider" aria-hidden="true">
     <div class="divider-line"></div>
     <div class="divider-dot"></div>
     <div class="divider-line"></div>
@@ -411,13 +412,13 @@
 
 <!-- ===================== ARCHITECTURE ===================== -->
 <section class="section" id="architecture" tabindex="-1">
-  <div class="section-pattern pattern-lines"></div>
-  <div class="section-bg-anim">
+  <div class="section-pattern pattern-lines" aria-hidden="true"></div>
+  <div class="section-bg-anim" aria-hidden="true">
     <div class="bg-orb bg-orb-2"></div>
     <div class="bg-orb bg-orb-1"></div>
   </div>
   <div class="section-bg-image"><img src="assets/architecture-bg.jpg" srcset="assets/architecture-bg-768w.jpg 768w, assets/architecture-bg.jpg 1920w" sizes="100vw" alt="" loading="lazy" decoding="async" fetchpriority="low" width="1920" height="1280"></div>
-  <div class="section-divider">
+  <div class="section-divider" aria-hidden="true">
     <div class="divider-line"></div>
     <div class="divider-dot"></div>
     <div class="divider-line"></div>
@@ -501,13 +502,13 @@
 
 <!-- ===================== RESEARCH WORKFLOW ===================== -->
 <section class="section section-alt" id="research" tabindex="-1">
-  <div class="section-pattern pattern-dots"></div>
-  <div class="section-bg-anim">
+  <div class="section-pattern pattern-dots" aria-hidden="true"></div>
+  <div class="section-bg-anim" aria-hidden="true">
     <div class="bg-orb bg-orb-3"></div>
     <div class="bg-orb bg-orb-2"></div>
   </div>
   <div class="section-bg-image"><img src="assets/research-bg.jpg" srcset="assets/research-bg-768w.jpg 768w, assets/research-bg.jpg 1920w" sizes="100vw" alt="" loading="lazy" decoding="async" fetchpriority="low" width="1920" height="1080"></div>
-  <div class="section-divider">
+  <div class="section-divider" aria-hidden="true">
     <div class="divider-line"></div>
     <div class="divider-dot"></div>
     <div class="divider-line"></div>
@@ -527,7 +528,7 @@
         </p>
 
         <!-- Animated orbital illustration -->
-        <div class="orbital-visual reveal reveal-d2">
+        <div class="orbital-visual reveal reveal-d2" role="img" aria-label="Animated orbital diagram representing the research workflow cycle">
           <div class="orbital-ring orbital-ring-1"></div>
           <div class="orbital-ring orbital-ring-2"></div>
           <div class="orbital-ring orbital-ring-3"></div>
@@ -591,13 +592,13 @@
 
 <!-- ===================== RESEARCH DOCUMENTS ===================== -->
 <section class="section" id="documents" tabindex="-1">
-  <div class="section-pattern pattern-hex"></div>
-  <div class="section-bg-anim">
+  <div class="section-pattern pattern-hex" aria-hidden="true"></div>
+  <div class="section-bg-anim" aria-hidden="true">
     <div class="bg-orb bg-orb-1"></div>
     <div class="bg-orb bg-orb-2"></div>
     <div class="bg-orb bg-orb-3"></div>
   </div>
-  <div class="section-divider">
+  <div class="section-divider" aria-hidden="true">
     <div class="divider-line"></div>
     <div class="divider-dot"></div>
     <div class="divider-line"></div>
@@ -697,7 +698,7 @@
 
 <!-- ===================== CTA ===================== -->
 <section class="section section-cta" id="collaborate">
-  <div class="section-bg-anim">
+  <div class="section-bg-anim" aria-hidden="true">
     <div class="bg-orb bg-orb-1"></div>
     <div class="bg-orb bg-orb-2"></div>
   </div>

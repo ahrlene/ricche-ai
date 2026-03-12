@@ -2566,3 +2566,28 @@ a, button, [role="button"], .nav-toggle, .theme-toggle, .pdf-trigger {
 .section:focus {
   outline: none;
 }
+
+/* ---- Safe Area Insets (iPhone notch / home bar) ---- */
+.nav-container {
+  padding-left: max(36px, env(safe-area-inset-left));
+  padding-right: max(36px, env(safe-area-inset-right));
+}
+.footer-inner {
+  padding-bottom: max(0px, env(safe-area-inset-bottom));
+}
+
+/* ---- Footer link focus state ---- */
+.footer-links a:focus-visible {
+  color: var(--neon);
+  text-decoration-color: var(--neon);
+}
+
+/* ---- Text selection ---- */
+::selection {
+  background: var(--neon);
+  color: #fff;
+}
+::-moz-selection {
+  background: var(--neon);
+  color: #fff;
+}

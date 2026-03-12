@@ -11,6 +11,7 @@
       setTimeout(() => {
         preloader.classList.add('hidden');
         document.body.style.overflow = '';
+        document.body.removeAttribute('aria-busy');
       }, 1000);
     });
   }
@@ -85,6 +86,16 @@
         navMenu.classList.remove('open');
         unlockScroll();
       });
+    });
+
+    // Close mobile nav on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+        navToggle.classList.remove('open');
+        navMenu.classList.remove('open');
+        unlockScroll();
+        navToggle.focus();
+      }
     });
   }
 
