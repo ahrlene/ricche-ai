@@ -65,16 +65,19 @@
 
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Visibility tracking — pause animation when off-screen to save CPU
+  let isVisible = false;
+  let animId = null;
+
   function animate(t) {
     ctx.clearRect(0, 0, width, height);
 
-    // Respect reduced-motion: draw one static frame then stop
-    if (prefersReduced) {
+    if (prefersReduced || !isVisible) {
+      animId = null;
       return;
     }
 
     const c = getColor();
-
     const globalPulse = 0.88 + Math.sin(t * 0.0003) * 0.12;
 
     for (let i = 0; i < particles.length; i++) {
@@ -188,7 +191,7 @@
       }
     }
 
-    requestAnimationFrame(animate);
+    animId = requestAnimationFrame(animate);
   }
 
   window.addEventListener('resize', () => { resize(); init(); });
@@ -199,7 +202,15 @@
   });
   canvas.addEventListener('mouseleave', () => { mouse.x = -1000; mouse.y = -1000; });
 
+  // Lazy-load: only run animation when canvas is in viewport
+  var observer = new IntersectionObserver(function(entries) {
+    isVisible = entries[0].isIntersecting;
+    if (isVisible && !animId) {
+      animId = requestAnimationFrame(animate);
+    }
+  }, { threshold: 0 });
+
   resize();
   init();
-  animate(0);
+  observer.observe(canvas);
 })();

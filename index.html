@@ -39,6 +39,17 @@
 <!-- Security: Permissions Policy -->
 <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=()">
 
+<!-- Structured Data: WebSite -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Ricche",
+  "url": "https://ricche.ai",
+  "description": "AI infrastructure for quantitative market research."
+}
+</script>
+
 <!-- Structured Data: Organization -->
 <script type="application/ld+json">
 {
@@ -82,6 +93,7 @@
   .logo-mark img{width:100%;height:100%;object-fit:contain;filter:var(--logo-filter)}
 </style>
 
+<link rel="preload" href="https://fonts.gstatic.com/s/spacegrotesk/v16/V8mDoQDjQSkFtoMM3T6r8E7mPbF4C_k3HqUtELiwKBkHKA.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@700;800&display=swap">
@@ -212,7 +224,7 @@
     <div class="bg-orb bg-orb-1"></div>
     <div class="bg-orb bg-orb-2"></div>
   </div>
-  <div class="section-bg-image"><img src="assets/about-bg.jpg" alt="" loading="lazy" decoding="async" width="1920" height="1280"></div>
+  <div class="section-bg-image"><img src="assets/about-bg.jpg" srcset="assets/about-bg-768w.jpg 768w, assets/about-bg.jpg 1920w" sizes="100vw" alt="" loading="lazy" decoding="async" width="1920" height="1280"></div>
   <div class="section-divider">
     <div class="divider-line"></div>
     <div class="divider-dot"></div>
@@ -392,7 +404,7 @@
     <div class="bg-orb bg-orb-2"></div>
     <div class="bg-orb bg-orb-1"></div>
   </div>
-  <div class="section-bg-image"><img src="assets/architecture-bg.jpg" alt="" loading="lazy" decoding="async" width="1920" height="1280"></div>
+  <div class="section-bg-image"><img src="assets/architecture-bg.jpg" srcset="assets/architecture-bg-768w.jpg 768w, assets/architecture-bg.jpg 1920w" sizes="100vw" alt="" loading="lazy" decoding="async" width="1920" height="1280"></div>
   <div class="section-divider">
     <div class="divider-line"></div>
     <div class="divider-dot"></div>
@@ -482,7 +494,7 @@
     <div class="bg-orb bg-orb-3"></div>
     <div class="bg-orb bg-orb-2"></div>
   </div>
-  <div class="section-bg-image"><img src="assets/research-bg.jpg" alt="" loading="lazy" decoding="async" width="1920" height="1080"></div>
+  <div class="section-bg-image"><img src="assets/research-bg.jpg" srcset="assets/research-bg-768w.jpg 768w, assets/research-bg.jpg 1920w" sizes="100vw" alt="" loading="lazy" decoding="async" width="1920" height="1080"></div>
   <div class="section-divider">
     <div class="divider-line"></div>
     <div class="divider-dot"></div>
@@ -606,7 +618,7 @@
           <span>4 pages</span>
           <span>PDF</span>
         </div>
-        <button class="btn-primary btn-glow pdf-trigger" data-pdf="pdfs/ricche_institutional_whitepaper - Copy.pdf" data-title="Institutional Research Whitepaper">
+        <button class="btn-primary btn-glow pdf-trigger" data-pdf="pdfs/ricche_institutional_whitepaper.pdf" data-title="Institutional Research Whitepaper">
           <span>Read Whitepaper</span>
           <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
@@ -702,7 +714,7 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="logo-mark-sm">
-          <img src="assets/ricche-logo.png" alt="Ricche" width="40" height="40" style="filter:var(--logo-filter);width:100%;height:100%;object-fit:contain;">
+          <img src="assets/ricche-logo.png" alt="Ricche" width="40" height="40" loading="lazy" style="filter:var(--logo-filter);width:100%;height:100%;object-fit:contain;">
         </div>
         <span>RICCHE LTD</span>
       </div>

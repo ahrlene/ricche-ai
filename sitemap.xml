@@ -10,4 +10,24 @@
     <lastmod>2026-03-12</lastmod>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://ricche.ai/pdfs/ricche_institutional_whitepaper.pdf</loc>
+    <lastmod>2026-03-12</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ricche.ai/pdfs/ricche_architecture_diagram_pack.pdf</loc>
+    <lastmod>2026-03-12</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ricche.ai/pdfs/ricche_ai_platform_overview_poster.pdf</loc>
+    <lastmod>2026-03-12</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ricche.ai/pdfs/ricche_control_room_dashboard_mockup.pdf</loc>
+    <lastmod>2026-03-12</lastmod>
+    <priority>0.5</priority>
+  </url>
 </urlset>

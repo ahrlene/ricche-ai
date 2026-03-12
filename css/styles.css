@@ -472,6 +472,7 @@ img { max-width: 100%; display: block; }
   /* Light mode: full planet visible with soft edge fade */
   -webkit-mask-image: radial-gradient(circle at center, #000 54%, rgba(0,0,0,0.3) 60%, transparent 66%);
   mask-image: radial-gradient(circle at center, #000 54%, rgba(0,0,0,0.3) 60%, transparent 66%);
+  transition: -webkit-mask-image 0.6s ease, mask-image 0.6s ease;
 }
 /* Dark mode: wider crop showing stars around planet */
 [data-theme="dark"] .hero-planet video {

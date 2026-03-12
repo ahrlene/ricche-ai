@@ -14,7 +14,7 @@
       var pdfTitle = this.getAttribute('data-title') || 'Document';
 
       if (isMobile) {
-        window.open(pdfSrc, '_blank');
+        window.open(pdfSrc, '_blank', 'noopener');
         return;
       }
 
