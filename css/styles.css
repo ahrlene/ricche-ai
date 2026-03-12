@@ -2428,3 +2428,75 @@ button.pdf-trigger { border: none; font-family: inherit; cursor: pointer; }
   outline: 2px solid var(--neon);
   outline-offset: 2px;
 }
+
+/* ========================================
+   PRINT STYLESHEET
+   ======================================== */
+@media print {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+  .preloader,
+  .header,
+  .hero-planet,
+  .hero-gradient,
+  .hero-orb,
+  .scroll-cue,
+  .section-bg-anim,
+  .section-pattern,
+  .bg-orb,
+  .orbital-visual,
+  .logo-flash-overlay,
+  .pdf-modal-overlay,
+  #networkCanvas,
+  .nav-toggle,
+  .theme-toggle,
+  .btn-nav,
+  .section-cta,
+  .footer {
+    display: none !important;
+  }
+  .section,
+  .section-alt {
+    background: transparent !important;
+    padding: 24pt 0 !important;
+    page-break-inside: avoid;
+  }
+  .section-bg-image {
+    display: none !important;
+  }
+  .hero {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 24pt 0 !important;
+    background: transparent !important;
+  }
+  .hero-content {
+    position: relative !important;
+    transform: none !important;
+  }
+  a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+  .btn-primary, .btn-ghost {
+    border: 1px solid #000 !important;
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+  }
+  img {
+    max-width: 100% !important;
+  }
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+}

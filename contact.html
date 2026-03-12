@@ -6,9 +6,15 @@
 <title>Contact — Ricche Ltd</title>
 <meta name="description" content="Get in touch with Ricche for research collaboration and enquiries.">
 
+<!-- Theme Color -->
+<meta name="theme-color" content="#0055FF">
+
 <!-- Favicon -->
 <link rel="icon" type="image/png" href="assets/ricche-logo.png">
 <link rel="apple-touch-icon" href="assets/ricche-logo.png">
+
+<!-- Web App Manifest -->
+<link rel="manifest" href="manifest.json">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -46,6 +52,14 @@
 </head>
 
 <body>
+
+<!-- No-JS Fallback -->
+<noscript>
+  <style>
+    .nav-menu { display: flex !important; }
+    .form-submit { pointer-events: auto !important; }
+  </style>
+</noscript>
 
 <a href="#contactForm" class="skip-link">Skip to main content</a>
 

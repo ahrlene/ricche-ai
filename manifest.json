@@ -1,0 +1,16 @@
+{
+  "name": "Ricche — AI Research Infrastructure",
+  "short_name": "Ricche",
+  "description": "AI infrastructure for quantitative market research — machine learning, simulation, and large-scale data analysis.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060a14",
+  "theme_color": "#0055FF",
+  "icons": [
+    {
+      "src": "assets/ricche-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
