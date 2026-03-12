@@ -41,13 +41,6 @@
       ]
     }
   ],
-  "redirects": [
-    {
-      "source": "/contact",
-      "destination": "/contact.html",
-      "statusCode": 301
-    }
-  ],
   "cleanUrls": true,
   "errorDocument": "404.html"
 }

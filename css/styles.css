@@ -2447,6 +2447,33 @@ button.pdf-trigger { border: none; font-family: inherit; cursor: pointer; }
 }
 
 /* ========================================
+   HIGH CONTRAST
+   ======================================== */
+@media (prefers-contrast: more) {
+  :root {
+    --border-color: rgba(0, 0, 0, 0.3);
+    --text-secondary: #2d3748;
+    --text-muted: #4a5568;
+  }
+  [data-theme="dark"] {
+    --border-color: rgba(255, 255, 255, 0.25);
+    --text-secondary: #c5cdd8;
+    --text-muted: #8a96aa;
+  }
+  .pcard, .doc-card, .contact-form-card, .doc-featured {
+    border-width: 2px;
+  }
+  .form-input, .form-textarea {
+    border-width: 2px;
+  }
+  .nav-link, .footer-links a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+}
+
+/* ========================================
    FOCUS VISIBLE (Keyboard Accessibility)
    ======================================== */
 a:focus-visible,

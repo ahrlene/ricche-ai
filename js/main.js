@@ -6,6 +6,7 @@
   var closeBtn = document.getElementById('pdfModalClose');
 
   var isMobile = window.innerWidth <= 768;
+  var lastTrigger = null;
 
   document.querySelectorAll('.pdf-trigger').forEach(function(el) {
     el.style.cursor = 'pointer';
@@ -27,6 +28,7 @@
         return;
       }
 
+      lastTrigger = this;
       title.textContent = pdfTitle;
       frame.src = pdfSrc;
       overlay.classList.add('active');
@@ -38,6 +40,7 @@
   function closeModal() {
     overlay.classList.remove('active');
     document.body.style.overflow = '';
+    if (lastTrigger) { lastTrigger.focus(); lastTrigger = null; }
     setTimeout(function() { frame.src = ''; }, 400);
   }
 
@@ -68,24 +71,28 @@
   var flash = document.getElementById('logoFlash');
   if (!logo || !flash) return;
 
+  function dismissFlash() {
+    flash.classList.remove('show');
+    setTimeout(function() {
+      flash.classList.remove('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 600);
+  }
+
   logo.addEventListener('click', function(e) {
     e.preventDefault();
     flash.classList.add('active');
     setTimeout(function() {
       flash.classList.add('show');
     }, 10);
-    setTimeout(function() {
-      flash.classList.remove('show');
-      setTimeout(function() {
-        flash.classList.remove('active');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }, 600);
-    }, 2200);
+    setTimeout(dismissFlash, 2200);
   });
 
-  flash.addEventListener('click', function() {
-    flash.classList.remove('show');
-    setTimeout(function() { flash.classList.remove('active'); }, 600);
+  flash.addEventListener('click', dismissFlash);
+  document.addEventListener('keydown', function(e) {
+    if ((e.key === 'Escape' || e.key === ' ' || e.key === 'Enter') && flash.classList.contains('active')) {
+      dismissFlash();
+    }
   });
 })();
 
@@ -123,12 +130,18 @@
     v.currentTime = startTime;
   });
   v.currentTime = startTime;
+  var loopChecking = false;
   v.addEventListener('timeupdate', function() {
+    if (loopChecking) return;
     if (endTime && v.currentTime >= endTime) {
+      loopChecking = true;
       v.currentTime = startTime;
+      loopChecking = false;
     }
     if (v.currentTime < startTime) {
+      loopChecking = true;
       v.currentTime = startTime;
+      loopChecking = false;
     }
   });
 })();
@@ -143,15 +156,16 @@
   var hero = document.getElementById('hero');
   var content = hero ? hero.querySelector('.hero-content') : null;
   var orbs = hero ? hero.querySelectorAll('.hero-orb') : [];
-  var aurora = hero ? hero.querySelector('.hero-aurora') : null;
   if (!hero) return;
 
   var targetX = 0, targetY = 0, curX = 0, curY = 0;
   var isMoving = false;
   var idleTimer;
+  var heroVisible = true;
+  var parallaxAnimId = null;
 
   // Collect all parallax elements for will-change management
-  var parallaxEls = [planet, content, aurora].filter(Boolean);
+  var parallaxEls = [planet, content].filter(Boolean);
 
   function enableWillChange() {
     parallaxEls.forEach(function(el) { el.style.willChange = 'transform'; });
@@ -183,6 +197,8 @@
   });
 
   function animate() {
+    if (!heroVisible) { parallaxAnimId = null; return; }
+
     curX += (targetX - curX) * 0.04;
     curY += (targetY - curY) * 0.04;
 
@@ -197,11 +213,17 @@
       orb.style.setProperty('--px', (curX * depth) + 'px');
       orb.style.setProperty('--py', (curY * depth) + 'px');
     });
-    if (aurora) {
-      aurora.style.transform = 'translate(' + (curX * -10) + 'px,' + (curY * -10) + 'px)';
-    }
 
-    requestAnimationFrame(animate);
+    parallaxAnimId = requestAnimationFrame(animate);
   }
-  animate();
+
+  // Only run parallax when hero is visible
+  var parallaxObs = new IntersectionObserver(function(entries) {
+    heroVisible = entries[0].isIntersecting;
+    if (heroVisible && !parallaxAnimId) {
+      parallaxAnimId = requestAnimationFrame(animate);
+    }
+  }, { threshold: 0 });
+  parallaxObs.observe(hero);
+  parallaxAnimId = requestAnimationFrame(animate);
 })();
