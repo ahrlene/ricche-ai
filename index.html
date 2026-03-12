@@ -709,10 +709,10 @@
 (function() {
   var v = document.getElementById('planetVideo');
   if (!v) return;
-  var startTime = 1.0;
+  var startTime = 1.5;
   var endTime;
   v.addEventListener('loadedmetadata', function() {
-    endTime = v.duration - 2.45;
+    endTime = v.duration - 1.95;
     v.currentTime = startTime;
   });
   v.currentTime = startTime;

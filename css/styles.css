@@ -456,8 +456,8 @@ img { max-width: 100%; display: block; }
 }
 /* Dark mode: wider crop showing stars around planet */
 [data-theme="dark"] .hero-planet video {
-  -webkit-mask-image: radial-gradient(circle at center, #000 55%, rgba(0,0,0,0.5) 68%, rgba(0,0,0,0.15) 80%, transparent 92%);
-  mask-image: radial-gradient(circle at center, #000 55%, rgba(0,0,0,0.5) 68%, rgba(0,0,0,0.15) 80%, transparent 92%);
+  -webkit-mask-image: radial-gradient(circle at center, #000 50%, rgba(0,0,0,0.5) 62%, rgba(0,0,0,0.12) 72%, transparent 82%);
+  mask-image: radial-gradient(circle at center, #000 50%, rgba(0,0,0,0.5) 62%, rgba(0,0,0,0.12) 72%, transparent 82%);
 }
 /* Outer atmospheric glow */
 .planet-glow {
