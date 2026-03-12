@@ -2360,7 +2360,10 @@ button.pdf-trigger { border: none; font-family: inherit; cursor: pointer; }
   .section-pattern { opacity: 0.02 !important; }
   .logo-flash-img { width: 200px; height: 200px; }
   .logo-flash-text { font-size: 3rem; }
-  .pdf-modal { width: 95vw; height: 80vh; border-radius: 14px; }
+  .pdf-modal { width: 100vw; height: 100vh; border-radius: 0; max-width: none; }
+  .pdf-modal-header { padding: 14px 16px; }
+  .pdf-modal-title { font-size: 0.875rem; }
+  .pdf-modal-close { width: 44px; height: 44px; font-size: 1.4rem; }
 
   .contact-page-grid { grid-template-columns: 1fr; gap: 40px; }
   .contact-form-card { padding: 32px 24px; }

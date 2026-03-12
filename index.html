@@ -731,11 +731,20 @@
   const title = document.getElementById('pdfModalTitle');
   const closeBtn = document.getElementById('pdfModalClose');
 
+  var isMobile = window.innerWidth <= 768;
+
   document.querySelectorAll('.pdf-trigger').forEach(function(el) {
     el.style.cursor = 'pointer';
     el.addEventListener('click', function() {
-      const pdfSrc = this.getAttribute('data-pdf');
-      const pdfTitle = this.getAttribute('data-title') || 'Document';
+      var pdfSrc = this.getAttribute('data-pdf');
+      var pdfTitle = this.getAttribute('data-title') || 'Document';
+
+      // On mobile, open PDF directly in new tab for native zoom/scroll
+      if (isMobile) {
+        window.open(pdfSrc, '_blank');
+        return;
+      }
+
       title.textContent = pdfTitle;
       frame.src = pdfSrc;
       overlay.classList.add('active');
