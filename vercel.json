@@ -41,5 +41,8 @@
       ]
     }
   ],
+  "rewrites": [
+    { "source": "/contact", "destination": "/contact.html" }
+  ],
   "errorDocument": "404.html"
 }
