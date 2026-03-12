@@ -468,6 +468,7 @@ img { max-width: 100%; display: block; }
   height: 100%;
   object-fit: cover;
   display: block;
+  background: transparent;
   /* Light mode: full planet visible with soft edge fade */
   -webkit-mask-image: radial-gradient(circle at center, #000 54%, rgba(0,0,0,0.3) 60%, transparent 66%);
   mask-image: radial-gradient(circle at center, #000 54%, rgba(0,0,0,0.3) 60%, transparent 66%);
