@@ -24,9 +24,61 @@
 <meta name="twitter:description" content="Machine learning infrastructure for analysing market data, running simulations, and validating research — at scale.">
 <meta name="twitter:image" content="https://ricche.ai/assets/ricche-logo.png">
 
+<!-- Canonical URL -->
+<link rel="canonical" href="https://ricche.ai/">
+
+<!-- Security: Content Security Policy -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.vercel-scripts.com https://*.vercel.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; frame-src 'self'; connect-src 'self' https://*.vercel-insights.com https://*.vercel.com;">
+
+<!-- Security: Permissions Policy -->
+<meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=()">
+
+<!-- Structured Data: Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Ricche",
+  "legalName": "Ricche Ltd",
+  "url": "https://ricche.ai",
+  "logo": "https://ricche.ai/assets/ricche-logo.png",
+  "description": "AI infrastructure for quantitative market research — machine learning, simulation, and large-scale data analysis for financial markets.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "London",
+    "addressCountry": "GB"
+  },
+  "sameAs": []
+}
+</script>
+
+<!-- Critical CSS: above-the-fold styles inlined for faster first paint -->
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  :root{--font-display:'Space Grotesk',sans-serif;--font-body:'Inter',sans-serif;--neon:#0055FF;--neon-bright:#0088FF;--neon-cyan:#00C8FF;--neon-glow:rgba(0,85,255,.35);--neon-subtle:rgba(0,85,255,.08);--ease:cubic-bezier(.16,1,.3,1)}
+  [data-theme="light"]{--bg:#f5f7fb;--bg-alt:#fff;--text:#0a1628;--text-strong:#000;--text-body:#2d3748;--text-secondary:#4a5568;--border-color:rgba(0,0,0,.1);--logo-filter:none;--section-border:rgba(0,0,0,.06);--shadow-sm:0 1px 3px rgba(0,0,0,.06)}
+  [data-theme="dark"]{--bg:#060a14;--bg-alt:#0c1424;--text:#eef2f8;--text-strong:#fff;--text-body:#c5cdd8;--text-secondary:#8a96aa;--border-color:rgba(255,255,255,.08);--logo-filter:invert(1) brightness(1.8);--section-border:rgba(255,255,255,.05);--shadow-sm:0 1px 3px rgba(0,0,0,.3)}
+  html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+  body{font-family:var(--font-body);font-size:16px;background:var(--bg);color:var(--text-body);overflow-x:hidden;line-height:1.7}
+  img{max-width:100%;display:block}
+  .preloader{position:fixed;inset:0;background:var(--bg);z-index:10000;display:flex;align-items:center;justify-content:center;transition:opacity .8s var(--ease),visibility .8s}
+  .preloader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+  .preloader-logo{width:68px;height:68px;margin:0 auto 24px}
+  .preloader-logo img{width:100%;height:100%;filter:var(--logo-filter);animation:preloaderPulse 1.5s ease-in-out infinite}
+  @keyframes preloaderPulse{0%,100%{opacity:.3;transform:scale(.95)}50%{opacity:1;transform:scale(1.05)}}
+  .preloader-bar{width:140px;height:3px;background:var(--border-color);border-radius:3px;overflow:hidden}
+  .preloader-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--neon),var(--neon-cyan));border-radius:3px;animation:preloaderFill 1.2s var(--ease) forwards}
+  @keyframes preloaderFill{to{width:100%}}
+  .header{position:fixed;top:0;left:0;right:0;z-index:1000;border-bottom:1px solid transparent}
+  .nav-container{max-width:1280px;margin:0 auto;padding:0 36px;display:flex;align-items:center;justify-content:space-between;height:76px}
+  .logo{display:flex;align-items:center;gap:14px;font-family:var(--font-display);font-weight:700;font-size:1.45rem;letter-spacing:.2em;color:var(--text-strong);z-index:1001}
+  .logo-mark{width:54px;height:54px;display:flex;align-items:center;justify-content:center}
+  .logo-mark img{width:100%;height:100%;object-fit:contain;filter:var(--logo-filter)}
+</style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@700;800&display=swap">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="preload" as="style" href="css/styles.css">
 <link rel="stylesheet" href="css/styles.css">
@@ -41,7 +93,7 @@
 <div class="preloader" id="preloader">
   <div class="preloader-inner">
     <div class="preloader-logo">
-      <img src="assets/ricche-logo.png" alt="Ricche logo">
+      <img src="assets/ricche-logo.png" alt="Ricche logo" width="68" height="68">
     </div>
     <div class="preloader-bar"><div class="preloader-fill"></div></div>
   </div>
@@ -52,7 +104,7 @@
   <div class="nav-container">
     <a href="#hero" class="logo" id="logoTrigger">
       <div class="logo-mark">
-        <img src="assets/ricche-logo.png" alt="Ricche">
+        <img src="assets/ricche-logo.png" alt="Ricche" width="54" height="54">
       </div>
       <span class="logo-text">RICCHE</span>
     </a>
@@ -73,7 +125,7 @@
       </button>
       <a href="contact.html" class="btn-nav">
         Enquire Now
-        <svg class="btn-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="btn-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <button class="nav-toggle" id="navToggle" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -121,11 +173,11 @@
     <div class="hero-cta reveal reveal-d3">
       <a href="contact.html" class="btn-primary btn-glow">
         <span>Enquire Now</span>
-        <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <a href="#documents" class="btn-ghost">
         <span>View Research</span>
-        <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
   </div>
@@ -142,7 +194,7 @@
     <div class="bg-orb bg-orb-1"></div>
     <div class="bg-orb bg-orb-2"></div>
   </div>
-  <div class="section-bg-image"><img src="assets/about-bg.jpg" alt="" loading="lazy"></div>
+  <div class="section-bg-image"><img src="assets/about-bg.jpg" alt="" loading="lazy" width="1920" height="1280"></div>
   <div class="section-divider">
     <div class="divider-line"></div>
     <div class="divider-dot"></div>
@@ -151,7 +203,7 @@
   <div class="container">
 
     <div class="eyebrow reveal">
-      <svg class="icon-animated" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <svg class="icon-animated" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
       About Ricche
     </div>
 
@@ -244,7 +296,7 @@
 
     <div class="section-intro">
       <div class="eyebrow reveal">
-        <svg class="icon-animated" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        <svg class="icon-animated" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
         Platform
       </div>
       <h2 class="section-heading reveal reveal-d1">What we've built</h2>
@@ -258,7 +310,7 @@
       <div class="pcard reveal" data-index="0">
         <div class="pcard-glow"></div>
         <div class="pcard-num">01</div>
-        <div class="pcard-icon icon-float">
+        <div class="pcard-icon icon-float" aria-hidden="true">
           <svg viewBox="0 0 48 48" fill="none"><path d="M8 36V20l16-10 16 10v16" stroke="currentColor" stroke-width="1.5"/><path d="M18 36V26h12v10" stroke="currentColor" stroke-width="1.5"/></svg>
         </div>
         <h3>Data Infrastructure</h3>
@@ -268,7 +320,7 @@
       <div class="pcard reveal" data-index="1">
         <div class="pcard-glow"></div>
         <div class="pcard-num">02</div>
-        <div class="pcard-icon icon-float">
+        <div class="pcard-icon icon-float" aria-hidden="true">
           <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="8" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="38" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="36" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="38" cy="36" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M13.5 14.5L19 20M29 20l5.5-5.5M13.5 33.5L19 28M29 28l5.5 5.5" stroke="currentColor" stroke-width="1"/></svg>
         </div>
         <h3>Machine Learning</h3>
@@ -278,7 +330,7 @@
       <div class="pcard reveal" data-index="2">
         <div class="pcard-glow"></div>
         <div class="pcard-num">03</div>
-        <div class="pcard-icon icon-float">
+        <div class="pcard-icon icon-float" aria-hidden="true">
           <svg viewBox="0 0 48 48" fill="none"><rect x="6" y="6" width="36" height="36" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M14 34l6-10 5 6 9-16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         <h3>Simulation Engine</h3>
@@ -288,7 +340,7 @@
       <div class="pcard reveal" data-index="3">
         <div class="pcard-glow"></div>
         <div class="pcard-num">04</div>
-        <div class="pcard-icon icon-float">
+        <div class="pcard-icon icon-float" aria-hidden="true">
           <svg viewBox="0 0 48 48" fill="none"><path d="M16 24l6 6 12-14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="1.5"/></svg>
         </div>
         <h3>Validation</h3>
@@ -298,7 +350,7 @@
       <div class="pcard pcard-wide reveal" data-index="4">
         <div class="pcard-glow"></div>
         <div class="pcard-num">05</div>
-        <div class="pcard-icon icon-float">
+        <div class="pcard-icon icon-float" aria-hidden="true">
           <svg viewBox="0 0 48 48" fill="none"><rect x="4" y="22" width="8" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="16" width="8" height="22" rx="2" stroke="currentColor" stroke-width="1.5"/><rect x="24" y="10" width="8" height="28" rx="2" stroke="currentColor" stroke-width="1.5"/><rect x="34" y="6" width="8" height="32" rx="2" stroke="currentColor" stroke-width="1.5"/></svg>
         </div>
         <h3>Monitoring &amp; Observability</h3>
@@ -322,7 +374,7 @@
     <div class="bg-orb bg-orb-2"></div>
     <div class="bg-orb bg-orb-1"></div>
   </div>
-  <div class="section-bg-image"><img src="assets/architecture-bg.jpg" alt="" loading="lazy"></div>
+  <div class="section-bg-image"><img src="assets/architecture-bg.jpg" alt="" loading="lazy" width="1920" height="1280"></div>
   <div class="section-divider">
     <div class="divider-line"></div>
     <div class="divider-dot"></div>
@@ -332,7 +384,7 @@
 
     <div class="section-intro">
       <div class="eyebrow reveal">
-        <svg class="icon-animated" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+        <svg class="icon-animated" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
         Architecture
       </div>
       <h2 class="section-heading reveal reveal-d1">How data flows through our platform</h2>
@@ -412,7 +464,7 @@
     <div class="bg-orb bg-orb-3"></div>
     <div class="bg-orb bg-orb-2"></div>
   </div>
-  <div class="section-bg-image"><img src="assets/Gemini_Generated_Image_hd9lj7hd9lj7hd9l.png" alt="" loading="lazy"></div>
+  <div class="section-bg-image"><img src="assets/Gemini_Generated_Image_hd9lj7hd9lj7hd9l.png" alt="" loading="lazy" width="1920" height="1080"></div>
   <div class="section-divider">
     <div class="divider-line"></div>
     <div class="divider-dot"></div>
@@ -423,7 +475,7 @@
     <div class="split-section">
       <div class="split-left">
         <div class="eyebrow reveal">
-          <svg class="icon-animated" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg>
+          <svg class="icon-animated" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg>
           Research Workflow
         </div>
         <h2 class="section-heading reveal reveal-d1">From hypothesis<br>to validated insight</h2>
@@ -512,7 +564,7 @@
 
     <div class="section-intro">
       <div class="eyebrow reveal">
-        <svg class="icon-animated" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <svg class="icon-animated" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
         Research Documents
       </div>
       <h2 class="section-heading reveal reveal-d1">Published research &amp; documentation</h2>
@@ -538,7 +590,7 @@
         </div>
         <button class="btn-primary btn-glow pdf-trigger" data-pdf="PDF's/ricche_institutional_whitepaper - Copy.pdf" data-title="Institutional Research Whitepaper">
           <span>Read Whitepaper</span>
-          <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
       </div>
       <div class="doc-featured-preview">
@@ -562,38 +614,38 @@
     <div class="doc-grid">
 
       <div class="doc-card reveal pdf-trigger" data-index="0" data-pdf="PDF's/ricche_architecture_diagram_pack.pdf" data-title="Architecture Diagram Pack">
-        <div class="doc-card-icon icon-float">
+        <div class="doc-card-icon icon-float" aria-hidden="true">
           <svg viewBox="0 0 40 40" fill="none"><rect x="6" y="4" width="28" height="32" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M12 14h16M12 20h16M12 26h10" stroke="currentColor" stroke-width="1.2" opacity="0.6"/></svg>
         </div>
         <div class="doc-card-body">
           <span class="doc-type">Technical Diagrams</span>
           <h4>Architecture Diagram Pack</h4>
           <p>Platform architecture, research workflow, and compute infrastructure diagrams.</p>
-          <span class="doc-card-link">View PDF <svg class="btn-arrow-sm" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="doc-card-link">View PDF <svg class="btn-arrow-sm" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
       </div>
 
       <div class="doc-card reveal pdf-trigger" data-index="1" data-pdf="PDF's/ricche_ai_platform_overview_poster.pdf" data-title="AI Platform Overview Poster">
-        <div class="doc-card-icon icon-float">
+        <div class="doc-card-icon icon-float" aria-hidden="true">
           <svg viewBox="0 0 40 40" fill="none"><rect x="6" y="4" width="28" height="32" rx="3" stroke="currentColor" stroke-width="1.5"/><rect x="12" y="12" width="16" height="10" rx="1" stroke="currentColor" stroke-width="1.2" opacity="0.6"/><path d="M12 28h16" stroke="currentColor" stroke-width="1.2" opacity="0.6"/></svg>
         </div>
         <div class="doc-card-body">
           <span class="doc-type">Overview</span>
           <h4>AI Platform Overview Poster</h4>
           <p>Single-page overview of the complete Ricche research platform and capabilities.</p>
-          <span class="doc-card-link">View PDF <svg class="btn-arrow-sm" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="doc-card-link">View PDF <svg class="btn-arrow-sm" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
       </div>
 
       <div class="doc-card reveal pdf-trigger" data-index="2" data-pdf="PDF's/ricche_control_room_dashboard_mockup.pdf" data-title="Control Room Dashboard">
-        <div class="doc-card-icon icon-float">
+        <div class="doc-card-icon icon-float" aria-hidden="true">
           <svg viewBox="0 0 40 40" fill="none"><rect x="4" y="8" width="32" height="24" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M16 32h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><rect x="10" y="14" width="8" height="6" rx="1" stroke="currentColor" stroke-width="1.2" opacity="0.6"/><rect x="22" y="14" width="8" height="6" rx="1" stroke="currentColor" stroke-width="1.2" opacity="0.6"/></svg>
         </div>
         <div class="doc-card-body">
           <span class="doc-type">Dashboard</span>
           <h4>Control Room Dashboard</h4>
           <p>Live dashboard showing experiment counts, simulation jobs, and system health.</p>
-          <span class="doc-card-link">View PDF <svg class="btn-arrow-sm" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="doc-card-link">View PDF <svg class="btn-arrow-sm" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
       </div>
 
@@ -618,7 +670,7 @@
       </p>
       <a href="contact.html" class="btn-primary btn-glow btn-lg reveal reveal-d2">
         <span>Enquire Now</span>
-        <svg class="btn-arrow" width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="btn-arrow" width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
   </div>
@@ -632,7 +684,7 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="logo-mark-sm">
-          <img src="assets/ricche-logo.png" alt="Ricche" style="filter:var(--logo-filter);width:100%;height:100%;object-fit:contain;">
+          <img src="assets/ricche-logo.png" alt="Ricche" width="40" height="40" style="filter:var(--logo-filter);width:100%;height:100%;object-fit:contain;">
         </div>
         <span>RICCHE LTD</span>
       </div>
@@ -650,7 +702,7 @@
 <!-- Logo Flash Overlay -->
 <div class="logo-flash-overlay" id="logoFlash">
   <div class="logo-flash-inner">
-    <img src="assets/ricche-logo.png" alt="Ricche" class="logo-flash-img">
+    <img src="assets/ricche-logo.png" alt="Ricche" class="logo-flash-img" width="300" height="300">
     <span class="logo-flash-text">RICCHE</span>
   </div>
 </div>

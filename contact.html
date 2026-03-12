@@ -24,9 +24,22 @@
 <meta name="twitter:description" content="Get in touch with Ricche for research collaboration and enquiries.">
 <meta name="twitter:image" content="https://ricche.ai/assets/ricche-logo.png">
 
+<!-- Canonical URL -->
+<link rel="canonical" href="https://ricche.ai/contact.html">
+
+<!-- Security: Content Security Policy -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formsubmit.co;">
+
+<!-- Security: Permissions Policy -->
+<meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=()">
+
+<!-- DNS Prefetch for form backend -->
+<link rel="dns-prefetch" href="https://formsubmit.co">
+<link rel="preconnect" href="https://formsubmit.co">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@700;800&display=swap">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="preload" as="style" href="css/styles.css">
 <link rel="stylesheet" href="css/styles.css">
@@ -43,7 +56,7 @@
   <div class="nav-container">
     <a href="index.html" class="logo">
       <div class="logo-mark">
-        <img src="assets/ricche-logo.png" alt="Ricche">
+        <img src="assets/ricche-logo.png" alt="Ricche" width="54" height="54">
       </div>
       <span class="logo-text">RICCHE</span>
     </a>
@@ -77,7 +90,7 @@
       <!-- Left: Info -->
       <div class="contact-info">
         <div class="eyebrow">
-          <svg class="icon-animated" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <svg class="icon-animated" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           Get in Touch
         </div>
         <h1>Let's discuss your<br>research needs</h1>
@@ -88,19 +101,19 @@
 
         <div class="contact-features">
           <div class="contact-feature">
-            <div class="contact-feature-icon">
+            <div class="contact-feature-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
             <span>London, United Kingdom</span>
           </div>
           <div class="contact-feature">
-            <div class="contact-feature-icon">
+            <div class="contact-feature-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
             </div>
             <span>We typically respond within 24 hours</span>
           </div>
           <div class="contact-feature">
-            <div class="contact-feature-icon">
+            <div class="contact-feature-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
             </div>
             <span>Research partnerships welcome</span>
@@ -110,11 +123,10 @@
 
       <!-- Right: Form -->
       <div class="contact-form-card">
-        <form id="contactForm" action="https://formsubmit.co/info@sun-clean.co.uk" method="POST">
+        <form id="contactForm" action="https://formsubmit.co/ajax/info@sun-clean.co.uk" method="POST">
           <!-- FormSubmit config -->
           <input type="hidden" name="_subject" value="New enquiry from ricche.ai">
-          <input type="hidden" name="_captcha" value="true">
-          <input type="hidden" name="_next" value="https://ricche.ai/contact.html?sent=1">
+          <input type="hidden" name="_captcha" value="false">
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
           <div class="form-row">
@@ -150,7 +162,7 @@
 
           <button type="submit" class="btn-primary btn-glow form-submit">
             <span>Send Enquiry</span>
-            <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
         </form>
 
@@ -174,7 +186,7 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="logo-mark-sm">
-          <img src="assets/ricche-logo.png" alt="Ricche" style="filter:var(--logo-filter);width:100%;height:100%;object-fit:contain;">
+          <img src="assets/ricche-logo.png" alt="Ricche" width="40" height="40" style="filter:var(--logo-filter);width:100%;height:100%;object-fit:contain;">
         </div>
         <span>RICCHE LTD</span>
       </div>
@@ -225,14 +237,41 @@
     });
   });
 
-  // Contact form — show success if redirected back after submission
+  // Contact form — AJAX submission with inline success
   const form = document.getElementById('contactForm');
   const success = document.getElementById('formSuccess');
+  const submitBtn = form.querySelector('.form-submit');
 
+  // Handle redirect-based legacy (?sent=1)
   if (new URLSearchParams(window.location.search).get('sent') === '1') {
     form.style.display = 'none';
     success.classList.add('show');
   }
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.querySelector('span').textContent = 'Sending...';
+
+    fetch(form.action, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(Object.fromEntries(new FormData(form)))
+    })
+    .then(function(res) {
+      if (res.ok) {
+        form.style.display = 'none';
+        success.classList.add('show');
+      } else {
+        throw new Error('Form submission failed');
+      }
+    })
+    .catch(function() {
+      submitBtn.disabled = false;
+      submitBtn.querySelector('span').textContent = 'Send Enquiry';
+      alert('Something went wrong. Please try again or email us directly.');
+    });
+  });
 })();
 </script>
 </body>
