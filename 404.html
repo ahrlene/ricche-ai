@@ -6,7 +6,8 @@
 <title>404 — Ricche</title>
 <meta name="description" content="Page not found — return to Ricche's AI research infrastructure for financial markets.">
 <meta name="robots" content="noindex, follow">
-<meta name="theme-color" content="#0055FF">
+<meta name="theme-color" content="#0055FF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#060a14" media="(prefers-color-scheme: dark)">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -16,13 +17,29 @@
 <meta property="og:url" content="https://ricche.ai">
 <meta property="og:site_name" content="Ricche">
 
-<link rel="icon" type="image/png" href="assets/ricche-logo.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/ricche-logo.png">
 <link rel="apple-touch-icon" href="assets/ricche-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@700;800&display=optional" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
+<noscript>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root { color-scheme: dark; }
+      [data-theme="light"] { --bg:#060a14;--bg-alt:#0c1424;--text:#eef2f8;--text-strong:#fff;--text-body:#c5cdd8;--text-secondary:#8a96aa;--border-color:rgba(255,255,255,.08);--logo-filter:invert(1) brightness(1.8) }
+    }
+  </style>
+</noscript>
 <style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  :root{--font-display:'Space Grotesk',sans-serif;--font-body:'Inter',sans-serif;--neon:#0055FF;--neon-bright:#0088FF;--neon-cyan:#00C8FF}
+  [data-theme="light"]{--bg:#f5f7fb;--bg-alt:#fff;--text:#0a1628;--text-strong:#000;--text-body:#2d3748;--text-secondary:#4a5568;--border-color:rgba(0,0,0,.1);--logo-filter:none}
+  [data-theme="dark"]{--bg:#060a14;--bg-alt:#0c1424;--text:#eef2f8;--text-strong:#fff;--text-body:#c5cdd8;--text-secondary:#8a96aa;--border-color:rgba(255,255,255,.08);--logo-filter:invert(1) brightness(1.8)}
+  html{-webkit-font-smoothing:antialiased}
+  body{font-family:var(--font-body);background:var(--bg);color:var(--text-body)}
+  img{max-width:100%;display:block}
+  @font-face{font-family:'Space Grotesk';font-display:optional;src:local('Space Grotesk')}
   .error-page {
     min-height: 100vh;
     display: flex;
