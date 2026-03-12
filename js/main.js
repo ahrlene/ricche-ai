@@ -134,7 +134,11 @@
 })();
 
 // Hero parallax — mouse interaction for planet, content, orbs
+// Disabled on touch devices to save GPU and avoid janky interactions
 (function() {
+  var isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  if (isTouch) return;
+
   var planet = document.getElementById('heroPlanet');
   var hero = document.getElementById('hero');
   var content = hero ? hero.querySelector('.hero-content') : null;
@@ -143,6 +147,18 @@
   if (!hero) return;
 
   var targetX = 0, targetY = 0, curX = 0, curY = 0;
+  var isMoving = false;
+  var idleTimer;
+
+  // Collect all parallax elements for will-change management
+  var parallaxEls = [planet, content, aurora].filter(Boolean);
+
+  function enableWillChange() {
+    parallaxEls.forEach(function(el) { el.style.willChange = 'transform'; });
+  }
+  function disableWillChange() {
+    parallaxEls.forEach(function(el) { el.style.willChange = ''; });
+  }
 
   document.addEventListener('mousemove', function(e) {
     var rect = hero.getBoundingClientRect();
@@ -150,6 +166,16 @@
     if (e.clientX < rect.left || e.clientX > rect.right) return;
     targetX = (e.clientX - rect.left) / rect.width - 0.5;
     targetY = (e.clientY - rect.top) / rect.height - 0.5;
+
+    if (!isMoving) {
+      isMoving = true;
+      enableWillChange();
+    }
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(function() {
+      isMoving = false;
+      disableWillChange();
+    }, 1000);
   });
   hero.addEventListener('mouseleave', function() {
     targetX = 0;

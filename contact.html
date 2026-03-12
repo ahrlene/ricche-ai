@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" hreflang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,11 +45,37 @@
 }
 </script>
 
+<!-- Structured Data: ContactPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact Ricche",
+  "description": "Get in touch with Ricche for research collaboration and enquiries.",
+  "url": "https://ricche.ai/contact.html",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "Ricche",
+    "legalName": "Ricche Ltd",
+    "url": "https://ricche.ai",
+    "logo": "https://ricche.ai/assets/ricche-logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "London",
+      "addressCountry": "GB"
+    }
+  }
+}
+</script>
+
 <!-- Security: Content Security Policy -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formsubmit.co;">
 
 <!-- Security: Permissions Policy -->
 <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=()">
+
+<!-- Security: Referrer Policy -->
+<meta name="referrer" content="strict-origin-when-cross-origin">
 
 <!-- DNS Prefetch for form backend -->
 <link rel="dns-prefetch" href="https://formsubmit.co">
@@ -192,7 +218,7 @@
           </button>
         </form>
 
-        <div class="form-success" id="formSuccess">
+        <div class="form-success" id="formSuccess" aria-live="polite">
           <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="margin: 0 auto 16px;">
             <circle cx="24" cy="24" r="22" stroke="var(--neon)" stroke-width="2"/>
             <path d="M15 24l6 6 12-14" stroke="var(--neon)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>

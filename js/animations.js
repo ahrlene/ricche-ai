@@ -256,8 +256,19 @@
       }
     }
 
-    window.addEventListener('scroll', updateArchProgress, { passive: true });
-    window.addEventListener('resize', updateArchProgress, { passive: true });
+    // Debounce scroll/resize with rAF to avoid layout thrashing
+    let archTicking = false;
+    function onArchScroll() {
+      if (!archTicking) {
+        archTicking = true;
+        requestAnimationFrame(() => {
+          updateArchProgress();
+          archTicking = false;
+        });
+      }
+    }
+    window.addEventListener('scroll', onArchScroll, { passive: true });
+    window.addEventListener('resize', onArchScroll, { passive: true });
     updateArchProgress();
   }
 
