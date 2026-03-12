@@ -100,8 +100,8 @@
 <link rel="preload" href="https://fonts.gstatic.com/s/spacegrotesk/v16/V8mDoQDjQSkFtoMM3T6r8E7mPbF4C_k3HqUtELiwKBkHKA.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@700;800&display=swap">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700;800&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
 <link rel="preload" as="style" href="css/styles.css">
 <link rel="stylesheet" href="css/styles.css">
 <script>if(window.innerWidth>768){var l=document.createElement('link');l.rel='preload';l.as='video';l.type='video/mp4';l.href='assets/Make_it_rotate_full_360_all_the_way_around_and_mae_83b088be40.mp4';document.head.appendChild(l);}</script>
@@ -138,13 +138,13 @@
   <div class="nav-container">
     <a href="#hero" class="logo" id="logoTrigger">
       <div class="logo-mark">
-        <img src="assets/ricche-logo.png" alt="Ricche" width="54" height="54">
+        <img src="assets/ricche-logo.png" alt="Ricche" width="54" height="54" fetchpriority="high">
       </div>
       <span class="logo-text">RICCHE</span>
     </a>
 
     <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
-      <a href="#hero" class="nav-link active" data-section="hero">Home</a>
+      <a href="#hero" class="nav-link active" data-section="hero" aria-current="page">Home</a>
       <a href="#about" class="nav-link" data-section="about">About</a>
       <a href="#platform" class="nav-link" data-section="platform">Platform</a>
       <a href="#architecture" class="nav-link" data-section="architecture">Architecture</a>
@@ -749,7 +749,7 @@
       <button class="pdf-modal-close" id="pdfModalClose">&times;</button>
     </div>
     <div class="pdf-modal-body">
-      <iframe id="pdfModalFrame" src=""></iframe>
+      <iframe id="pdfModalFrame" src="" loading="lazy"></iframe>
     </div>
   </div>
 </div>

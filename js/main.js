@@ -31,6 +31,7 @@
       frame.src = pdfSrc;
       overlay.classList.add('active');
       document.body.style.overflow = 'hidden';
+      closeBtn.focus();
     });
   });
 
@@ -45,7 +46,19 @@
     if (e.target === overlay) closeModal();
   });
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && overlay.classList.contains('active')) closeModal();
+    if (!overlay.classList.contains('active')) return;
+    if (e.key === 'Escape') { closeModal(); return; }
+    // Focus trap: cycle between close button and iframe
+    if (e.key === 'Tab') {
+      var focusable = [closeBtn, frame];
+      var first = focusable[0];
+      var last = focusable[focusable.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+      } else {
+        if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    }
   });
 })();
 

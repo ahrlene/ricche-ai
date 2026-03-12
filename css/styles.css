@@ -29,6 +29,7 @@
 
 /* ---- Theme Variables ---- */
 :root {
+  color-scheme: light dark;
   --font-display: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
 
@@ -2364,7 +2365,7 @@ button.pdf-trigger { border: none; font-family: inherit; cursor: pointer; }
   .stat-divider { width: 48px; height: 1px; }
   .footer-inner { flex-direction: column; text-align: center; }
   .orbital-visual { display: none; }
-  .hero-orb { opacity: 0.1 !important; }
+  .hero-orb { opacity: 0.1 !important; filter: blur(40px); }
   .hero-planet { width: 32vmin; height: 32vmin; left: 50%; transform: translate(-50%, -50%); opacity: 0.4; }
   .hero { justify-content: center; }
   .hero-content { margin-left: auto; margin-right: auto; }

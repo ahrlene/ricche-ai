@@ -100,7 +100,10 @@
         const id = sec.id;
         if (y >= top && y < top + sec.offsetHeight) {
           navLinks.forEach(l => {
-            l.classList.toggle('active', l.dataset.section === id);
+            const isActive = l.dataset.section === id;
+            l.classList.toggle('active', isActive);
+            if (isActive) l.setAttribute('aria-current', 'page');
+            else l.removeAttribute('aria-current');
           });
         }
       });
