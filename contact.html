@@ -128,7 +128,7 @@
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
-      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -240,7 +240,7 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="logo-mark-sm">
-          <img src="assets/ricche-logo.png" alt="Ricche" width="40" height="40" style="filter:var(--logo-filter);width:100%;height:100%;object-fit:contain;">
+          <img src="assets/ricche-logo.png" alt="Ricche" width="40" height="40" loading="lazy" decoding="async" style="filter:var(--logo-filter);width:100%;height:100%;object-fit:contain;">
         </div>
         <span>RICCHE LTD</span>
       </div>
@@ -288,6 +288,7 @@
     document.body.style.top = '-' + scrollY + 'px';
     document.body.style.width = '100%';
     document.body.style.overflow = 'hidden';
+    document.body.style.overscrollBehavior = 'none';
   }
   function unlockScroll() {
     var scrollY = parseInt(document.body.style.top || '0', 10) * -1;
@@ -295,17 +296,21 @@
     document.body.style.top = '';
     document.body.style.width = '';
     document.body.style.overflow = '';
+    document.body.style.overscrollBehavior = '';
     window.scrollTo(0, scrollY);
   }
   navToggle.addEventListener('click', () => {
     navToggle.classList.toggle('open');
     navMenu.classList.toggle('open');
-    if (navMenu.classList.contains('open')) { lockScroll(); } else { unlockScroll(); }
+    var isOpen = navMenu.classList.contains('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+    if (isOpen) { lockScroll(); } else { unlockScroll(); }
   });
   navMenu.querySelectorAll('.nav-link').forEach(l => {
     l.addEventListener('click', () => {
       navToggle.classList.remove('open');
       navMenu.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
       unlockScroll();
     });
   });

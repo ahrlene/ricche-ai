@@ -738,6 +738,7 @@ img { max-width: 100%; display: block; }
   letter-spacing: -0.03em;
   color: var(--text-strong);
   margin-bottom: 24px;
+  text-wrap: balance;
 }
 .hero-title em {
   font-style: normal;
@@ -948,6 +949,7 @@ img { max-width: 100%; display: block; }
   letter-spacing: -0.02em;
   color: var(--text-strong);
   max-width: 720px;
+  text-wrap: balance;
 }
 
 .section-heading {
@@ -958,6 +960,7 @@ img { max-width: 100%; display: block; }
   letter-spacing: -0.02em;
   color: var(--text-strong);
   margin-bottom: 18px;
+  text-wrap: balance;
 }
 .cta-block .display-heading {
   background: linear-gradient(135deg, var(--text-strong), var(--neon), var(--neon-cyan), var(--text-strong));
@@ -2348,7 +2351,7 @@ button.pdf-trigger { border: none; font-family: inherit; cursor: pointer; }
   .nav-menu {
     position: fixed;
     inset: 0;
-    background: var(--bg);
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2359,7 +2362,7 @@ button.pdf-trigger { border: none; font-family: inherit; cursor: pointer; }
     transition: opacity 0.4s, visibility 0.4s;
     z-index: 1000;
   }
-  .nav-menu.open { opacity: 1; visibility: visible; }
+  .nav-menu.open { opacity: 1; visibility: visible; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
   .nav-menu .nav-link { font-size: 1.5rem; font-family: var(--font-display); font-weight: 600; }
   .nav-toggle { display: flex; }
   .btn-nav { display: none; }

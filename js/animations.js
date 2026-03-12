@@ -60,6 +60,7 @@
       document.body.style.top = '-' + scrollY + 'px';
       document.body.style.width = '100%';
       document.body.style.overflow = 'hidden';
+      document.body.style.overscrollBehavior = 'none';
     }
     function unlockScroll() {
       var scrollY = parseInt(document.body.style.top || '0', 10) * -1;
@@ -67,13 +68,16 @@
       document.body.style.top = '';
       document.body.style.width = '';
       document.body.style.overflow = '';
+      document.body.style.overscrollBehavior = '';
       window.scrollTo(0, scrollY);
     }
 
     navToggle.addEventListener('click', () => {
       navToggle.classList.toggle('open');
       navMenu.classList.toggle('open');
-      if (navMenu.classList.contains('open')) {
+      const isOpen = navMenu.classList.contains('open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+      if (isOpen) {
         lockScroll();
       } else {
         unlockScroll();
@@ -84,6 +88,7 @@
       link.addEventListener('click', () => {
         navToggle.classList.remove('open');
         navMenu.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
         unlockScroll();
       });
     });
@@ -93,6 +98,7 @@
       if (e.key === 'Escape' && navMenu.classList.contains('open')) {
         navToggle.classList.remove('open');
         navMenu.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
         unlockScroll();
         navToggle.focus();
       }

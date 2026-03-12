@@ -7,7 +7,7 @@
   const ctx = canvas.getContext('2d');
   let width, height, particles;
   const PARTICLE_COUNT = window.innerWidth <= 768 ? 50 : 100;
-  const CONNECT_DIST = 190;
+  const CONNECT_DIST = window.innerWidth <= 768 ? 120 : 190;
   const MOUSE_RADIUS = 220;
   let mouse = { x: -1000, y: -1000 };
 
