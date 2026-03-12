@@ -48,5 +48,6 @@
       "statusCode": 301
     }
   ],
-  "cleanUrls": true
+  "cleanUrls": true,
+  "errorDocument": "404.html"
 }

@@ -2065,6 +2065,24 @@ button.pdf-trigger { border: none; font-family: inherit; cursor: pointer; }
   font-size: 1rem;
 }
 
+.form-error {
+  display: none;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  background: rgba(229, 62, 62, 0.08);
+  border: 1px solid rgba(229, 62, 62, 0.3);
+  color: #e53e3e;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.form-error.show { display: block; }
+[data-theme="dark"] .form-error {
+  background: rgba(229, 62, 62, 0.12);
+  color: #fc8181;
+  border-color: rgba(252, 129, 129, 0.3);
+}
+
 /* ========================================
    LOGO FLASH OVERLAY
    ======================================== */
@@ -2419,6 +2437,9 @@ button.pdf-trigger { border: none; font-family: inherit; cursor: pointer; }
   .bg-orb { animation: none !important; }
   .hero-orb { animation: none !important; }
   .scroll-line { animation: none !important; }
+  .scroll-cue { animation: none !important; }
+  .preloader-logo img { animation: none !important; }
+  .badge-pulse { animation: none !important; }
 }
 
 /* ========================================
@@ -2530,29 +2551,6 @@ button:focus-visible,
   }
 }
 
-/* ---- Reduced Motion ---- */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-  .hero-orb,
-  .bg-orb,
-  .orbital-ring,
-  .orbital-dot,
-  .icon-float,
-  .scroll-cue,
-  .preloader-logo img,
-  .badge-pulse {
-    animation: none !important;
-  }
-  .reveal {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-}
 
 /* ---- Content Visibility (skip rendering of offscreen sections) ---- */
 .section {
