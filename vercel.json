@@ -41,6 +41,5 @@
       ]
     }
   ],
-  "cleanUrls": true,
-  "errorDocument": "404.html"
+  "cleanUrls": true
 }
