@@ -1156,7 +1156,7 @@ def generate_architecture_pdf():
     pdf.tech_badge('Vertical Integration Margin Optimiser')
     pdf.ln(10)
 
-    pdf.sub_heading('Palantir-Killer Intelligence Supremacy')
+    pdf.sub_heading('Autonomous Intelligence Architecture')
     pdf.tech_badge('Self-Building Ontology Engine')
     pdf.tech_badge('Zero-Deployment Intelligence Platform')
     pdf.tech_badge('Autonomous Action Execution (Not Just Dashboards)')
@@ -1168,7 +1168,7 @@ def generate_architecture_pdf():
     pdf.tech_badge('Multi-Domain Fusion Without Silos')
     pdf.ln(10)
 
-    pdf.sub_heading('Structural Palantir Superiority')
+    pdf.sub_heading('Financial-Native Platform Design')
     pdf.tech_badge('Live Market Microstructure Engine')
     pdf.tech_badge('Cross-Asset Contagion Propagation Model')
     pdf.tech_badge('Generative Scenario Simulation (Not Static Ontology)')
@@ -1180,7 +1180,7 @@ def generate_architecture_pdf():
     pdf.tech_badge('Latency-Optimised Architecture')
     pdf.ln(10)
 
-    pdf.sub_heading("Palantir's Unfixable Blind Spots")
+    pdf.sub_heading('Market-Native Intelligence Capabilities')
     pdf.tech_badge('Real-Time P&L Attribution Engine')
     pdf.tech_badge('Adaptive Liquidity Sensing')
     pdf.tech_badge('Alpha Decay Half-Life Monitor')
@@ -1192,7 +1192,7 @@ def generate_architecture_pdf():
     pdf.tech_badge('Fee-Justified Performance Benchmarking')
     pdf.ln(10)
 
-    pdf.sub_heading('Why Palantir Can Never Catch Up')
+    pdf.sub_heading('Compounding Intelligence Advantages')
     pdf.tech_badge('Self-Healing Data Pipeline')
     pdf.tech_badge('Institutional Memory That Compounds')
     pdf.tech_badge('Multi-Timeframe Strategy Stacking')
