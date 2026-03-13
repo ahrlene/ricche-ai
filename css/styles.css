@@ -2205,6 +2205,130 @@ button.pdf-trigger { border: none; font-family: inherit; cursor: pointer; }
 }
 
 /* ========================================
+   GPU INFRASTRUCTURE SECTION
+   ======================================== */
+.section-gpu {
+  position: relative;
+  overflow: hidden;
+}
+
+.gpu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.gpu-card {
+  padding: 32px;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  background: var(--bg-card);
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.gpu-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #76b900, #76b900 40%, var(--neon-cyan));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.gpu-card:hover {
+  border-color: rgba(118, 185, 0, 0.3);
+  box-shadow: 0 4px 30px rgba(118, 185, 0, 0.1);
+  transform: translateY(-4px);
+}
+.gpu-card:hover::before { opacity: 1; }
+
+.gpu-card-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+  color: #76b900;
+}
+.gpu-card-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.gpu-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-strong);
+  margin-bottom: 8px;
+}
+
+.gpu-card p {
+  color: var(--text-body);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* GPU Benchmark strip */
+.gpu-benchmark {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  margin-top: 48px;
+  padding: 32px;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  background: var(--bg-card);
+}
+
+.gpu-bench-item {
+  text-align: center;
+}
+
+.gpu-bench-value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #76b900, var(--neon-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.gpu-bench-label {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* NVIDIA-highlighted trust logo */
+.trust-logo-nvidia {
+  color: #76b900 !important;
+  opacity: 0.8 !important;
+}
+
+/* NVIDIA-highlighted tech tags */
+.tech-tag-nvidia {
+  background: rgba(118, 185, 0, 0.1) !important;
+  border-color: rgba(118, 185, 0, 0.3) !important;
+  color: #76b900 !important;
+}
+
+@media (max-width: 768px) {
+  .gpu-grid { grid-template-columns: 1fr; }
+  .gpu-benchmark {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+  }
+}
+
+/* ========================================
    LOGO FLASH OVERLAY
    ======================================== */
 .logo-flash-overlay {
