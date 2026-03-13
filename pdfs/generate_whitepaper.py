@@ -489,6 +489,12 @@ def generate_whitepaper():
     pdf.tech_badge('Tick-to-Trade < 1us')
     pdf.ln(10)
 
+    pdf.sub_heading('Custom Operating System')
+    pdf.tech_badge('Custom Linux Kernel (PREEMPT_RT)')
+    pdf.tech_badge('Unikernel')
+    pdf.tech_badge('Custom Kernel Modules')
+    pdf.ln(10)
+
     pdf.sub_heading('Machine Learning & Research')
     pdf.tech_badge('PyTorch')
     pdf.tech_badge('JAX')
