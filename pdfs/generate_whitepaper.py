@@ -49,11 +49,12 @@ def generate_whitepaper():
     pdf.ln(2)
 
     # Key stats
-    pdf.stat_box('47x', 'GPU vs CPU Training', 15, pdf.get_y(), 42)
-    pdf.stat_box('<2ms', 'Inference Latency', 62, pdf.get_y(), 42)
-    pdf.stat_box('10B+', 'Data Points Ingested', 109, pdf.get_y(), 42)
-    pdf.stat_box('30+', 'Global Exchanges', 156, pdf.get_y(), 38)
-    pdf.ln(30)
+    card_y = pdf.get_y()
+    pdf.stat_box('47x', 'GPU vs CPU Training', 15, card_y, 42)
+    pdf.stat_box('<2ms', 'Inference Latency', 62, card_y, 42)
+    pdf.stat_box('10B+', 'Data Points Ingested', 109, card_y, 42)
+    pdf.stat_box('30+', 'Global Exchanges', 156, card_y, 38)
+    pdf.set_y(card_y + 30)
 
     # ============================================================
     # PAGE 3: The Opportunity
@@ -83,38 +84,40 @@ def generate_whitepaper():
 
     pdf.section_heading('Market Drivers')
     pdf.ensure_space(50)
+    card_y = pdf.get_y()
     pdf.card_box(
         'Data Explosion',
         'Global financial data volumes are growing at 25-30% annually. Alternative data '
         'sources (satellite, NLP, sentiment) are adding entirely new dimensions to market '
         'analysis. Traditional tools cannot keep pace with this growth.',
-        15, pdf.get_y(), 85, 45
+        15, card_y, 85, 45
     )
     pdf.card_box(
         'GPU Computing Revolution',
         'NVIDIA GPU computing has transformed machine learning from a niche technique '
         'to an industrial-scale capability. Training runs that took weeks on CPUs now '
         'complete in hours. This changes what is computationally feasible.',
-        110, pdf.get_y(), 85, 45
+        110, card_y, 85, 45
     )
-    pdf.ln(49)
+    pdf.set_y(card_y + 49)
 
     pdf.ensure_space(48)
+    card_y = pdf.get_y()
     pdf.card_box(
         'AI Maturation in Finance',
         'Machine learning has moved beyond hype into proven production use across '
         'the financial sector. The question is no longer whether AI works in finance '
         '-- it is who has the best infrastructure to deploy it at scale.',
-        15, pdf.get_y(), 85, 42
+        15, card_y, 85, 42
     )
     pdf.card_box(
         'Infrastructure Gap',
         'The gap between what leading firms can compute and what everyone else can '
         'access is widening. This creates a massive opportunity for purpose-built '
         'research infrastructure that levels the playing field.',
-        110, pdf.get_y(), 85, 42
+        110, card_y, 85, 42
     )
-    pdf.ln(46)
+    pdf.set_y(card_y + 46)
 
     # ============================================================
     # PAGE 4: Platform Architecture
@@ -199,13 +202,14 @@ def generate_whitepaper():
     pdf.ln(12)
 
     pdf.ensure_space(58)
+    card_y = pdf.get_y()
     pdf.nvidia_card_box(
         'NVIDIA CUDA -- The Foundation',
         'Every training run, every simulation, every feature computation is CUDA-accelerated. '
         'Multi-GPU distributed training with mixed-precision (FP16/BF16) delivers 47x speedups '
         'over CPU-only infrastructure. Researchers iterate on ideas in hours, not days. '
         'This is the engine that makes everything else possible.',
-        15, pdf.get_y(), 85, 52
+        15, card_y, 85, 52
     )
     pdf.nvidia_card_box(
         'RAPIDS cuDF -- Data at GPU Speed',
@@ -213,18 +217,19 @@ def generate_whitepaper():
         'RAPIDS cuDF eliminates this entirely. Feature engineering on billion-row financial '
         'time-series runs 10-50x faster than pandas. End-to-end GPU processing means data '
         'never leaves the GPU between preparation and training.',
-        110, pdf.get_y(), 85, 52
+        110, card_y, 85, 52
     )
-    pdf.ln(56)
+    pdf.set_y(card_y + 56)
 
     pdf.ensure_space(58)
+    card_y = pdf.get_y()
     pdf.nvidia_card_box(
         'TensorRT -- Production Inference',
         'Research models are optimised for production through layer fusion, kernel auto-tuning, '
         'and INT8 quantisation. The result: sub-2ms inference latency for real-time signal '
         'generation. In markets where milliseconds matter, every microsecond of latency '
         'reduction translates directly to better research outcomes.',
-        15, pdf.get_y(), 85, 52
+        15, card_y, 85, 52
     )
     pdf.nvidia_card_box(
         'NVIDIA NIM -- Production Deployment',
@@ -232,22 +237,23 @@ def generate_whitepaper():
         'and dynamic scaling. Built-in model orchestration handles multi-model serving with '
         'intelligent batching and GPU memory management. Zero-downtime version transitions '
         'with automatic rollback and SLA monitoring.',
-        110, pdf.get_y(), 85, 52
+        110, card_y, 85, 52
     )
-    pdf.ln(56)
+    pdf.set_y(card_y + 56)
 
     # Performance benchmarks
     pdf.ensure_space(30)
-    pdf.green_stat_box('47x', 'GPU vs CPU Training', 15, pdf.get_y(), 42)
-    pdf.green_stat_box('<2ms', 'Inference Latency', 62, pdf.get_y(), 42)
-    pdf.green_stat_box('50x', 'Feature Eng. Speedup', 109, pdf.get_y(), 42)
-    pdf.green_stat_box('10K+', 'Sim Scenarios/Run', 156, pdf.get_y(), 38)
-    pdf.ln(28)
+    card_y = pdf.get_y()
+    pdf.green_stat_box('47x', 'GPU vs CPU Training', 15, card_y, 42)
+    pdf.green_stat_box('<2ms', 'Inference Latency', 62, card_y, 42)
+    pdf.green_stat_box('50x', 'Feature Eng. Speedup', 109, card_y, 42)
+    pdf.green_stat_box('10K+', 'Sim Scenarios/Run', 156, card_y, 38)
+    pdf.set_y(card_y + 28)
 
     # ============================================================
     # PAGE 6: Data Infrastructure & Coverage
     # ============================================================
-    pdf.content_page()
+    pdf.ensure_space(80)
     pdf.section_heading('Data Infrastructure')
     pdf.body(
         'In quantitative research, data quality is not a nice-to-have -- it is the foundation '
@@ -285,22 +291,23 @@ def generate_whitepaper():
         'and regulatory compliance.'
     )
 
-    pdf.ensure_space(44)
+    pdf.ensure_space(50)
+    card_y = pdf.get_y()
     pdf.card_box(
         'Real-Time Streaming',
         'Event-driven pipelines with sub-second latency and exactly-once delivery. '
         'Automatic reconnection and gap detection for exchange feeds. '
         'Sustained throughput of millions of events per second across all asset classes.',
-        15, pdf.get_y(), 85, 38
+        15, card_y, 85, 44
     )
     pdf.card_box(
         'GPU-Accelerated Batch Processing',
         'Historical backfills and daily reconciliation powered by RAPIDS cuDF. '
         'Idempotent processing with complete audit trails and data versioning. '
         'Parallel GPU processing enables massive backfill operations in hours, not days.',
-        110, pdf.get_y(), 85, 38
+        110, card_y, 85, 44
     )
-    pdf.ln(42)
+    pdf.set_y(card_y + 48)
 
     # ============================================================
     # PAGE 7: Research Methodology
@@ -378,45 +385,48 @@ def generate_whitepaper():
     )
     pdf.ln(2)
 
-    pdf.stat_box('94.2%', 'GPU Utilisation', 15, pdf.get_y(), 42)
-    pdf.stat_box('1,247', 'Active Experiments', 62, pdf.get_y(), 42)
-    pdf.stat_box('3.2M', 'Events / sec', 109, pdf.get_y(), 42)
-    pdf.stat_box('99.97%', 'Uptime (30d)', 156, pdf.get_y(), 38)
-    pdf.ln(30)
+    card_y = pdf.get_y()
+    pdf.stat_box('94.2%', 'GPU Utilisation', 15, card_y, 42)
+    pdf.stat_box('1,247', 'Active Experiments', 62, card_y, 42)
+    pdf.stat_box('3.2M', 'Events / sec', 109, card_y, 42)
+    pdf.stat_box('99.97%', 'Uptime (30d)', 156, card_y, 38)
+    pdf.set_y(card_y + 30)
 
     pdf.ensure_space(54)
+    card_y = pdf.get_y()
     pdf.dark_card_box(
         'GPU Cluster Command',
         'Real-time utilisation heatmap across all GPU nodes. Per-GPU memory, temperature, '
         'power, and CUDA kernel metrics. Training job queue with priority scheduling. '
         'Thermal throttling detection and proactive failure prediction.',
-        15, pdf.get_y(), 85, 48
+        15, card_y, 85, 48
     )
     pdf.dark_card_box(
         'Experiment Mission Control',
         'Live tracking of all active ML experiments with real-time loss curves and '
         'validation metrics. Per-experiment resource allocation and cost tracking. '
         'Automated early stopping recommendations and historical analytics.',
-        110, pdf.get_y(), 85, 48
+        110, card_y, 85, 48
     )
-    pdf.ln(52)
+    pdf.set_y(card_y + 52)
 
     pdf.ensure_space(48)
+    card_y = pdf.get_y()
     pdf.dark_card_box(
         'Data Pipeline Operations',
         'Feed-by-feed ingestion status with per-exchange latency and throughput. '
         'Real-time data quality scoring with anomaly and drift detection. '
         'End-to-end pipeline lineage for full data traceability.',
-        15, pdf.get_y(), 85, 42
+        15, card_y, 85, 42
     )
     pdf.dark_card_box(
         'Infrastructure Intelligence',
         'Kubernetes cluster orchestration with GPU scheduling queues. Predictive '
         'auto-scaling based on workload patterns. Storage tiering, network monitoring, '
         'and capacity forecasting with 30-day projections.',
-        110, pdf.get_y(), 85, 42
+        110, card_y, 85, 42
     )
-    pdf.ln(46)
+    pdf.set_y(card_y + 46)
 
     # ============================================================
     # PAGE 9: Technology Stack
@@ -1362,38 +1372,40 @@ def generate_whitepaper():
     )
     pdf.ln(2)
     pdf.ensure_space(50)
+    card_y = pdf.get_y()
     pdf.card_box(
         'Technology Partners',
         'GPU computing providers, cloud infrastructure companies, and hardware vendors '
         'looking to showcase accelerated computing in quantitative finance. We are an ideal '
         'reference platform for demonstrating real-world GPU performance gains.',
-        15, pdf.get_y(), 85, 45
+        15, card_y, 85, 45
     )
     pdf.card_box(
         'Data Partners',
         'Market data vendors, alternative data providers, and exchange operators seeking '
         'a showcase platform for their data products. Our infrastructure demonstrates the '
         'full value of high-quality data when processed at GPU speed.',
-        110, pdf.get_y(), 85, 45
+        110, card_y, 85, 45
     )
-    pdf.ln(49)
+    pdf.set_y(card_y + 49)
 
     pdf.ensure_space(48)
+    card_y = pdf.get_y()
     pdf.card_box(
         'Research Institutions',
         'Universities, research labs, and academic groups exploring AI applications in '
         'financial markets. We provide the computational infrastructure that enables '
         'research at a scale typically only available to top-tier quant firms.',
-        15, pdf.get_y(), 85, 42
+        15, card_y, 85, 42
     )
     pdf.card_box(
         'Investors & Advisors',
         'Individuals and organisations interested in the convergence of artificial '
         'intelligence, quantitative finance, and high-performance computing. We are '
         'building for the decade ahead, not the quarter ahead.',
-        110, pdf.get_y(), 85, 42
+        110, card_y, 85, 42
     )
-    pdf.ln(48)
+    pdf.set_y(card_y + 48)
 
     pdf.ensure_space(50)
     pdf.cta_block(
