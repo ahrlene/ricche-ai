@@ -740,6 +740,17 @@ def generate_architecture_pdf():
     pdf.tech_badge('Cadence / Synopsys EDA')
     pdf.ln(10)
 
+    pdf.sub_heading('Sovereign Compute Infrastructure')
+    pdf.tech_badge('Private Satellite Data Downlink')
+    pdf.tech_badge('Submarine Cable Tap Rights')
+    pdf.tech_badge('Private Spectrum Licensing')
+    pdf.tech_badge('Sovereign AI Compute Cluster')
+    pdf.tech_badge('Orbital Edge Compute')
+    pdf.tech_badge('Geothermal-Powered Compute')
+    pdf.tech_badge('Private Autonomous Drone Fleet')
+    pdf.tech_badge('Proprietary Foundation Model')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
