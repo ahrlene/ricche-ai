@@ -65,6 +65,12 @@
 
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Hide canvas entirely for reduced-motion preference
+  if (prefersReduced) {
+    canvas.style.display = 'none';
+    return;
+  }
+
   // Visibility tracking — pause animation when off-screen to save CPU
   let isVisible = false;
   let animId = null;
@@ -72,7 +78,7 @@
   function animate(t) {
     ctx.clearRect(0, 0, width, height);
 
-    if (prefersReduced || !isVisible) {
+    if (!isVisible) {
       animId = null;
       return;
     }

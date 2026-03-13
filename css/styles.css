@@ -265,10 +265,10 @@ img { max-width: 100%; display: block; }
   background-size: 300% 100%;
   border-radius: 2px;
   transition: width 0.4s var(--ease);
-  animation: glowSweep 3s linear infinite;
+  animation: none;
 }
 .nav-link:hover, .nav-link.active { color: var(--text-strong); }
-.nav-link:hover::after, .nav-link.active::after { width: 100%; }
+.nav-link:hover::after, .nav-link.active::after { width: 100%; animation: glowSweep 3s linear infinite; }
 
 .nav-actions {
   display: flex;

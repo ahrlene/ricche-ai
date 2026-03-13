@@ -135,7 +135,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ResearchOrganization",
+  "@type": "Organization",
   "name": "Ricche",
   "legalName": "Ricche Ltd",
   "url": "https://ricche.ai",
@@ -147,7 +147,28 @@
     "addressCountry": "GB"
   },
   "areaServed": "Global",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "info@ricche.ai",
+    "contactType": "General enquiries"
+  },
+  "sameAs": [
+    "https://linkedin.com/company/ricche-ai",
+    "https://x.com/ricche_ai",
+    "https://github.com/ricche-ai"
+  ],
   "knowsAbout": ["Machine Learning", "Financial Markets", "GPU Computing", "NVIDIA CUDA", "NVIDIA NIM", "Ray", "Quantitative Research"]
+}
+</script>
+
+<!-- Structured Data: ResearchOrganization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ResearchOrganization",
+  "name": "Ricche",
+  "url": "https://ricche.ai",
+  "description": "GPU-accelerated AI research infrastructure for quantitative finance."
 }
 </script>
 
@@ -1470,11 +1491,15 @@
     btn.textContent = 'Sending...';
     btn.disabled = true;
     if (nlStatus) nlStatus.textContent = '';
+    var controller = new AbortController();
+    var timeout = setTimeout(function() { controller.abort(); }, 10000);
     fetch(nf.action, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ Email: input.value, _subject: 'Newsletter signup from ricche.ai' })
+      body: JSON.stringify({ Email: input.value, _subject: 'Newsletter signup from ricche.ai' }),
+      signal: controller.signal
     }).then(function(r) {
+      clearTimeout(timeout);
       if (r.ok) {
         btn.textContent = 'Subscribed!'; input.value = ''; input.disabled = true;
         if (nlStatus) nlStatus.textContent = 'You have been subscribed successfully.';
@@ -1482,9 +1507,10 @@
         btn.textContent = 'Subscribe'; btn.disabled = false;
         if (nlStatus) nlStatus.textContent = 'Something went wrong. Please try again.';
       }
-    }).catch(function() {
+    }).catch(function(err) {
+      clearTimeout(timeout);
       btn.textContent = 'Subscribe'; btn.disabled = false;
-      if (nlStatus) nlStatus.textContent = 'Something went wrong. Please try again.';
+      if (nlStatus) nlStatus.textContent = err.name === 'AbortError' ? 'Request timed out. Please try again.' : 'Something went wrong. Please try again.';
     });
   });
 })();
@@ -1492,6 +1518,6 @@
 <script defer src="js/ai-network.min.js"></script>
 <script defer src="js/animations.min.js"></script>
 <script defer src="js/main.min.js"></script>
-<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js');}</script>
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js').catch(function(e){console.error('SW registration failed:',e)});}</script>
 </body>
 </html>

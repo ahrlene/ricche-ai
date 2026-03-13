@@ -252,7 +252,7 @@
             <label for="consent">I agree to Ricche Ltd processing my personal data to respond to this enquiry, in accordance with the <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a>.</label>
           </div>
 
-          <div class="form-error" id="formError" role="alert"></div>
+          <div class="form-error" id="formError" role="alert" aria-live="assertive" aria-atomic="true"></div>
           <button type="submit" class="btn-primary btn-glow form-submit">
             <span>Send Enquiry</span>
             <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -415,12 +415,16 @@
     submitBtn.setAttribute('aria-busy', 'true');
     submitBtn.querySelector('span').textContent = 'Sending...';
 
+    var controller = new AbortController();
+    var timeout = setTimeout(function() { controller.abort(); }, 10000);
     fetch(form.action, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(Object.fromEntries(new FormData(form)))
+      body: JSON.stringify(Object.fromEntries(new FormData(form))),
+      signal: controller.signal
     })
     .then(function(res) {
+      clearTimeout(timeout);
       if (res.ok) {
         form.style.display = 'none';
         success.classList.add('show');
@@ -430,11 +434,12 @@
         throw new Error('Form submission failed');
       }
     })
-    .catch(function() {
+    .catch(function(err) {
+      clearTimeout(timeout);
       submitBtn.disabled = false;
       submitBtn.setAttribute('aria-busy', 'false');
       submitBtn.querySelector('span').textContent = 'Send Enquiry';
-      errorBanner.textContent = 'Something went wrong. Please try again or email us directly.';
+      errorBanner.textContent = err.name === 'AbortError' ? 'Request timed out. Please try again or email us directly.' : 'Something went wrong. Please try again or email us directly.';
       errorBanner.classList.add('show');
     });
   });

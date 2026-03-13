@@ -353,6 +353,6 @@ Streaming logs to: https://dashboard.ricche.ai/exp/3f8a2b1c</code></pre>
 </footer>
 
 <script defer src="js/animations.min.js"></script>
-<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js');}</script>
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js').catch(function(e){console.error('SW registration failed:',e)});}</script>
 </body>
 </html>
