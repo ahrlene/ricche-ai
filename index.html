@@ -81,50 +81,50 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What markets do you cover?",
+      "name": "What markets does Ricche's platform cover?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Our data infrastructure supports global equities, futures (including commodities), options, FX, and fixed income. We ingest feeds from major exchanges and data providers, with coverage spanning developed and emerging markets."
+        "text": "Ricche's data infrastructure ingests and processes tick-level data across global equities, equity and commodity futures, listed options, spot and forward FX, and fixed income instruments. We connect to feeds from major exchanges including CME, ICE, Eurex, and LSE, as well as consolidated data providers. Coverage spans developed markets (US, EU, UK, Japan) and select emerging markets."
       }
     },
     {
       "@type": "Question",
-      "name": "What data sources do you use?",
+      "name": "What GPU hardware does Ricche use?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We work with institutional-grade market data — tick-level order books, end-of-day pricing, economic indicators, and alternative data sets. All data passes through quality checks before entering the research pipeline."
+        "text": "Our compute clusters run on NVIDIA H200 Tensor Core GPUs with 141 GB HBM3e memory, interconnected via InfiniBand NDR 400G. We use CUDA 12.x, cuDNN, and NVIDIA RAPIDS for GPU-accelerated data processing. Training workloads run on PyTorch with mixed-precision (FP16/BF16) and distributed data parallelism via Ray."
       }
     },
     {
       "@type": "Question",
-      "name": "How do you handle data security?",
+      "name": "How does Ricche handle data security and compliance?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "All data is encrypted at rest and in transit. Our infrastructure runs on isolated compute clusters with role-based access controls, audit logging, and strict data governance policies."
+        "text": "All data is encrypted at rest (AES-256) and in transit (TLS 1.3). Our infrastructure runs on isolated compute clusters with role-based access controls, full audit logging, and data governance policies aligned with FCA and MiFID II requirements. We use eBPF-based runtime security monitoring and confidential computing for sensitive workloads."
       }
     },
     {
       "@type": "Question",
-      "name": "Who do you work with?",
+      "name": "Who does Ricche partner with?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We partner with quantitative research teams, academic institutions, data scientists, and financial firms exploring AI-driven approaches to market analysis and research."
+        "text": "We work with quantitative research teams at asset managers and hedge funds, university research labs exploring ML applications in finance, GPU computing and cloud infrastructure providers (including NVIDIA), and alternative data vendors. We also partner with exchange operators seeking to demonstrate the value of high-frequency data when processed on GPU infrastructure."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I access the platform for my own research?",
+      "name": "How can I access the Ricche research platform?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes — we offer research partnerships for teams and individuals working at the intersection of AI and finance. Get in touch to discuss access and collaboration options."
+        "text": "Platform access is provisioned through research partnerships. After onboarding, you receive API credentials, SSH keys for GPU cluster access, and dashboard login via SSO (SAML 2.0 or OIDC). You can install our Python SDK with 'pip install ricche-sdk' and submit experiments via YAML configuration files. Contact us at info@ricche.ai to discuss access."
       }
     },
     {
       "@type": "Question",
-      "name": "What makes Ricche different from other platforms?",
+      "name": "What makes Ricche different from other quant platforms?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ricche is built for rigour. Every experiment is versioned, every result is reproducible, and every model goes through structured validation before advancing. We're a research-first platform, not a trading tool."
+        "text": "Ricche is a research-first platform, not a trading tool. Every experiment is version-controlled with full lineage tracking, every result is reproducible via deterministic seeding, and every model passes through structured validation gates before advancing. Our GPU-accelerated backtesting engine runs 10 billion Monte Carlo paths per second, and our simulation framework tests strategies across thousands of market scenarios in parallel."
       }
     }
   ]

@@ -238,6 +238,48 @@
             <li><code>POST /v1/backtest</code> — Run a GPU-accelerated backtest</li>
             <li><code>GET /v1/signals</code> — Query the alpha signal library</li>
           </ul>
+
+          <h3>Example: Submit an Experiment</h3>
+          <p>Create an experiment config file (<code>experiment.yaml</code>):</p>
+          <pre style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:10px;padding:20px;font-size:0.85rem;color:var(--text-body);overflow-x:auto;margin-bottom:16px;"><code>name: momentum_signal_v3
+dataset: equity_us_daily
+gpu: true
+framework: pytorch
+config:
+  lookback: 252
+  universe: sp500
+  features:
+    - returns_1d
+    - volume_zscore
+    - volatility_20d
+  model:
+    type: transformer
+    hidden_dim: 128
+    num_heads: 4
+    dropout: 0.1
+  training:
+    epochs: 50
+    batch_size: 256
+    learning_rate: 0.0003
+    early_stopping: true</code></pre>
+          <p>Submit via the CLI:</p>
+          <pre style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:10px;padding:20px;font-size:0.85rem;color:var(--text-body);overflow-x:auto;margin-bottom:16px;"><code>$ ricche experiment submit --config experiment.yaml
+Experiment queued: exp_3f8a2b1c
+GPU allocation: 1x H200 (141 GB HBM3e)
+Streaming logs to: https://dashboard.ricche.ai/exp/3f8a2b1c</code></pre>
+
+          <h3>Example: Query Results</h3>
+          <pre style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:10px;padding:20px;font-size:0.85rem;color:var(--text-body);overflow-x:auto;margin-bottom:16px;"><code>$ ricche experiment results exp_3f8a2b1c --format json
+{
+  "status": "completed",
+  "duration": "4m 32s",
+  "metrics": {
+    "sharpe": 1.82,
+    "max_drawdown": -0.087,
+    "annual_return": 0.143
+  },
+  "artefacts": ["model.pt", "backtest_report.html"]
+}</code></pre>
           <p>Detailed request/response schemas and authentication guides are provided upon platform access. <a href="/contact" style="color:var(--neon-bright);">Request access</a> to receive full API documentation.</p>
 
           <h2 id="changelog">Changelog</h2>

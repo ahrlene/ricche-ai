@@ -4,8 +4,13 @@
   "private": true,
   "description": "Ricche — AI Research Infrastructure for Financial Markets",
   "scripts": {
-    "build": "npm run build:css && npm run build:js && echo Build complete. Remember to bump CACHE_NAME in sw.js!",
-    "build:css": "cp css/styles.css css/styles.min.css",
-    "build:js": "cp js/animations.js js/animations.min.js && cp js/main.js js/main.min.js && cp js/ai-network.js js/ai-network.min.js"
+    "build": "npm run build:css && npm run build:js && npm run build:version && echo Build complete.",
+    "build:css": "cleancss -o css/styles.min.css css/styles.css",
+    "build:js": "terser js/animations.js -o js/animations.min.js -c -m && terser js/main.js -o js/main.min.js -c -m && terser js/ai-network.js -o js/ai-network.min.js -c -m",
+    "build:version": "node -e \"const v='ricche-v'+Date.now();const fs=require('fs');let sw=fs.readFileSync('sw.js','utf8');sw=sw.replace(/const CACHE_NAME = '[^']+'/,'const CACHE_NAME = \\''+v+'\\'');fs.writeFileSync('sw.js',sw);\""
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "terser": "^5.46.0"
   }
 }
