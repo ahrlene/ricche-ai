@@ -942,6 +942,22 @@ def generate_architecture_pdf():
     pdf.tech_badge('Universal Ownership Model')
     pdf.ln(10)
 
+    pdf.sub_heading('Critical Infrastructure Intelligence')
+    pdf.tech_badge('Grid Frequency Deviation Alpha')
+    pdf.tech_badge('Transmission Constraint Pricing')
+    pdf.tech_badge('Renewable Intermittency Arbitrage')
+    pdf.tech_badge('Infrastructure CapEx Cycle Predictor')
+    pdf.tech_badge('Demand Response Aggregation Intelligence')
+    pdf.tech_badge('Grid Resilience Stress Testing')
+    pdf.ln(10)
+
+    pdf.sub_heading('Consumer & Brand Intelligence')
+    pdf.tech_badge('Brand Equity Decay Predictor')
+    pdf.tech_badge('Commodity-to-Shelf Margin Modelling')
+    pdf.tech_badge('Emerging Market Consumer Penetration AI')
+    pdf.tech_badge('Sustainability Premium Quantification')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
