@@ -972,6 +972,18 @@ def generate_whitepaper():
     pdf.tech_badge('Succession & Conglomerate M&A Intelligence')
     pdf.ln(10)
 
+    pdf.sub_heading('Heavy Industry & Earth Intelligence')
+    pdf.tech_badge('Global Construction Activity Nowcaster')
+    pdf.tech_badge('Mining Capex Cycle Predictor')
+    pdf.tech_badge('Equipment Utilisation & Idle Fleet Tracker')
+    pdf.tech_badge('Commodity-to-Machine Demand Model')
+    pdf.tech_badge('Infrastructure Stimulus Pipeline Intelligence')
+    pdf.tech_badge('Dealer Network Health Scoring')
+    pdf.tech_badge('Autonomous Mining Fleet Economics')
+    pdf.tech_badge('Energy Transition Equipment Demand Forecaster')
+    pdf.tech_badge('Machine Lifecycle & Rebuild Economics')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
