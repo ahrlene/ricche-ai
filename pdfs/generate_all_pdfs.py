@@ -612,6 +612,17 @@ def generate_architecture_pdf():
     pdf.tech_badge('Strategy Decay Monitoring')
     pdf.ln(10)
 
+    pdf.sub_heading('Predatory Intelligence')
+    pdf.tech_badge('Real-Time Strategy Fingerprinting')
+    pdf.tech_badge('Competitor Model Decay Prediction')
+    pdf.tech_badge('Alpha Extraction from Competitor Signals')
+    pdf.tech_badge('Predictive Liquidation Detection')
+    pdf.tech_badge('Stealth Execution Engine')
+    pdf.tech_badge('Crisis Alpha Harvesting')
+    pdf.tech_badge('Information Asymmetry Quantification')
+    pdf.tech_badge('Counterparty Exposure Mapping')
+    pdf.ln(10)
+
     pdf.sub_heading('Self-Evolving Alpha System')
     pdf.tech_badge('Self-Evolving Alpha Engine')
     pdf.tech_badge('Autonomous Deploy & Replace')
