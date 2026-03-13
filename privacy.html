@@ -23,7 +23,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Privacy Policy — Ricche Ltd">
 <meta property="og:description" content="Privacy policy for Ricche Ltd. How we collect, use, and protect your personal data.">
-<meta property="og:image" content="https://ricche.ai/assets/og-share.svg">
+<meta property="og:image" content="https://ricche.ai/assets/og-share.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://ricche.ai/privacy">
@@ -46,7 +46,7 @@
 </script>
 
 <!-- Security: Content Security Policy -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.vercel-scripts.com https://*.vercel.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.vercel-insights.com https://*.vercel.com;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.vercel-scripts.com https://*.vercel.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self'; img-src 'self' data:; connect-src 'self' https://*.vercel-insights.com https://*.vercel.com;">
 
 <!-- Security: Permissions Policy -->
 <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=()">
@@ -59,7 +59,7 @@
   *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
   :root{--font-display:'Space Grotesk',sans-serif;--font-body:'Inter',sans-serif;--neon:#0055FF;--neon-bright:#0088FF;--neon-cyan:#00C8FF;--neon-glow:rgba(0,85,255,.35);--neon-subtle:rgba(0,85,255,.08);--ease:cubic-bezier(.16,1,.3,1)}
   [data-theme="light"]{--bg:#f5f7fb;--bg-alt:#fff;--text:#0a1628;--text-strong:#000;--text-body:#2d3748;--text-secondary:#4a5568;--border-color:rgba(0,0,0,.1);--logo-filter:none;--section-border:rgba(0,0,0,.06);--shadow-sm:0 1px 3px rgba(0,0,0,.06)}
-  [data-theme="dark"]{--bg:#060a14;--bg-alt:#0c1424;--text:#eef2f8;--text-strong:#fff;--text-body:#c5cdd8;--text-secondary:#8a96aa;--border-color:rgba(255,255,255,.08);--logo-filter:invert(1) brightness(1.8);--section-border:rgba(255,255,255,.05);--shadow-sm:0 1px 3px rgba(0,0,0,.3)}
+  [data-theme="dark"]{--bg:#060a14;--bg-alt:#0c1424;--text:#eef2f8;--text-strong:#fff;--text-body:#c5cdd8;--text-secondary:#a0adc0;--border-color:rgba(255,255,255,.08);--logo-filter:invert(1) brightness(1.8);--section-border:rgba(255,255,255,.05);--shadow-sm:0 1px 3px rgba(0,0,0,.3)}
   html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
   body{font-family:var(--font-body);font-size:16px;background:var(--bg);color:var(--text-body);overflow-x:hidden;line-height:1.7}
   img{max-width:100%;display:block}
@@ -71,12 +71,12 @@
   .logo-mark img{width:100%;height:100%;object-fit:contain;filter:var(--logo-filter)}
 </style>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700;800&display=swap">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
-<link rel="preload" as="style" href="css/styles.css">
-<link rel="stylesheet" href="css/styles.css">
+<!-- Self-hosted fonts -->
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="preload" as="style" href="css/styles.min.css">
+<link rel="stylesheet" href="css/styles.min.css">
 </head>
 
 <body>
@@ -175,9 +175,9 @@
         <h2>6. Third-party services</h2>
         <p>We use the following third-party services:</p>
         <ul>
-          <li><strong>FormSubmit.co</strong> — contact form processing (<a href="https://formsubmit.co/" style="color:var(--neon);">formsubmit.co</a>)</li>
-          <li><strong>Vercel</strong> — website hosting and anonymous analytics (<a href="https://vercel.com/legal/privacy-policy" style="color:var(--neon);">vercel.com</a>)</li>
-          <li><strong>Google Fonts</strong> — web font delivery (<a href="https://policies.google.com/privacy" style="color:var(--neon);">policies.google.com</a>)</li>
+          <li><strong>FormSubmit.co</strong> — contact form processing (<a href="https://formsubmit.co/" style="color:var(--neon);" rel="noopener" target="_blank">formsubmit.co</a>)</li>
+          <li><strong>Vercel</strong> — website hosting and anonymous analytics (<a href="https://vercel.com/legal/privacy-policy" style="color:var(--neon);" rel="noopener" target="_blank">vercel.com</a>)</li>
+          <li><strong>Google Fonts</strong> — web font delivery (<a href="https://policies.google.com/privacy" style="color:var(--neon);" rel="noopener" target="_blank">policies.google.com</a>)</li>
         </ul>
       </section>
 
@@ -212,7 +212,7 @@
           <li>Email: <a href="mailto:info@ricche.ai" style="color:var(--neon);">info@ricche.ai</a></li>
           <li>Website: <a href="/contact" style="color:var(--neon);">ricche.ai/contact</a></li>
         </ul>
-        <p>You also have the right to lodge a complaint with the <strong>Information Commissioner's Office (ICO)</strong> at <a href="https://ico.org.uk/" style="color:var(--neon);">ico.org.uk</a> if you believe your data has been handled improperly.</p>
+        <p>You also have the right to lodge a complaint with the <strong>Information Commissioner's Office (ICO)</strong> at <a href="https://ico.org.uk/" style="color:var(--neon);" rel="noopener" target="_blank">ico.org.uk</a> if you believe your data has been handled improperly.</p>
       </section>
 
     </div>

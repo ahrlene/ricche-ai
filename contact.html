@@ -23,7 +23,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Contact — Ricche Ltd">
 <meta property="og:description" content="Get in touch with Ricche for research collaboration and enquiries.">
-<meta property="og:image" content="https://ricche.ai/assets/og-share.svg">
+<meta property="og:image" content="https://ricche.ai/assets/og-share.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://ricche.ai/contact">
@@ -34,7 +34,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Contact — Ricche Ltd">
 <meta name="twitter:description" content="Get in touch with Ricche for research collaboration and enquiries.">
-<meta name="twitter:image" content="https://ricche.ai/assets/og-share.svg">
+<meta name="twitter:image" content="https://ricche.ai/assets/og-share.png">
 
 <!-- Canonical URL -->
 <link rel="canonical" href="https://ricche.ai/contact">
@@ -75,7 +75,7 @@
 </script>
 
 <!-- Security: Content Security Policy -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.vercel-scripts.com https://*.vercel.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formsubmit.co https://*.vercel-insights.com https://*.vercel.com;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.vercel-scripts.com https://*.vercel.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self'; img-src 'self' data:; connect-src 'self' https://formsubmit.co https://*.vercel-insights.com https://*.vercel.com;">
 
 <!-- Security: Permissions Policy -->
 <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=()">
@@ -88,7 +88,7 @@
   *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
   :root{--font-display:'Space Grotesk',sans-serif;--font-body:'Inter',sans-serif;--neon:#0055FF;--neon-bright:#0088FF;--neon-cyan:#00C8FF;--neon-glow:rgba(0,85,255,.35);--neon-subtle:rgba(0,85,255,.08);--ease:cubic-bezier(.16,1,.3,1)}
   [data-theme="light"]{--bg:#f5f7fb;--bg-alt:#fff;--text:#0a1628;--text-strong:#000;--text-body:#2d3748;--text-secondary:#4a5568;--border-color:rgba(0,0,0,.1);--logo-filter:none;--section-border:rgba(0,0,0,.06);--shadow-sm:0 1px 3px rgba(0,0,0,.06)}
-  [data-theme="dark"]{--bg:#060a14;--bg-alt:#0c1424;--text:#eef2f8;--text-strong:#fff;--text-body:#c5cdd8;--text-secondary:#8a96aa;--border-color:rgba(255,255,255,.08);--logo-filter:invert(1) brightness(1.8);--section-border:rgba(255,255,255,.05);--shadow-sm:0 1px 3px rgba(0,0,0,.3)}
+  [data-theme="dark"]{--bg:#060a14;--bg-alt:#0c1424;--text:#eef2f8;--text-strong:#fff;--text-body:#c5cdd8;--text-secondary:#a0adc0;--border-color:rgba(255,255,255,.08);--logo-filter:invert(1) brightness(1.8);--section-border:rgba(255,255,255,.05);--shadow-sm:0 1px 3px rgba(0,0,0,.3)}
   html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
   body{font-family:var(--font-body);font-size:16px;background:var(--bg);color:var(--text-body);overflow-x:hidden;line-height:1.7}
   img{max-width:100%;display:block}
@@ -104,12 +104,12 @@
 <link rel="dns-prefetch" href="https://formsubmit.co">
 <link rel="preconnect" href="https://formsubmit.co">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700;800&display=swap">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
-<link rel="preload" as="style" href="css/styles.css">
-<link rel="stylesheet" href="css/styles.css">
+<!-- Self-hosted fonts -->
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="preload" as="style" href="css/styles.min.css">
+<link rel="stylesheet" href="css/styles.min.css">
 </head>
 
 <body>
@@ -244,7 +244,7 @@
 
           <div class="form-consent">
             <input type="checkbox" id="consent" name="Consent" required aria-required="true">
-            <label for="consent">I agree to Ricche Ltd processing my personal data to respond to this enquiry, in accordance with the <a href="/privacy" target="_blank">Privacy Policy</a>.</label>
+            <label for="consent">I agree to Ricche Ltd processing my personal data to respond to this enquiry, in accordance with the <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a>.</label>
           </div>
 
           <div class="form-error" id="formError" role="alert"></div>
@@ -371,6 +371,22 @@
     success.classList.add('show');
   }
 
+  // Inline field validation
+  form.querySelectorAll('.form-input, .form-textarea').forEach(function(field) {
+    field.addEventListener('blur', function() {
+      if (!field.checkValidity()) {
+        field.classList.add('field-invalid');
+      } else {
+        field.classList.remove('field-invalid');
+      }
+    });
+    field.addEventListener('input', function() {
+      if (field.classList.contains('field-invalid') && field.checkValidity()) {
+        field.classList.remove('field-invalid');
+      }
+    });
+  });
+
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     errorBanner.classList.remove('show');
@@ -399,6 +415,32 @@
       errorBanner.classList.add('show');
     });
   });
+})();
+</script>
+
+<!-- Analytics Consent Banner -->
+<div class="consent-banner" id="consentBanner" role="dialog" aria-label="Analytics consent">
+  <p>We use anonymous analytics to improve this site. No personal data is collected. <a href="/privacy">Learn more</a></p>
+  <div class="consent-actions">
+    <button class="consent-btn consent-accept" id="consentAccept">Accept</button>
+    <button class="consent-btn consent-decline" id="consentDecline">Decline</button>
+  </div>
+</div>
+<script>
+(function(){
+  var consent = localStorage.getItem('ricche-analytics');
+  var banner = document.getElementById('consentBanner');
+  if (consent === null) banner.classList.add('show');
+  document.getElementById('consentAccept').addEventListener('click', function(){
+    localStorage.setItem('ricche-analytics', 'yes');
+    banner.classList.remove('show');
+    var s = document.createElement('script'); s.defer = true; s.src = '/_vercel/insights/script.js'; document.body.appendChild(s);
+  });
+  document.getElementById('consentDecline').addEventListener('click', function(){
+    localStorage.setItem('ricche-analytics', 'no');
+    banner.classList.remove('show');
+  });
+  if (consent === 'yes') { var s = document.createElement('script'); s.defer = true; s.src = '/_vercel/insights/script.js'; document.body.appendChild(s); }
 })();
 </script>
 </body>

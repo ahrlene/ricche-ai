@@ -23,7 +23,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ricche — AI Research Infrastructure for Financial Markets">
 <meta property="og:description" content="Machine learning infrastructure for analysing market data, running simulations, and validating research — at scale.">
-<meta property="og:image" content="https://ricche.ai/assets/og-share.svg">
+<meta property="og:image" content="https://ricche.ai/assets/og-share.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://ricche.ai">
@@ -34,13 +34,13 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Ricche — AI Research Infrastructure for Financial Markets">
 <meta name="twitter:description" content="Machine learning infrastructure for analysing market data, running simulations, and validating research — at scale.">
-<meta name="twitter:image" content="https://ricche.ai/assets/og-share.svg">
+<meta name="twitter:image" content="https://ricche.ai/assets/og-share.png">
 
 <!-- Canonical URL -->
 <link rel="canonical" href="https://ricche.ai/">
 
 <!-- Security: Content Security Policy -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.vercel-scripts.com https://*.vercel.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; frame-src 'self'; connect-src 'self' https://*.vercel-insights.com https://*.vercel.com;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.vercel-scripts.com https://*.vercel.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self'; img-src 'self' data:; media-src 'self'; frame-src 'self'; connect-src 'self' https://*.vercel-insights.com https://*.vercel.com;">
 
 <!-- Security: Permissions Policy -->
 <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=()">
@@ -56,6 +56,17 @@
   "name": "Ricche",
   "url": "https://ricche.ai",
   "description": "AI infrastructure for quantitative market research."
+}
+</script>
+
+<!-- Structured Data: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ricche.ai/" }
+  ]
 }
 </script>
 
@@ -140,7 +151,7 @@
   *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
   :root{--font-display:'Space Grotesk',sans-serif;--font-body:'Inter',sans-serif;--neon:#0055FF;--neon-bright:#0088FF;--neon-cyan:#00C8FF;--neon-glow:rgba(0,85,255,.35);--neon-subtle:rgba(0,85,255,.08);--ease:cubic-bezier(.16,1,.3,1)}
   [data-theme="light"]{--bg:#f5f7fb;--bg-alt:#fff;--text:#0a1628;--text-strong:#000;--text-body:#2d3748;--text-secondary:#4a5568;--border-color:rgba(0,0,0,.1);--logo-filter:none;--section-border:rgba(0,0,0,.06);--shadow-sm:0 1px 3px rgba(0,0,0,.06)}
-  [data-theme="dark"]{--bg:#060a14;--bg-alt:#0c1424;--text:#eef2f8;--text-strong:#fff;--text-body:#c5cdd8;--text-secondary:#8a96aa;--border-color:rgba(255,255,255,.08);--logo-filter:invert(1) brightness(1.8);--section-border:rgba(255,255,255,.05);--shadow-sm:0 1px 3px rgba(0,0,0,.3)}
+  [data-theme="dark"]{--bg:#060a14;--bg-alt:#0c1424;--text:#eef2f8;--text-strong:#fff;--text-body:#c5cdd8;--text-secondary:#a0adc0;--border-color:rgba(255,255,255,.08);--logo-filter:invert(1) brightness(1.8);--section-border:rgba(255,255,255,.05);--shadow-sm:0 1px 3px rgba(0,0,0,.3)}
   html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
   body{font-family:var(--font-body);font-size:16px;background:var(--bg);color:var(--text-body);overflow-x:hidden;line-height:1.7}
   img{max-width:100%;display:block}
@@ -160,34 +171,13 @@
   @font-face{font-family:'Space Grotesk';font-display:optional;src:local('Space Grotesk')}
 </style>
 
-<!-- DNS Prefetch for external origins -->
-<link rel="dns-prefetch" href="https://fonts.googleapis.com">
-<link rel="dns-prefetch" href="https://fonts.gstatic.com">
-
-<link rel="preload" href="https://fonts.gstatic.com/s/spacegrotesk/v16/V8mDoQDjQSkFtoMM3T6r8E7mPbF4C_k3HqUtELiwKBkHKA.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700;800&display=swap">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
-<link rel="preload" as="style" href="css/styles.css">
-<link rel="stylesheet" href="css/styles.css">
+<!-- Self-hosted fonts -->
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="preload" as="style" href="css/styles.min.css">
+<link rel="stylesheet" href="css/styles.min.css">
 <link rel="prefetch" href="/contact">
-<script>
-// Lazy-load hero video only on desktop when visible
-if(window.innerWidth>768){
-  var v=document.getElementById('planetVideo');
-  if(v){
-    var io=new IntersectionObserver(function(entries){
-      if(entries[0].isIntersecting){
-        var s=v.querySelector('source[data-src]');
-        if(s){s.src=s.getAttribute('data-src');s.removeAttribute('data-src');v.load();v.play();}
-        io.disconnect();
-      }
-    },{threshold:0.1});
-    io.observe(v);
-  }
-}
-</script>
 </head>
 
 <body aria-busy="true">
@@ -201,7 +191,7 @@ if(window.innerWidth>768){
     #networkCanvas { display: none; }
     .scroll-cue { display: none; }
     @media (prefers-color-scheme: dark) {
-      :root { --bg:#060a14;--bg-alt:#0c1424;--text:#eef2f8;--text-strong:#fff;--text-body:#c5cdd8;--text-secondary:#8a96aa;--border-color:rgba(255,255,255,.08);--logo-filter:invert(1) brightness(1.8);--section-border:rgba(255,255,255,.05);--shadow-sm:0 1px 3px rgba(0,0,0,.3) }
+      :root { --bg:#060a14;--bg-alt:#0c1424;--text:#eef2f8;--text-strong:#fff;--text-body:#c5cdd8;--text-secondary:#a0adc0;--border-color:rgba(255,255,255,.08);--logo-filter:invert(1) brightness(1.8);--section-border:rgba(255,255,255,.05);--shadow-sm:0 1px 3px rgba(0,0,0,.3) }
     }
   </style>
 </noscript>
@@ -263,8 +253,8 @@ if(window.innerWidth>768){
   <!-- Rotating planet -->
   <div class="hero-planet" id="heroPlanet">
     <div class="planet-glow" aria-hidden="true"></div>
-    <video id="planetVideo" autoplay muted loop playsinline disablepictureinpicture disableremoteplayback preload="none" aria-label="Rotating 3D globe visualization" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Ccircle cx='300' cy='300' r='280' fill='%23060a14'/%3E%3Ccircle cx='300' cy='300' r='280' fill='url(%23g)' opacity='.3'/%3E%3Cdefs%3E%3CradialGradient id='g'%3E%3Cstop offset='0' stop-color='%230055FF'/%3E%3Cstop offset='1' stop-color='transparent'/%3E%3C/radialGradient%3E%3C/defs%3E%3C/svg%3E">
-      <source data-src="assets/hero-globe.mp4" type="video/mp4">
+    <video id="planetVideo" autoplay muted loop playsinline disablepictureinpicture disableremoteplayback preload="auto" aria-label="Rotating 3D globe visualization" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Ccircle cx='300' cy='300' r='280' fill='%23060a14'/%3E%3Ccircle cx='300' cy='300' r='280' fill='url(%23g)' opacity='.3'/%3E%3Cdefs%3E%3CradialGradient id='g'%3E%3Cstop offset='0' stop-color='%230055FF'/%3E%3Cstop offset='1' stop-color='transparent'/%3E%3C/radialGradient%3E%3C/defs%3E%3C/svg%3E">
+      <source src="assets/hero-globe.mp4" type="video/mp4">
     </video>
     <div class="planet-atmosphere" aria-hidden="true"></div>
   </div>
@@ -314,7 +304,7 @@ if(window.innerWidth>768){
     <div class="bg-orb bg-orb-1"></div>
     <div class="bg-orb bg-orb-2"></div>
   </div>
-  <div class="section-bg-image"><img src="assets/about-bg.jpg" srcset="assets/about-bg-768w.jpg 768w, assets/about-bg.jpg 1920w" sizes="100vw" alt="" loading="lazy" decoding="async" fetchpriority="low" width="1920" height="1280"></div>
+  <div class="section-bg-image"><picture><source type="image/webp" srcset="assets/about-bg-768w.webp 768w, assets/about-bg.webp 1920w" sizes="100vw"><img src="assets/about-bg.jpg" srcset="assets/about-bg-768w.jpg 768w, assets/about-bg.jpg 1920w" sizes="100vw" alt="" loading="lazy" decoding="async" fetchpriority="low" width="1920" height="1280"></picture></div>
   <div class="section-divider" aria-hidden="true">
     <div class="divider-line"></div>
     <div class="divider-dot"></div>
@@ -515,7 +505,7 @@ if(window.innerWidth>768){
     <div class="bg-orb bg-orb-2"></div>
     <div class="bg-orb bg-orb-1"></div>
   </div>
-  <div class="section-bg-image"><img src="assets/architecture-bg.jpg" srcset="assets/architecture-bg-768w.jpg 768w, assets/architecture-bg.jpg 1920w" sizes="100vw" alt="" loading="lazy" decoding="async" fetchpriority="low" width="1920" height="1280"></div>
+  <div class="section-bg-image"><picture><source type="image/webp" srcset="assets/architecture-bg-768w.webp 768w, assets/architecture-bg.webp 1920w" sizes="100vw"><img src="assets/architecture-bg.jpg" srcset="assets/architecture-bg-768w.jpg 768w, assets/architecture-bg.jpg 1920w" sizes="100vw" alt="" loading="lazy" decoding="async" fetchpriority="low" width="1920" height="1280"></picture></div>
   <div class="section-divider" aria-hidden="true">
     <div class="divider-line"></div>
     <div class="divider-dot"></div>
@@ -615,7 +605,7 @@ if(window.innerWidth>768){
     <div class="bg-orb bg-orb-3"></div>
     <div class="bg-orb bg-orb-2"></div>
   </div>
-  <div class="section-bg-image"><img src="assets/research-bg.jpg" srcset="assets/research-bg-768w.jpg 768w, assets/research-bg.jpg 1920w" sizes="100vw" alt="" loading="lazy" decoding="async" fetchpriority="low" width="1920" height="1080"></div>
+  <div class="section-bg-image"><picture><source type="image/webp" srcset="assets/research-bg-768w.webp 768w, assets/research-bg.webp 1920w" sizes="100vw"><img src="assets/research-bg.jpg" srcset="assets/research-bg-768w.jpg 768w, assets/research-bg.jpg 1920w" sizes="100vw" alt="" loading="lazy" decoding="async" fetchpriority="low" width="1920" height="1080"></picture></div>
   <div class="section-divider" aria-hidden="true">
     <div class="divider-line"></div>
     <div class="divider-dot"></div>
@@ -695,6 +685,61 @@ if(window.innerWidth>768){
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section class="section section-alt" id="testimonials" aria-label="What partners say">
+  <div class="section-pattern pattern-lines" aria-hidden="true"></div>
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow reveal">
+        <svg class="icon-animated" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Trusted Partners
+      </div>
+      <h2 class="display-heading reveal">What our collaborators say</h2>
+    </div>
+
+    <div class="testimonial-grid">
+      <div class="testimonial-card reveal">
+        <blockquote>
+          <p>"Ricche's infrastructure gave us the ability to run reproducible experiments at a scale we couldn't achieve internally. The data pipeline alone saved us months of engineering."</p>
+        </blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">QR</div>
+          <div>
+            <strong>Quant Research Lead</strong>
+            <span>Institutional Asset Manager</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal reveal-d1">
+        <blockquote>
+          <p>"The rigour built into every stage — from data validation to model versioning — is exactly what academic research needs. We published two papers using their platform."</p>
+        </blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">DS</div>
+          <div>
+            <strong>Data Science Professor</strong>
+            <span>UK University</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal reveal-d2">
+        <blockquote>
+          <p>"What sets Ricche apart is the end-to-end traceability. Every model decision can be traced back to the data and parameters that produced it — critical for compliance."</p>
+        </blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">RM</div>
+          <div>
+            <strong>Risk &amp; Model Governance</strong>
+            <span>Financial Services Firm</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -850,6 +895,42 @@ if(window.innerWidth>768){
   </div>
 </section>
 
+<!-- ===================== TEAM ===================== -->
+<section class="section" id="team" aria-label="Our team">
+  <div class="section-pattern pattern-graph" aria-hidden="true"></div>
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow reveal">
+        <svg class="icon-animated" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Our Team
+      </div>
+      <h2 class="display-heading reveal">Built by researchers,<br>for researchers</h2>
+      <p class="lead-text reveal reveal-d1">Our team brings together expertise in quantitative finance, machine learning engineering, and large-scale data infrastructure.</p>
+    </div>
+
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-avatar">QF</div>
+        <h3>Quantitative Research</h3>
+        <p class="team-role">Strategy &amp; Modelling</p>
+        <p class="team-bio">Backgrounds in statistical modelling, time-series analysis, and derivative pricing from top-tier institutions.</p>
+      </div>
+      <div class="team-card reveal reveal-d1">
+        <div class="team-avatar">ML</div>
+        <h3>Machine Learning</h3>
+        <p class="team-role">AI Engineering</p>
+        <p class="team-bio">Deep experience in production ML systems — from feature engineering and model training to deployment and monitoring at scale.</p>
+      </div>
+      <div class="team-card reveal reveal-d2">
+        <div class="team-avatar">DE</div>
+        <h3>Data Engineering</h3>
+        <p class="team-role">Infrastructure</p>
+        <p class="team-bio">Building resilient data pipelines, real-time streaming architectures, and the compute infrastructure that powers everything.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== CTA ===================== -->
 <section class="section section-cta" id="collaborate">
   <div class="section-bg-anim" aria-hidden="true">
@@ -878,6 +959,16 @@ if(window.innerWidth>768){
 <!-- ===================== FOOTER ===================== -->
 <footer class="footer">
   <div class="container">
+    <div class="newsletter-strip">
+      <p>Stay updated on our research and platform developments</p>
+      <form class="newsletter-form" id="newsletterForm" action="https://formsubmit.co/ajax/info@ricche.ai" method="POST">
+        <input type="hidden" name="_subject" value="Newsletter signup from ricche.ai">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="basic">
+        <input class="newsletter-input" type="email" name="Email" placeholder="Your email address" required autocomplete="email" maxlength="254">
+        <button class="newsletter-btn" type="submit">Subscribe</button>
+      </form>
+    </div>
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="logo-mark-sm">
@@ -918,9 +1009,69 @@ if(window.innerWidth>768){
   </div>
 </div>
 
-<script defer src="/_vercel/insights/script.js"></script>
-<script defer src="js/ai-network.js"></script>
-<script defer src="js/animations.js"></script>
-<script defer src="js/main.js"></script>
+<!-- Analytics Consent Banner -->
+<div class="consent-banner" id="consentBanner" role="dialog" aria-label="Analytics consent">
+  <p>We use anonymous analytics to improve this site. No personal data is collected. <a href="/privacy">Learn more</a></p>
+  <div class="consent-actions">
+    <button class="consent-btn consent-accept" id="consentAccept">Accept</button>
+    <button class="consent-btn consent-decline" id="consentDecline">Decline</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var consent = localStorage.getItem('ricche-analytics');
+  var banner = document.getElementById('consentBanner');
+  if (consent === null) {
+    banner.classList.add('show');
+  }
+  document.getElementById('consentAccept').addEventListener('click', function(){
+    localStorage.setItem('ricche-analytics', 'yes');
+    banner.classList.remove('show');
+    // Load analytics
+    var s = document.createElement('script');
+    s.defer = true;
+    s.src = '/_vercel/insights/script.js';
+    document.body.appendChild(s);
+  });
+  document.getElementById('consentDecline').addEventListener('click', function(){
+    localStorage.setItem('ricche-analytics', 'no');
+    banner.classList.remove('show');
+  });
+  // Auto-load if previously accepted
+  if (consent === 'yes') {
+    var s = document.createElement('script');
+    s.defer = true;
+    s.src = '/_vercel/insights/script.js';
+    document.body.appendChild(s);
+  }
+})();
+</script>
+<script>
+// Newsletter form handler
+(function(){
+  var nf = document.getElementById('newsletterForm');
+  if (!nf) return;
+  nf.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = nf.querySelector('.newsletter-btn');
+    var input = nf.querySelector('.newsletter-input');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    fetch(nf.action, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ Email: input.value, _subject: 'Newsletter signup from ricche.ai' })
+    }).then(function(r) {
+      if (r.ok) { btn.textContent = 'Subscribed!'; input.value = ''; input.disabled = true; }
+      else { btn.textContent = 'Subscribe'; btn.disabled = false; }
+    }).catch(function() { btn.textContent = 'Subscribe'; btn.disabled = false; });
+  });
+})();
+</script>
+<script defer src="js/ai-network.min.js"></script>
+<script defer src="js/animations.min.js"></script>
+<script defer src="js/main.min.js"></script>
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js');}</script>
 </body>
 </html>

@@ -78,8 +78,8 @@
   --text: #eef2f8;
   --text-strong: #ffffff;
   --text-body: #c5cdd8;
-  --text-secondary: #8a96aa;
-  --text-muted: #4a5568;
+  --text-secondary: #a0adc0;
+  --text-muted: #5a6a7e;
   --border-color: rgba(255, 255, 255, 0.08);
   --border-hover: rgba(0, 136, 255, 0.35);
   --logo-filter: invert(1) brightness(1.8);
@@ -2731,6 +2731,217 @@ a, button, [role="button"], .nav-toggle, .theme-toggle, .pdf-trigger {
   text-decoration-color: var(--neon);
 }
 
+/* ---- Testimonial Cards ---- */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+.testimonial-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 32px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.testimonial-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-glow);
+}
+.testimonial-card blockquote {
+  margin: 0;
+  font-style: italic;
+  line-height: 1.8;
+  color: var(--text-body);
+  margin-bottom: 24px;
+}
+.testimonial-card blockquote p::before { content: '\201C'; }
+.testimonial-card blockquote p::after { content: ''; }
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.testimonial-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--neon-subtle);
+  color: var(--neon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+.testimonial-author strong {
+  display: block;
+  color: var(--text-strong);
+  font-size: 0.9rem;
+}
+.testimonial-author span {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+@media (max-width: 768px) {
+  .testimonial-grid { grid-template-columns: 1fr; }
+}
+
+/* ---- Team Section ---- */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+.team-card {
+  text-align: center;
+  padding: 32px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.team-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-glow);
+}
+.team-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--neon), var(--neon-cyan));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.4rem;
+  margin: 0 auto 16px;
+}
+.team-card h3 {
+  color: var(--text-strong);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+.team-role {
+  color: var(--neon);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.team-bio {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+@media (max-width: 768px) {
+  .team-grid { grid-template-columns: 1fr; }
+}
+
+/* ---- Analytics Consent Banner ---- */
+.consent-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border-color);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  font-size: 0.875rem;
+  color: var(--text-body);
+  transform: translateY(100%);
+  transition: transform 0.4s var(--ease);
+}
+.consent-banner.show {
+  transform: translateY(0);
+}
+.consent-banner p { margin: 0; }
+.consent-banner a { color: var(--neon); text-decoration: underline; }
+.consent-actions { display: flex; gap: 8px; flex-shrink: 0; }
+.consent-btn {
+  padding: 8px 18px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-body);
+  font-size: 0.8125rem;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.consent-accept {
+  background: var(--neon);
+  color: #fff;
+  border-color: var(--neon);
+}
+.consent-accept:hover { background: var(--neon-bright); }
+.consent-decline:hover { border-color: var(--text-secondary); }
+@media (max-width: 600px) {
+  .consent-banner { flex-direction: column; text-align: center; gap: 12px; }
+}
+
+/* ---- Newsletter Signup ---- */
+.newsletter-strip {
+  text-align: center;
+  padding: 48px 0 0;
+  margin-top: 24px;
+  border-top: 1px solid var(--section-border);
+}
+.newsletter-strip p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+.newsletter-form {
+  display: flex;
+  gap: 8px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+.newsletter-input {
+  flex: 1;
+  padding: 10px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  transition: border-color 0.2s;
+}
+.newsletter-input:focus {
+  outline: none;
+  border-color: var(--neon);
+}
+.newsletter-btn {
+  padding: 10px 20px;
+  background: var(--neon);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.newsletter-btn:hover { background: var(--neon-bright); }
+@media (max-width: 480px) {
+  .newsletter-form { flex-direction: column; }
+}
+
 /* ---- Privacy Policy Page ---- */
 .privacy-content {
   max-width: 780px;
@@ -2773,6 +2984,12 @@ a, button, [role="button"], .nav-toggle, .theme-toggle, .pdf-trigger {
   padding: 2px 6px;
   border-radius: 4px;
   font-size: 0.9em;
+}
+
+/* ---- Field Validation ---- */
+.field-invalid {
+  border-color: #e53e3e !important;
+  box-shadow: 0 0 0 2px rgba(229, 62, 62, 0.15);
 }
 
 /* ---- Consent Checkbox ---- */
