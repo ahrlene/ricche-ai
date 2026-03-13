@@ -1174,6 +1174,18 @@ def generate_architecture_pdf():
     pdf.tech_badge('Latency-Optimised Architecture')
     pdf.ln(10)
 
+    pdf.sub_heading("Palantir's Unfixable Blind Spots")
+    pdf.tech_badge('Real-Time P&L Attribution Engine')
+    pdf.tech_badge('Adaptive Liquidity Sensing')
+    pdf.tech_badge('Alpha Decay Half-Life Monitor')
+    pdf.tech_badge('Client-Specific Model Isolation (No Data Leakage)')
+    pdf.tech_badge('Explainable Alpha for Regulators')
+    pdf.tech_badge('Sub-Millisecond Event Processing')
+    pdf.tech_badge('Synthetic Data Generation for Rare Events')
+    pdf.tech_badge('Portfolio Construction Optimiser')
+    pdf.tech_badge('Fee-Justified Performance Benchmarking')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
