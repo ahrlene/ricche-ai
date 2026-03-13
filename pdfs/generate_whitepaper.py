@@ -182,9 +182,9 @@ def generate_whitepaper():
     pdf.ln(2)
 
     pdf.nvidia_badge('NVIDIA CUDA')
+    pdf.nvidia_badge('NVIDIA NIM')
     pdf.nvidia_badge('TensorRT')
     pdf.nvidia_badge('RAPIDS cuDF')
-    pdf.nvidia_badge('Triton Inference')
     pdf.nvidia_badge('cuML')
     pdf.ln(12)
 
@@ -215,11 +215,11 @@ def generate_whitepaper():
         15, pdf.get_y(), 85, 52
     )
     pdf.nvidia_card_box(
-        'Triton Inference Server',
-        'Scalable model serving supporting concurrent multi-model inference with dynamic '
-        'batching and intelligent GPU memory management. Deploy dozens of models simultaneously '
-        'with zero-downtime version transitions. Supports PyTorch, TensorRT, and ONNX formats '
-        'with gRPC and REST APIs for seamless pipeline integration.',
+        'NVIDIA NIM -- Production Deployment',
+        'NVIDIA NIM microservices deliver optimised model inference with one-click deployment '
+        'and dynamic scaling. Built-in model orchestration handles multi-model serving with '
+        'intelligent batching and GPU memory management. Zero-downtime version transitions '
+        'with automatic rollback and SLA monitoring.',
         110, pdf.get_y(), 85, 52
     )
     pdf.ln(56)
@@ -416,37 +416,37 @@ def generate_whitepaper():
 
     pdf.sub_heading('GPU & Accelerated Compute')
     pdf.nvidia_badge('NVIDIA CUDA')
+    pdf.nvidia_badge('NVIDIA NIM')
     pdf.nvidia_badge('TensorRT')
     pdf.nvidia_badge('RAPIDS cuDF')
-    pdf.nvidia_badge('Triton Server')
     pdf.nvidia_badge('cuML')
     pdf.ln(10)
 
     pdf.sub_heading('Machine Learning & Research')
     pdf.tech_badge('PyTorch')
-    pdf.tech_badge('scikit-learn')
+    pdf.tech_badge('vLLM')
+    pdf.tech_badge('Ray')
     pdf.tech_badge('XGBoost')
     pdf.tech_badge('Optuna')
     pdf.tech_badge('MLflow')
-    pdf.tech_badge('Weights & Biases')
     pdf.ln(10)
 
     pdf.sub_heading('Data Engineering')
     pdf.tech_badge('Apache Kafka')
+    pdf.tech_badge('Apache Iceberg')
+    pdf.tech_badge('Polars')
+    pdf.tech_badge('DuckDB')
     pdf.tech_badge('Apache Arrow')
-    pdf.tech_badge('Parquet')
     pdf.tech_badge('PostgreSQL')
-    pdf.tech_badge('Redis')
-    pdf.tech_badge('TimescaleDB')
     pdf.ln(10)
 
     pdf.sub_heading('Infrastructure & Orchestration')
     pdf.tech_badge('Kubernetes')
     pdf.tech_badge('Docker')
     pdf.tech_badge('Terraform')
+    pdf.tech_badge('Temporal')
     pdf.tech_badge('Prometheus')
     pdf.tech_badge('Grafana')
-    pdf.tech_badge('ArgoCD')
     pdf.ln(10)
 
     pdf.sub_heading('Core Languages')
@@ -458,10 +458,10 @@ def generate_whitepaper():
 
     pdf.body(
         'Infrastructure-as-code (Terraform) ensures every deployment is reproducible. '
-        'GitOps workflows (ArgoCD) provide auditable change management. Rust powers our '
-        'latency-critical data ingestion paths. Python and PyTorch drive the research layer. '
-        'Containerised GPU workloads on Kubernetes enable efficient resource utilisation '
-        'with intelligent scheduling and auto-scaling.'
+        'Temporal orchestrates complex ML workflows with built-in retry and observability. '
+        'Ray distributes training and hyperparameter search across GPU clusters. Polars '
+        'and DuckDB handle analytical queries at blazing speed. Apache Iceberg provides '
+        'the data lakehouse layer. Rust powers latency-critical ingestion paths.'
     )
 
     # ============================================================

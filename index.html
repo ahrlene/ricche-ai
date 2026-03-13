@@ -165,7 +165,7 @@
     "addressCountry": "GB"
   },
   "areaServed": "Global",
-  "knowsAbout": ["Machine Learning", "Financial Markets", "GPU Computing", "NVIDIA CUDA", "Quantitative Research"]
+  "knowsAbout": ["Machine Learning", "Financial Markets", "GPU Computing", "NVIDIA CUDA", "NVIDIA NIM", "Ray", "Quantitative Research"]
 }
 </script>
 
@@ -177,7 +177,7 @@
   "name": "Ricche AI Research Platform",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Cloud",
-  "description": "GPU-accelerated AI research infrastructure for financial markets — machine learning, simulation, and large-scale data analysis powered by NVIDIA CUDA, TensorRT, and RAPIDS.",
+  "description": "GPU-accelerated AI research infrastructure for financial markets — machine learning, simulation, and large-scale data analysis powered by NVIDIA CUDA, NVIDIA NIM, TensorRT, RAPIDS, and Ray.",
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -449,9 +449,11 @@
       <span class="trust-label">Powered by</span>
       <div class="trust-logos">
         <span class="trust-logo trust-logo-nvidia">NVIDIA CUDA</span>
+        <span class="trust-logo trust-logo-nvidia">NVIDIA NIM</span>
         <span class="trust-logo">NVIDIA TensorRT</span>
         <span class="trust-logo">NVIDIA RAPIDS</span>
         <span class="trust-logo">PyTorch</span>
+        <span class="trust-logo">Ray</span>
         <span class="trust-logo">AWS</span>
         <span class="trust-logo">Bloomberg Data</span>
         <span class="trust-logo">LSE Data</span>
@@ -575,16 +577,20 @@
       <div class="tech-stack reveal reveal-d2">
         <span class="tech-tag tech-tag-nvidia">NVIDIA CUDA</span>
         <span class="tech-tag tech-tag-nvidia">TensorRT</span>
+        <span class="tech-tag tech-tag-nvidia">NVIDIA NIM</span>
         <span class="tech-tag tech-tag-nvidia">RAPIDS cuDF</span>
         <span class="tech-tag">Python</span>
         <span class="tech-tag">PyTorch</span>
-        <span class="tech-tag">Kubernetes</span>
+        <span class="tech-tag">vLLM</span>
+        <span class="tech-tag">Ray</span>
+        <span class="tech-tag">Polars</span>
+        <span class="tech-tag">DuckDB</span>
+        <span class="tech-tag">Apache Iceberg</span>
         <span class="tech-tag">Apache Kafka</span>
-        <span class="tech-tag">PostgreSQL</span>
-        <span class="tech-tag">Redis</span>
+        <span class="tech-tag">Kubernetes</span>
         <span class="tech-tag">Docker</span>
+        <span class="tech-tag">Temporal</span>
         <span class="tech-tag">MLflow</span>
-        <span class="tech-tag">Triton Inference</span>
       </div>
     </div>
 
@@ -817,7 +823,7 @@
       </div>
       <h2 class="section-heading reveal reveal-d1">Built on NVIDIA GPU infrastructure</h2>
       <p class="section-sub reveal reveal-d2">
-        Our entire compute stack is engineered around NVIDIA's GPU ecosystem — from data preprocessing with RAPIDS to model training with CUDA-accelerated PyTorch and optimised inference with TensorRT.
+        Our entire compute stack is engineered around NVIDIA's GPU ecosystem — from data preprocessing with RAPIDS to model training with CUDA-accelerated PyTorch, optimised inference with TensorRT, and production deployment via NVIDIA NIM.
       </p>
     </div>
 
@@ -850,8 +856,8 @@
         <div class="gpu-card-icon" aria-hidden="true">
           <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="1.5"/><path d="M24 14v10l7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M16 8l2 4M32 8l-2 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
         </div>
-        <h3>Triton Inference Server</h3>
-        <p>NVIDIA Triton serves our production models with dynamic batching, multi-model concurrency, and GPU memory management for maximum hardware utilisation.</p>
+        <h3>NVIDIA NIM</h3>
+        <p>NVIDIA NIM microservices deliver optimised model inference with one-click deployment, dynamic scaling, and built-in model orchestration for production ML at scale.</p>
       </div>
     </div>
 
