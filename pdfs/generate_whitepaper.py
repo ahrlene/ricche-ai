@@ -912,6 +912,18 @@ def generate_whitepaper():
     pdf.tech_badge('GLP-1 Economic Ripple Effect Engine')
     pdf.ln(10)
 
+    pdf.sub_heading('Defence & Classified Intelligence Superiority')
+    pdf.tech_badge('Global Defence Spending Predictor')
+    pdf.tech_badge('Weapons Program Lifecycle Model')
+    pdf.tech_badge('Geopolitical Conflict Probability Engine')
+    pdf.tech_badge('Classified Contract Revenue Estimator')
+    pdf.tech_badge('Satellite Constellation Threat Assessment')
+    pdf.tech_badge('Hypersonic & Missile Defence Market Model')
+    pdf.tech_badge('Defence Supply Chain Vulnerability Scanner')
+    pdf.tech_badge('NATO & Alliance Spending Compliance Tracker')
+    pdf.tech_badge('Veteran & Cleared Workforce Intelligence')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
