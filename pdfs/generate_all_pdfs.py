@@ -1162,6 +1162,18 @@ def generate_architecture_pdf():
     pdf.tech_badge('Multi-Domain Fusion Without Silos')
     pdf.ln(10)
 
+    pdf.sub_heading('Structural Palantir Superiority')
+    pdf.tech_badge('Live Market Microstructure Engine')
+    pdf.tech_badge('Cross-Asset Contagion Propagation Model')
+    pdf.tech_badge('Generative Scenario Simulation (Not Static Ontology)')
+    pdf.tech_badge('Regulatory Arbitrage Intelligence')
+    pdf.tech_badge('Natural Language Strategy Compiler')
+    pdf.tech_badge('Continuous Model Evolution (Not Version Releases)')
+    pdf.tech_badge('Embedded Compliance-as-Code')
+    pdf.tech_badge('Financial Knowledge Graph (Not Generic Ontology)')
+    pdf.tech_badge('Latency-Optimised Architecture')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
