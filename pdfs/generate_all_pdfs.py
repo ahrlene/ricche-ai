@@ -881,6 +881,18 @@ def generate_architecture_pdf():
     pdf.tech_badge('Regulatory Arbitrage Optimiser')
     pdf.ln(10)
 
+    pdf.sub_heading('Biomedical Alpha & Life Sciences Intelligence')
+    pdf.tech_badge('Drug Pipeline Probability Engine')
+    pdf.tech_badge('Clinical Trial Outcome Predictor')
+    pdf.tech_badge('Patent Cliff Arbitrage System')
+    pdf.tech_badge('Molecular Discovery Alpha')
+    pdf.tech_badge('Healthcare Spending Topology')
+    pdf.tech_badge('Biomarker Signal Intelligence')
+    pdf.tech_badge('Regulatory Pathway Optimiser')
+    pdf.tech_badge('GLP-1 & Obesity Economy Modelling')
+    pdf.tech_badge('Longevity & Aging Alpha')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')

@@ -1,5 +1,5 @@
 // Ricche — Service Worker for offline caching
-const CACHE_NAME = 'ricche-v34';
+const CACHE_NAME = 'ricche-v35';
 const ASSETS = [
   '/',
   '/index.html',
