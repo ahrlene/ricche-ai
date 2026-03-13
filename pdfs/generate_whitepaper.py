@@ -482,6 +482,22 @@ def generate_whitepaper():
     pdf.tech_badge('Strategy Decay Monitoring')
     pdf.ln(10)
 
+    pdf.sub_heading('Self-Evolving Alpha System')
+    pdf.tech_badge('Self-Evolving Alpha Engine')
+    pdf.tech_badge('Autonomous Deploy & Replace')
+    pdf.tech_badge('Regime-Adaptive Execution')
+    pdf.tech_badge('Sharpe > 3 Target Architecture')
+    pdf.ln(10)
+
+    pdf.sub_heading('Proprietary Data Moats')
+    pdf.tech_badge('Exclusive Alternative Data Feeds')
+    pdf.tech_badge('Proprietary Sentiment Pipelines')
+    pdf.tech_badge('Dark Pool Flow Reconstruction')
+    pdf.tech_badge('Cross-Market Correlation Maps')
+    pdf.tech_badge('Satellite & IoT Data Ingestion')
+    pdf.tech_badge('Supply Chain Telemetry')
+    pdf.ln(10)
+
     pdf.sub_heading('Speed-of-Light Infrastructure')
     pdf.tech_badge('Private Microwave Networks')
     pdf.tech_badge('Millimeter Wave (mmWave)')
