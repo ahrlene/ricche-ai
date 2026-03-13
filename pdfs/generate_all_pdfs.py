@@ -869,6 +869,18 @@ def generate_architecture_pdf():
     pdf.tech_badge('Generational Wealth Compounding Engine')
     pdf.ln(10)
 
+    pdf.sub_heading('Total Market Control Architecture')
+    pdf.tech_badge('Cross-Asset Unified Execution Brain')
+    pdf.tech_badge('Prime Brokerage Disintermediation Engine')
+    pdf.tech_badge('Synthetic Prime Brokerage')
+    pdf.tech_badge('Central Bank Policy Decoder')
+    pdf.tech_badge('Sovereign Debt Stress Testing (190 Countries)')
+    pdf.tech_badge('OTC Derivatives Pricing Supremacy')
+    pdf.tech_badge('Global Liquidity Mapping Engine')
+    pdf.tech_badge('Counterparty Risk Neural Network')
+    pdf.tech_badge('Regulatory Arbitrage Optimiser')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
