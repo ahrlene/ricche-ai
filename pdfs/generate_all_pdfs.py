@@ -17,6 +17,7 @@ LIGHT_BG = (235, 238, 245)
 WHITE = (255, 255, 255)
 GRAY = (140, 140, 150)
 BORDER_COLOR = (200, 205, 215)
+HIGHLIGHT = (255, 200, 60)    # Gold highlight for key callouts
 
 OUT_DIR = os.path.dirname(__file__)
 
@@ -40,7 +41,7 @@ class RicchePDF(FPDF):
         self.set_xy(15, 18)
         self.set_font('Helvetica', '', 8)
         self.set_text_color(180, 185, 200)
-        self.cell(0, 5, 'AI Research Infrastructure for Financial Markets', new_x='LMARGIN', new_y='NEXT')
+        self.cell(0, 5, 'GPU-Accelerated AI Research Infrastructure for Financial Markets', new_x='LMARGIN', new_y='NEXT')
         # Blue accent line
         self.set_fill_color(*ACCENT)
         self.rect(0, 38, 210, 1.5, 'F')
@@ -49,28 +50,42 @@ class RicchePDF(FPDF):
         self.set_y(-15)
         self.set_font('Helvetica', '', 7)
         self.set_text_color(*GRAY)
-        self.cell(0, 8, f'Ricche Ltd  |  ricche.ai  |  Confidential', align='C')
+        self.cell(0, 8, 'Ricche Ltd  |  ricche.ai  |  info@ricche.ai  |  Confidential', align='C')
 
     def title_page(self):
         self.add_page()
-        self.dark_header_bar()
-        self.ln(60)
-        self.set_font('Helvetica', 'B', 28)
-        self.set_text_color(*DARK)
-        self.cell(0, 14, self.title_text, align='C', new_x='LMARGIN', new_y='NEXT')
+        # Full dark background
+        self.set_fill_color(*NAVY)
+        self.rect(0, 0, 210, 297, 'F')
+        # Accent bar at top
+        self.set_fill_color(*ACCENT)
+        self.rect(0, 0, 210, 3, 'F')
+        self.ln(75)
+        self.set_font('Helvetica', 'B', 32)
+        self.set_text_color(*WHITE)
+        self.cell(0, 16, self.title_text, align='C', new_x='LMARGIN', new_y='NEXT')
         self.ln(6)
         self.set_font('Helvetica', '', 13)
-        self.set_text_color(*GRAY)
+        self.set_text_color(180, 185, 210)
         self.cell(0, 8, self.subtitle_text, align='C', new_x='LMARGIN', new_y='NEXT')
-        self.ln(8)
-        # Thin rule
-        self.set_draw_color(*BORDER_COLOR)
-        self.line(60, self.get_y(), 150, self.get_y())
-        self.ln(8)
+        self.ln(12)
+        # Accent rule
+        self.set_draw_color(*ACCENT)
+        self.set_line_width(0.8)
+        self.line(70, self.get_y(), 140, self.get_y())
+        self.set_line_width(0.2)
+        self.ln(12)
+        self.set_font('Helvetica', 'B', 11)
+        self.set_text_color(*ACCENT)
+        self.cell(0, 7, 'RICCHE LTD', align='C', new_x='LMARGIN', new_y='NEXT')
         self.set_font('Helvetica', '', 10)
-        self.set_text_color(*GRAY)
-        self.cell(0, 6, 'Ricche Ltd  |  ricche.ai', align='C', new_x='LMARGIN', new_y='NEXT')
-        self.cell(0, 6, 'GPU-Accelerated AI Infrastructure', align='C', new_x='LMARGIN', new_y='NEXT')
+        self.set_text_color(140, 145, 170)
+        self.cell(0, 7, 'ricche.ai', align='C', new_x='LMARGIN', new_y='NEXT')
+        self.ln(30)
+        # Tagline
+        self.set_font('Helvetica', '', 9)
+        self.set_text_color(100, 105, 130)
+        self.cell(0, 6, 'Powered by the NVIDIA Accelerated Computing Stack', align='C', new_x='LMARGIN', new_y='NEXT')
 
     def content_page(self):
         self.add_page()
@@ -99,6 +114,25 @@ class RicchePDF(FPDF):
         self.set_text_color(*BODY_COLOR)
         self.multi_cell(0, 5.5, text)
         self.ln(2)
+
+    def body_bold(self, text):
+        self.set_font('Helvetica', 'B', 10)
+        self.set_text_color(*DARK)
+        self.multi_cell(0, 5.5, text)
+        self.ln(2)
+
+    def quote_block(self, text):
+        """Styled pull-quote / callout."""
+        y = self.get_y()
+        self.set_fill_color(240, 243, 250)
+        self.rect(self.l_margin, y, 180, 18, 'F')
+        self.set_fill_color(*ACCENT)
+        self.rect(self.l_margin, y, 2, 18, 'F')
+        self.set_xy(self.l_margin + 8, y + 3)
+        self.set_font('Helvetica', 'BI', 10)
+        self.set_text_color(40, 60, 120)
+        self.multi_cell(165, 5.5, text)
+        self.set_y(y + 22)
 
     def bullet(self, text):
         self.set_font('Helvetica', '', 10)
@@ -140,6 +174,22 @@ class RicchePDF(FPDF):
         self.set_text_color(*BODY_COLOR)
         self.multi_cell(w - 8, 4.2, body_text)
 
+    def dark_card_box(self, title, body_text, x, y, w=82, h=45):
+        """Dark-themed card for high-impact sections."""
+        self.set_fill_color(*NAVY)
+        self.set_draw_color(40, 50, 80)
+        self.rect(x, y, w, h, 'DF')
+        self.set_fill_color(*ACCENT)
+        self.rect(x, y, w, 1.5, 'F')
+        self.set_xy(x + 4, y + 5)
+        self.set_font('Helvetica', 'B', 9)
+        self.set_text_color(*ACCENT)
+        self.cell(w - 8, 5, title, new_x='LMARGIN', new_y='NEXT')
+        self.set_xy(x + 4, y + 13)
+        self.set_font('Helvetica', '', 8)
+        self.set_text_color(180, 185, 210)
+        self.multi_cell(w - 8, 4.2, body_text)
+
     def nvidia_card_box(self, title, body_text, x, y, w=82, h=45):
         self.set_fill_color(*LIGHT_BG)
         self.set_draw_color(*BORDER_COLOR)
@@ -171,12 +221,33 @@ class RicchePDF(FPDF):
             self.set_text_color(*DARK)
             self.multi_cell(box_w - 2, 3.5, step, align='C')
             if i < n - 1:
-                # Arrow
                 ax = x + box_w + 1
                 ay = y + 7
                 self.set_draw_color(*ACCENT)
                 self.line(ax, ay, ax + gap - 2, ay)
-                # arrowhead
+                self.line(ax + gap - 5, ay - 2, ax + gap - 2, ay)
+                self.line(ax + gap - 5, ay + 2, ax + gap - 2, ay)
+            x += box_w + gap
+
+    def dark_flow_arrow(self, steps, y):
+        """Flow diagram with dark-themed boxes."""
+        n = len(steps)
+        box_w = 30
+        gap = (170 - n * box_w) / max(n - 1, 1)
+        x = 20
+        for i, step in enumerate(steps):
+            self.set_fill_color(30, 35, 55)
+            self.set_draw_color(*ACCENT)
+            self.rect(x, y, box_w, 14, 'DF')
+            self.set_xy(x + 1, y + 2)
+            self.set_font('Helvetica', '', 7)
+            self.set_text_color(200, 210, 230)
+            self.multi_cell(box_w - 2, 3.5, step, align='C')
+            if i < n - 1:
+                ax = x + box_w + 1
+                ay = y + 7
+                self.set_draw_color(*ACCENT)
+                self.line(ax, ay, ax + gap - 2, ay)
                 self.line(ax + gap - 5, ay - 2, ax + gap - 2, ay)
                 self.line(ax + gap - 5, ay + 2, ax + gap - 2, ay)
             x += box_w + gap
@@ -193,67 +264,114 @@ class RicchePDF(FPDF):
         self.set_text_color(180, 185, 200)
         self.cell(w, 5, label, align='C')
 
+    def green_stat_box(self, value, label, x, y, w=40):
+        self.set_fill_color(20, 40, 15)
+        self.rect(x, y, w, 22, 'F')
+        self.set_xy(x, y + 3)
+        self.set_font('Helvetica', 'B', 14)
+        self.set_text_color(*NVIDIA_GREEN)
+        self.cell(w, 7, value, align='C', new_x='LMARGIN', new_y='NEXT')
+        self.set_xy(x, y + 12)
+        self.set_font('Helvetica', '', 7)
+        self.set_text_color(150, 190, 120)
+        self.cell(w, 5, label, align='C')
+
+    def cta_block(self, heading, body_text, contact):
+        """Call-to-action block at end of document."""
+        y = self.get_y() + 4
+        self.set_fill_color(*NAVY)
+        self.rect(self.l_margin, y, 180, 42, 'F')
+        self.set_fill_color(*ACCENT)
+        self.rect(self.l_margin, y, 180, 2, 'F')
+        self.set_xy(self.l_margin + 8, y + 6)
+        self.set_font('Helvetica', 'B', 13)
+        self.set_text_color(*WHITE)
+        self.cell(164, 7, heading, new_x='LMARGIN', new_y='NEXT')
+        self.set_xy(self.l_margin + 8, y + 16)
+        self.set_font('Helvetica', '', 9)
+        self.set_text_color(180, 185, 210)
+        self.multi_cell(164, 5, body_text)
+        self.set_xy(self.l_margin + 8, y + 32)
+        self.set_font('Helvetica', 'B', 10)
+        self.set_text_color(*ACCENT)
+        self.cell(164, 6, contact)
+
 
 # ==============================================================
 # PDF 1: Architecture Diagram Pack
 # ==============================================================
 def generate_architecture_pdf():
-    pdf = RicchePDF('Architecture Diagram Pack', 'Platform Architecture, Research Workflow & Compute Infrastructure')
+    pdf = RicchePDF(
+        'Architecture Diagram Pack',
+        'Inside the Infrastructure Powering Next-Generation Market Research'
+    )
     pdf.title_page()
 
-    # --- Page 2: High-Level System Architecture ---
+    # --- Page 2: The Vision ---
     pdf.content_page()
-    pdf.section_heading('1. High-Level System Architecture')
+    pdf.section_heading('The Ricche Architecture Vision')
     pdf.body(
-        'The Ricche platform is designed as a multi-layered research infrastructure '
-        'connecting market data sources to machine learning experimentation, simulation, '
-        'and validation systems. Each layer is purpose-built for quantitative financial research.'
+        'Financial markets generate more data every day than most industries produce in a year. '
+        'Tick-by-tick price movements, shifting order books, macroeconomic releases, satellite '
+        'imagery, news sentiment -- the signals are everywhere, but the infrastructure to process '
+        'them at scale has traditionally been locked behind the walls of the largest institutions.'
     )
+    pdf.body(
+        'Ricche is changing that. We are building purpose-built GPU-accelerated research '
+        'infrastructure that brings institutional-grade computational power to quantitative '
+        'market research. Every layer of our architecture is designed for one goal: turning '
+        'raw market complexity into actionable research insights, faster than ever before.'
+    )
+    pdf.ln(2)
+    pdf.quote_block(
+        'Our architecture processes 10 billion+ data points through GPU-accelerated pipelines, '
+        'delivering 47x faster model training and sub-2ms inference latency.'
+    )
+    pdf.ln(2)
 
     # Flow diagram
-    pdf.flow_arrow(['Market Data\nIngestion', 'Data\nInfrastructure', 'ML Research\nEnvironment', 'Simulation\nFramework', 'Validation\n& Governance'], pdf.get_y() + 2)
+    pdf.section_heading('End-to-End Platform Architecture')
+    pdf.flow_arrow([
+        'Market Data\nIngestion',
+        'Data\nInfrastructure',
+        'ML Research\nEnvironment',
+        'Simulation\nFramework',
+        'Validation\n& Governance'
+    ], pdf.get_y() + 2)
     pdf.ln(22)
 
-    pdf.sub_heading('Core Architecture Layers')
+    pdf.body(
+        'Data flows left to right through five purpose-built layers. Each layer is independently '
+        'scalable, fault-tolerant, and optimised for its specific workload -- from low-latency '
+        'data ingestion to GPU-parallelised model training and real-time inference.'
+    )
+
     pdf.card_box(
         'Data Ingestion Layer',
-        'Real-time and historical market data feeds from major exchanges. '
-        'Tick-level order books, OHLCV, economic indicators, and alternative data. '
-        'Quality checks, normalisation, and time-series alignment.',
-        15, pdf.get_y(), 85, 38
+        'Real-time streaming from global exchanges (NYSE, CME, LSE, Eurex, HKEX, SGX). '
+        'Tick-level order books, OHLCV pricing, corporate actions, FX rates, and fixed income. '
+        'Sub-second ingestion latency with exactly-once delivery guarantees. '
+        'Automatic gap detection, reconnection, and data reconciliation.',
+        15, pdf.get_y() + 2, 85, 48
     )
     pdf.card_box(
-        'Compute & Storage Layer',
-        'NVIDIA GPU clusters for ML training and simulation workloads. '
-        'Distributed storage with columnar formats (Parquet, Arrow). '
-        'Auto-scaling compute allocation based on workload priority.',
-        110, pdf.get_y(), 85, 38
+        'GPU Compute & Storage',
+        'NVIDIA GPU clusters purpose-built for financial ML workloads. '
+        'Distributed columnar storage (Parquet, Arrow) for petabyte-scale datasets. '
+        'Smart tiering: hot data on NVMe, warm on SSD, cold on object storage. '
+        'Auto-scaling compute allocation with workload-aware scheduling.',
+        110, pdf.get_y() + 2, 85, 48
     )
-    pdf.ln(42)
+    pdf.ln(54)
 
-    pdf.card_box(
-        'Research & Experimentation Layer',
-        'Experiment tracking, model versioning, and reproducible pipelines. '
-        'CUDA-accelerated PyTorch environments for model development. '
-        'Hyperparameter optimisation and feature engineering frameworks.',
-        15, pdf.get_y(), 85, 38
-    )
-    pdf.card_box(
-        'Monitoring & Observability',
-        'Real-time system dashboards tracking GPU utilisation, pipeline health, '
-        'data freshness, and experiment progress. Alerting for anomalies '
-        'and infrastructure issues.',
-        110, pdf.get_y(), 85, 38
-    )
-    pdf.ln(42)
-
-    # --- Page 3: GPU Compute Infrastructure ---
+    # --- Page 3: GPU Compute -- The Engine ---
     pdf.content_page()
-    pdf.section_heading('2. GPU Compute Infrastructure')
+    pdf.section_heading('GPU Compute Infrastructure')
     pdf.body(
-        'Training and simulation workloads run on NVIDIA GPU clusters optimised for '
-        'high-throughput numerical computation. The compute layer leverages the full '
-        'NVIDIA accelerated computing stack.'
+        'At the heart of Ricche is a compute layer that would have been unimaginable five years '
+        'ago. By building on the full NVIDIA accelerated computing stack, we compress research '
+        'cycles from weeks to hours and enable experiments at a scale that was previously the '
+        'exclusive domain of billion-dollar hedge funds.'
     )
     pdf.ln(2)
 
@@ -266,150 +384,178 @@ def generate_architecture_pdf():
     pdf.ln(12)
 
     pdf.nvidia_card_box(
-        'NVIDIA CUDA Training Clusters',
-        'Multi-GPU training environments using CUDA-accelerated PyTorch. '
-        'Mixed-precision training (FP16/BF16) for faster convergence. '
-        'Distributed data-parallel training across GPU nodes. '
-        'Up to 47x faster model training vs. CPU-only baselines.',
-        15, pdf.get_y(), 85, 48
+        'NVIDIA CUDA -- The Foundation',
+        'Every training run, every simulation, every feature computation is CUDA-accelerated. '
+        'Multi-GPU distributed training with mixed-precision (FP16/BF16) delivers dramatic '
+        'speedups without sacrificing model quality. Researchers iterate on ideas in hours, '
+        'not days. This is the engine that makes everything else possible.',
+        15, pdf.get_y(), 85, 52
     )
     pdf.nvidia_card_box(
-        'RAPIDS Data Processing',
-        'GPU-accelerated data pipelines using RAPIDS cuDF for DataFrame operations. '
-        'End-to-end GPU processing eliminates CPU-GPU transfer bottlenecks. '
-        'Accelerated feature engineering for time-series financial data. '
-        'Seamless integration with PyTorch training pipelines.',
-        110, pdf.get_y(), 85, 48
+        'RAPIDS -- Data at GPU Speed',
+        'Traditional data pipelines are CPU-bound bottlenecks. RAPIDS cuDF eliminates them '
+        'entirely. Feature engineering on financial time-series runs 10-50x faster than pandas. '
+        'End-to-end GPU processing means data never leaves the GPU between preparation '
+        'and training -- zero transfer overhead, maximum throughput.',
+        110, pdf.get_y(), 85, 52
     )
-    pdf.ln(52)
+    pdf.ln(56)
 
     pdf.nvidia_card_box(
-        'TensorRT Inference Optimisation',
-        'Trained models are optimised using NVIDIA TensorRT for production inference. '
-        'Layer fusion, kernel auto-tuning, and precision calibration. '
-        'Sub-2ms inference latency for real-time signal generation. '
-        'INT8 quantisation with minimal accuracy loss.',
-        15, pdf.get_y(), 85, 45
+        'TensorRT -- Production Speed',
+        'Research models are optimised for production inference through layer fusion, kernel '
+        'auto-tuning, and INT8 quantisation. The result: sub-2ms inference latency for '
+        'real-time signal generation. When markets move in milliseconds, every microsecond '
+        'of latency reduction translates directly to better research outcomes.',
+        15, pdf.get_y(), 85, 52
     )
     pdf.nvidia_card_box(
         'Triton Inference Server',
-        'Model serving via NVIDIA Triton for concurrent multi-model inference. '
-        'Dynamic batching and model ensembles for throughput optimisation. '
-        'GPU memory management across simultaneous model deployments. '
-        'gRPC and REST endpoints for research pipeline integration.',
-        110, pdf.get_y(), 85, 45
+        'Scalable model serving that handles concurrent multi-model inference at scale. '
+        'Dynamic batching optimises GPU utilisation across dozens of deployed models. '
+        'Supports PyTorch, TensorRT, and ONNX formats with gRPC and REST APIs. '
+        'Hot-swap model deployments with zero-downtime version transitions.',
+        110, pdf.get_y(), 85, 52
     )
-    pdf.ln(50)
+    pdf.ln(56)
 
     # Performance stats
-    pdf.stat_box('47x', 'GPU vs CPU Training', 20, pdf.get_y(), 50)
-    pdf.stat_box('<2ms', 'Inference Latency', 80, pdf.get_y(), 50)
-    pdf.stat_box('10B+', 'Data Points Processed', 140, pdf.get_y(), 50)
+    pdf.green_stat_box('47x', 'GPU vs CPU Training', 15, pdf.get_y(), 42)
+    pdf.green_stat_box('<2ms', 'Inference Latency', 62, pdf.get_y(), 42)
+    pdf.green_stat_box('10B+', 'Data Points Processed', 109, pdf.get_y(), 42)
+    pdf.green_stat_box('50x', 'Feature Eng. Speedup', 156, pdf.get_y(), 38)
     pdf.ln(28)
 
-    # --- Page 4: Data Pipeline Architecture ---
+    # --- Page 4: Data Pipeline ---
     pdf.content_page()
-    pdf.section_heading('3. Data Pipeline Architecture')
+    pdf.section_heading('Data Pipeline Architecture')
     pdf.body(
-        'Market data flows through a multi-stage ingestion pipeline designed for reliability, '
-        'low latency, and data quality assurance. The pipeline supports both real-time streaming '
-        'and historical batch processing.'
+        'Garbage in, garbage out -- in quantitative research, data quality is everything. '
+        'Our multi-stage ingestion pipeline is engineered for institutional-grade reliability, '
+        'because the best models in the world are worthless if they are trained on dirty data.'
     )
 
-    pdf.flow_arrow(['Exchange\nFeeds', 'Ingestion\nGateway', 'Quality\nChecks', 'Normalisation\n& Alignment', 'Feature\nStore'], pdf.get_y() + 2)
+    pdf.flow_arrow([
+        'Exchange\nFeeds',
+        'Ingestion\nGateway',
+        'Quality\nChecks',
+        'Normalisation\n& Alignment',
+        'Feature\nStore'
+    ], pdf.get_y() + 2)
     pdf.ln(22)
 
-    pdf.sub_heading('Data Sources & Coverage')
-    pdf.bullet('Global equities, futures (including commodities), options, FX, and fixed income')
-    pdf.bullet('Tick-level order book data from major exchanges (NYSE, CME, LSE, Eurex, HKEX)')
-    pdf.bullet('End-of-day pricing, corporate actions, and reference data')
-    pdf.bullet('Economic indicators, central bank releases, and macro datasets')
-    pdf.bullet('Alternative data: satellite imagery, NLP-processed news, sentiment signals')
+    pdf.sub_heading('Global Market Coverage')
+    pdf.bullet('Equities: Developed and emerging markets across 30+ exchanges worldwide')
+    pdf.bullet('Futures & Commodities: Energy, metals, agriculture, financial futures (CME, ICE, LME)')
+    pdf.bullet('Options: Full listed chains with Greeks, implied volatility surfaces')
+    pdf.bullet('FX: Spot, forwards, crosses -- major and emerging market pairs')
+    pdf.bullet('Fixed Income: Government bonds, investment-grade credit, interest rate swaps')
+    pdf.bullet('Alternative Data: NLP-processed news, satellite imagery, social sentiment, web scraping')
     pdf.ln(4)
 
-    pdf.sub_heading('Pipeline Characteristics')
     pdf.card_box(
-        'Streaming Ingestion',
-        'Low-latency real-time feeds processed through event-driven pipelines. '
-        'Message queuing with exactly-once semantics. Automatic reconnection '
-        'and gap detection for exchange feeds.',
-        15, pdf.get_y(), 85, 38
+        'Real-Time Streaming',
+        'Event-driven pipelines with sub-second latency. Exactly-once delivery semantics '
+        'ensure data integrity. Automatic reconnection and gap detection for exchange feeds. '
+        'Handles sustained throughput of millions of events per second.',
+        15, pdf.get_y(), 85, 42
     )
     pdf.card_box(
-        'Batch Processing',
-        'Scheduled batch pipelines for historical data backfills and daily reconciliation. '
-        'GPU-accelerated data transforms using RAPIDS cuDF. '
-        'Idempotent processing with full audit trails.',
-        110, pdf.get_y(), 85, 38
+        'GPU-Accelerated Batch Processing',
+        'Historical backfills and daily reconciliation powered by RAPIDS cuDF. '
+        'Idempotent processing with full audit trails and lineage tracking. '
+        'Parallel processing across GPU nodes for massive backfill operations. '
+        'Data versioning enables reproducible research at any point in time.',
+        110, pdf.get_y(), 85, 42
     )
-    pdf.ln(42)
+    pdf.ln(46)
 
     # --- Page 5: Research Workflow ---
     pdf.content_page()
-    pdf.section_heading('4. Research Workflow Architecture')
+    pdf.section_heading('Research Workflow -- From Hypothesis to Discovery')
     pdf.body(
-        'The research workflow is structured to support disciplined, reproducible experimentation. '
-        'Each stage is tracked, versioned, and auditable, enabling teams to iterate on hypotheses '
-        'with confidence.'
+        'Great research demands discipline. Every experiment at Ricche follows a structured '
+        'workflow designed to eliminate noise, prevent overfitting, and ensure that only '
+        'genuinely robust models progress to evaluation. This is not about running more '
+        'experiments -- it is about running the right experiments, rigorously.'
     )
 
-    pdf.flow_arrow(['Research\nHypothesis', 'Data\nPreparation', 'Model\nDevelopment', 'Simulation\nTesting', 'Validation\n& Review'], pdf.get_y() + 2)
+    pdf.flow_arrow([
+        'Research\nHypothesis',
+        'Data\nPreparation',
+        'Model\nDevelopment',
+        'Simulation\nTesting',
+        'Validation\n& Review'
+    ], pdf.get_y() + 2)
     pdf.ln(22)
 
     pdf.sub_heading('Stage 1: Research Hypothesis')
     pdf.body(
-        'Researchers define hypotheses about market behaviour, specifying target instruments, '
-        'timeframes, and expected signal characteristics. Hypotheses are registered in the '
-        'experiment tracking system with metadata and success criteria.'
+        'Every project begins with a clearly defined hypothesis about market behaviour -- '
+        'target instruments, timeframes, expected signal characteristics, and falsification '
+        'criteria. Hypotheses are registered in our experiment tracking system before any '
+        'code is written. This prevents the most dangerous trap in quantitative research: '
+        'fitting a narrative to data after the fact.'
     )
 
     pdf.sub_heading('Stage 2: Data Preparation')
     pdf.body(
-        'Relevant datasets are extracted from the feature store and prepared for modelling. '
-        'GPU-accelerated feature engineering using RAPIDS produces training-ready datasets '
-        'with proper train/validation/test splits and temporal consistency.'
+        'Relevant datasets are extracted from the feature store with strict temporal discipline '
+        '-- no look-ahead bias, ever. GPU-accelerated feature engineering using RAPIDS produces '
+        'training-ready datasets 50x faster than traditional tools. Proper train/validation/test '
+        'splits with temporal walk-forward design ensure real-world applicability.'
     )
 
     pdf.sub_heading('Stage 3: Model Development')
     pdf.body(
-        'Models are developed in CUDA-accelerated PyTorch environments on NVIDIA GPU clusters. '
-        'Experiment tracking captures hyperparameters, metrics, and model artifacts. '
-        'Automated hyperparameter search explores the configuration space efficiently.'
+        'Researchers develop models in CUDA-accelerated PyTorch environments on NVIDIA GPU '
+        'clusters. Every hyperparameter, every metric, every model artifact is tracked '
+        'automatically. Automated hyperparameter optimisation explores thousands of '
+        'configurations. The 47x GPU speedup means researchers test more ideas per week '
+        'than traditional setups allow in a month.'
     )
 
     pdf.sub_heading('Stage 4: Simulation Testing')
     pdf.body(
-        'Candidate models are evaluated in GPU-parallelised simulation environments. '
-        'Monte Carlo simulations test behaviour across thousands of market scenarios. '
-        'Agent-based simulations model market microstructure interactions.'
+        'Candidate models face rigorous stress-testing in GPU-parallelised simulation engines. '
+        'Monte Carlo simulations evaluate behaviour across 10,000+ market scenarios including '
+        'regime changes, liquidity crises, and black swan events. Agent-based simulations '
+        'model market microstructure interactions. Only models that survive this gauntlet proceed.'
     )
 
-    pdf.sub_heading('Stage 5: Validation & Review')
+    pdf.sub_heading('Stage 5: Validation & Peer Review')
     pdf.body(
-        'Models passing simulation are subject to out-of-sample validation, stress testing, '
-        'and peer review. Statistical significance tests guard against overfitting. '
-        'Approved models enter controlled evaluation with position-size constraints.'
+        'Surviving models undergo out-of-sample validation, walk-forward testing, and formal '
+        'peer review. Statistical significance tests (multiple hypothesis correction, bootstrap '
+        'confidence intervals) guard against overfitting. Approved models enter controlled '
+        'paper-trading evaluation with strict position-size constraints and continuous monitoring.'
     )
 
     # --- Page 6: Technology Stack ---
     pdf.content_page()
-    pdf.section_heading('5. Technology Stack')
-    pdf.body('The platform is built on industry-standard open-source and enterprise technologies:')
+    pdf.section_heading('Technology Stack')
+    pdf.body(
+        'We chose every tool in our stack for a reason. No resume-driven development, no hype '
+        'cycles -- just the best technology for building world-class quantitative research '
+        'infrastructure.'
+    )
     pdf.ln(2)
 
-    pdf.sub_heading('Compute & GPU')
+    pdf.sub_heading('GPU & Accelerated Compute')
     pdf.nvidia_badge('NVIDIA CUDA')
     pdf.nvidia_badge('TensorRT')
-    pdf.nvidia_badge('RAPIDS')
-    pdf.nvidia_badge('Triton')
+    pdf.nvidia_badge('RAPIDS cuDF')
+    pdf.nvidia_badge('Triton Server')
+    pdf.nvidia_badge('cuML')
     pdf.ln(10)
 
-    pdf.sub_heading('Machine Learning')
+    pdf.sub_heading('Machine Learning & Research')
     pdf.tech_badge('PyTorch')
     pdf.tech_badge('scikit-learn')
     pdf.tech_badge('XGBoost')
     pdf.tech_badge('Optuna')
     pdf.tech_badge('MLflow')
+    pdf.tech_badge('Weights & Biases')
     pdf.ln(10)
 
     pdf.sub_heading('Data Engineering')
@@ -418,17 +564,19 @@ def generate_architecture_pdf():
     pdf.tech_badge('Parquet')
     pdf.tech_badge('PostgreSQL')
     pdf.tech_badge('Redis')
+    pdf.tech_badge('TimescaleDB')
     pdf.ln(10)
 
-    pdf.sub_heading('Infrastructure')
+    pdf.sub_heading('Infrastructure & Orchestration')
     pdf.tech_badge('Kubernetes')
     pdf.tech_badge('Docker')
     pdf.tech_badge('Terraform')
     pdf.tech_badge('Prometheus')
     pdf.tech_badge('Grafana')
+    pdf.tech_badge('ArgoCD')
     pdf.ln(10)
 
-    pdf.sub_heading('Languages')
+    pdf.sub_heading('Core Languages')
     pdf.tech_badge('Python')
     pdf.tech_badge('Rust')
     pdf.tech_badge('SQL')
@@ -436,9 +584,19 @@ def generate_architecture_pdf():
     pdf.ln(14)
 
     pdf.body(
-        'This technology stack is designed for performance, reliability, and researcher productivity. '
-        'Infrastructure-as-code ensures reproducible deployments, while containerised workloads '
-        'enable efficient resource utilisation across the GPU cluster.'
+        'Infrastructure-as-code (Terraform) ensures every deployment is reproducible. '
+        'GitOps workflows (ArgoCD) provide auditable change management. Containerised '
+        'workloads on Kubernetes enable efficient GPU resource allocation. Rust powers '
+        'our latency-critical data ingestion paths, while Python and PyTorch drive the '
+        'research layer -- the right tool for each job.'
+    )
+
+    pdf.ln(4)
+    pdf.cta_block(
+        'Build the Future of Market Research With Us',
+        'We are looking for partners, collaborators, and visionary researchers who share '
+        'our belief that the future of financial markets belongs to those with the best infrastructure.',
+        'info@ricche.ai  |  ricche.ai'
     )
 
     out = os.path.join(OUT_DIR, 'ricche_architecture_diagram_pack.pdf')
@@ -450,17 +608,30 @@ def generate_architecture_pdf():
 # PDF 2: AI Platform Overview Poster
 # ==============================================================
 def generate_overview_pdf():
-    pdf = RicchePDF('AI Platform Overview', 'GPU-Accelerated Research Infrastructure for Quantitative Markets')
+    pdf = RicchePDF(
+        'AI Platform Overview',
+        'The Infrastructure Redefining Quantitative Market Research'
+    )
     pdf.title_page()
 
-    # --- Page 2: Platform at a Glance ---
+    # --- Page 2: Why Ricche Exists ---
     pdf.content_page()
-    pdf.section_heading('Platform at a Glance')
+    pdf.section_heading('Why Ricche Exists')
     pdf.body(
-        'Ricche is building GPU-accelerated AI research infrastructure designed to explore '
-        'financial markets through machine learning, computational modelling, and large-scale '
-        'data analysis. The platform enables disciplined, reproducible research across the full '
-        'quantitative research lifecycle.'
+        'The quantitative finance landscape is at an inflection point. Traditional approaches '
+        '-- hand-crafted models, limited datasets, CPU-bound computation -- are hitting '
+        'fundamental limits. The firms that will lead the next decade are those building on '
+        'AI-native infrastructure: GPU-accelerated, data-rich, and algorithmically sophisticated.'
+    )
+    pdf.body(
+        'Ricche is building that infrastructure from the ground up. Not by bolting AI onto '
+        'legacy systems, but by designing every layer -- from data ingestion to model serving '
+        '-- for the scale and speed that modern machine learning demands.'
+    )
+    pdf.ln(2)
+    pdf.quote_block(
+        'We believe the next breakthrough in quantitative research will not come from a better '
+        'algorithm -- it will come from better infrastructure.'
     )
     pdf.ln(2)
 
@@ -471,121 +642,132 @@ def generate_overview_pdf():
     pdf.stat_box('24/7', 'Monitoring', 156, pdf.get_y(), 38)
     pdf.ln(30)
 
-    pdf.section_heading('Core Capabilities')
+    pdf.section_heading('What We Have Built')
 
     pdf.card_box(
         'Machine Learning Research',
-        'NVIDIA CUDA-accelerated model training on GPU clusters. '
-        'PyTorch-based experimentation with full experiment tracking, '
-        'hyperparameter optimisation, and model versioning. '
-        'Supports deep learning, gradient boosting, and ensemble methods.',
-        15, pdf.get_y(), 85, 48
+        'NVIDIA CUDA-accelerated model training that compresses weeks of experimentation '
+        'into hours. PyTorch environments with full experiment tracking, automated '
+        'hyperparameter search, and model versioning. Deep learning, gradient boosting, '
+        'transformers, and ensemble methods -- all GPU-accelerated.',
+        15, pdf.get_y(), 85, 52
     )
     pdf.card_box(
         'Simulation Engines',
-        'GPU-parallelised Monte Carlo simulations and agent-based models. '
-        'Test strategies across thousands of market scenarios in minutes. '
-        'Configurable market microstructure and regime dynamics. '
-        'Statistical validation of simulation outputs.',
-        110, pdf.get_y(), 85, 48
+        'GPU-parallelised Monte Carlo and agent-based simulations that stress-test '
+        'models across 10,000+ market scenarios before they ever see live data. '
+        'Regime changes, liquidity shocks, flash crashes -- if a model cannot survive '
+        'the simulation gauntlet, it does not progress.',
+        110, pdf.get_y(), 85, 52
     )
-    pdf.ln(52)
+    pdf.ln(56)
+
+    # --- Page 3: Core Capabilities Continued + NVIDIA ---
+    pdf.content_page()
 
     pdf.card_box(
         'Data Infrastructure',
-        'Multi-asset market data ingestion spanning equities, futures, options, '
-        'FX, and fixed income. Real-time streaming and historical batch '
-        'pipelines. GPU-accelerated feature engineering with RAPIDS cuDF. '
-        'Comprehensive data quality and reconciliation framework.',
-        15, pdf.get_y(), 85, 48
+        'Multi-asset market data spanning equities, futures (including commodities), '
+        'options, FX, and fixed income from 30+ global exchanges. Real-time streaming '
+        'and historical batch pipelines. GPU-accelerated feature engineering that runs '
+        '50x faster than traditional tools. Institutional-grade quality assurance.',
+        15, pdf.get_y(), 85, 52
     )
     pdf.card_box(
-        'Monitoring & Observability',
-        'Real-time dashboards tracking GPU utilisation, training experiments, '
-        'simulation queues, and pipeline throughput. Automated alerting '
-        'for infrastructure anomalies and data quality issues. '
-        'Full audit trail for research governance.',
-        110, pdf.get_y(), 85, 48
+        'Operations & Monitoring',
+        'Real-time Control Room dashboard tracking GPU utilisation, active experiments, '
+        'simulation queues, and pipeline throughput. Automated anomaly detection and '
+        'alerting. Complete audit trail for every experiment, every model, every '
+        'data transformation -- full research governance out of the box.',
+        110, pdf.get_y(), 85, 52
     )
-    pdf.ln(52)
+    pdf.ln(58)
 
-    # --- Page 3: NVIDIA Technology Stack ---
-    pdf.content_page()
-    pdf.section_heading('NVIDIA Accelerated Computing Stack')
+    pdf.section_heading('Powered by NVIDIA')
     pdf.body(
-        'The platform is powered by the NVIDIA GPU ecosystem, delivering orders-of-magnitude '
-        'performance gains across data processing, model training, and inference workloads.'
+        'We built Ricche on the NVIDIA accelerated computing stack because there is no '
+        'substitute for raw GPU performance when it comes to financial ML. The numbers speak '
+        'for themselves:'
     )
     pdf.ln(2)
 
     pdf.nvidia_card_box(
         'NVIDIA CUDA',
-        'Foundation of the compute layer. All training and simulation workloads leverage '
-        'CUDA-accelerated kernels for maximum throughput. Mixed-precision training with '
-        'FP16/BF16 for faster convergence without sacrificing model quality.',
-        15, pdf.get_y(), 85, 45
+        'The foundation of everything we do. CUDA-accelerated training and simulation '
+        'deliver 47x speedups over CPU-only infrastructure. Mixed-precision training '
+        '(FP16/BF16) maximises GPU throughput without sacrificing model fidelity.',
+        15, pdf.get_y(), 85, 42
     )
     pdf.nvidia_card_box(
         'RAPIDS cuDF',
-        'GPU-accelerated DataFrames for data engineering at scale. End-to-end GPU '
-        'processing eliminates CPU-GPU transfer overhead. Feature engineering for '
-        'financial time-series runs 10-50x faster than pandas equivalents.',
-        110, pdf.get_y(), 85, 45
+        'GPU-accelerated DataFrames that make pandas feel like a relic. Feature '
+        'engineering on billion-row financial time-series in seconds, not hours. '
+        'End-to-end GPU pipelines eliminate the CPU bottleneck entirely.',
+        110, pdf.get_y(), 85, 42
     )
-    pdf.ln(50)
+    pdf.ln(46)
 
     pdf.nvidia_card_box(
         'TensorRT',
-        'Production inference optimisation through layer fusion, kernel auto-tuning, '
-        'and precision calibration. Delivers sub-2ms latency for real-time signal '
-        'generation. INT8 quantisation for deployment efficiency.',
+        'Production inference optimised to sub-2ms latency through layer fusion, '
+        'kernel auto-tuning, and INT8 quantisation. When markets move in milliseconds, '
+        'this is the difference between leading and lagging.',
         15, pdf.get_y(), 85, 42
     )
     pdf.nvidia_card_box(
         'Triton Inference Server',
-        'Scalable model serving supporting concurrent multi-model inference. Dynamic '
-        'batching optimises GPU utilisation. Supports PyTorch, TensorRT, and ONNX '
-        'model formats with gRPC and REST APIs.',
+        'Concurrent multi-model serving with dynamic batching and intelligent GPU memory '
+        'management. Deploy dozens of models simultaneously with zero-downtime updates. '
+        'The serving layer that scales with our ambition.',
         110, pdf.get_y(), 85, 42
     )
-    pdf.ln(48)
+    pdf.ln(46)
 
-    # --- Page 4: Market Coverage & Research ---
+    # --- Page 4: Market Coverage + Opportunity ---
     pdf.content_page()
-    pdf.section_heading('Market Coverage')
+    pdf.section_heading('Global Market Coverage')
     pdf.body(
-        'The data infrastructure supports global financial markets with institutional-grade '
-        'data quality and coverage:'
+        'Our data infrastructure spans the world\'s most important financial markets, '
+        'with institutional-grade feeds from major exchanges and data providers:'
     )
     pdf.ln(2)
-    pdf.bullet('Global equities across developed and emerging markets')
-    pdf.bullet('Futures (including commodities) - energy, metals, agriculture, financial futures')
-    pdf.bullet('Listed options with full chain data')
-    pdf.bullet('Foreign exchange - spot, forwards, and crosses')
-    pdf.bullet('Fixed income - government bonds, credit, and rates')
-    pdf.bullet('Alternative data - sentiment, satellite, NLP-processed news')
+    pdf.bullet('Global Equities -- developed and emerging markets across 30+ exchanges')
+    pdf.bullet('Futures & Commodities -- energy, metals, agriculture, financial futures')
+    pdf.bullet('Options -- full listed chains with Greeks, volatility surfaces, and skew data')
+    pdf.bullet('Foreign Exchange -- spot, forwards, and crosses for major and EM pairs')
+    pdf.bullet('Fixed Income -- government bonds, credit markets, and interest rate instruments')
+    pdf.bullet('Alternative Data -- NLP-processed news, satellite, sentiment, and web data')
     pdf.ln(6)
 
-    pdf.section_heading('Research Approach')
+    pdf.section_heading('The Opportunity')
     pdf.body(
-        'Ricche takes a disciplined, hypothesis-driven approach to quantitative research. '
-        'Every experiment is tracked, versioned, and reproducible. Models progress through '
-        'structured validation stages before entering controlled evaluation.'
+        'The global quantitative finance market is growing rapidly as AI adoption accelerates '
+        'across the financial sector. Traditional quant firms are racing to modernise their '
+        'infrastructure. New entrants need institutional-grade tools from day one. The demand '
+        'for GPU-accelerated research infrastructure has never been higher.'
     )
-    pdf.ln(2)
-    pdf.flow_arrow(['Hypothesis', 'Data Prep', 'Model Dev', 'Simulation', 'Validation'], pdf.get_y() + 2)
-    pdf.ln(22)
-
-    pdf.section_heading('Collaboration')
     pdf.body(
-        'Ricche welcomes collaboration with organisations at the intersection of artificial '
-        'intelligence, quantitative finance, and high-performance computing. We are particularly '
-        'interested in partnerships with technology providers, data vendors, and research institutions.'
+        'Ricche sits at the intersection of three powerful trends: the explosion of available '
+        'market data, the maturation of GPU-accelerated computing, and the proven superiority '
+        'of machine learning approaches to financial modelling. We are not building for '
+        'today -- we are building for the decade ahead.'
     )
     pdf.ln(4)
-    pdf.set_font('Helvetica', 'B', 11)
-    pdf.set_text_color(*ACCENT)
-    pdf.cell(0, 8, 'Contact: info@ricche.ai  |  ricche.ai', align='C')
+
+    pdf.section_heading('Who Should Partner With Ricche')
+    pdf.bullet('Technology providers looking to showcase GPU computing in finance')
+    pdf.bullet('Data vendors seeking a showcase platform for their market data products')
+    pdf.bullet('Research institutions exploring AI applications in financial markets')
+    pdf.bullet('Quantitative firms needing modern, GPU-native research infrastructure')
+    pdf.bullet('Investors looking at the convergence of AI, finance, and high-performance computing')
+    pdf.ln(6)
+
+    pdf.cta_block(
+        'Ready to Explore What We Are Building?',
+        'Whether you are a potential partner, investor, or researcher, we would love to show you '
+        'what GPU-accelerated market research looks like in practice.',
+        'info@ricche.ai  |  ricche.ai'
+    )
 
     out = os.path.join(OUT_DIR, 'ricche_ai_platform_overview_poster.pdf')
     pdf.output(out)
@@ -596,16 +778,25 @@ def generate_overview_pdf():
 # PDF 3: Control Room Dashboard Mockup
 # ==============================================================
 def generate_dashboard_pdf():
-    pdf = RicchePDF('Control Room Dashboard', 'Real-Time Operations Monitoring & Infrastructure Health')
+    pdf = RicchePDF(
+        'Control Room Dashboard',
+        'Real-Time Command and Control for GPU-Accelerated Research Operations'
+    )
     pdf.title_page()
 
-    # --- Page 2: Dashboard Overview ---
+    # --- Page 2: Why the Control Room Matters ---
     pdf.content_page()
-    pdf.section_heading('Operations Dashboard Overview')
+    pdf.section_heading('The Nerve Centre of Ricche')
     pdf.body(
-        'The Ricche Control Room provides real-time visibility into all platform operations, '
-        'from GPU compute utilisation to data pipeline health and research experiment progress. '
-        'The dashboard is designed for infrastructure operators and research leads.'
+        'Running GPU-accelerated research infrastructure at scale is like piloting a spacecraft '
+        '-- hundreds of systems working in concert, petabytes of data flowing through pipelines, '
+        'and millions of computations executing every second. You cannot operate at this scale '
+        'without complete, real-time visibility into every layer of the stack.'
+    )
+    pdf.body(
+        'The Ricche Control Room is our answer. A unified operations dashboard that gives '
+        'infrastructure operators and research leads a single pane of glass across the entire '
+        'platform -- from GPU memory allocation to data pipeline health to experiment progress.'
     )
     pdf.ln(2)
 
@@ -616,142 +807,161 @@ def generate_dashboard_pdf():
     pdf.stat_box('99.97%', 'Uptime (30d)', 156, pdf.get_y(), 38)
     pdf.ln(30)
 
-    pdf.section_heading('Dashboard Panels')
+    pdf.section_heading('Core Dashboard Panels')
 
-    # GPU Monitoring Panel
-    pdf.card_box(
-        'GPU Cluster Monitoring',
-        'Real-time GPU utilisation across all nodes. Per-GPU memory allocation, '
-        'temperature, and power draw. CUDA kernel execution metrics. '
-        'Training job queue depth and estimated completion times. '
-        'Automatic alerts for thermal throttling or hardware faults.',
+    pdf.dark_card_box(
+        'GPU Cluster Command',
+        'Real-time GPU utilisation heatmap across all nodes. Per-GPU metrics: memory, '
+        'temperature, power draw, CUDA kernel throughput. Training job queue with priority '
+        'scheduling and estimated completion. Thermal throttling detection and automatic '
+        'workload redistribution. GPU failure prediction and proactive alerting.',
+        15, pdf.get_y(), 85, 58
+    )
+    pdf.dark_card_box(
+        'Experiment Mission Control',
+        'Live tracking of every active ML training experiment. Real-time loss curves, '
+        'learning rate schedules, and validation metrics. Per-experiment GPU allocation '
+        'and cost tracking. Side-by-side experiment comparison with automated early '
+        'stopping recommendations. Historical experiment performance analytics.',
+        110, pdf.get_y(), 85, 58
+    )
+    pdf.ln(62)
+
+    pdf.dark_card_box(
+        'Data Pipeline Operations',
+        'Feed-by-feed ingestion dashboard with per-exchange latency and throughput. '
+        'Real-time data quality scoring with drift detection. Automatic gap detection '
+        'and backfill orchestration. End-to-end pipeline lineage -- trace any feature '
+        'back to its raw data source. Multi-region feed redundancy status.',
         15, pdf.get_y(), 85, 52
     )
-    pdf.card_box(
-        'Training Experiments Tracker',
-        'Live view of all active ML training experiments. Loss curves, learning '
-        'rate schedules, and validation metrics in real time. Resource allocation '
-        'per experiment (GPUs, memory, storage). Experiment comparison and '
-        'historical performance trends.',
+    pdf.dark_card_box(
+        'Simulation War Room',
+        'Live Monte Carlo and agent-based simulation monitoring. Queue depth, GPU '
+        'allocation, and estimated runtimes per simulation batch. Result visualisation '
+        'with scenario coverage heatmaps. Pass/fail indicators with statistical '
+        'confidence levels. Scenario stress-test coverage analysis.',
         110, pdf.get_y(), 85, 52
     )
     pdf.ln(56)
 
-    pdf.card_box(
-        'Data Pipeline Health',
-        'Feed-by-feed ingestion status with latency and throughput metrics. '
-        'Data quality scores and anomaly detection alerts. Gap detection and '
-        'automatic backfill tracking. Historical data freshness trends '
-        'across all asset classes and exchanges.',
-        15, pdf.get_y(), 85, 48
-    )
-    pdf.card_box(
-        'Simulation Queue Monitor',
-        'Monte Carlo and agent-based simulation job status. Queue depth, '
-        'estimated runtimes, and GPU allocation per job. Simulation result '
-        'summaries with pass/fail indicators. Historical simulation throughput '
-        'and resource utilisation trends.',
-        110, pdf.get_y(), 85, 48
-    )
-    pdf.ln(52)
-
-    # --- Page 3: Detailed Panels ---
+    # --- Page 3: Infrastructure Monitoring ---
     pdf.content_page()
-    pdf.section_heading('Infrastructure Monitoring')
-
-    pdf.card_box(
-        'Compute Resource Allocation',
-        'Kubernetes cluster overview showing pod status, resource requests vs. limits, '
-        'and node health. GPU scheduling queue with priority levels. Auto-scaling '
-        'history and projected capacity requirements.',
-        15, pdf.get_y(), 85, 45
-    )
-    pdf.card_box(
-        'Storage & Network',
-        'Distributed storage utilisation across hot, warm, and cold tiers. '
-        'Network throughput between compute nodes and storage. Data replication '
-        'status and backup health. I/O latency percentiles (p50, p95, p99).',
-        110, pdf.get_y(), 85, 45
-    )
-    pdf.ln(50)
-
-    pdf.card_box(
-        'Model Serving (Triton)',
-        'NVIDIA Triton Inference Server monitoring. Requests per second, inference '
-        'latency distributions, and batch utilisation. Per-model GPU memory footprint. '
-        'Model version deployment status and rollback tracking.',
-        15, pdf.get_y(), 85, 45
-    )
-    pdf.card_box(
-        'Alerts & Incidents',
-        'Active alert dashboard with severity classification (P1-P4). Mean time to '
-        'detection (MTTD) and resolution (MTTR) metrics. Alert routing and '
-        'on-call assignment. Incident timeline with root cause annotations.',
-        110, pdf.get_y(), 85, 45
-    )
-    pdf.ln(50)
-
-    # --- Page 4: KPI Reference ---
-    pdf.content_page()
-    pdf.section_heading('Key Performance Indicators')
+    pdf.section_heading('Infrastructure Intelligence')
     pdf.body(
-        'The Control Room tracks the following KPIs to ensure platform health, '
-        'research productivity, and infrastructure efficiency:'
+        'Modern research infrastructure is too complex for reactive monitoring. The Control '
+        'Room uses predictive analytics to anticipate problems before they impact research '
+        'workflows -- because a GPU failure during a 12-hour training run is not just an '
+        'incident, it is lost research time that can never be recovered.'
     )
     pdf.ln(2)
 
-    pdf.sub_heading('Infrastructure KPIs')
-    pdf.bullet('GPU cluster utilisation (target: >90%)')
-    pdf.bullet('GPU memory utilisation (target: >80%)')
-    pdf.bullet('System uptime (target: 99.95%)')
-    pdf.bullet('P99 inference latency (target: <5ms)')
-    pdf.bullet('Data pipeline latency (target: <500ms for streaming)')
+    pdf.dark_card_box(
+        'Compute Resource Orchestration',
+        'Kubernetes cluster overview with real-time pod scheduling and resource allocation. '
+        'GPU scheduling queue with multi-tier priority (research, simulation, inference). '
+        'Predictive auto-scaling based on historical workload patterns. Capacity forecasting '
+        'with 7-day and 30-day projections. Cost optimisation recommendations.',
+        15, pdf.get_y(), 85, 55
+    )
+    pdf.dark_card_box(
+        'Storage & Network Intelligence',
+        'Distributed storage heatmap: NVMe (hot), SSD (warm), object storage (cold). '
+        'Automatic data lifecycle management and tier migration. Network throughput '
+        'between compute and storage with congestion detection. I/O latency tracking '
+        '(p50, p95, p99). Predictive capacity alerts before you run out.',
+        110, pdf.get_y(), 85, 55
+    )
+    pdf.ln(60)
+
+    pdf.dark_card_box(
+        'Model Serving Dashboard (Triton)',
+        'NVIDIA Triton Inference Server metrics: RPS, latency distributions, batch '
+        'utilisation, and GPU memory per model. Live A/B test traffic routing. Model '
+        'version deployment history with one-click rollback. SLA compliance tracking '
+        'with automatic alerting when latency targets are breached.',
+        15, pdf.get_y(), 85, 52
+    )
+    pdf.dark_card_box(
+        'Incident Command Centre',
+        'Active alert dashboard with intelligent severity classification (P1-P4). '
+        'Automated root cause analysis using infrastructure graph correlation. Mean '
+        'time to detection (MTTD) and resolution (MTTR) trending. On-call routing '
+        'with escalation workflows. Post-incident review automation.',
+        110, pdf.get_y(), 85, 52
+    )
+    pdf.ln(56)
+
+    # --- Page 4: KPIs & Operational Excellence ---
+    pdf.content_page()
+    pdf.section_heading('Operational Excellence Metrics')
+    pdf.body(
+        'What gets measured gets improved. The Control Room tracks a comprehensive set '
+        'of KPIs designed to maximise research throughput while maintaining infrastructure '
+        'reliability. These are not vanity metrics -- each one directly impacts our ability '
+        'to produce better research, faster.'
+    )
+    pdf.ln(2)
+
+    pdf.sub_heading('Infrastructure Performance')
+    pdf.bullet('GPU cluster utilisation: >90% target (currently 94.2%)')
+    pdf.bullet('GPU memory efficiency: >80% target with smart workload packing')
+    pdf.bullet('Platform uptime: 99.95% SLA (currently 99.97% over 30 days)')
+    pdf.bullet('P99 inference latency: <5ms target (currently <2ms via TensorRT)')
+    pdf.bullet('Data pipeline end-to-end latency: <500ms for streaming feeds')
     pdf.ln(4)
 
-    pdf.sub_heading('Research KPIs')
-    pdf.bullet('Active experiments running concurrently')
-    pdf.bullet('Experiment completion rate (per week)')
-    pdf.bullet('Model validation pass rate')
-    pdf.bullet('Simulation throughput (scenarios per hour)')
-    pdf.bullet('Data freshness across all asset classes')
+    pdf.sub_heading('Research Productivity')
+    pdf.bullet('Concurrent experiments: 1,200+ active at peak')
+    pdf.bullet('Experiment iteration speed: 47x faster than CPU-only infrastructure')
+    pdf.bullet('Model validation throughput: 10,000+ simulation scenarios per candidate')
+    pdf.bullet('Feature engineering pipeline speed: 50x faster via RAPIDS GPU processing')
+    pdf.bullet('Researcher time-to-first-experiment: <30 minutes for new projects')
     pdf.ln(4)
 
-    pdf.sub_heading('Operational KPIs')
-    pdf.bullet('Mean time to detection (MTTD) for incidents')
-    pdf.bullet('Mean time to resolution (MTTR)')
-    pdf.bullet('Alert noise ratio (actionable vs. false positive)')
-    pdf.bullet('Deployment frequency and rollback rate')
-    pdf.bullet('Storage growth rate and capacity forecast')
+    pdf.sub_heading('Operational Reliability')
+    pdf.bullet('Mean time to detection (MTTD): <2 minutes for P1 incidents')
+    pdf.bullet('Mean time to resolution (MTTR): <15 minutes for infrastructure issues')
+    pdf.bullet('Alert signal-to-noise ratio: >85% actionable (minimise fatigue)')
+    pdf.bullet('Deployment frequency: multiple per day with zero-downtime GitOps')
+    pdf.bullet('Data quality score: >99.5% across all asset classes')
     pdf.ln(6)
 
-    pdf.section_heading('Alert Severity Levels')
+    pdf.section_heading('Alert Classification')
     pdf.card_box(
-        'P1 - Critical',
-        'Complete service outage or data loss. Immediate response required. '
-        'Examples: GPU cluster failure, primary data feed loss, storage corruption.',
-        15, pdf.get_y(), 85, 35
+        'P1 -- Critical (Immediate)',
+        'GPU cluster failure, primary data feed outage, storage corruption, or complete '
+        'service unavailability. War room activated. All hands on deck.',
+        15, pdf.get_y(), 85, 32
     )
     pdf.card_box(
-        'P2 - High',
-        'Degraded performance or partial service impact. Response within 30 min. '
-        'Examples: Single node failure, elevated latency, quality score drop.',
-        110, pdf.get_y(), 85, 35
+        'P2 -- High (30 min)',
+        'Degraded GPU performance, partial feed disruption, elevated latency, or data '
+        'quality score drop. On-call engineer engaged with escalation path.',
+        110, pdf.get_y(), 85, 32
     )
-    pdf.ln(40)
+    pdf.ln(36)
 
     pdf.card_box(
-        'P3 - Medium',
-        'Non-urgent issues with workarounds available. Response within 4 hours. '
-        'Examples: Backup delay, non-critical feed gap, capacity warning.',
-        15, pdf.get_y(), 85, 35
+        'P3 -- Medium (4 hours)',
+        'Non-critical feed gap, backup delay, capacity warning, or non-production '
+        'component degradation. Tracked and scheduled for resolution.',
+        15, pdf.get_y(), 85, 32
     )
     pdf.card_box(
-        'P4 - Low',
-        'Informational alerts and maintenance tasks. Next business day response. '
-        'Examples: Certificate renewal, dependency update, cleanup tasks.',
-        110, pdf.get_y(), 85, 35
+        'P4 -- Low (Next day)',
+        'Informational: certificate renewals, dependency updates, cleanup tasks, '
+        'and capacity planning triggers. Queued for routine maintenance.',
+        110, pdf.get_y(), 85, 32
     )
     pdf.ln(38)
+
+    pdf.cta_block(
+        'See the Control Room in Action',
+        'We would love to walk you through a live demo of the Control Room and show you '
+        'what real-time GPU infrastructure management looks like at scale.',
+        'info@ricche.ai  |  ricche.ai'
+    )
 
     out = os.path.join(OUT_DIR, 'ricche_control_room_dashboard_mockup.pdf')
     pdf.output(out)
