@@ -171,6 +171,7 @@ class RicchePDF(FPDF):
         self.cell(2, 6, '')
 
     def card_box(self, title, body_text, x, y, w=82, h=45):
+        saved_y = self.get_y()
         self.set_fill_color(*LIGHT_BG)
         self.set_draw_color(*BORDER_COLOR)
         self.rect(x, y, w, h, 'DF')
@@ -185,9 +186,11 @@ class RicchePDF(FPDF):
         self.set_font('Helvetica', '', 8)
         self.set_text_color(*BODY_COLOR)
         self.multi_cell(w - 8, 4.2, body_text)
+        self.set_y(saved_y)
 
     def dark_card_box(self, title, body_text, x, y, w=82, h=45):
         """Dark-themed card for high-impact sections."""
+        saved_y = self.get_y()
         self.set_fill_color(*NAVY)
         self.set_draw_color(40, 50, 80)
         self.rect(x, y, w, h, 'DF')
@@ -201,8 +204,10 @@ class RicchePDF(FPDF):
         self.set_font('Helvetica', '', 8)
         self.set_text_color(180, 185, 210)
         self.multi_cell(w - 8, 4.2, body_text)
+        self.set_y(saved_y)
 
     def nvidia_card_box(self, title, body_text, x, y, w=82, h=45):
+        saved_y = self.get_y()
         self.set_fill_color(*LIGHT_BG)
         self.set_draw_color(*BORDER_COLOR)
         self.rect(x, y, w, h, 'DF')
@@ -217,6 +222,7 @@ class RicchePDF(FPDF):
         self.set_font('Helvetica', '', 8)
         self.set_text_color(*BODY_COLOR)
         self.multi_cell(w - 8, 4.2, body_text)
+        self.set_y(saved_y)
 
     def flow_arrow(self, steps, y):
         """Draw a horizontal flow diagram."""
