@@ -24,7 +24,6 @@
     page-break-after: always;
   }
 
-  /* Title page */
   .title-page {
     display: flex;
     flex-direction: column;
@@ -51,7 +50,6 @@
     color: #666;
   }
 
-  /* Content pages */
   h2 {
     font-size: 16pt;
     font-weight: 800;
@@ -59,37 +57,35 @@
     margin-top: 36px;
     margin-bottom: 14px;
   }
-  h2:first-child {
-    margin-top: 0;
+  h2:first-child { margin-top: 0; }
+  h3 {
+    font-size: 13pt;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-top: 24px;
+    margin-bottom: 10px;
   }
-  p {
-    margin-bottom: 18px;
-    text-align: left;
-  }
+  p { margin-bottom: 18px; text-align: left; }
   .flow {
     font-family: 'Inter', sans-serif;
     margin: 10px 0 18px;
     color: #333;
   }
-  ul {
-    margin: 0 0 18px 24px;
-    list-style: disc;
-  }
-  ul li {
-    margin-bottom: 4px;
-  }
+  ul { margin: 0 0 18px 24px; list-style: disc; }
+  ul li { margin-bottom: 4px; }
+  .stat-row { display: flex; gap: 24px; margin: 18px 0; }
+  .stat-box { text-align: center; padding: 12px 16px; background: #f0f4ff; border-radius: 8px; flex: 1; }
+  .stat-box strong { display: block; font-size: 18pt; font-weight: 800; color: #0055FF; }
+  .stat-box span { font-size: 9pt; color: #555; text-transform: uppercase; letter-spacing: 0.04em; }
+  .badge-list { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 18px; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 100px; font-size: 8.5pt; font-weight: 600; border: 1px solid #ddd; color: #333; }
+  .badge-nvidia { background: #76b900; color: #fff; border-color: #76b900; }
+  blockquote { border-left: 3px solid #0055FF; padding: 12px 20px; margin: 18px 0; font-style: italic; color: #333; background: #f8faff; }
 
   @media print {
     body { background: #fff; }
-    .page {
-      width: auto;
-      padding: 48px 60px;
-      margin: 0;
-      page-break-after: always;
-    }
-    .title-page {
-      min-height: 100vh;
-    }
+    .page { width: auto; padding: 48px 60px; margin: 0; page-break-after: always; }
+    .title-page { min-height: 100vh; }
   }
 </style>
 </head>
@@ -99,123 +95,222 @@
 <div class="page title-page">
   <h1>Ricche Ltd</h1>
   <div class="subtitle">Institutional Research Whitepaper</div>
-  <div class="tagline">AI Infrastructure for Quantitative Market Research</div>
+  <div class="tagline">AI Infrastructure for the Future of Quantitative Market Research</div>
 </div>
 
-<!-- PAGE 2 -->
+<!-- PAGE 2: Executive Summary -->
 <div class="page">
   <h2>Executive Summary</h2>
   <p>
-    Ricche Ltd is developing artificial intelligence research infrastructure designed to explore
-    financial markets through machine learning, computational modelling, and large-scale
-    data analysis. Financial markets generate vast quantities of complex time-series data
-    influenced by economic forces, information flows, and participant behaviour. The Ricche
-    platform is designed as a structured research environment combining data engineering,
-    machine learning experimentation, simulation environments, and validation frameworks.
-    This approach supports disciplined experimentation and reproducible research workflows.
+    The quantitative finance industry is undergoing a fundamental transformation. The convergence of
+    massive data availability, GPU-accelerated computing, and advances in machine learning has created
+    an unprecedented opportunity to rethink how financial markets are studied, modelled, and understood.
   </p>
-
-  <h2>Industry Context</h2>
   <p>
-    Financial markets represent one of the most data-rich and computationally challenging
-    domains. Researchers must analyse high-dimensional time-series data, non-linear
-    behavioural patterns, and rapidly evolving market dynamics. Advances in artificial
-    intelligence and high-performance computing now allow researchers to study these
-    systems using modern computational approaches.
+    Ricche Ltd is building the infrastructure for this new era. Our GPU-accelerated research platform
+    combines institutional-grade data engineering, NVIDIA CUDA-powered machine learning environments,
+    GPU-parallelised simulation engines, and rigorous validation frameworks into a single, cohesive
+    system designed for one purpose: enabling the next generation of quantitative market research.
   </p>
+  <blockquote>
+    We believe the firms that will define the next decade of quantitative finance are those
+    building on AI-native, GPU-accelerated infrastructure from the ground up.
+  </blockquote>
+  <div class="stat-row">
+    <div class="stat-box"><strong>47x</strong><span>GPU vs CPU Training</span></div>
+    <div class="stat-box"><strong>&lt;2ms</strong><span>Inference Latency</span></div>
+    <div class="stat-box"><strong>10B+</strong><span>Data Points Ingested</span></div>
+    <div class="stat-box"><strong>30+</strong><span>Global Exchanges</span></div>
+  </div>
+</div>
 
-  <h2>Platform Overview</h2>
-  <p>The Ricche research platform integrates several key components within a unified architecture:</p>
+<!-- PAGE 3: The Opportunity -->
+<div class="page">
+  <h2>The Opportunity</h2>
+  <p>
+    Financial markets generate more data per day than most industries produce in a year. Tick-by-tick
+    price movements, shifting order book dynamics, macroeconomic releases, satellite imagery, social
+    sentiment &mdash; the potential signal space is vast and growing exponentially.
+  </p>
+  <p>
+    Ricche exists to close the infrastructure gap. We are building purpose-built, GPU-accelerated research
+    infrastructure that brings institutional-grade computational power to quantitative market research.
+  </p>
+  <h2>Market Drivers</h2>
   <ul>
-    <li>Data infrastructure for ingesting and preparing market datasets</li>
-    <li>Machine learning experimentation environments</li>
-    <li>Simulation frameworks for evaluating models</li>
-    <li>Validation and governance systems</li>
-    <li>Monitoring and observability infrastructure</li>
+    <li><strong>Data Explosion</strong> &mdash; Global financial data volumes growing at 25&ndash;30% annually</li>
+    <li><strong>GPU Computing Revolution</strong> &mdash; NVIDIA GPU computing transforms ML into an industrial-scale capability</li>
+    <li><strong>AI Maturation in Finance</strong> &mdash; The question is no longer whether AI works, but who has the best infrastructure</li>
+    <li><strong>Infrastructure Gap</strong> &mdash; Massive opportunity for purpose-built platforms that level the playing field</li>
   </ul>
-
-  <h2>Architecture Design</h2>
-  <p>
-    The platform architecture is structured as a layered system supporting the lifecycle of
-    computational research.
-  </p>
-  <p class="flow">
-    Market Data &rarr; Data Infrastructure &rarr; Machine Learning Research &rarr; Simulation Framework &rarr; Validation Systems &rarr; Monitoring &amp; Observability
-  </p>
-
-  <h2>Machine Learning Research</h2>
-  <p>
-    Machine learning experimentation forms a central component of the Ricche research
-    platform. Researchers can explore financial datasets using modern modelling approaches
-    including representation learning, time-series modelling, and anomaly detection.
-  </p>
 </div>
 
-<!-- PAGE 3 -->
+<!-- PAGE 4: Platform Architecture -->
 <div class="page">
-  <h2>Simulation Environments</h2>
+  <h2>Platform Architecture</h2>
   <p>
-    Simulation environments allow candidate research outputs to be evaluated across multiple
-    market scenarios. This enables researchers to test model behaviour under varied
-    conditions before progressing to further evaluation stages.
+    The Ricche platform is a multi-layered research infrastructure where each layer is purpose-built
+    and independently scalable. Data flows through five core layers.
   </p>
-
-  <h2>Validation &amp; Governance</h2>
-  <p>
-    Ricche emphasises disciplined research processes. Models and experimental outputs
-    progress through structured validation stages designed to ensure reproducibility and
-    robustness.
-  </p>
-
-  <h2>Accelerated Compute</h2>
-  <p>
-    Machine learning training and simulation environments can benefit significantly from
-    accelerated compute infrastructure such as GPU-based systems. These environments
-    allow larger datasets, faster experimentation cycles, and more extensive simulation
-    workflows.
-  </p>
-
-  <h2>Research Workflow</h2>
-  <p>A typical Ricche research workflow progresses through several stages:</p>
   <p class="flow">
-    Research Hypothesis &rarr; Data Preparation &rarr; Model Development &rarr; Simulation Testing &rarr; Validation &rarr; Controlled Evaluation
+    Market Data Ingestion &rarr; Data Infrastructure &rarr; ML Research Environment &rarr; Simulation Framework &rarr; Validation &amp; Governance
   </p>
-
-  <h2>Use of Data</h2>
-  <p>
-    Financial market datasets provide rich information about economic activity and market
-    behaviour. Data engineering pipelines are designed to prepare these datasets for
-    computational research environments.
-  </p>
+  <h3>Data Ingestion Layer</h3>
+  <p>Real-time and historical feeds from 30+ global exchanges. Sub-second ingestion with exactly-once delivery guarantees.</p>
+  <h3>GPU Compute Layer</h3>
+  <p>NVIDIA GPU clusters for financial ML. Distributed columnar storage for petabyte-scale datasets with intelligent tiering.</p>
+  <h3>Research &amp; Experimentation Layer</h3>
+  <p>CUDA-accelerated PyTorch with experiment tracking, model versioning, and automated hyperparameter optimisation.</p>
+  <h3>Simulation &amp; Validation</h3>
+  <p>GPU-parallelised Monte Carlo engines stress-test models across 10,000+ market scenarios before progression.</p>
 </div>
 
-<!-- PAGE 4 -->
+<!-- PAGE 5: NVIDIA GPU Stack -->
 <div class="page">
-  <h2>Monitoring &amp; Observability</h2>
-  <p>
-    The Ricche platform includes monitoring infrastructure designed to provide visibility into
-    research workflows, system health, and computational workloads.
-  </p>
+  <h2>NVIDIA Accelerated Computing Stack</h2>
+  <div class="badge-list">
+    <span class="badge badge-nvidia">NVIDIA CUDA</span>
+    <span class="badge badge-nvidia">DGX SuperPOD</span>
+    <span class="badge badge-nvidia">NVIDIA GB200 NVL72</span>
+    <span class="badge badge-nvidia">NVIDIA H200</span>
+    <span class="badge badge-nvidia">BlueField-3 DPU</span>
+    <span class="badge badge-nvidia">TensorRT-LLM</span>
+    <span class="badge badge-nvidia">Triton Inference Server</span>
+    <span class="badge badge-nvidia">NVIDIA NIM</span>
+    <span class="badge badge-nvidia">RAPIDS cuDF</span>
+    <span class="badge badge-nvidia">cuML</span>
+  </div>
+  <ul>
+    <li><strong>NVIDIA CUDA</strong> &mdash; Multi-GPU distributed training with mixed-precision delivers 47x speedups</li>
+    <li><strong>RAPIDS cuDF</strong> &mdash; Feature engineering on billion-row time-series runs 10&ndash;50x faster than pandas</li>
+    <li><strong>TensorRT</strong> &mdash; Sub-2ms inference latency through layer fusion and INT8 quantisation</li>
+    <li><strong>NVIDIA NIM</strong> &mdash; Optimised model inference with one-click deployment and dynamic scaling</li>
+  </ul>
+  <div class="stat-row">
+    <div class="stat-box"><strong>47x</strong><span>GPU vs CPU Training</span></div>
+    <div class="stat-box"><strong>&lt;2ms</strong><span>Inference Latency</span></div>
+    <div class="stat-box"><strong>50x</strong><span>Feature Eng. Speedup</span></div>
+    <div class="stat-box"><strong>10K+</strong><span>Sim Scenarios/Run</span></div>
+  </div>
+</div>
 
+<!-- PAGE 6: Data Infrastructure -->
+<div class="page">
+  <h2>Data Infrastructure</h2>
+  <p class="flow">Exchange Feeds &rarr; Ingestion Gateway &rarr; Quality Checks &rarr; Normalisation &amp; Alignment &rarr; Feature Store</p>
+  <h2>Global Market Coverage</h2>
+  <ul>
+    <li><strong>Equities</strong> &mdash; Developed and emerging markets across 30+ exchanges</li>
+    <li><strong>Futures &amp; Commodities</strong> &mdash; Energy, metals, agriculture, financial futures (CME, ICE, LME)</li>
+    <li><strong>Options</strong> &mdash; Full listed chains with Greeks, implied volatility surfaces, and skew data</li>
+    <li><strong>Foreign Exchange</strong> &mdash; Spot, forwards, and crosses across major and emerging pairs</li>
+    <li><strong>Fixed Income</strong> &mdash; Government bonds, investment-grade credit, interest rate instruments</li>
+    <li><strong>Alternative Data</strong> &mdash; NLP-processed news, satellite imagery, social sentiment</li>
+  </ul>
+  <h2>Data Quality Framework</h2>
+  <p>Every data point passes through multi-stage quality assurance. Automated checks for completeness, consistency, and anomalies run continuously. Full data lineage tracking for reproducibility and compliance.</p>
+</div>
+
+<!-- PAGE 7: Research Methodology -->
+<div class="page">
+  <h2>Research Methodology</h2>
+  <p class="flow">Research Hypothesis &rarr; Data Preparation &rarr; Model Development &rarr; Simulation Testing &rarr; Validation &amp; Review</p>
+  <h3>1. Hypothesis Registration</h3>
+  <p>Every project begins with a clearly defined hypothesis registered before any code is written.</p>
+  <h3>2. Data Preparation</h3>
+  <p>Datasets extracted with strict temporal discipline. GPU-accelerated feature engineering via RAPIDS at 50x speed.</p>
+  <h3>3. Model Development</h3>
+  <p>CUDA-accelerated PyTorch on NVIDIA GPU clusters. 47x speedup enables dramatically more experimentation.</p>
+  <h3>4. Simulation Stress-Testing</h3>
+  <p>Monte Carlo simulations across 10,000+ scenarios including regime changes, liquidity crises, and tail events.</p>
+  <h3>5. Validation &amp; Peer Review</h3>
+  <p>Out-of-sample validation, walk-forward testing, and formal peer review. Approved models enter controlled evaluation.</p>
+</div>
+
+<!-- PAGE 8: Operations -->
+<div class="page">
+  <h2>Operations &amp; Monitoring</h2>
+  <div class="stat-row">
+    <div class="stat-box"><strong>94.2%</strong><span>GPU Utilisation</span></div>
+    <div class="stat-box"><strong>1,247</strong><span>Active Experiments</span></div>
+    <div class="stat-box"><strong>3.2M</strong><span>Events / sec</span></div>
+    <div class="stat-box"><strong>99.97%</strong><span>Uptime (30d)</span></div>
+  </div>
+  <ul>
+    <li><strong>GPU Cluster Command</strong> &mdash; Real-time utilisation heatmap, per-GPU metrics, thermal detection</li>
+    <li><strong>Experiment Mission Control</strong> &mdash; Live tracking with real-time loss curves and validation metrics</li>
+    <li><strong>Data Pipeline Operations</strong> &mdash; Per-exchange latency, throughput, and quality scoring</li>
+    <li><strong>Infrastructure Intelligence</strong> &mdash; Kubernetes orchestration, predictive auto-scaling, capacity forecasting</li>
+  </ul>
+</div>
+
+<!-- PAGE 9: Current Technology Stack -->
+<div class="page">
+  <h2>Current Technology Stack</h2>
+  <h3>GPU &amp; Accelerated Compute</h3>
+  <div class="badge-list">
+    <span class="badge badge-nvidia">NVIDIA CUDA</span>
+    <span class="badge badge-nvidia">DGX SuperPOD</span>
+    <span class="badge badge-nvidia">NVIDIA H200</span>
+    <span class="badge badge-nvidia">TensorRT</span>
+    <span class="badge badge-nvidia">RAPIDS cuDF</span>
+    <span class="badge badge-nvidia">NVIDIA NIM</span>
+  </div>
+  <h3>Machine Learning &amp; Research</h3>
+  <div class="badge-list">
+    <span class="badge">PyTorch</span><span class="badge">JAX</span><span class="badge">FlashAttention-3</span><span class="badge">vLLM</span><span class="badge">Ray</span><span class="badge">W&amp;B</span>
+  </div>
+  <h3>Data Engineering</h3>
+  <div class="badge-list">
+    <span class="badge">KDB+/q</span><span class="badge">Redpanda</span><span class="badge">Apache Iceberg</span><span class="badge">Polars</span><span class="badge">DuckDB</span><span class="badge">ClickHouse</span>
+  </div>
+  <h3>Platform &amp; Infrastructure</h3>
+  <div class="badge-list">
+    <span class="badge">Kubernetes</span><span class="badge">Terraform</span><span class="badge">Temporal</span><span class="badge">InfiniBand NDR 400G</span><span class="badge">Rust</span><span class="badge">CUDA C++</span><span class="badge">Python</span>
+  </div>
+</div>
+
+<!-- PAGE 10: R&D Roadmap -->
+<div class="page">
+  <h2>Research &amp; Development Roadmap</h2>
+  <p>Items marked with (*) are in active prototyping.</p>
+  <h3>Advanced Compute &amp; Custom Silicon</h3>
+  <div class="badge-list">
+    <span class="badge">Xilinx Alveo FPGAs *</span><span class="badge">Etched Sohu</span><span class="badge">Groq LPU</span><span class="badge">Custom ASIC Tape-out</span><span class="badge">CXL Memory Pooling</span>
+  </div>
+  <h3>Quantum &amp; Next-Gen Computing</h3>
+  <div class="badge-list">
+    <span class="badge">Qiskit</span><span class="badge">PennyLane</span><span class="badge">Post-Quantum Cryptography *</span><span class="badge">Photonic Computing</span><span class="badge">Neuromorphic Computing</span>
+  </div>
+  <h3>Alpha Generation &amp; Research</h3>
+  <div class="badge-list">
+    <span class="badge">Autonomous Strategy Discovery</span><span class="badge">RL Market Agents *</span><span class="badge">Cross-Asset Regime Detection *</span><span class="badge">Alpha Signal Library (10,000+) *</span>
+  </div>
+  <h3>Sector Intelligence (Under Development)</h3>
+  <div class="badge-list">
+    <span class="badge">Drug Pipeline Probability Engine</span><span class="badge">Global Energy Flow Mapping</span><span class="badge">Geopolitical Risk Pricing</span><span class="badge">Central Bank Policy Decoder</span>
+  </div>
+</div>
+
+<!-- PAGE 11: Vision & Partnerships -->
+<div class="page">
   <h2>Long-Term Vision</h2>
-  <p>
-    Ricche aims to develop scalable research infrastructure capable of supporting advanced
-    machine learning experimentation and computational modelling of financial markets.
-  </p>
-
-  <h2>Collaboration Opportunities</h2>
-  <p>
-    Ricche welcomes collaboration with organisations working at the intersection of artificial
-    intelligence, financial data science, and computational infrastructure.
-  </p>
-
-  <h2>Conclusion</h2>
-  <p>
-    The Ricche research platform represents a structured approach to studying financial
-    markets through artificial intelligence and computational modelling. By combining machine
-    learning research environments, simulation frameworks, and validation processes, the
-    platform aims to support disciplined quantitative research.
-  </p>
+  <ul>
+    <li>GPU-accelerated research infrastructure is as essential as market data itself</li>
+    <li>Machine learning approaches surpass traditional quantitative methods in every asset class</li>
+    <li>Real-time inference enables research insights that adapt to market conditions as they evolve</li>
+    <li>Simulation environments become the primary testing ground before any capital commitment</li>
+    <li>The best research comes from the best infrastructure, not the largest headcount</li>
+  </ul>
+  <h2>Partnership Opportunities</h2>
+  <ul>
+    <li><strong>Technology Partners</strong> &mdash; GPU computing providers, cloud infrastructure companies, hardware vendors</li>
+    <li><strong>Data Partners</strong> &mdash; Market data vendors, alternative data providers, exchange operators</li>
+    <li><strong>Research Institutions</strong> &mdash; Universities and research labs exploring AI in financial markets</li>
+    <li><strong>Investors &amp; Advisors</strong> &mdash; Organisations at the convergence of AI and quantitative finance</li>
+  </ul>
+  <h2>Get in Touch</h2>
+  <p><strong>info@ricche.ai &nbsp;|&nbsp; ricche.ai</strong></p>
 </div>
 
 </body>
