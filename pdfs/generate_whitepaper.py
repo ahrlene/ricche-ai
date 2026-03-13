@@ -960,6 +960,18 @@ def generate_whitepaper():
     pdf.tech_badge('Open-Source Compute Ecosystem Tracker')
     pdf.ln(10)
 
+    pdf.sub_heading('Luxury & Desire Intelligence')
+    pdf.tech_badge('Ultra-High-Net-Worth Spending Predictor')
+    pdf.tech_badge('Luxury Brand Sentiment Thermometer')
+    pdf.tech_badge('Scarcity & Waitlist Pricing Engine')
+    pdf.tech_badge('Chinese Consumer Luxury Appetite Model')
+    pdf.tech_badge('Aspirational-to-Affluent Conversion Tracker')
+    pdf.tech_badge('Counterfeit & Grey Market Intelligence')
+    pdf.tech_badge('Fashion Trend Cycle Predictor')
+    pdf.tech_badge('Luxury Real Estate & Tourism Correlation Engine')
+    pdf.tech_badge('Succession & Conglomerate M&A Intelligence')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
