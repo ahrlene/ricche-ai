@@ -936,6 +936,18 @@ def generate_whitepaper():
     pdf.tech_badge('Human-on-the-Loop Escalation Architecture')
     pdf.ln(10)
 
+    pdf.sub_heading('Lithography Monopoly Intelligence')
+    pdf.tech_badge('EUV Throughput Yield Prediction')
+    pdf.tech_badge('Lithography Capex Allocation Engine')
+    pdf.tech_badge('Semiconductor Equipment Supply Chain Graph')
+    pdf.tech_badge('Geopolitical Export Control Modelling')
+    pdf.tech_badge('Installed Base Utilisation Intelligence')
+    pdf.tech_badge('Photon-to-Revenue Attribution Model')
+    pdf.tech_badge('High-NA EUV Adoption Forecasting')
+    pdf.tech_badge('Metrology-Driven Defect Economics')
+    pdf.tech_badge('Litho Monopoly Moat Quantification')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
