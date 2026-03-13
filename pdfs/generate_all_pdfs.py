@@ -1138,6 +1138,18 @@ def generate_architecture_pdf():
     pdf.tech_badge('China Property Contagion Engine')
     pdf.ln(10)
 
+    pdf.sub_heading('Vertical Integration Empire Intelligence')
+    pdf.tech_badge('DRAM/NAND Pricing Cycle Predictor')
+    pdf.tech_badge('Foundry Node Race Intelligence')
+    pdf.tech_badge('Galaxy Ecosystem Monetisation Model')
+    pdf.tech_badge('Display Technology Dominance Tracker')
+    pdf.tech_badge('Chaebol Cross-Subsidy Analyser')
+    pdf.tech_badge('HBM Capacity & Allocation Intelligence')
+    pdf.tech_badge('Smartphone Market Share Erosion Model')
+    pdf.tech_badge('South Korea Macro & Won Sensitivity Engine')
+    pdf.tech_badge('Vertical Integration Margin Optimiser')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
