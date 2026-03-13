@@ -948,6 +948,18 @@ def generate_whitepaper():
     pdf.tech_badge('Litho Monopoly Moat Quantification')
     pdf.ln(10)
 
+    pdf.sub_heading('Heterogeneous Compute Supremacy')
+    pdf.tech_badge('ROCm-Native Model Training Pipeline')
+    pdf.tech_badge('EPYC Core-per-Dollar Alpha Engine')
+    pdf.tech_badge('Chiplet Architecture Cost Modelling')
+    pdf.tech_badge('FPGA Adaptive Trading Fabric')
+    pdf.tech_badge('GPU Compute TCO Arbitrage')
+    pdf.tech_badge('Heterogeneous Compute Orchestrator')
+    pdf.tech_badge('AMD vs NVIDIA Market Share Predictor')
+    pdf.tech_badge('Infinity Fabric Interconnect Intelligence')
+    pdf.tech_badge('Open-Source Compute Ecosystem Tracker')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
