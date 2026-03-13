@@ -153,6 +153,9 @@ class RicchePDF(FPDF):
         self.set_fill_color(230, 245, 210)
         self.set_text_color(80, 130, 0)
         w = self.get_string_width(text) + 8
+        right_limit = 210 - self.r_margin
+        if self.get_x() + w > right_limit:
+            self.ln(9)
         self.cell(w, 7, text, new_x='END', new_y='TOP', fill=True)
         self.cell(3, 7, '')  # spacer
 
@@ -161,6 +164,9 @@ class RicchePDF(FPDF):
         self.set_fill_color(*LIGHT_BG)
         self.set_text_color(*BODY_COLOR)
         w = self.get_string_width(text) + 6
+        right_limit = 210 - self.r_margin
+        if self.get_x() + w > right_limit:
+            self.ln(8)
         self.cell(w, 6, text, new_x='END', new_y='TOP', fill=True)
         self.cell(2, 6, '')
 
