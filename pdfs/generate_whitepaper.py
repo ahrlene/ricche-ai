@@ -900,6 +900,18 @@ def generate_whitepaper():
     pdf.tech_badge('Healthcare Workforce Shortage Alpha')
     pdf.ln(10)
 
+    pdf.sub_heading('GLP-1 & Metabolic Revolution Intelligence')
+    pdf.tech_badge('GLP-1 Prescription Trajectory Model (Global)')
+    pdf.tech_badge('Obesity Treatment Penetration Curve')
+    pdf.tech_badge('GLP-1 Supply Constraint Predictor')
+    pdf.tech_badge('Compounding Pharmacy Threat Quantifier')
+    pdf.tech_badge('Payer Coverage & Formulary Shift Tracker')
+    pdf.tech_badge('Metabolic Disease Cascade Modelling')
+    pdf.tech_badge('Competitive Pipeline Threat Assessment')
+    pdf.tech_badge('Weight Regain & Adherence Predictor')
+    pdf.tech_badge('GLP-1 Economic Ripple Effect Engine')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
