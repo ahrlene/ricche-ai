@@ -82,6 +82,7 @@ def generate_whitepaper():
     pdf.ln(2)
 
     pdf.section_heading('Market Drivers')
+    pdf.ensure_space(50)
     pdf.card_box(
         'Data Explosion',
         'Global financial data volumes are growing at 25-30% annually. Alternative data '
@@ -98,6 +99,7 @@ def generate_whitepaper():
     )
     pdf.ln(49)
 
+    pdf.ensure_space(48)
     pdf.card_box(
         'AI Maturation in Finance',
         'Machine learning has moved beyond hype into proven production use across '
@@ -188,6 +190,7 @@ def generate_whitepaper():
     pdf.nvidia_badge('cuML')
     pdf.ln(12)
 
+    pdf.ensure_space(58)
     pdf.nvidia_card_box(
         'NVIDIA CUDA -- The Foundation',
         'Every training run, every simulation, every feature computation is CUDA-accelerated. '
@@ -206,6 +209,7 @@ def generate_whitepaper():
     )
     pdf.ln(56)
 
+    pdf.ensure_space(58)
     pdf.nvidia_card_box(
         'TensorRT -- Production Inference',
         'Research models are optimised for production through layer fusion, kernel auto-tuning, '
@@ -225,6 +229,7 @@ def generate_whitepaper():
     pdf.ln(56)
 
     # Performance benchmarks
+    pdf.ensure_space(30)
     pdf.green_stat_box('47x', 'GPU vs CPU Training', 15, pdf.get_y(), 42)
     pdf.green_stat_box('<2ms', 'Inference Latency', 62, pdf.get_y(), 42)
     pdf.green_stat_box('50x', 'Feature Eng. Speedup', 109, pdf.get_y(), 42)
@@ -272,6 +277,7 @@ def generate_whitepaper():
         'and regulatory compliance.'
     )
 
+    pdf.ensure_space(44)
     pdf.card_box(
         'Real-Time Streaming',
         'Event-driven pipelines with sub-second latency and exactly-once delivery. '
@@ -370,6 +376,7 @@ def generate_whitepaper():
     pdf.stat_box('99.97%', 'Uptime (30d)', 156, pdf.get_y(), 38)
     pdf.ln(30)
 
+    pdf.ensure_space(54)
     pdf.dark_card_box(
         'GPU Cluster Command',
         'Real-time utilisation heatmap across all GPU nodes. Per-GPU memory, temperature, '
@@ -386,6 +393,7 @@ def generate_whitepaper():
     )
     pdf.ln(52)
 
+    pdf.ensure_space(48)
     pdf.dark_card_box(
         'Data Pipeline Operations',
         'Feed-by-feed ingestion status with per-exchange latency and throughput. '
@@ -490,6 +498,7 @@ def generate_whitepaper():
         'organisations that share this vision.'
     )
     pdf.ln(2)
+    pdf.ensure_space(50)
     pdf.card_box(
         'Technology Partners',
         'GPU computing providers, cloud infrastructure companies, and hardware vendors '
@@ -506,6 +515,7 @@ def generate_whitepaper():
     )
     pdf.ln(49)
 
+    pdf.ensure_space(48)
     pdf.card_box(
         'Research Institutions',
         'Universities, research labs, and academic groups exploring AI applications in '
@@ -522,6 +532,7 @@ def generate_whitepaper():
     )
     pdf.ln(48)
 
+    pdf.ensure_space(50)
     pdf.cta_block(
         'Let\'s Build the Future Together',
         'Whether you are a potential partner, investor, researcher, or technology collaborator, '

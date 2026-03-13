@@ -92,6 +92,12 @@ class RicchePDF(FPDF):
         self.dark_header_bar()
         self.set_y(48)
 
+    def ensure_space(self, needed_mm):
+        """If less than needed_mm remains on the page, start a new content page."""
+        remaining = 297 - self.get_y() - 20  # 297 = A4 height, 20 = bottom margin
+        if remaining < needed_mm:
+            self.content_page()
+
     def section_heading(self, text):
         self.set_font('Helvetica', 'B', 15)
         self.set_text_color(*DARK)
@@ -346,6 +352,7 @@ def generate_architecture_pdf():
         'data ingestion to GPU-parallelised model training and real-time inference.'
     )
 
+    pdf.ensure_space(54)
     pdf.card_box(
         'Data Ingestion Layer',
         'Real-time streaming from global exchanges (NYSE, CME, LSE, Eurex, HKEX, SGX). '
@@ -383,6 +390,7 @@ def generate_architecture_pdf():
     pdf.nvidia_badge('cuML')
     pdf.ln(12)
 
+    pdf.ensure_space(58)
     pdf.nvidia_card_box(
         'NVIDIA CUDA -- The Foundation',
         'Every training run, every simulation, every feature computation is CUDA-accelerated. '
@@ -401,6 +409,7 @@ def generate_architecture_pdf():
     )
     pdf.ln(56)
 
+    pdf.ensure_space(58)
     pdf.nvidia_card_box(
         'TensorRT -- Production Speed',
         'Research models are optimised for production inference through layer fusion, kernel '
@@ -420,6 +429,7 @@ def generate_architecture_pdf():
     pdf.ln(56)
 
     # Performance stats
+    pdf.ensure_space(30)
     pdf.green_stat_box('47x', 'GPU vs CPU Training', 15, pdf.get_y(), 42)
     pdf.green_stat_box('<2ms', 'Inference Latency', 62, pdf.get_y(), 42)
     pdf.green_stat_box('10B+', 'Data Points Processed', 109, pdf.get_y(), 42)
@@ -453,6 +463,7 @@ def generate_architecture_pdf():
     pdf.bullet('Alternative Data: NLP-processed news, satellite imagery, social sentiment, web scraping')
     pdf.ln(4)
 
+    pdf.ensure_space(48)
     pdf.card_box(
         'Real-Time Streaming',
         'Event-driven pipelines with sub-second latency. Exactly-once delivery semantics '
@@ -592,6 +603,7 @@ def generate_architecture_pdf():
     )
 
     pdf.ln(4)
+    pdf.ensure_space(50)
     pdf.cta_block(
         'Build the Future of Market Research With Us',
         'We are looking for partners, collaborators, and visionary researchers who share '
@@ -644,6 +656,7 @@ def generate_overview_pdf():
 
     pdf.section_heading('What We Have Built')
 
+    pdf.ensure_space(58)
     pdf.card_box(
         'Machine Learning Research',
         'NVIDIA CUDA-accelerated model training that compresses weeks of experimentation '
@@ -691,6 +704,7 @@ def generate_overview_pdf():
     )
     pdf.ln(2)
 
+    pdf.ensure_space(48)
     pdf.nvidia_card_box(
         'NVIDIA CUDA',
         'The foundation of everything we do. CUDA-accelerated training and simulation '
@@ -707,6 +721,7 @@ def generate_overview_pdf():
     )
     pdf.ln(46)
 
+    pdf.ensure_space(48)
     pdf.nvidia_card_box(
         'TensorRT',
         'Production inference optimised to sub-2ms latency through layer fusion, '
@@ -762,6 +777,7 @@ def generate_overview_pdf():
     pdf.bullet('Investors looking at the convergence of AI, finance, and high-performance computing')
     pdf.ln(6)
 
+    pdf.ensure_space(50)
     pdf.cta_block(
         'Ready to Explore What We Are Building?',
         'Whether you are a potential partner, investor, or researcher, we would love to show you '
@@ -809,6 +825,7 @@ def generate_dashboard_pdf():
 
     pdf.section_heading('Core Dashboard Panels')
 
+    pdf.ensure_space(64)
     pdf.dark_card_box(
         'GPU Cluster Command',
         'Real-time GPU utilisation heatmap across all nodes. Per-GPU metrics: memory, '
@@ -827,6 +844,7 @@ def generate_dashboard_pdf():
     )
     pdf.ln(62)
 
+    pdf.ensure_space(58)
     pdf.dark_card_box(
         'Data Pipeline Operations',
         'Feed-by-feed ingestion dashboard with per-exchange latency and throughput. '
@@ -856,6 +874,7 @@ def generate_dashboard_pdf():
     )
     pdf.ln(2)
 
+    pdf.ensure_space(60)
     pdf.dark_card_box(
         'Compute Resource Orchestration',
         'Kubernetes cluster overview with real-time pod scheduling and resource allocation. '
@@ -874,6 +893,7 @@ def generate_dashboard_pdf():
     )
     pdf.ln(60)
 
+    pdf.ensure_space(58)
     pdf.dark_card_box(
         'Model Serving Dashboard (NIM)',
         'NVIDIA NIM microservice metrics: RPS, latency distributions, batch '
@@ -928,6 +948,7 @@ def generate_dashboard_pdf():
     pdf.ln(6)
 
     pdf.section_heading('Alert Classification')
+    pdf.ensure_space(38)
     pdf.card_box(
         'P1 -- Critical (Immediate)',
         'GPU cluster failure, primary data feed outage, storage corruption, or complete '
@@ -942,6 +963,7 @@ def generate_dashboard_pdf():
     )
     pdf.ln(36)
 
+    pdf.ensure_space(38)
     pdf.card_box(
         'P3 -- Medium (4 hours)',
         'Non-critical feed gap, backup delay, capacity warning, or non-production '
@@ -956,6 +978,7 @@ def generate_dashboard_pdf():
     )
     pdf.ln(38)
 
+    pdf.ensure_space(50)
     pdf.cta_block(
         'See the Control Room in Action',
         'We would love to walk you through a live demo of the Control Room and show you '
