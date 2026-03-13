@@ -43,7 +43,7 @@
 <link rel="canonical" href="https://ricche.ai/">
 
 <!-- Security: Content Security Policy -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.vercel-scripts.com https://*.vercel.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; media-src 'self'; frame-src 'self'; connect-src 'self' https://formsubmit.co https://*.vercel-insights.com https://*.vercel.com; upgrade-insecure-requests;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.vercel-scripts.com https://*.vercel.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; media-src 'self'; frame-src 'self'; object-src 'self'; connect-src 'self' https://formsubmit.co https://*.vercel-insights.com https://*.vercel.com; upgrade-insecure-requests;">
 
 <!-- Security: Permissions Policy -->
 <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=()">
@@ -1164,7 +1164,7 @@
     </div>
     <div class="pdf-modal-body">
       <div class="pdf-modal-loading" id="pdfModalLoading">Loading document...</div>
-      <iframe id="pdfModalFrame" src="" loading="lazy" sandbox="allow-same-origin allow-scripts"></iframe>
+      <iframe id="pdfModalFrame" src="" loading="lazy"></iframe>
     </div>
   </div>
 </div>
