@@ -52,8 +52,8 @@ def generate_whitepaper():
     card_y = pdf.get_y()
     pdf.stat_box('47x', 'GPU vs CPU Training', 15, card_y, 42)
     pdf.stat_box('<2ms', 'Inference Latency', 62, card_y, 42)
-    pdf.stat_box('10B+', 'Data Points Ingested', 109, card_y, 42)
-    pdf.stat_box('30+', 'Global Exchanges', 156, card_y, 38)
+    pdf.stat_box('141 GB', 'HBM3e per H200', 109, card_y, 42)
+    pdf.stat_box('400G', 'InfiniBand NDR', 156, card_y, 38)
     pdf.set_y(card_y + 30)
 
     # ============================================================
@@ -168,7 +168,7 @@ def generate_whitepaper():
     pdf.sub_heading('Simulation & Validation')
     pdf.body(
         'GPU-parallelised Monte Carlo and agent-based simulation engines that stress-test '
-        'candidate models across 10,000+ market scenarios before progression. Formal validation '
+        'candidate models across thousands of market scenarios before progression. Formal validation '
         'stages with statistical significance testing, walk-forward analysis, and peer review '
         'ensure only genuinely robust models advance to controlled evaluation.'
     )
@@ -206,8 +206,8 @@ def generate_whitepaper():
     pdf.nvidia_card_box(
         'NVIDIA CUDA -- The Foundation',
         'Every training run, every simulation, every feature computation is CUDA-accelerated. '
-        'Multi-GPU distributed training with mixed-precision (FP16/BF16) delivers 47x speedups '
-        'over CPU-only infrastructure. Researchers iterate on ideas in hours, not days. '
+        'Multi-GPU distributed training with mixed-precision (FP16/BF16) delivers dramatic '
+        'speedups over CPU-only infrastructure. Researchers iterate on ideas in hours, not days. '
         'This is the engine that makes everything else possible.',
         15, card_y, 85, 52
     )
@@ -244,10 +244,10 @@ def generate_whitepaper():
     # Performance benchmarks
     pdf.ensure_space(30)
     card_y = pdf.get_y()
-    pdf.green_stat_box('47x', 'GPU vs CPU Training', 15, card_y, 42)
+    pdf.green_stat_box('141 GB', 'HBM3e per H200', 15, card_y, 42)
     pdf.green_stat_box('<2ms', 'Inference Latency', 62, card_y, 42)
-    pdf.green_stat_box('50x', 'Feature Eng. Speedup', 109, card_y, 42)
-    pdf.green_stat_box('10K+', 'Sim Scenarios/Run', 156, card_y, 38)
+    pdf.green_stat_box('400G', 'InfiniBand NDR', 109, card_y, 42)
+    pdf.green_stat_box('5', 'Asset Classes', 156, card_y, 38)
     pdf.set_y(card_y + 28)
 
     # ============================================================
@@ -351,14 +351,14 @@ def generate_whitepaper():
     pdf.body(
         'Models are developed in CUDA-accelerated PyTorch environments on NVIDIA GPU clusters. '
         'Experiment tracking captures every hyperparameter, metric, and artifact automatically. '
-        'The 47x GPU speedup means researchers test more hypotheses per week than traditional '
+        'GPU speedups mean researchers test more hypotheses per week than traditional '
         'setups allow in a month -- dramatically increasing the probability of discovery.'
     )
 
     pdf.sub_heading('4. Simulation Stress-Testing')
     pdf.body(
         'Candidate models face rigorous evaluation in GPU-parallelised simulation engines. '
-        'Monte Carlo simulations test behaviour across 10,000+ scenarios including regime '
+        'Monte Carlo simulations test behaviour across thousands of scenarios including regime '
         'changes, liquidity crises, and tail events. Agent-based models capture market '
         'microstructure dynamics. Only models that survive this gauntlet progress.'
     )
@@ -387,8 +387,8 @@ def generate_whitepaper():
 
     card_y = pdf.get_y()
     pdf.stat_box('94.2%', 'GPU Utilisation', 15, card_y, 42)
-    pdf.stat_box('1,247', 'Active Experiments', 62, card_y, 42)
-    pdf.stat_box('3.2M', 'Events / sec', 109, card_y, 42)
+    pdf.stat_box('128', 'Active Experiments', 62, card_y, 42)
+    pdf.stat_box('2,540', 'Simulation Jobs', 109, card_y, 42)
     pdf.stat_box('99.97%', 'Uptime (30d)', 156, card_y, 38)
     pdf.set_y(card_y + 30)
 
@@ -461,15 +461,9 @@ def generate_whitepaper():
     pdf.tech_badge('JAX')
     pdf.tech_badge('Triton')
     pdf.tech_badge('FlashAttention-3')
-    pdf.tech_badge('Liger Kernel')
-    pdf.tech_badge('GaLore')
-    pdf.tech_badge('Unsloth')
     pdf.tech_badge('vLLM')
-    pdf.tech_badge('SGLang')
     pdf.tech_badge('Ray')
     pdf.tech_badge('W&B')
-    pdf.tech_badge('MCP')
-    pdf.tech_badge('GraphRAG')
     pdf.ln(10)
 
     pdf.sub_heading('Data Engineering')
@@ -495,7 +489,6 @@ def generate_whitepaper():
     pdf.tech_badge('RDMA')
     pdf.tech_badge('io_uring')
     pdf.tech_badge('PTP (IEEE 1588)')
-    pdf.tech_badge('Exchange Co-location')
     pdf.ln(10)
 
     pdf.sub_heading('Trading & Execution')
@@ -504,7 +497,7 @@ def generate_whitepaper():
     pdf.tech_badge('LMAX Disruptor')
     pdf.tech_badge('ITCH / OUCH Protocol')
     pdf.tech_badge('Smart Order Routing')
-    pdf.tech_badge('Queue Position Estimation')
+    pdf.tech_badge('Backtesting Engine')
     pdf.ln(10)
 
     pdf.sub_heading('Platform Engineering')
@@ -513,25 +506,24 @@ def generate_whitepaper():
     pdf.tech_badge('Argo CD')
     pdf.tech_badge('Cilium')
     pdf.tech_badge('Istio')
-    pdf.tech_badge('Crossplane')
-    pdf.tech_badge('Backstage')
     pdf.tech_badge('HashiCorp Vault')
     pdf.tech_badge('Terraform')
     pdf.tech_badge('Temporal')
     pdf.ln(10)
 
     pdf.sub_heading('Security & Observability')
-    pdf.tech_badge('Homomorphic Encryption')
-    pdf.tech_badge('Confidential Computing')
+    pdf.tech_badge('AES-256 Encryption at Rest')
+    pdf.tech_badge('TLS 1.3')
+    pdf.tech_badge('Role-Based Access Control')
     pdf.tech_badge('eBPF')
     pdf.tech_badge('OpenTelemetry')
     pdf.tech_badge('Prometheus')
     pdf.tech_badge('Grafana')
+    pdf.tech_badge('Audit Trail')
     pdf.ln(10)
 
     pdf.sub_heading('Core Languages')
     pdf.tech_badge('Python')
-    pdf.tech_badge('Mojo')
     pdf.tech_badge('Rust')
     pdf.tech_badge('SQL')
     pdf.tech_badge('CUDA C++')
@@ -544,104 +536,8 @@ def generate_whitepaper():
         'and DuckDB handle analytical queries at blazing speed. ClickHouse powers '
         'sub-second OLAP queries on financial time-series. Apache Iceberg provides '
         'the data lakehouse layer. Redpanda replaces Kafka with 10x lower latency '
-        'and zero JVM overhead. Rust and Mojo power latency-critical paths.'
+        'and zero JVM overhead. Rust powers latency-critical paths.'
     )
-
-    # ============================================================
-    # RESEARCH & DEVELOPMENT ROADMAP
-    # ============================================================
-    pdf.content_page()
-    pdf.section_heading('Research & Development Roadmap')
-    pdf.body(
-        'Beyond our current production stack, Ricche is actively researching and developing '
-        'the following capabilities. These represent our medium- to long-term technology '
-        'investments -- systems that are in various stages of research, prototyping, or '
-        'early development. Items marked with an asterisk (*) are in active prototyping.'
-    )
-    pdf.ln(2)
-
-    pdf.sub_heading('Advanced Compute & Custom Silicon')
-    pdf.tech_badge('Xilinx Alveo FPGAs *')
-    pdf.tech_badge('Etched Sohu')
-    pdf.tech_badge('Groq LPU')
-    pdf.tech_badge('Custom ASIC Tape-out')
-    pdf.tech_badge('Chisel / SpinalHDL')
-    pdf.tech_badge('Cadence / Synopsys EDA')
-    pdf.tech_badge('CXL Memory Pooling')
-    pdf.ln(10)
-
-    pdf.sub_heading('Quantum & Next-Gen Computing')
-    pdf.tech_badge('Qiskit')
-    pdf.tech_badge('PennyLane')
-    pdf.tech_badge('Post-Quantum Cryptography *')
-    pdf.tech_badge('Photonic Computing')
-    pdf.tech_badge('Neuromorphic Computing')
-    pdf.tech_badge('Quantum Monte Carlo Acceleration Engine')
-    pdf.tech_badge('Hybrid Classical-Quantum Optimisation Pipeline')
-    pdf.ln(10)
-
-    pdf.sub_heading('Speed-of-Light Networking')
-    pdf.tech_badge('Private Microwave Networks')
-    pdf.tech_badge('Hollow-Core Fiber')
-    pdf.tech_badge('Point-to-Point Laser Links')
-    pdf.tech_badge('Custom NIC Firmware *')
-    pdf.tech_badge('Nanosecond Timestamping *')
-    pdf.tech_badge('Custom SmartNIC (P4-Programmable)')
-    pdf.ln(10)
-
-    pdf.sub_heading('Kernel-Level Optimisation')
-    pdf.tech_badge('AF_XDP *')
-    pdf.tech_badge('Custom Linux Kernel (PREEMPT_RT) *')
-    pdf.tech_badge('isolcpus / nohz_full *')
-    pdf.tech_badge('1GB HugePages *')
-    pdf.ln(10)
-
-    pdf.sub_heading('Alpha Generation & Research')
-    pdf.tech_badge('Autonomous Strategy Discovery')
-    pdf.tech_badge('RL Market Agents *')
-    pdf.tech_badge('Cross-Asset Regime Detection *')
-    pdf.tech_badge('Alpha Signal Library (10,000+) *')
-    pdf.tech_badge('Strategy Decay Monitoring *')
-    pdf.tech_badge('Pre-Event Probability Engine')
-    pdf.tech_badge('Natural Language Strategy Compiler')
-    pdf.tech_badge('Proprietary Foundation Model')
-    pdf.ln(10)
-
-    pdf.sub_heading('Alternative Data & Signals')
-    pdf.tech_badge('Proprietary Sentiment Pipelines *')
-    pdf.tech_badge('Satellite & IoT Data Ingestion')
-    pdf.tech_badge('Supply Chain Telemetry')
-    pdf.tech_badge('Dark Pool Flow Reconstruction')
-    pdf.tech_badge('Cross-Market Correlation Maps *')
-    pdf.tech_badge('Real-Time Narrative Extraction Engine')
-    pdf.ln(10)
-
-    pdf.sub_heading('Advanced Execution')
-    pdf.tech_badge('Custom Matching Engine')
-    pdf.tech_badge('Stealth Execution Engine')
-    pdf.tech_badge('Regime-Adaptive Execution')
-    pdf.tech_badge('Flow Toxicity Analyser (VPIN) *')
-    pdf.tech_badge('Systematic Market Making')
-    pdf.ln(10)
-
-    pdf.sub_heading('Sector Intelligence (Under Development)')
-    pdf.tech_badge('Drug Pipeline Probability Engine')
-    pdf.tech_badge('Global Energy Flow Mapping')
-    pdf.tech_badge('Geopolitical Risk Pricing Engine')
-    pdf.tech_badge('Semiconductor Inventory Supercycle Model')
-    pdf.tech_badge('Central Bank Policy Decoder')
-    pdf.tech_badge('Catastrophe Bond Pricing Engine')
-    pdf.tech_badge('DeFi Protocol Risk Scoring')
-    pdf.ln(10)
-
-    pdf.sub_heading('Infrastructure Roadmap')
-    pdf.tech_badge('Liquid / Immersion Cooling')
-    pdf.tech_badge('Multi-Region Active-Active Architecture *')
-    pdf.tech_badge('Self-Healing Infrastructure *')
-    pdf.tech_badge('GPU-Direct RDMA to Exchange')
-    pdf.tech_badge('Tensor Core Risk Engine')
-    pdf.tech_badge('CUDA Graph Execution Pipelines *')
-    pdf.ln(10)
 
     # ============================================================
     # PAGE 10: Vision, Partnerships & CTA

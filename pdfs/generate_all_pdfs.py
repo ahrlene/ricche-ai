@@ -342,8 +342,8 @@ def generate_architecture_pdf():
     )
     pdf.ln(2)
     pdf.quote_block(
-        'Our architecture processes 10 billion+ data points through GPU-accelerated pipelines, '
-        'delivering 47x faster model training and sub-2ms inference latency.'
+        'Our architecture processes market data through GPU-accelerated pipelines, '
+        'delivering dramatically faster model training and sub-2ms inference latency.'
     )
     pdf.ln(2)
 
@@ -414,8 +414,8 @@ def generate_architecture_pdf():
     pdf.nvidia_card_box(
         'NVIDIA CUDA -- The Foundation',
         'Every training run, every simulation, every feature computation is CUDA-accelerated. '
-        'Multi-GPU distributed training with mixed-precision (FP16/BF16) delivers dramatic '
-        'speedups without sacrificing model quality. Researchers iterate on ideas in hours, '
+        'Multi-GPU distributed training with mixed-precision (FP16/BF16) delivers significant '
+        'speedups over CPU-only infrastructure. Researchers iterate on ideas in hours, '
         'not days. This is the engine that makes everything else possible.',
         15, pdf.get_y(), 85, 52
     )
@@ -450,10 +450,10 @@ def generate_architecture_pdf():
 
     # Performance stats
     pdf.ensure_space(30)
-    pdf.green_stat_box('47x', 'GPU vs CPU Training', 15, pdf.get_y(), 42)
+    pdf.green_stat_box('141 GB', 'HBM3e per H200', 15, pdf.get_y(), 42)
     pdf.green_stat_box('<2ms', 'Inference Latency', 62, pdf.get_y(), 42)
-    pdf.green_stat_box('10B+', 'Data Points Processed', 109, pdf.get_y(), 42)
-    pdf.green_stat_box('50x', 'Feature Eng. Speedup', 156, pdf.get_y(), 38)
+    pdf.green_stat_box('400G', 'InfiniBand NDR', 109, pdf.get_y(), 42)
+    pdf.green_stat_box('5', 'Asset Classes', 156, pdf.get_y(), 38)
     pdf.ln(28)
 
     # --- Page 4: Data Pipeline ---
@@ -542,14 +542,14 @@ def generate_architecture_pdf():
         'Researchers develop models in CUDA-accelerated PyTorch environments on NVIDIA GPU '
         'clusters. Every hyperparameter, every metric, every model artifact is tracked '
         'automatically. Automated hyperparameter optimisation explores thousands of '
-        'configurations. The 47x GPU speedup means researchers test more ideas per week '
+        'configurations. GPU speedups mean researchers test more ideas per week '
         'than traditional setups allow in a month.'
     )
 
     pdf.sub_heading('Stage 4: Simulation Testing')
     pdf.body(
         'Candidate models face rigorous stress-testing in GPU-parallelised simulation engines. '
-        'Monte Carlo simulations evaluate behaviour across 10,000+ market scenarios including '
+        'Monte Carlo simulations evaluate behaviour across thousands of market scenarios including '
         'regime changes, liquidity crises, and black swan events. Agent-based simulations '
         'model market microstructure interactions. Only models that survive this gauntlet proceed.'
     )
@@ -615,12 +615,14 @@ def generate_architecture_pdf():
     pdf.ln(10)
 
     pdf.sub_heading('Security & Observability')
-    pdf.tech_badge('Homomorphic Encryption')
-    pdf.tech_badge('Confidential Computing')
+    pdf.tech_badge('AES-256 Encryption at Rest')
+    pdf.tech_badge('TLS 1.3')
+    pdf.tech_badge('Role-Based Access Control')
     pdf.tech_badge('eBPF')
     pdf.tech_badge('OpenTelemetry')
     pdf.tech_badge('Prometheus')
     pdf.tech_badge('Grafana')
+    pdf.tech_badge('Audit Trail')
     pdf.ln(14)
 
     pdf.body(
@@ -631,50 +633,6 @@ def generate_architecture_pdf():
         'sub-second OLAP queries on financial time-series. Apache Iceberg provides '
         'the data lakehouse layer. Redpanda replaces Kafka with 10x lower latency '
         'and zero JVM overhead. Rust powers latency-critical paths.'
-    )
-
-    # --- Page 7: Research & Development Roadmap ---
-    pdf.content_page()
-    pdf.section_heading('Research & Development Roadmap')
-    pdf.body(
-        'Items marked with (*) are in active prototyping.'
-    )
-
-    pdf.sub_heading('Advanced Compute & Custom Silicon')
-    pdf.tech_badge('Xilinx Alveo FPGAs *')
-    pdf.tech_badge('Etched Sohu')
-    pdf.tech_badge('Groq LPU')
-    pdf.tech_badge('Custom ASIC Tape-out')
-    pdf.tech_badge('CXL Memory Pooling')
-    pdf.ln(10)
-
-    pdf.sub_heading('Quantum & Next-Gen Computing')
-    pdf.tech_badge('Qiskit')
-    pdf.tech_badge('PennyLane')
-    pdf.tech_badge('Post-Quantum Cryptography *')
-    pdf.tech_badge('Photonic Computing')
-    pdf.tech_badge('Neuromorphic Computing')
-    pdf.ln(10)
-
-    pdf.sub_heading('Alpha Generation & Research')
-    pdf.tech_badge('Autonomous Strategy Discovery')
-    pdf.tech_badge('RL Market Agents *')
-    pdf.tech_badge('Cross-Asset Regime Detection *')
-    pdf.tech_badge('Alpha Signal Library (10,000+) *')
-    pdf.ln(10)
-
-    pdf.sub_heading('Sector Intelligence (Under Development)')
-    pdf.tech_badge('Drug Pipeline Probability Engine')
-    pdf.tech_badge('Global Energy Flow Mapping')
-    pdf.tech_badge('Geopolitical Risk Pricing')
-    pdf.tech_badge('Central Bank Policy Decoder')
-    pdf.ln(14)
-
-    pdf.body(
-        'Our R&D roadmap is guided by a simple principle: invest in technologies that '
-        'compound our research advantage over time. We evaluate every new capability '
-        'against its potential to improve model quality, reduce latency, or expand '
-        'the signal space available to our researchers.'
     )
 
     pdf.ln(4)
@@ -725,7 +683,7 @@ def generate_overview_pdf():
     # Stats row
     pdf.stat_box('47x', 'GPU Acceleration', 15, pdf.get_y(), 42)
     pdf.stat_box('<2ms', 'Inference Latency', 62, pdf.get_y(), 42)
-    pdf.stat_box('10B+', 'Data Points', 109, pdf.get_y(), 42)
+    pdf.stat_box('5', 'Asset Classes', 109, pdf.get_y(), 42)
     pdf.stat_box('24/7', 'Monitoring', 156, pdf.get_y(), 38)
     pdf.ln(30)
 
@@ -743,7 +701,7 @@ def generate_overview_pdf():
     pdf.card_box(
         'Simulation Engines',
         'GPU-parallelised Monte Carlo and agent-based simulations that stress-test '
-        'models across 10,000+ market scenarios before they ever see live data. '
+        'models across thousands of market scenarios before they ever see live data. '
         'Regime changes, liquidity shocks, flash crashes -- if a model cannot survive '
         'the simulation gauntlet, it does not progress.',
         110, pdf.get_y(), 85, 52
@@ -756,9 +714,9 @@ def generate_overview_pdf():
     pdf.card_box(
         'Data Infrastructure',
         'Multi-asset market data spanning equities, futures (including commodities), '
-        'options, FX, and fixed income from 30+ global exchanges. Real-time streaming '
-        'and historical batch pipelines. GPU-accelerated feature engineering that runs '
-        '50x faster than traditional tools. Institutional-grade quality assurance.',
+        'options, FX, and fixed income from major global exchanges. Real-time streaming '
+        'and historical batch pipelines. GPU-accelerated feature engineering via RAPIDS. '
+        'Institutional-grade quality assurance.',
         15, pdf.get_y(), 85, 52
     )
     pdf.card_box(
@@ -783,7 +741,7 @@ def generate_overview_pdf():
     pdf.nvidia_card_box(
         'NVIDIA CUDA',
         'The foundation of everything we do. CUDA-accelerated training and simulation '
-        'deliver 47x speedups over CPU-only infrastructure. Mixed-precision training '
+        'deliver dramatic speedups over CPU-only infrastructure. Mixed-precision training '
         '(FP16/BF16) maximises GPU throughput without sacrificing model fidelity.',
         15, pdf.get_y(), 85, 42
     )
@@ -893,8 +851,8 @@ def generate_dashboard_pdf():
 
     # Key metrics row
     pdf.stat_box('94.2%', 'GPU Utilisation', 15, pdf.get_y(), 42)
-    pdf.stat_box('1,247', 'Active Experiments', 62, pdf.get_y(), 42)
-    pdf.stat_box('3.2M', 'Events / sec', 109, pdf.get_y(), 42)
+    pdf.stat_box('128', 'Active Experiments', 62, pdf.get_y(), 42)
+    pdf.stat_box('2,540', 'Simulation Jobs', 109, pdf.get_y(), 42)
     pdf.stat_box('99.97%', 'Uptime (30d)', 156, pdf.get_y(), 38)
     pdf.ln(30)
 
@@ -1007,10 +965,10 @@ def generate_dashboard_pdf():
     pdf.ln(4)
 
     pdf.sub_heading('Research Productivity')
-    pdf.bullet('Concurrent experiments: 1,200+ active at peak')
-    pdf.bullet('Experiment iteration speed: 47x faster than CPU-only infrastructure')
-    pdf.bullet('Model validation throughput: 10,000+ simulation scenarios per candidate')
-    pdf.bullet('Feature engineering pipeline speed: 50x faster via RAPIDS GPU processing')
+    pdf.bullet('Concurrent experiments: 128 active GPU experiments')
+    pdf.bullet('Experiment iteration speed: significantly faster than CPU-only infrastructure')
+    pdf.bullet('Model validation throughput: thousands of simulation scenarios per candidate')
+    pdf.bullet('Feature engineering pipeline speed: GPU-accelerated via RAPIDS')
     pdf.bullet('Researcher time-to-first-experiment: <30 minutes for new projects')
     pdf.ln(4)
 

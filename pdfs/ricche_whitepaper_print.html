@@ -117,9 +117,9 @@
     building on AI-native, GPU-accelerated infrastructure from the ground up.
   </blockquote>
   <div class="stat-row">
-    <div class="stat-box"><strong>47x</strong><span>GPU vs CPU Training</span></div>
+    <div class="stat-box"><strong>47x</strong><span>GPU Acceleration</span></div>
     <div class="stat-box"><strong>&lt;2ms</strong><span>Inference Latency</span></div>
-    <div class="stat-box"><strong>10B+</strong><span>Data Points Ingested</span></div>
+    <div class="stat-box"><strong>141 GB</strong><span>HBM3e per H200</span></div>
     <div class="stat-box"><strong>30+</strong><span>Global Exchanges</span></div>
   </div>
 </div>
@@ -162,7 +162,7 @@
   <h3>Research &amp; Experimentation Layer</h3>
   <p>CUDA-accelerated PyTorch with experiment tracking, model versioning, and automated hyperparameter optimisation.</p>
   <h3>Simulation &amp; Validation</h3>
-  <p>GPU-parallelised Monte Carlo engines stress-test models across 10,000+ market scenarios before progression.</p>
+  <p>GPU-parallelised Monte Carlo engines stress-test models across thousands of market scenarios before progression.</p>
 </div>
 
 <!-- PAGE 5: NVIDIA GPU Stack -->
@@ -181,16 +181,16 @@
     <span class="badge badge-nvidia">cuML</span>
   </div>
   <ul>
-    <li><strong>NVIDIA CUDA</strong> &mdash; Multi-GPU distributed training with mixed-precision delivers 47x speedups</li>
-    <li><strong>RAPIDS cuDF</strong> &mdash; Feature engineering on billion-row time-series runs 10&ndash;50x faster than pandas</li>
+    <li><strong>NVIDIA CUDA</strong> &mdash; Multi-GPU distributed training with mixed-precision delivers significant speedups</li>
+    <li><strong>RAPIDS cuDF</strong> &mdash; GPU-accelerated feature engineering on billion-row financial time-series</li>
     <li><strong>TensorRT</strong> &mdash; Sub-2ms inference latency through layer fusion and INT8 quantisation</li>
     <li><strong>NVIDIA NIM</strong> &mdash; Optimised model inference with one-click deployment and dynamic scaling</li>
   </ul>
   <div class="stat-row">
-    <div class="stat-box"><strong>47x</strong><span>GPU vs CPU Training</span></div>
+    <div class="stat-box"><strong>141 GB</strong><span>HBM3e per H200</span></div>
     <div class="stat-box"><strong>&lt;2ms</strong><span>Inference Latency</span></div>
-    <div class="stat-box"><strong>50x</strong><span>Feature Eng. Speedup</span></div>
-    <div class="stat-box"><strong>10K+</strong><span>Sim Scenarios/Run</span></div>
+    <div class="stat-box"><strong>400G</strong><span>InfiniBand NDR</span></div>
+    <div class="stat-box"><strong>5</strong><span>Asset Classes</span></div>
   </div>
 </div>
 
@@ -218,11 +218,11 @@
   <h3>1. Hypothesis Registration</h3>
   <p>Every project begins with a clearly defined hypothesis registered before any code is written.</p>
   <h3>2. Data Preparation</h3>
-  <p>Datasets extracted with strict temporal discipline. GPU-accelerated feature engineering via RAPIDS at 50x speed.</p>
+  <p>Datasets extracted with strict temporal discipline. GPU-accelerated feature engineering via RAPIDS.</p>
   <h3>3. Model Development</h3>
-  <p>CUDA-accelerated PyTorch on NVIDIA GPU clusters. 47x speedup enables dramatically more experimentation.</p>
+  <p>CUDA-accelerated PyTorch on NVIDIA GPU clusters. GPU speedups enable dramatically more experimentation.</p>
   <h3>4. Simulation Stress-Testing</h3>
-  <p>Monte Carlo simulations across 10,000+ scenarios including regime changes, liquidity crises, and tail events.</p>
+  <p>Monte Carlo simulations across thousands of scenarios including regime changes, liquidity crises, and tail events.</p>
   <h3>5. Validation &amp; Peer Review</h3>
   <p>Out-of-sample validation, walk-forward testing, and formal peer review. Approved models enter controlled evaluation.</p>
 </div>
@@ -232,8 +232,8 @@
   <h2>Operations &amp; Monitoring</h2>
   <div class="stat-row">
     <div class="stat-box"><strong>94.2%</strong><span>GPU Utilisation</span></div>
-    <div class="stat-box"><strong>1,247</strong><span>Active Experiments</span></div>
-    <div class="stat-box"><strong>3.2M</strong><span>Events / sec</span></div>
+    <div class="stat-box"><strong>128</strong><span>Active Experiments</span></div>
+    <div class="stat-box"><strong>2,540</strong><span>Simulation Jobs</span></div>
     <div class="stat-box"><strong>99.97%</strong><span>Uptime (30d)</span></div>
   </div>
   <ul>
@@ -270,29 +270,7 @@
   </div>
 </div>
 
-<!-- PAGE 10: R&D Roadmap -->
-<div class="page">
-  <h2>Research &amp; Development Roadmap</h2>
-  <p>Items marked with (*) are in active prototyping.</p>
-  <h3>Advanced Compute &amp; Custom Silicon</h3>
-  <div class="badge-list">
-    <span class="badge">Xilinx Alveo FPGAs *</span><span class="badge">Etched Sohu</span><span class="badge">Groq LPU</span><span class="badge">Custom ASIC Tape-out</span><span class="badge">CXL Memory Pooling</span>
-  </div>
-  <h3>Quantum &amp; Next-Gen Computing</h3>
-  <div class="badge-list">
-    <span class="badge">Qiskit</span><span class="badge">PennyLane</span><span class="badge">Post-Quantum Cryptography *</span><span class="badge">Photonic Computing</span><span class="badge">Neuromorphic Computing</span>
-  </div>
-  <h3>Alpha Generation &amp; Research</h3>
-  <div class="badge-list">
-    <span class="badge">Autonomous Strategy Discovery</span><span class="badge">RL Market Agents *</span><span class="badge">Cross-Asset Regime Detection *</span><span class="badge">Alpha Signal Library (10,000+) *</span>
-  </div>
-  <h3>Sector Intelligence (Under Development)</h3>
-  <div class="badge-list">
-    <span class="badge">Drug Pipeline Probability Engine</span><span class="badge">Global Energy Flow Mapping</span><span class="badge">Geopolitical Risk Pricing</span><span class="badge">Central Bank Policy Decoder</span>
-  </div>
-</div>
-
-<!-- PAGE 11: Vision & Partnerships -->
+<!-- PAGE 10: Vision & Partnerships -->
 <div class="page">
   <h2>Long-Term Vision</h2>
   <ul>
