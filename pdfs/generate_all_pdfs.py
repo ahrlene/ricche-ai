@@ -1126,6 +1126,18 @@ def generate_architecture_pdf():
     pdf.tech_badge('Exploration Target Probability Scoring')
     pdf.ln(10)
 
+    pdf.sub_heading('China Digital Economy Supremacy')
+    pdf.tech_badge('WeChat/Alipay Transaction Flow Intelligence')
+    pdf.tech_badge('China A-Share Retail Sentiment Decoder')
+    pdf.tech_badge('Cross-Border Capital Flow Tracker (CNY)')
+    pdf.tech_badge('Alibaba Cloud vs Hyperscaler Market Model')
+    pdf.tech_badge('Chinese Regulatory Crackdown Predictor')
+    pdf.tech_badge('Singles\' Day / 618 Economic Barometer')
+    pdf.tech_badge('China Tech ADR De-Listing Risk Scorer')
+    pdf.tech_badge('Southeast Asia Super-App Expansion Tracker')
+    pdf.tech_badge('China Property Contagion Engine')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
