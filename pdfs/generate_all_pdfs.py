@@ -1114,6 +1114,18 @@ def generate_architecture_pdf():
     pdf.tech_badge('Machine Lifecycle & Rebuild Economics')
     pdf.ln(10)
 
+    pdf.sub_heading('Resource Extraction Omniscience')
+    pdf.tech_badge('Ore Body Valuation Engine')
+    pdf.tech_badge('Commodity Super-Cycle Detector')
+    pdf.tech_badge('Autonomous Mine-to-Port Optimiser')
+    pdf.tech_badge('Water & Tailings Risk Quantifier')
+    pdf.tech_badge('Critical Minerals Supply Gap Forecaster')
+    pdf.tech_badge('ESG & Decarbonisation Cost Modelling')
+    pdf.tech_badge('Geopolitical Resource Nationalism Tracker')
+    pdf.tech_badge('Processing & Smelting Margin Intelligence')
+    pdf.tech_badge('Exploration Target Probability Scoring')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
