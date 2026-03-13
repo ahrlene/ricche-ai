@@ -982,6 +982,18 @@ def generate_architecture_pdf():
     pdf.tech_badge('Peak Oil Demand Timing Model')
     pdf.ln(10)
 
+    pdf.sub_heading('Institutional Trading Supremacy')
+    pdf.tech_badge('Flow Toxicity Analyser (VPIN)')
+    pdf.tech_badge('Dark Pool Dominance Engine')
+    pdf.tech_badge('Systematic Market Making (All Asset Classes)')
+    pdf.tech_badge('IPO & Issuance Pricing Oracle')
+    pdf.tech_badge('M&A Arbitrage Intelligence')
+    pdf.tech_badge('Credit Default Prediction (500ms)')
+    pdf.tech_badge('Rates & Yield Curve Arbitrage')
+    pdf.tech_badge('FX Microstructure Exploitation')
+    pdf.tech_badge('Structured Products Auto-Pricer')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
