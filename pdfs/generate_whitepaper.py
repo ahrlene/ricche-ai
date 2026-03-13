@@ -864,6 +864,18 @@ def generate_whitepaper():
     pdf.tech_badge('Structured Products Auto-Pricer')
     pdf.ln(10)
 
+    pdf.sub_heading('Global Payment Network Intelligence')
+    pdf.tech_badge('Real-Time Transaction Velocity Mapping')
+    pdf.tech_badge('Cross-Border Payment Flow Alpha')
+    pdf.tech_badge('Merchant Revenue Nowcasting')
+    pdf.tech_badge('Fraud Pattern Alpha Extraction')
+    pdf.tech_badge('Buy Now Pay Later Stress Index')
+    pdf.tech_badge('Digital Wallet Adoption Curve Modelling')
+    pdf.tech_badge('Interchange Fee Regulatory Predictor')
+    pdf.tech_badge('Real-Time GDP Proxy (180 Countries)')
+    pdf.tech_badge('Crypto & Stablecoin Substitution Tracker')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
