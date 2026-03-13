@@ -556,9 +556,9 @@ def generate_architecture_pdf():
         'paper-trading evaluation with strict position-size constraints and continuous monitoring.'
     )
 
-    # --- Page 6: Technology Stack ---
+    # --- Page 6: Current Technology Stack ---
     pdf.content_page()
-    pdf.section_heading('Technology Stack')
+    pdf.section_heading('Current Technology Stack')
     pdf.body(
         'We chose every tool in our stack for a reason. No resume-driven development, no hype '
         'cycles -- just the best technology for building world-class quantitative research '
@@ -574,38 +574,10 @@ def generate_architecture_pdf():
     pdf.nvidia_badge('BlueField-3 DPU')
     pdf.nvidia_badge('TensorRT-LLM')
     pdf.nvidia_badge('Triton Inference Server')
-    pdf.nvidia_badge('Megatron-LM')
-    pdf.nvidia_badge('NeMo Framework')
     pdf.nvidia_badge('NVIDIA NIM')
     pdf.nvidia_badge('TensorRT')
     pdf.nvidia_badge('RAPIDS cuDF')
     pdf.nvidia_badge('cuML')
-    pdf.ln(10)
-
-    pdf.sub_heading('Ultra-Low Latency Networking')
-    pdf.tech_badge('InfiniBand NDR 400G')
-    pdf.tech_badge('CXL Memory Pooling')
-    pdf.tech_badge('NVMe-oF')
-    pdf.tech_badge('SPDK')
-    pdf.tech_badge('DPDK')
-    pdf.tech_badge('RDMA')
-    pdf.tech_badge('io_uring')
-    pdf.tech_badge("Cap'n Proto")
-    pdf.tech_badge('PTP (IEEE 1588)')
-    pdf.ln(10)
-
-    pdf.sub_heading('Quantitative Finance')
-    pdf.tech_badge('KDB+/q')
-    pdf.tech_badge('Arctic')
-    pdf.tech_badge('Aeron')
-    pdf.tech_badge('FIX Protocol')
-    pdf.tech_badge('Xilinx Alveo FPGAs')
-    pdf.tech_badge('LMAX Disruptor')
-    pdf.tech_badge('ITCH / OUCH Protocol')
-    pdf.tech_badge('Custom Matching Engine')
-    pdf.tech_badge('Smart Order Routing')
-    pdf.tech_badge('Queue Position Estimation')
-    pdf.tech_badge('Exchange Co-location')
     pdf.ln(10)
 
     pdf.sub_heading('Machine Learning & Research')
@@ -655,7 +627,7 @@ def generate_architecture_pdf():
         'and zero JVM overhead. Rust powers latency-critical paths.'
     )
 
-    # --- Page 7: R&D Roadmap ---
+    # --- Page 7: Research & Development Roadmap ---
     pdf.content_page()
     pdf.section_heading('Research & Development Roadmap')
     pdf.body(
