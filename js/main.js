@@ -38,7 +38,7 @@
       lastTrigger = this;
       title.textContent = pdfTitle;
       if (loading) loading.style.display = '';
-      frame.src = pdfSrc;
+      frame.src = pdfSrc + '#zoom=110';
       overlay.classList.add('active');
       document.body.style.overflow = 'hidden';
       closeBtn.focus();

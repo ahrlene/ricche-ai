@@ -2534,9 +2534,9 @@ button.pdf-trigger { border: none; font-family: inherit; cursor: pointer; }
 }
 
 .pdf-modal {
-  width: 90vw;
-  max-width: 1000px;
-  height: 85vh;
+  width: 94vw;
+  max-width: 1300px;
+  height: 92vh;
   background: var(--bg-alt);
   border-radius: 20px;
   border: 1px solid var(--border-color);
