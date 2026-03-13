@@ -1,5 +1,5 @@
 // Ricche — Service Worker for offline caching
-const CACHE_NAME = 'ricche-v64';
+const CACHE_NAME = 'ricche-v65';
 const ASSETS = [
   '/',
   '/index.html',
@@ -45,6 +45,20 @@ self.addEventListener('fetch', function(e) {
   // Skip non-GET and external requests
   if (e.request.method !== 'GET') return;
   if (url.origin !== self.location.origin) return;
+
+  // PDFs: network first, fallback to cache (ensures updates propagate)
+  if (url.pathname.endsWith('.pdf')) {
+    e.respondWith(
+      fetch(e.request).then(function(res) {
+        var clone = res.clone();
+        caches.open(CACHE_NAME).then(function(cache) { cache.put(e.request, clone); });
+        return res;
+      }).catch(function() {
+        return caches.match(e.request);
+      })
+    );
+    return;
+  }
 
   // HTML pages: network first, fallback to cache
   if (e.request.headers.get('accept') && e.request.headers.get('accept').includes('text/html')) {
