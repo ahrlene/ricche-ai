@@ -517,6 +517,14 @@ def generate_whitepaper():
     pdf.tech_badge('Temporal')
     pdf.ln(10)
 
+    pdf.sub_heading('Quantum & Next-Gen Computing')
+    pdf.tech_badge('Qiskit')
+    pdf.tech_badge('PennyLane')
+    pdf.tech_badge('Post-Quantum Cryptography')
+    pdf.tech_badge('Photonic Computing')
+    pdf.tech_badge('Neuromorphic Computing')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
