@@ -703,6 +703,18 @@ def generate_whitepaper():
     pdf.tech_badge('Petabyte-Scale Backtesting Engine')
     pdf.ln(10)
 
+    pdf.sub_heading('Social Graph Weaponisation')
+    pdf.tech_badge('Collective Sentiment Topology')
+    pdf.tech_badge('Viral Alpha Propagation Model')
+    pdf.tech_badge('Social Influence Weighted Order Flow')
+    pdf.tech_badge('Deepfake Detection for Market Manipulation')
+    pdf.tech_badge('Attention Economy Alpha')
+    pdf.tech_badge('Behavioural Contagion Predictor')
+    pdf.tech_badge('Real-Time Narrative Extraction Engine')
+    pdf.tech_badge('Metaverse Economic Intelligence')
+    pdf.tech_badge('Human Behaviour Foundation Model')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
