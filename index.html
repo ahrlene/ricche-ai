@@ -89,10 +89,10 @@
     },
     {
       "@type": "Question",
-      "name": "What GPU hardware does Ricche use?",
+      "name": "What data sources does Ricche use?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Our compute clusters run on NVIDIA H200 Tensor Core GPUs with 141 GB HBM3e memory, interconnected via InfiniBand NDR 400G. We use CUDA 12.x, cuDNN, and NVIDIA RAPIDS for GPU-accelerated data processing. Training workloads run on PyTorch with mixed-precision (FP16/BF16) and distributed data parallelism via Ray."
+        "text": "We work with institutional-grade market data — tick-level order books, end-of-day pricing, economic indicators, and alternative data sets including sentiment and NLP-derived signals. All data passes through automated quality checks, normalisation, and validation before entering the research pipeline. Data sources include Bloomberg, Refinitiv, ICE Data Services, and LSE feeds."
       }
     },
     {
@@ -100,7 +100,7 @@
       "name": "How does Ricche handle data security and compliance?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "All data is encrypted at rest (AES-256) and in transit (TLS 1.3). Our infrastructure runs on isolated compute clusters with role-based access controls, full audit logging, and data governance policies aligned with FCA and MiFID II requirements. We use eBPF-based runtime security monitoring and confidential computing for sensitive workloads."
+        "text": "All data is encrypted at rest (AES-256) and in transit (TLS 1.3). Our infrastructure runs on isolated compute clusters with role-based access controls, full audit logging, and data governance policies aligned with FCA and MiFID II requirements. We use eBPF-based runtime security monitoring for sensitive workloads."
       }
     },
     {
@@ -116,7 +116,7 @@
       "name": "How can I access the Ricche research platform?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Platform access is provisioned through research partnerships. After onboarding, you receive API credentials, SSH keys for GPU cluster access, and dashboard login via SSO (SAML 2.0 or OIDC). You can install our Python SDK with 'pip install ricche-sdk' and submit experiments via YAML configuration files. Contact us at info@ricche.ai to discuss access."
+        "text": "Platform access is provisioned through research partnerships. After onboarding, you receive API credentials, SSH keys for GPU cluster access, and dashboard login via SSO. You can use our Python SDK to submit experiments via configuration files. Contact us at info@ricche.ai to discuss access."
       }
     },
     {
@@ -124,7 +124,7 @@
       "name": "What makes Ricche different from other quant platforms?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ricche is a research-first platform, not a trading tool. Every experiment is version-controlled with full lineage tracking, every result is reproducible via deterministic seeding, and every model passes through structured validation gates before advancing. Our GPU-accelerated backtesting engine runs 10 billion Monte Carlo paths per second, and our simulation framework tests strategies across thousands of market scenarios in parallel."
+        "text": "Ricche is a research-first platform, not a trading tool. Every experiment is version-controlled with full lineage tracking, every result is reproducible via deterministic seeding, and every model passes through structured validation gates before advancing. Our GPU-accelerated backtesting engine runs Monte Carlo simulations in parallel, and our simulation framework tests strategies across thousands of market scenarios simultaneously."
       }
     }
   ]
@@ -382,20 +382,20 @@
     <div class="about-columns">
       <div class="about-col reveal">
         <p class="lead-text">
-          Financial markets produce enormous amounts of data every second — prices, volumes,
-          order flows, economic indicators. Hidden within that data are patterns too complex
-          for traditional analysis.
+          Most AI platforms prioritise speed to production. Ricche prioritises being right.
+          Every experiment is version-controlled, every result is reproducible, and every model
+          goes through structured validation before it advances.
         </p>
       </div>
       <div class="about-col reveal reveal-d1">
         <p>
-          Ricche builds the tools to find those patterns. Our platform combines GPU-accelerated data pipelines,
+          Our platform combines GPU-accelerated data pipelines,
           CUDA-powered machine learning environments, market simulators, and validation systems into one
           research workflow — built on NVIDIA's compute ecosystem.
         </p>
         <p>
-          The result: a structured, reproducible way to develop and test AI models
-          that study market behaviour.
+          The result: a disciplined, end-to-end infrastructure for developing and testing AI models
+          that study financial market behaviour — from raw tick data to validated insight.
         </p>
       </div>
     </div>
@@ -434,17 +434,17 @@
     <div class="stats-strip">
       <div class="stat reveal">
         <span class="stat-number" data-target="128">0</span>
-        <span class="stat-label">GPU-Accelerated Experiments</span>
+        <span class="stat-label">Active GPU Experiments</span>
       </div>
       <div class="stat-divider"></div>
       <div class="stat reveal reveal-d1">
         <span class="stat-number" data-target="2540">0</span>
-        <span class="stat-label">CUDA Simulation Jobs</span>
+        <span class="stat-label">CUDA Simulation Jobs Run</span>
       </div>
       <div class="stat-divider"></div>
       <div class="stat reveal reveal-d2">
         <span class="stat-number" data-target="6">0</span>
-        <span class="stat-label">Models in Validation Review</span>
+        <span class="stat-label">Models in Validation</span>
       </div>
       <div class="stat-divider"></div>
       <div class="stat reveal reveal-d3">
@@ -590,7 +590,7 @@
         Every step is tracked, versioned, and reproducible.
       </p>
       <div class="tech-total-badge reveal reveal-d2">
-        <span class="tech-total-number">160+</span> technologies across 11 domains
+        <span class="tech-total-number">70+</span> technologies across 10 domains
       </div>
     </div>
 
@@ -618,16 +618,8 @@
             <span class="tech-tag tech-tag-nvidia">DGX Cloud Private Instance</span>
             <span class="tech-tag tech-tag-nvidia">Optical Interconnect (NVLink C2C)</span>
             <span class="tech-tag tech-tag-nvidia">cuQuantum Financial Simulation</span>
-            <span class="tech-tag">Xilinx Alveo FPGAs</span>
-            <span class="tech-tag">Etched Sohu</span>
-            <span class="tech-tag">Groq LPU</span>
-            <span class="tech-tag">Custom ASIC Tape-out</span>
-            <span class="tech-tag">Custom Trading SoC (System-on-Chip)</span>
-            <span class="tech-tag">Multi-Die GPU Chiplet Trading Engine</span>
-            <span class="tech-tag">GPU-Direct RDMA to Exchange</span>
-            <span class="tech-tag">Tensor Core Risk Engine</span>
             <span class="tech-tag">CUDA Graph Execution Pipelines</span>
-            <span class="tech-tag">GPU-Accelerated Monte Carlo (10B paths/sec)</span>
+            <span class="tech-tag">GPU-Accelerated Monte Carlo</span>
           </div>
         </div>
 
@@ -638,23 +630,13 @@
           </h4>
           <div class="tech-category-tags">
             <span class="tech-tag">Python</span>
-            <span class="tech-tag">Mojo</span>
             <span class="tech-tag">PyTorch</span>
             <span class="tech-tag">JAX</span>
             <span class="tech-tag">Triton</span>
             <span class="tech-tag">FlashAttention-3</span>
-            <span class="tech-tag">Liger Kernel</span>
-            <span class="tech-tag">GaLore</span>
-            <span class="tech-tag">Unsloth</span>
             <span class="tech-tag">vLLM</span>
-            <span class="tech-tag">SGLang</span>
             <span class="tech-tag">Ray</span>
-            <span class="tech-tag">MCP</span>
-            <span class="tech-tag">GraphRAG</span>
             <span class="tech-tag">W&amp;B</span>
-            <span class="tech-tag">Proprietary Foundation Model</span>
-            <span class="tech-tag">Continuous Learning Production Models</span>
-            <span class="tech-tag">Synthetic Data Generation at Scale</span>
           </div>
         </div>
 
@@ -665,23 +647,12 @@
           </h4>
           <div class="tech-category-tags">
             <span class="tech-tag">InfiniBand NDR 400G</span>
-            <span class="tech-tag">CXL Memory Pooling</span>
             <span class="tech-tag">NVMe-oF</span>
             <span class="tech-tag">SPDK</span>
             <span class="tech-tag">PTP (IEEE 1588)</span>
-            <span class="tech-tag">Exchange Co-location</span>
-            <span class="tech-tag">Private Microwave Networks</span>
-            <span class="tech-tag">Hollow-Core Fiber</span>
-            <span class="tech-tag">Point-to-Point Laser Links</span>
-            <span class="tech-tag">Custom NIC Firmware</span>
-            <span class="tech-tag">Nanosecond Timestamping</span>
-            <span class="tech-tag">AF_XDP</span>
             <span class="tech-tag">DPDK</span>
             <span class="tech-tag">RDMA</span>
             <span class="tech-tag">io_uring</span>
-            <span class="tech-tag">Tick-to-Trade &lt; 1μs</span>
-            <span class="tech-tag">Custom SmartNIC (P4-Programmable)</span>
-            <span class="tech-tag">Photonic Switching Fabric</span>
           </div>
         </div>
 
@@ -703,9 +674,7 @@
             <span class="tech-tag">Apache DataFusion</span>
             <span class="tech-tag">Redpanda</span>
             <span class="tech-tag">Cap'n Proto</span>
-            <span class="tech-tag">Exascale Feature Store</span>
-            <span class="tech-tag">Real-Time Knowledge Graph (Trillion Edges)</span>
-            <span class="tech-tag">Petabyte-Scale Backtesting Engine</span>
+            <span class="tech-tag">Feature Store</span>
           </div>
         </div>
 
@@ -719,16 +688,8 @@
             <span class="tech-tag">LMAX Disruptor</span>
             <span class="tech-tag">FIX Protocol</span>
             <span class="tech-tag">ITCH / OUCH Protocol</span>
-            <span class="tech-tag">Custom Matching Engine</span>
             <span class="tech-tag">Smart Order Routing</span>
-            <span class="tech-tag">Queue Position Estimation</span>
-            <span class="tech-tag">Stealth Execution Engine</span>
-            <span class="tech-tag">Regime-Adaptive Execution</span>
-            <span class="tech-tag">Dark Pool Dominance Engine</span>
-            <span class="tech-tag">Systematic Market Making (All Asset Classes)</span>
-            <span class="tech-tag">Flow Toxicity Analyser (VPIN)</span>
-            <span class="tech-tag">Market Impact Invisibility (&lt; 0.01 bps)</span>
-            <span class="tech-tag">Cross-Asset Unified Execution Brain</span>
+            <span class="tech-tag">Backtesting Engine</span>
           </div>
         </div>
 
@@ -738,19 +699,12 @@
             Research &amp; Alpha Generation
           </h4>
           <div class="tech-category-tags">
-            <span class="tech-tag">Autonomous Strategy Discovery</span>
             <span class="tech-tag">RL Market Agents</span>
-            <span class="tech-tag">Cross-Asset Regime Detection</span>
-            <span class="tech-tag">Alpha Signal Library (10,000+)</span>
+            <span class="tech-tag">Regime Detection</span>
+            <span class="tech-tag">Alpha Signal Library</span>
             <span class="tech-tag">Strategy Decay Monitoring</span>
-            <span class="tech-tag">Self-Evolving Alpha Engine</span>
-            <span class="tech-tag">Crisis Alpha Harvesting</span>
-            <span class="tech-tag">Full Market Digital Twin</span>
-            <span class="tech-tag">Pre-Event Probability Engine</span>
-            <span class="tech-tag">Adversarial Order Flow Analysis</span>
-            <span class="tech-tag">Transformer-Native Trading Architecture</span>
-            <span class="tech-tag">Natural Language Strategy Compiler</span>
-            <span class="tech-tag">Sharpe &gt; 3 Target Architecture</span>
+            <span class="tech-tag">Walk-Forward Analysis</span>
+            <span class="tech-tag">Monte Carlo Stress Testing</span>
           </div>
         </div>
 
@@ -765,17 +719,9 @@
             <span class="tech-tag">Argo CD</span>
             <span class="tech-tag">Cilium</span>
             <span class="tech-tag">Istio</span>
-            <span class="tech-tag">Crossplane</span>
-            <span class="tech-tag">Backstage</span>
-            <span class="tech-tag">SkyPilot</span>
-            <span class="tech-tag">Modal</span>
             <span class="tech-tag">Temporal</span>
             <span class="tech-tag">eBPF</span>
             <span class="tech-tag">OpenTelemetry</span>
-            <span class="tech-tag">Custom Linux Kernel (PREEMPT_RT)</span>
-            <span class="tech-tag">Liquid / Immersion Cooling</span>
-            <span class="tech-tag">Multi-Region Active-Active Architecture</span>
-            <span class="tech-tag">Self-Healing Infrastructure</span>
           </div>
         </div>
 
@@ -786,14 +732,10 @@
           </h4>
           <div class="tech-category-tags">
             <span class="tech-tag">HashiCorp Vault</span>
-            <span class="tech-tag">Homomorphic Encryption</span>
-            <span class="tech-tag">Confidential Computing</span>
-            <span class="tech-tag">Post-Quantum Cryptography</span>
-            <span class="tech-tag">Zero-Knowledge Portfolio Proofs</span>
-            <span class="tech-tag">Hardware Security Enclave (Trading)</span>
-            <span class="tech-tag">End-to-End Encrypted Execution Pipeline</span>
-            <span class="tech-tag">Embedded Compliance-as-Code</span>
-            <span class="tech-tag">Enterprise-Grade Audit Trail</span>
+            <span class="tech-tag">AES-256 Encryption at Rest</span>
+            <span class="tech-tag">TLS 1.3</span>
+            <span class="tech-tag">Role-Based Access Control</span>
+            <span class="tech-tag">Audit Trail</span>
           </div>
         </div>
 
@@ -803,37 +745,10 @@
             Sector Intelligence
           </h4>
           <div class="tech-category-tags">
-            <span class="tech-tag">Drug Pipeline Probability Engine</span>
-            <span class="tech-tag">Global Energy Flow Mapping (Real-Time)</span>
-            <span class="tech-tag">Geopolitical Risk Pricing Engine</span>
-            <span class="tech-tag">Semiconductor Inventory Supercycle Model</span>
-            <span class="tech-tag">Central Bank Policy Decoder</span>
-            <span class="tech-tag">Fed Dot Plot &amp; Rate Path Predictor</span>
-            <span class="tech-tag">Sovereign Debt Stress Testing (190 Countries)</span>
-            <span class="tech-tag">MEV Extraction &amp; Protection Engine</span>
-            <span class="tech-tag">DeFi Protocol Risk Scoring (Real-Time)</span>
-            <span class="tech-tag">Catastrophe Bond Pricing Engine</span>
-            <span class="tech-tag">Real-Time GDP Proxy (180 Countries)</span>
-            <span class="tech-tag">Digital Twin of Global Economy</span>
-          </div>
-        </div>
-
-        <div class="tech-category">
-          <h4 class="tech-category-label">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            Frontier Technology
-          </h4>
-          <div class="tech-category-tags">
-            <span class="tech-tag">Qiskit</span>
-            <span class="tech-tag">PennyLane</span>
-            <span class="tech-tag">Photonic Computing</span>
-            <span class="tech-tag">Neuromorphic Computing</span>
-            <span class="tech-tag">Chisel / SpinalHDL</span>
-            <span class="tech-tag">Cadence / Synopsys EDA</span>
-            <span class="tech-tag">Quantum Monte Carlo Acceleration Engine</span>
-            <span class="tech-tag">Hybrid Classical-Quantum Optimisation Pipeline</span>
-            <span class="tech-tag">Custom ASIC Tape-out</span>
-            <span class="tech-tag">Silicon Photonics Co-Packaged Optics</span>
+            <span class="tech-tag">Macro Indicator Analysis</span>
+            <span class="tech-tag">Central Bank Policy Tracking</span>
+            <span class="tech-tag">Sector Rotation Models</span>
+            <span class="tech-tag">Cross-Asset Correlation Analysis</span>
           </div>
         </div>
 
@@ -843,16 +758,10 @@
             Alternative Data &amp; Signals
           </h4>
           <div class="tech-category-tags">
-            <span class="tech-tag">Exclusive Alternative Data Feeds</span>
-            <span class="tech-tag">Proprietary Sentiment Pipelines</span>
-            <span class="tech-tag">Dark Pool Flow Reconstruction</span>
-            <span class="tech-tag">Satellite &amp; IoT Data Ingestion</span>
-            <span class="tech-tag">Supply Chain Telemetry</span>
-            <span class="tech-tag">Real-Time Narrative Extraction Engine</span>
-            <span class="tech-tag">Human Behaviour Foundation Model</span>
-            <span class="tech-tag">Cross-Market Correlation Maps</span>
-            <span class="tech-tag">Private Satellite Data Downlink</span>
-            <span class="tech-tag">Multi-Modal Data Fusion Engine</span>
+            <span class="tech-tag">Alternative Data Feeds</span>
+            <span class="tech-tag">Sentiment Analysis Pipelines</span>
+            <span class="tech-tag">NLP News Processing</span>
+            <span class="tech-tag">Cross-Market Correlation Analysis</span>
           </div>
         </div>
 
@@ -1035,9 +944,9 @@
         <p>End-to-end pipeline from new data ingestion to validated model deployment on NVIDIA H200 clusters.</p>
       </div>
       <div class="result-card reveal reveal-d2">
-        <div class="result-metric">10,000+</div>
-        <div class="result-label">Alpha signals tracked</div>
-        <p>Continuously monitored and scored across equities, derivatives, FX, and commodity markets.</p>
+        <div class="result-metric">5</div>
+        <div class="result-label">Asset classes covered</div>
+        <p>Equities, futures, options, FX, and fixed income — with tick-level data from major global exchanges.</p>
       </div>
       <div class="result-card reveal reveal-d3">
         <div class="result-metric">99.97%</div>
@@ -1111,16 +1020,16 @@
 
     <div class="gpu-benchmark reveal">
       <div class="gpu-bench-item">
-        <span class="gpu-bench-value">47×</span>
-        <span class="gpu-bench-label">Faster training vs CPU-only</span>
+        <span class="gpu-bench-value">141 GB</span>
+        <span class="gpu-bench-label">HBM3e memory per H200 GPU</span>
       </div>
       <div class="gpu-bench-item">
         <span class="gpu-bench-value">&lt;2ms</span>
         <span class="gpu-bench-label">TensorRT inference latency</span>
       </div>
       <div class="gpu-bench-item">
-        <span class="gpu-bench-value">10B+</span>
-        <span class="gpu-bench-label">Data points processed daily via RAPIDS</span>
+        <span class="gpu-bench-value">400G</span>
+        <span class="gpu-bench-label">InfiniBand NDR interconnect</span>
       </div>
     </div>
 
@@ -1254,37 +1163,37 @@
       <div class="faq-item reveal">
         <details>
           <summary>What markets do you cover?</summary>
-          <p class="faq-answer">Our data infrastructure supports global equities, futures (including commodities), options, FX, and fixed income. We ingest feeds from major exchanges and data providers, with coverage spanning developed and emerging markets.</p>
+          <p class="faq-answer">Our data infrastructure ingests and processes tick-level data across global equities, equity and commodity futures, listed options, spot and forward FX, and fixed income instruments. We connect to feeds from major exchanges including CME, ICE, Eurex, and LSE, as well as consolidated data providers. Coverage spans developed markets (US, EU, UK, Japan) and select emerging markets.</p>
         </details>
       </div>
       <div class="faq-item reveal">
         <details>
           <summary>What data sources do you use?</summary>
-          <p class="faq-answer">We work with institutional-grade market data — tick-level order books, end-of-day pricing, economic indicators, and alternative data sets. All data passes through quality checks before entering the research pipeline.</p>
+          <p class="faq-answer">We work with institutional-grade market data — tick-level order books, end-of-day pricing, economic indicators, and alternative data sets including sentiment and NLP-derived signals. All data passes through automated quality checks, normalisation, and validation before entering the research pipeline. Data sources include Bloomberg, Refinitiv, ICE Data Services, and LSE feeds.</p>
         </details>
       </div>
       <div class="faq-item reveal">
         <details>
           <summary>How do you handle data security?</summary>
-          <p class="faq-answer">All data is encrypted at rest and in transit. Our infrastructure runs on isolated compute clusters with role-based access controls, audit logging, and strict data governance policies.</p>
+          <p class="faq-answer">All data is encrypted at rest (AES-256) and in transit (TLS 1.3). Our infrastructure runs on isolated compute clusters with role-based access controls, full audit logging, and data governance policies aligned with FCA and MiFID II requirements. We use eBPF-based runtime security monitoring for sensitive workloads.</p>
         </details>
       </div>
       <div class="faq-item reveal">
         <details>
           <summary>Who do you work with?</summary>
-          <p class="faq-answer">We partner with quantitative research teams, academic institutions, data scientists, and financial firms exploring AI-driven approaches to market analysis and research.</p>
+          <p class="faq-answer">We work with quantitative research teams at asset managers and hedge funds, university research labs exploring ML applications in finance, GPU computing and cloud infrastructure providers, and alternative data vendors. We also partner with exchange operators seeking to demonstrate the value of high-frequency data when processed on GPU infrastructure.</p>
         </details>
       </div>
       <div class="faq-item reveal">
         <details>
           <summary>Can I access the platform for my own research?</summary>
-          <p class="faq-answer">Yes — we offer research partnerships for teams and individuals working at the intersection of AI and finance. Get in touch to discuss access and collaboration options.</p>
+          <p class="faq-answer">Platform access is provisioned through research partnerships. After onboarding, you receive API credentials, SSH keys for GPU cluster access, and dashboard login via SSO. You can use our Python SDK to submit experiments via configuration files. Contact us at info@ricche.ai to discuss access.</p>
         </details>
       </div>
       <div class="faq-item reveal">
         <details>
           <summary>What makes Ricche different from other platforms?</summary>
-          <p class="faq-answer">Ricche is built for rigour. Every experiment is versioned, every result is reproducible, and every model goes through structured validation before advancing. We're a research-first platform, not a trading tool.</p>
+          <p class="faq-answer">Ricche is a research-first platform, not a trading tool. Every experiment is version-controlled with full lineage tracking, every result is reproducible via deterministic seeding, and every model passes through structured validation gates before advancing. Our GPU-accelerated backtesting engine runs Monte Carlo simulations in parallel, and our simulation framework tests strategies across thousands of market scenarios simultaneously.</p>
         </details>
       </div>
     </div>
@@ -1349,7 +1258,7 @@
       </h2>
       <p class="lead-text reveal reveal-d1">
         Request a platform demo or talk to our team about how Ricche
-        can fit into your existing research workflow.
+        can fit into your existing research workflow. We onboard new research partners quarterly.
       </p>
       <div class="cta-buttons reveal reveal-d2">
         <a href="/contact" class="btn-primary btn-glow btn-lg">
