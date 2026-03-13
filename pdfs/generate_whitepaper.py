@@ -472,6 +472,16 @@ def generate_whitepaper():
     pdf.tech_badge('Exchange Co-location')
     pdf.ln(10)
 
+    pdf.sub_heading('Adversarial Intelligence')
+    pdf.tech_badge('Adversarial Order Flow Analysis')
+    pdf.tech_badge('Full Market Digital Twin')
+    pdf.tech_badge('Autonomous Strategy Discovery')
+    pdf.tech_badge('RL Market Agents')
+    pdf.tech_badge('Cross-Asset Regime Detection')
+    pdf.tech_badge('Alpha Signal Library (10,000+)')
+    pdf.tech_badge('Strategy Decay Monitoring')
+    pdf.ln(10)
+
     pdf.sub_heading('Speed-of-Light Infrastructure')
     pdf.tech_badge('Private Microwave Networks')
     pdf.tech_badge('Millimeter Wave (mmWave)')
