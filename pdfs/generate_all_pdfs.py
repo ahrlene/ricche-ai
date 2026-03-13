@@ -678,6 +678,12 @@ def generate_architecture_pdf():
     pdf.tech_badge('Neuromorphic Computing')
     pdf.ln(10)
 
+    pdf.sub_heading('Custom Silicon')
+    pdf.tech_badge('Custom ASIC Tape-out')
+    pdf.tech_badge('Chisel / SpinalHDL')
+    pdf.tech_badge('Cadence / Synopsys EDA')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
