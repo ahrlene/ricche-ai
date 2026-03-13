@@ -1150,6 +1150,18 @@ def generate_architecture_pdf():
     pdf.tech_badge('Vertical Integration Margin Optimiser')
     pdf.ln(10)
 
+    pdf.sub_heading('Palantir-Killer Intelligence Supremacy')
+    pdf.tech_badge('Self-Building Ontology Engine')
+    pdf.tech_badge('Zero-Deployment Intelligence Platform')
+    pdf.tech_badge('Autonomous Action Execution (Not Just Dashboards)')
+    pdf.tech_badge('Real-Time Financial Alpha Generation')
+    pdf.tech_badge('Predictive-First Architecture (Not Retrospective)')
+    pdf.tech_badge('Adversarial AI Red-Teaming Engine')
+    pdf.tech_badge('Sovereign-Grade Privacy Without Lock-In')
+    pdf.tech_badge('Democratic Pricing Model')
+    pdf.tech_badge('Multi-Domain Fusion Without Silos')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
