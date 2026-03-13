@@ -679,6 +679,18 @@ def generate_whitepaper():
     pdf.tech_badge('End-to-End Encrypted Execution Pipeline')
     pdf.ln(10)
 
+    pdf.sub_heading('GPU-Native Financial Supercomputing')
+    pdf.tech_badge('Multi-Die GPU Chiplet Trading Engine')
+    pdf.tech_badge('GPU-Direct RDMA to Exchange')
+    pdf.tech_badge('Tensor Core Risk Engine')
+    pdf.tech_badge('CUDA Graph Execution Pipelines')
+    pdf.nvidia_badge('Grace Hopper Superchip Cluster')
+    pdf.nvidia_badge('DGX Cloud Private Instance')
+    pdf.nvidia_badge('Optical Interconnect (NVLink C2C)')
+    pdf.tech_badge('GPU-Accelerated Monte Carlo (10B paths/sec)')
+    pdf.nvidia_badge('cuQuantum Financial Simulation')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
