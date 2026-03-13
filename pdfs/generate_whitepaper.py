@@ -472,6 +472,15 @@ def generate_whitepaper():
     pdf.tech_badge('Exchange Co-location')
     pdf.ln(10)
 
+    pdf.sub_heading('Speed-of-Light Infrastructure')
+    pdf.tech_badge('Private Microwave Networks')
+    pdf.tech_badge('Millimeter Wave (mmWave)')
+    pdf.tech_badge('Hollow-Core Fiber')
+    pdf.tech_badge('Point-to-Point Laser Links')
+    pdf.tech_badge('Custom NIC Firmware')
+    pdf.tech_badge('Nanosecond Timestamping')
+    pdf.ln(10)
+
     pdf.sub_heading('Kernel-Level Optimisation')
     pdf.tech_badge('AF_XDP')
     pdf.tech_badge('Busy-Polling')
