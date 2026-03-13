@@ -30,7 +30,7 @@ def generate_whitepaper():
     )
     pdf.body(
         'Ricche Ltd is building the infrastructure for this new era. Our GPU-accelerated '
-        'research platform combines institutional-grade data engineering, NVIDIA CUDA-powered '
+        'research platform will combine institutional-grade data engineering, NVIDIA CUDA-powered '
         'machine learning environments, GPU-parallelised simulation engines, and rigorous '
         'validation frameworks into a single, cohesive system designed for one purpose: '
         'enabling the next generation of quantitative market research.'
@@ -146,16 +146,16 @@ def generate_whitepaper():
     card_y = pdf.get_y()
     pdf.nvidia_card_box(
         'CUDA & RAPIDS -- GPU Foundation',
-        'Every training run, simulation, and feature computation is CUDA-accelerated. '
-        'Multi-GPU distributed training with mixed-precision (FP16/BF16) delivers dramatic '
-        'speedups. RAPIDS cuDF eliminates CPU bottlenecks -- feature engineering on billion-row '
-        'time-series runs 10-50x faster than pandas.',
+        'Every training run, simulation, and feature computation will be CUDA-accelerated. '
+        'Multi-GPU distributed training with mixed-precision (FP16/BF16) will deliver dramatic '
+        'speedups. RAPIDS cuDF will eliminate CPU bottlenecks -- feature engineering on billion-row '
+        'time-series will run 10-50x faster than pandas.',
         15, card_y, 85, 48
     )
     pdf.nvidia_card_box(
         'TensorRT & NIM -- Production Stack',
-        'Research models optimised via layer fusion, kernel auto-tuning, and INT8 quantisation '
-        'deliver sub-2ms inference latency. NIM microservices provide one-click deployment with '
+        'Research models will be optimised via layer fusion, kernel auto-tuning, and INT8 quantisation '
+        'to target sub-2ms inference latency. NIM microservices will provide one-click deployment with '
         'dynamic scaling, intelligent batching, GPU memory management, and zero-downtime '
         'version transitions.',
         110, card_y, 85, 48
@@ -220,16 +220,16 @@ def generate_whitepaper():
 
     pdf.section_heading('Operations & Monitoring')
     pdf.body(
-        'The Ricche Control Room provides unified, real-time visibility into every layer of '
+        'The Ricche Control Room will provide unified, real-time visibility into every layer of '
         'the stack -- from GPU memory allocation to data pipeline health to experiment progress.'
     )
     pdf.ln(2)
 
     card_y = pdf.get_y()
-    pdf.stat_box('94.2%', 'GPU Utilisation', 15, card_y, 42)
-    pdf.stat_box('128', 'Active Experiments', 62, card_y, 42)
-    pdf.stat_box('2,540', 'Simulation Jobs', 109, card_y, 42)
-    pdf.stat_box('99.97%', 'Uptime (30d)', 156, card_y, 38)
+    pdf.stat_box('>90%', 'GPU Target Util.', 15, card_y, 42)
+    pdf.stat_box('Real-time', 'Pipeline Monitoring', 62, card_y, 42)
+    pdf.stat_box('Full Stack', 'Observability', 109, card_y, 42)
+    pdf.stat_box('99.9%+', 'Uptime Target', 156, card_y, 38)
     pdf.set_y(card_y + 30)
 
     pdf.ensure_space(50)
@@ -348,9 +348,9 @@ def generate_whitepaper():
     pdf.ln(10)
 
     pdf.body(
-        'Terraform ensures reproducible deployments. Temporal orchestrates complex ML workflows. '
-        'Ray distributes training across GPU clusters. Redpanda replaces Kafka with 10x lower '
-        'latency. ClickHouse powers sub-second OLAP queries. Rust powers latency-critical paths.'
+        'Terraform will ensure reproducible deployments. Temporal will orchestrate complex ML workflows. '
+        'Ray will distribute training across GPU clusters. Redpanda replaces Kafka with 10x lower '
+        'latency. ClickHouse will power sub-second OLAP queries. Rust will power latency-critical paths.'
     )
 
     # ============================================================

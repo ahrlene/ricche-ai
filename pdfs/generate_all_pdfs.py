@@ -342,8 +342,8 @@ def generate_architecture_pdf():
     )
     pdf.ln(2)
     pdf.quote_block(
-        'Our architecture processes market data through GPU-accelerated pipelines, '
-        'delivering dramatically faster model training and sub-2ms inference latency.'
+        'Our architecture will process market data through GPU-accelerated pipelines, '
+        'targeting dramatically faster model training and sub-2ms inference latency.'
     )
     pdf.ln(2)
 
@@ -413,16 +413,16 @@ def generate_architecture_pdf():
     pdf.ensure_space(58)
     pdf.nvidia_card_box(
         'NVIDIA CUDA -- The Foundation',
-        'Every training run, every simulation, every feature computation is CUDA-accelerated. '
-        'Multi-GPU distributed training with mixed-precision (FP16/BF16) delivers significant '
-        'speedups over CPU-only infrastructure. Researchers iterate on ideas in hours, '
-        'not days. This is the engine that makes everything else possible.',
+        'Every training run, every simulation, every feature computation will be CUDA-accelerated. '
+        'Multi-GPU distributed training with mixed-precision (FP16/BF16) will deliver significant '
+        'speedups over CPU-only infrastructure. Researchers will iterate on ideas in hours, '
+        'not days. This is the engine that will make everything else possible.',
         15, pdf.get_y(), 85, 52
     )
     pdf.nvidia_card_box(
         'RAPIDS -- Data at GPU Speed',
-        'Traditional data pipelines are CPU-bound bottlenecks. RAPIDS cuDF eliminates them '
-        'entirely. Feature engineering on financial time-series runs 10-50x faster than pandas. '
+        'Traditional data pipelines are CPU-bound bottlenecks. RAPIDS cuDF will eliminate them '
+        'entirely. Feature engineering on financial time-series will run 10-50x faster than pandas. '
         'End-to-end GPU processing means data never leaves the GPU between preparation '
         'and training -- zero transfer overhead, maximum throughput.',
         110, pdf.get_y(), 85, 52
@@ -440,8 +440,8 @@ def generate_architecture_pdf():
     )
     pdf.nvidia_card_box(
         'NVIDIA NIM -- Production Deployment',
-        'NVIDIA NIM microservices deliver optimised model inference with one-click '
-        'deployment and dynamic scaling. Built-in model orchestration handles multi-model '
+        'NVIDIA NIM microservices will deliver optimised model inference with one-click '
+        'deployment and dynamic scaling. Built-in model orchestration will handle multi-model '
         'serving with intelligent batching and GPU memory management. '
         'Zero-downtime version transitions with automatic rollback.',
         110, pdf.get_y(), 85, 52
@@ -488,7 +488,7 @@ def generate_architecture_pdf():
         'Real-Time Streaming',
         'Event-driven pipelines with sub-second latency. Exactly-once delivery semantics '
         'ensure data integrity. Automatic reconnection and gap detection for exchange feeds. '
-        'Handles sustained throughput of millions of events per second.',
+        'Designed to handle sustained throughput of millions of events per second.',
         15, pdf.get_y(), 85, 42
     )
     pdf.card_box(
@@ -496,7 +496,7 @@ def generate_architecture_pdf():
         'Historical backfills and daily reconciliation powered by RAPIDS cuDF. '
         'Idempotent processing with full audit trails and lineage tracking. '
         'Parallel processing across GPU nodes for massive backfill operations. '
-        'Data versioning enables reproducible research at any point in time.',
+        'Data versioning will enable reproducible research at any point in time.',
         110, pdf.get_y(), 85, 42
     )
     pdf.ln(46)
@@ -626,13 +626,13 @@ def generate_architecture_pdf():
     pdf.ln(14)
 
     pdf.body(
-        'Infrastructure-as-code (Terraform) ensures every deployment is reproducible. '
-        'Temporal orchestrates complex ML workflows with built-in retry and observability. '
-        'Ray distributes training and hyperparameter search across GPU clusters. Polars '
-        'and DuckDB handle analytical queries at blazing speed. ClickHouse powers '
-        'sub-second OLAP queries on financial time-series. Apache Iceberg provides '
+        'Infrastructure-as-code (Terraform) will ensure every deployment is reproducible. '
+        'Temporal will orchestrate complex ML workflows with built-in retry and observability. '
+        'Ray will distribute training and hyperparameter search across GPU clusters. Polars '
+        'and DuckDB will handle analytical queries at blazing speed. ClickHouse will power '
+        'sub-second OLAP queries on financial time-series. Apache Iceberg will provide '
         'the data lakehouse layer. Redpanda replaces Kafka with 10x lower latency '
-        'and zero JVM overhead. Rust powers latency-critical paths.'
+        'and zero JVM overhead. Rust will power latency-critical paths.'
     )
 
     pdf.ln(4)
@@ -765,8 +765,8 @@ def generate_overview_pdf():
     pdf.nvidia_card_box(
         'NVIDIA NIM',
         'Optimised model inference microservices with one-click deployment and dynamic '
-        'scaling. Built-in orchestration handles multi-model serving with intelligent '
-        'batching. The production layer that scales with our ambition.',
+        'scaling. Built-in orchestration will handle multi-model serving with intelligent '
+        'batching. The production layer designed to scale with our ambition.',
         110, pdf.get_y(), 85, 42
     )
     pdf.ln(46)
