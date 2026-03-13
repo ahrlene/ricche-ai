@@ -3236,6 +3236,19 @@ a, button, [role="button"], .nav-toggle, .theme-toggle, .pdf-trigger {
   font-size: 0.875rem;
   line-height: 1.6;
 }
+.team-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--neon-bright);
+  transition: color 0.2s;
+}
+.team-cta:hover { color: var(--neon-cyan); }
+.team-cta svg { transition: transform 0.2s; }
+.team-cta:hover svg { transform: translateX(3px); }
 @media (max-width: 768px) {
   .team-grid { grid-template-columns: 1fr; }
 }

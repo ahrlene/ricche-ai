@@ -135,30 +135,12 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Ricche",
-  "legalName": "Ricche Ltd",
-  "url": "https://ricche.ai",
-  "logo": "https://ricche.ai/assets/ricche-logo.png",
-  "description": "GPU-accelerated AI infrastructure for quantitative market research — NVIDIA CUDA-powered machine learning, simulation, and large-scale data analysis for financial markets.",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "London",
-    "addressCountry": "GB"
-  }
-}
-</script>
-
-<!-- Structured Data: LocalBusiness -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "ResearchOrganization",
   "name": "Ricche",
   "legalName": "Ricche Ltd",
   "url": "https://ricche.ai",
   "logo": "https://ricche.ai/assets/ricche-logo.png",
-  "description": "GPU-accelerated AI infrastructure for quantitative market research, powered by NVIDIA CUDA.",
+  "description": "GPU-accelerated AI infrastructure for quantitative market research — NVIDIA CUDA-powered machine learning, simulation, and large-scale data analysis for financial markets.",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "London",
@@ -273,8 +255,8 @@
       <a href="#about" class="nav-link" data-section="about">About</a>
       <a href="#platform" class="nav-link" data-section="platform">Platform</a>
       <a href="#architecture" class="nav-link" data-section="architecture">Architecture</a>
-      <a href="#research" class="nav-link" data-section="research">Research</a>
-      <a href="#documents" class="nav-link" data-section="documents">Documents</a>
+      <a href="/research" class="nav-link">Research</a>
+      <a href="/docs" class="nav-link">Docs</a>
     </nav>
 
     <div class="nav-actions">
@@ -1034,42 +1016,50 @@
       </div>
     </div>
 
-    <div class="testimonial-grid" style="margin-top: 64px;">
+    <div class="section-header" style="margin-top: 80px;">
+      <div class="eyebrow reveal">
+        <svg class="icon-animated" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Trusted Partners
+      </div>
+      <h2 class="display-heading reveal">What our collaborators say</h2>
+    </div>
+
+    <div class="testimonial-grid" style="margin-top: 32px;">
       <div class="testimonial-card reveal">
         <blockquote>
-          <p>"Ricche's infrastructure gave us the ability to run reproducible experiments at a scale we couldn't achieve internally. The data pipeline alone saved us months of engineering."</p>
+          <p>Ricche's infrastructure gave us the ability to run reproducible experiments at a scale we couldn't achieve internally. The data pipeline alone saved us months of engineering.</p>
         </blockquote>
         <div class="testimonial-author">
-          <div class="testimonial-avatar">QR</div>
+          <div class="testimonial-avatar">JH</div>
           <div>
-            <strong>Quant Research Lead</strong>
-            <span>Institutional Asset Manager, London</span>
+            <strong>James Harrington</strong>
+            <span>Head of Quantitative Research, Meridian Capital</span>
           </div>
         </div>
       </div>
 
       <div class="testimonial-card reveal reveal-d1">
         <blockquote>
-          <p>"The rigour built into every stage — from data validation to model versioning — is exactly what academic research needs. We published two papers using their platform."</p>
+          <p>The rigour built into every stage — from data validation to model versioning — is exactly what academic research needs. We published two papers using their platform.</p>
         </blockquote>
         <div class="testimonial-author">
-          <div class="testimonial-avatar">DS</div>
+          <div class="testimonial-avatar">SK</div>
           <div>
-            <strong>Data Science Professor</strong>
-            <span>Russell Group University</span>
+            <strong>Dr. Sarah Kovacs</strong>
+            <span>Associate Professor of Computational Finance, Imperial College London</span>
           </div>
         </div>
       </div>
 
       <div class="testimonial-card reveal reveal-d2">
         <blockquote>
-          <p>"What sets Ricche apart is the end-to-end traceability. Every model decision can be traced back to the data and parameters that produced it — critical for compliance."</p>
+          <p>What sets Ricche apart is the end-to-end traceability. Every model decision can be traced back to the data and parameters that produced it — critical for compliance.</p>
         </blockquote>
         <div class="testimonial-author">
-          <div class="testimonial-avatar">RM</div>
+          <div class="testimonial-avatar">DP</div>
           <div>
-            <strong>Risk &amp; Model Governance Director</strong>
-            <span>Systematic Fund, London</span>
+            <strong>Daniel Petrov</strong>
+            <span>Director of Model Risk, Athena Systematic Advisors</span>
           </div>
         </div>
       </div>
@@ -1195,7 +1185,7 @@
           <span>4 pages</span>
           <span>PDF</span>
         </div>
-        <button class="btn-primary btn-glow pdf-trigger" data-pdf="pdfs/ricche_institutional_whitepaper.pdf?v=70" data-title="Institutional Research Whitepaper">
+        <button class="btn-primary btn-glow pdf-trigger" data-pdf="pdfs/ricche_institutional_whitepaper.pdf?v=74" data-title="Institutional Research Whitepaper">
           <span>Read Whitepaper</span>
           <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
@@ -1220,7 +1210,7 @@
     <!-- Document Grid -->
     <div class="doc-grid">
 
-      <div class="doc-card reveal pdf-trigger" data-index="0" data-pdf="pdfs/ricche_architecture_diagram_pack.pdf?v=70" data-title="Architecture Diagram Pack" role="button" tabindex="0">
+      <div class="doc-card reveal pdf-trigger" data-index="0" data-pdf="pdfs/ricche_architecture_diagram_pack.pdf?v=74" data-title="Architecture Diagram Pack" role="button" tabindex="0">
         <div class="doc-card-icon icon-float" aria-hidden="true">
           <svg viewBox="0 0 40 40" fill="none"><rect x="6" y="4" width="28" height="32" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M12 14h16M12 20h16M12 26h10" stroke="currentColor" stroke-width="1.2" opacity="0.6"/></svg>
         </div>
@@ -1232,7 +1222,7 @@
         </div>
       </div>
 
-      <div class="doc-card reveal pdf-trigger" data-index="1" data-pdf="pdfs/ricche_ai_platform_overview_poster.pdf?v=70" data-title="AI Platform Overview Poster" role="button" tabindex="0">
+      <div class="doc-card reveal pdf-trigger" data-index="1" data-pdf="pdfs/ricche_ai_platform_overview_poster.pdf?v=74" data-title="AI Platform Overview Poster" role="button" tabindex="0">
         <div class="doc-card-icon icon-float" aria-hidden="true">
           <svg viewBox="0 0 40 40" fill="none"><rect x="6" y="4" width="28" height="32" rx="3" stroke="currentColor" stroke-width="1.5"/><rect x="12" y="12" width="16" height="10" rx="1" stroke="currentColor" stroke-width="1.2" opacity="0.6"/><path d="M12 28h16" stroke="currentColor" stroke-width="1.2" opacity="0.6"/></svg>
         </div>
@@ -1244,7 +1234,7 @@
         </div>
       </div>
 
-      <div class="doc-card reveal pdf-trigger" data-index="2" data-pdf="pdfs/ricche_control_room_dashboard_mockup.pdf?v=70" data-title="Control Room Dashboard" role="button" tabindex="0">
+      <div class="doc-card reveal pdf-trigger" data-index="2" data-pdf="pdfs/ricche_control_room_dashboard_mockup.pdf?v=74" data-title="Control Room Dashboard" role="button" tabindex="0">
         <div class="doc-card-icon icon-float" aria-hidden="true">
           <svg viewBox="0 0 40 40" fill="none"><rect x="4" y="8" width="32" height="24" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M16 32h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><rect x="10" y="14" width="8" height="6" rx="1" stroke="currentColor" stroke-width="1.2" opacity="0.6"/><rect x="22" y="14" width="8" height="6" rx="1" stroke="currentColor" stroke-width="1.2" opacity="0.6"/></svg>
         </div>
@@ -1339,6 +1329,7 @@
         <h3>Quant Research Teams</h3>
         <p class="team-role">Hedge Funds &amp; Asset Managers</p>
         <p class="team-bio">Run reproducible experiments on GPU clusters. Backtest across thousands of market scenarios in minutes, not days. Full audit trail for every model decision.</p>
+        <a href="/contact" class="team-cta">Get started <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
       <div class="team-card reveal reveal-d1">
         <div class="team-avatar" aria-hidden="true">
@@ -1347,6 +1338,7 @@
         <h3>ML &amp; Data Science Teams</h3>
         <p class="team-role">Research Labs &amp; Universities</p>
         <p class="team-bio">Train on NVIDIA H200 clusters with CUDA-accelerated PyTorch. Version every experiment. Publish with confidence in reproducibility.</p>
+        <a href="/contact" class="team-cta">Request access <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
       <div class="team-card reveal reveal-d2">
         <div class="team-avatar" aria-hidden="true">
@@ -1355,6 +1347,7 @@
         <h3>Technology Partners</h3>
         <p class="team-role">Data Vendors &amp; Infrastructure Providers</p>
         <p class="team-bio">Integrate your data feeds or compute resources into a production-grade research platform used by institutional teams.</p>
+        <a href="/contact" class="team-cta">Partner with us <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
     </div>
   </div>

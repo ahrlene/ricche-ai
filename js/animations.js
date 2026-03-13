@@ -6,7 +6,7 @@
   // ---- Preloader (skip on repeat visits) ----
   const preloader = document.getElementById('preloader');
   if (preloader) {
-    const hasVisited = sessionStorage.getItem('ricche-visited');
+    const hasVisited = localStorage.getItem('ricche-visited');
     if (hasVisited) {
       preloader.classList.add('hidden');
       document.body.style.overflow = '';
@@ -18,7 +18,7 @@
           preloader.classList.add('hidden');
           document.body.style.overflow = '';
           document.body.removeAttribute('aria-busy');
-          sessionStorage.setItem('ricche-visited', '1');
+          localStorage.setItem('ricche-visited', '1');
         }, 1000);
       });
     }
