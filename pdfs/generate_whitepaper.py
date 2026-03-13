@@ -828,6 +828,18 @@ def generate_whitepaper():
     pdf.tech_badge('Sustainability Premium Quantification')
     pdf.ln(10)
 
+    pdf.sub_heading('Semiconductor Fabrication Intelligence')
+    pdf.tech_badge('Wafer Start & Fab Utilisation Predictor')
+    pdf.tech_badge('Process Node Migration Alpha')
+    pdf.tech_badge('Semiconductor Inventory Supercycle Model')
+    pdf.tech_badge('Lithography Capacity Bottleneck Tracker')
+    pdf.tech_badge('Advanced Packaging Demand Forecaster')
+    pdf.tech_badge('Foundry Pricing Power Model')
+    pdf.tech_badge('Geopolitical Semiconductor Risk Engine')
+    pdf.tech_badge('Design Win Intelligence Network')
+    pdf.tech_badge('Yield Curve Anomaly Detection')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
