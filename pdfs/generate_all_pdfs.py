@@ -298,7 +298,7 @@ class RicchePDF(FPDF):
         """Call-to-action block at end of document."""
         y = self.get_y() + 4
         self.set_fill_color(*NAVY)
-        self.rect(self.l_margin, y, 180, 42, 'F')
+        self.rect(self.l_margin, y, 180, 50, 'F')
         self.set_fill_color(*ACCENT)
         self.rect(self.l_margin, y, 180, 2, 'F')
         self.set_xy(self.l_margin + 8, y + 6)
@@ -309,7 +309,7 @@ class RicchePDF(FPDF):
         self.set_font('Helvetica', '', 9)
         self.set_text_color(180, 185, 210)
         self.multi_cell(164, 5, body_text)
-        self.set_xy(self.l_margin + 8, y + 32)
+        self.set_xy(self.l_margin + 8, y + 38)
         self.set_font('Helvetica', 'B', 10)
         self.set_text_color(*ACCENT)
         self.cell(164, 6, contact)
@@ -1011,7 +1011,7 @@ def generate_dashboard_pdf():
     )
     pdf.ln(38)
 
-    pdf.ensure_space(60)
+    pdf.ensure_space(65)
     pdf.cta_block(
         'Interested in Our Infrastructure Vision?',
         'The Control Room is being built as the operational backbone of our GPU-accelerated '
