@@ -970,6 +970,18 @@ def generate_architecture_pdf():
     pdf.tech_badge('Yield Curve Anomaly Detection')
     pdf.ln(10)
 
+    pdf.sub_heading('Sovereign Resource Dominance')
+    pdf.tech_badge('Global Crude Grade Arbitrage Engine')
+    pdf.tech_badge('Petrochemical Value Chain Optimiser')
+    pdf.tech_badge('Oil Field Decline Rate Intelligence')
+    pdf.tech_badge('Tanker Fleet Tracking & Voyage Prediction')
+    pdf.tech_badge('Strategic Reserve & Spare Capacity Model')
+    pdf.tech_badge('Downstream Demand Destruction Predictor')
+    pdf.tech_badge('Sovereign Investment Fund Flow Tracker')
+    pdf.tech_badge('LNG Spot Market Arbitrage')
+    pdf.tech_badge('Peak Oil Demand Timing Model')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
