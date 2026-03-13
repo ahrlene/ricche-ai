@@ -317,6 +317,10 @@
     if (streamContainer) streamObs.observe(streamContainer);
   }
 
+  // ---- Copyright year ----
+  var yearEl = document.getElementById('footerYear');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
   // ---- Smooth scroll for anchor links ----
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function (e) {

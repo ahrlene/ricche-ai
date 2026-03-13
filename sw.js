@@ -1,16 +1,17 @@
 // Ricche — Service Worker for offline caching
-const CACHE_NAME = 'ricche-v1';
+const CACHE_NAME = 'ricche-v2';
 const ASSETS = [
   '/',
   '/index.html',
   '/contact',
   '/privacy',
-  '/css/styles.css',
-  '/js/animations.js',
-  '/js/main.js',
-  '/js/ai-network.js',
+  '/css/styles.min.css',
+  '/js/animations.min.js',
+  '/js/main.min.js',
+  '/js/ai-network.min.js',
+  '/fonts/inter-latin.woff2',
+  '/fonts/space-grotesk-latin.woff2',
   '/assets/ricche-logo.png',
-  '/assets/hero-globe.mp4',
   '/manifest.json'
 ];
 

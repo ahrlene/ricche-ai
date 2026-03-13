@@ -13,6 +13,7 @@
 <meta name="theme-color" content="#060a14" media="(prefers-color-scheme: dark)">
 
 <!-- Favicon -->
+<link rel="icon" href="favicon.ico" sizes="32x32">
 <link rel="icon" type="image/png" sizes="512x512" href="assets/ricche-logo.png">
 <link rel="apple-touch-icon" href="assets/ricche-logo.png">
 
@@ -26,6 +27,7 @@
 <meta property="og:image" content="https://ricche.ai/assets/og-share.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ricche — AI Research Infrastructure for Financial Markets">
 <meta property="og:url" content="https://ricche.ai/privacy">
 <meta property="og:locale" content="en_GB">
 <meta property="og:site_name" content="Ricche">
@@ -46,7 +48,7 @@
 </script>
 
 <!-- Security: Content Security Policy -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.vercel-scripts.com https://*.vercel.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self'; img-src 'self' data:; connect-src 'self' https://*.vercel-insights.com https://*.vercel.com;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.vercel-scripts.com https://*.vercel.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://*.vercel-insights.com https://*.vercel.com;">
 
 <!-- Security: Permissions Policy -->
 <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=()">
@@ -105,7 +107,7 @@
     </nav>
 
     <div class="nav-actions">
-      <button class="theme-toggle" id="themeToggle" role="switch" aria-checked="false" aria-label="Dark mode">
+      <button class="theme-toggle" id="themeToggle" role="switch" aria-checked="true" aria-label="Dark mode">
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
@@ -228,7 +230,7 @@
         </div>
         <span>RICCHE LTD</span>
       </div>
-      <span class="footer-copy">&copy; <script>document.write(new Date().getFullYear())</script> Ricche Ltd. Registered in England &amp; Wales. AI Infrastructure for Quantitative Market Research.</span>
+      <span class="footer-copy">&copy; <span id="footerYear">2026</span> Ricche Ltd. Registered in England &amp; Wales. AI Infrastructure for Quantitative Market Research.</span>
       <nav class="footer-links" aria-label="Footer navigation">
         <a href="index.html#about">About</a>
         <a href="index.html#platform">Platform</a>
@@ -242,7 +244,6 @@
 
 </div>
 
-<script defer src="/_vercel/insights/script.js"></script>
 <script>
 (function() {
   // Theme toggle (dark mode default)
@@ -279,6 +280,36 @@
       navToggle.setAttribute('aria-expanded', 'false');
     });
   });
+
+  // Copyright year
+  var yearEl = document.getElementById('footerYear');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+})();
+</script>
+
+<!-- Analytics Consent Banner -->
+<div class="consent-banner" id="consentBanner" role="dialog" aria-label="Analytics consent">
+  <p>We use anonymous analytics to improve this site. No personal data is collected. <a href="/privacy">Learn more</a></p>
+  <div class="consent-actions">
+    <button class="consent-btn consent-accept" id="consentAccept">Accept</button>
+    <button class="consent-btn consent-decline" id="consentDecline">Decline</button>
+  </div>
+</div>
+<script>
+(function(){
+  var consent = localStorage.getItem('ricche-analytics');
+  var banner = document.getElementById('consentBanner');
+  if (consent === null) banner.classList.add('show');
+  document.getElementById('consentAccept').addEventListener('click', function(){
+    localStorage.setItem('ricche-analytics', 'yes');
+    banner.classList.remove('show');
+    var s = document.createElement('script'); s.defer = true; s.src = '/_vercel/insights/script.js'; document.body.appendChild(s);
+  });
+  document.getElementById('consentDecline').addEventListener('click', function(){
+    localStorage.setItem('ricche-analytics', 'no');
+    banner.classList.remove('show');
+  });
+  if (consent === 'yes') { var s = document.createElement('script'); s.defer = true; s.src = '/_vercel/insights/script.js'; document.body.appendChild(s); }
 })();
 </script>
 </body>
