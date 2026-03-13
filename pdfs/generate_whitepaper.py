@@ -655,6 +655,18 @@ def generate_whitepaper():
     pdf.tech_badge('Space Weather Alpha')
     pdf.ln(10)
 
+    pdf.sub_heading('Autonomous Physical Intelligence')
+    pdf.tech_badge('Autonomous Trading Floor (Zero Humans)')
+    pdf.tech_badge('Neural Market Architecture')
+    pdf.tech_badge('Real-Time Energy Market Arbitrage')
+    pdf.tech_badge('Predictive Supply Chain Robotics')
+    pdf.tech_badge('Battery & Commodity Forward Curve AI')
+    pdf.tech_badge('Manufacturing Throughput Alpha')
+    pdf.tech_badge('Embodied AI Market Agents')
+    pdf.tech_badge('Autonomous Fleet Telemetry Alpha')
+    pdf.tech_badge('Self-Replicating Infrastructure')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
