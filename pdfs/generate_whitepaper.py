@@ -727,6 +727,18 @@ def generate_whitepaper():
     pdf.tech_badge('Chiplet-Based Modular Trading SoC')
     pdf.ln(10)
 
+    pdf.sub_heading('Permanent Structural Alpha')
+    pdf.tech_badge('Regulatory Capture Engine')
+    pdf.tech_badge('Permanent Capital Allocation AI')
+    pdf.tech_badge('Insurance Float Arbitrage System')
+    pdf.tech_badge('Monopoly Detection & Acquisition Scanner')
+    pdf.tech_badge('Infinite Duration Risk Models')
+    pdf.tech_badge('Cash Flow Permanence Scoring')
+    pdf.tech_badge('Margin of Safety Calculator (Autonomous)')
+    pdf.tech_badge('Anti-Fragile Portfolio Architecture')
+    pdf.tech_badge('Generational Wealth Compounding Engine')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
