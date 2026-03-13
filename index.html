@@ -43,7 +43,7 @@
 <link rel="canonical" href="https://ricche.ai/">
 
 <!-- Security: Content Security Policy -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.vercel-scripts.com https://*.vercel.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; media-src 'self'; frame-src 'self'; connect-src 'self' https://*.vercel-insights.com https://*.vercel.com;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.vercel-scripts.com https://*.vercel.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; media-src 'self'; frame-src 'self'; connect-src 'self' https://formsubmit.co https://*.vercel-insights.com https://*.vercel.com; upgrade-insecure-requests;">
 
 <!-- Security: Permissions Policy -->
 <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=()">
@@ -145,6 +145,49 @@
     "@type": "PostalAddress",
     "addressLocality": "London",
     "addressCountry": "GB"
+  }
+}
+</script>
+
+<!-- Structured Data: LocalBusiness -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ResearchOrganization",
+  "name": "Ricche",
+  "legalName": "Ricche Ltd",
+  "url": "https://ricche.ai",
+  "logo": "https://ricche.ai/assets/ricche-logo.png",
+  "description": "GPU-accelerated AI infrastructure for quantitative market research, powered by NVIDIA CUDA.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "London",
+    "addressCountry": "GB"
+  },
+  "areaServed": "Global",
+  "knowsAbout": ["Machine Learning", "Financial Markets", "GPU Computing", "NVIDIA CUDA", "Quantitative Research"]
+}
+</script>
+
+<!-- Structured Data: SoftwareApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Ricche AI Research Platform",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Cloud",
+  "description": "GPU-accelerated AI research infrastructure for financial markets — machine learning, simulation, and large-scale data analysis powered by NVIDIA CUDA, TensorRT, and RAPIDS.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "GBP",
+    "description": "Contact for research partnership access"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Ricche Ltd",
+    "url": "https://ricche.ai"
   }
 }
 </script>
@@ -1089,6 +1132,17 @@
         <a href="/contact">Contact</a>
         <a href="/privacy">Privacy</a>
       </nav>
+      <div class="footer-social">
+        <a href="https://linkedin.com/company/ricche-ai" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="https://x.com/ricche_ai" target="_blank" rel="noopener" aria-label="X (Twitter)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4l11.7 16h4.3M4 20L20 4"/><path d="M20 4h-4.3M4 20h4.3"/></svg>
+        </a>
+        <a href="https://github.com/ricche-ai" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </a>
+      </div>
     </div>
   </div>
 </footer>

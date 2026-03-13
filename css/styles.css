@@ -3259,3 +3259,66 @@ a, button, [role="button"], .nav-toggle, .theme-toggle, .pdf-trigger {
   margin-top: 10px;
 }
 
+/* ========================================
+   FOOTER SOCIAL LINKS
+   ======================================== */
+.footer-social {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+  justify-content: center;
+}
+.footer-social a {
+  color: var(--text-secondary);
+  transition: color 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-social a:hover {
+  color: var(--neon);
+  transform: translateY(-2px);
+}
+.footer-social a:focus-visible {
+  color: var(--neon);
+  outline: 2px solid var(--neon);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* ========================================
+   PRINT STYLESHEET
+   ======================================== */
+@media print {
+  *, *::before, *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  body { font-size: 12pt; line-height: 1.5; }
+  .header, .preloader, .nav-toggle, .theme-toggle,
+  .hero-planet, .hero-orb, #networkCanvas, .hero-gradient,
+  .scroll-cue, .bg-orb, .section-pattern, .section-bg-anim,
+  .section-bg-image, .section-divider, .orbital-visual,
+  .back-to-top, .consent-banner, .logo-flash-overlay,
+  .pdf-modal-overlay, .footer-social, .newsletter-strip,
+  .pcard-glow, .icon-float, .badge-pulse { display: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #555; }
+  a[href^="#"]::after, a[href^="javascript"]::after { content: ""; }
+  .container { max-width: 100%; padding: 0 20px; }
+  .hero { min-height: auto; padding: 40px 0; }
+  .section, .section-alt { padding: 20px 0; }
+  .platform-grid, .gpu-grid, .testimonial-grid, .team-grid, .doc-grid {
+    display: block;
+  }
+  .pcard, .gpu-card, .testimonial-card, .team-card, .doc-card {
+    break-inside: avoid;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    padding: 16px;
+  }
+  .btn-primary, .btn-ghost, .btn-nav { border: 1px solid #000; padding: 4px 12px; }
+}
+

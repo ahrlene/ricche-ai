@@ -166,6 +166,9 @@
     reveals.forEach(el => observer.observe(el));
   }
 
+  // ---- Reduced motion preference ----
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   // ---- Counter animation (re-triggers every scroll, daily increments) ----
   // Base values and daily growth rates (proportional to size)
   const counterConfig = {
@@ -196,6 +199,13 @@
       const state = counterState.get(el);
       if (state.animating) return;
       state.animating = true;
+
+      // Skip animation for reduced motion preference
+      if (prefersReducedMotion) {
+        el.textContent = Math.round(target).toLocaleString();
+        state.animating = false;
+        return;
+      }
 
       const dur = 2200;
       const start = performance.now();
