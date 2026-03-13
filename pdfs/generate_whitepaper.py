@@ -775,6 +775,18 @@ def generate_whitepaper():
     pdf.tech_badge('Weather-Energy Nexus Engine')
     pdf.ln(10)
 
+    pdf.sub_heading('Consumer & Supply Chain Omniscience')
+    pdf.tech_badge('Global Consumer Demand Forecasting (SKU-Level)')
+    pdf.tech_badge('Real-Time Freight & Logistics Pricing')
+    pdf.tech_badge('Grocery & Staples Inflation Predictor')
+    pdf.tech_badge('Point-of-Sale Signal Intelligence')
+    pdf.tech_badge('Private Label vs Brand Switching Detector')
+    pdf.tech_badge('Inventory Glut & Shortage Predictor')
+    pdf.tech_badge('Agricultural Commodity Chain Modelling')
+    pdf.tech_badge('Cross-Border Trade Flow Intelligence')
+    pdf.tech_badge('Consumer Credit Stress Barometer')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
