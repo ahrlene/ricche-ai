@@ -26,8 +26,8 @@
       "position": 1,
       "item": {
         "@type": "Article",
-        "headline": "GPU-Accelerated Backtesting: 47x Faster Than CPU-Only Pipelines",
-        "description": "How we architected our NVIDIA CUDA-based simulation framework to run thousands of market scenarios in parallel, reducing backtest cycles from hours to minutes.",
+        "headline": "Why We Chose NVIDIA CUDA as Our Compute Foundation",
+        "description": "The reasoning behind building our entire research pipeline on NVIDIA's GPU ecosystem and why half-measures with CPU-GPU hybrid approaches fall short for financial ML workloads.",
         "author": {"@type": "Organization", "name": "Ricche Ltd"},
         "publisher": {"@type": "Organization", "name": "Ricche Ltd", "url": "https://ricche.ai"}
       }
@@ -37,8 +37,8 @@
       "position": 2,
       "item": {
         "@type": "Article",
-        "headline": "Building a Real-Time Market Data Pipeline at Institutional Scale",
-        "description": "Lessons from processing billions of tick-level data points daily — from exchange feeds through validation, normalisation, and into research-ready datasets.",
+        "headline": "Designing for Reproducibility: Lessons from Quantitative Research Infrastructure",
+        "description": "How we are engineering experiment reproducibility into every layer of the platform — from deterministic data splits and versioned feature stores to auditable model lineage.",
         "author": {"@type": "Organization", "name": "Ricche Ltd"},
         "publisher": {"@type": "Organization", "name": "Ricche Ltd", "url": "https://ricche.ai"}
       }
@@ -48,8 +48,8 @@
       "position": 3,
       "item": {
         "@type": "Article",
-        "headline": "Model Governance for Quantitative Research: Traceability at Every Step",
-        "description": "Why full experiment reproducibility matters for compliance, and how we built an audit trail that tracks every model decision back to its data and parameters.",
+        "headline": "The Infrastructure Gap in Quantitative Finance",
+        "description": "Why the gap between what top-tier quant firms can compute and what everyone else can access is widening — and how purpose-built GPU-accelerated research platforms can bridge it.",
         "author": {"@type": "Organization", "name": "Ricche Ltd"},
         "publisher": {"@type": "Organization", "name": "Ricche Ltd", "url": "https://ricche.ai"}
       }
@@ -168,7 +168,7 @@
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
-      <a href="/contact" class="btn-nav">Request Access</a>
+      <a href="/contact" class="btn-nav">Get in Touch</a>
     </div>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -185,35 +185,38 @@
           Research
         </div>
         <h1 class="display-heading" style="text-align:center;">Research &amp; Insights</h1>
-        <p class="lead-text" style="text-align:center;max-width:560px;margin:16px auto 0;">Technical articles on GPU-accelerated infrastructure, quantitative methods, and production ML systems for financial markets.</p>
+        <p class="lead-text" style="text-align:center;max-width:560px;margin:16px auto 0;">Our thinking on GPU-accelerated infrastructure, quantitative methods, and the engineering decisions behind the Ricche platform.</p>
       </div>
 
       <div class="article-grid">
-        <article class="article-card" style="opacity:0.6;">
+        <article class="article-card">
           <div class="article-meta">
-            <span class="article-tag">Infrastructure</span>
-            <span class="article-date">Coming Q2 2026</span>
+            <span class="article-tag">Architecture</span>
+            <span class="article-date">March 2026</span>
           </div>
-          <h3>GPU-Accelerated Backtesting: 47x Faster Than CPU-Only Pipelines</h3>
-          <p>How we architected our NVIDIA CUDA-based simulation framework to run thousands of market scenarios in parallel, reducing backtest cycles from hours to minutes.</p>
+          <h3>Why We Chose NVIDIA CUDA as Our Compute Foundation</h3>
+          <p>The reasoning behind building our entire research pipeline on NVIDIA's GPU ecosystem &mdash; from data ingestion through training to inference &mdash; and why half-measures with CPU-GPU hybrid approaches fall short for financial ML workloads.</p>
+          <span class="article-link">Read on Docs <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </article>
 
-        <article class="article-card" style="opacity:0.6;">
+        <article class="article-card">
           <div class="article-meta">
-            <span class="article-tag">Data Engineering</span>
-            <span class="article-date">Coming Q2 2026</span>
+            <span class="article-tag">Engineering</span>
+            <span class="article-date">March 2026</span>
           </div>
-          <h3>Building a Real-Time Market Data Pipeline at Institutional Scale</h3>
-          <p>Lessons from processing billions of tick-level data points daily — from exchange feeds through validation, normalisation, and into research-ready datasets.</p>
+          <h3>Designing for Reproducibility: Lessons from Quantitative Research Infrastructure</h3>
+          <p>How we are engineering experiment reproducibility into every layer of the platform &mdash; from deterministic data splits and versioned feature stores to auditable model lineage. The hidden cost of irreproducible research in quantitative finance.</p>
+          <span class="article-link">Read on Docs <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </article>
 
-        <article class="article-card" style="opacity:0.6;">
+        <article class="article-card">
           <div class="article-meta">
-            <span class="article-tag">Governance</span>
-            <span class="article-date">Coming Q2 2026</span>
+            <span class="article-tag">Market View</span>
+            <span class="article-date">March 2026</span>
           </div>
-          <h3>Model Governance for Quantitative Research: Traceability at Every Step</h3>
-          <p>Why full experiment reproducibility matters for compliance, and how we built an audit trail that tracks every model decision back to its data and parameters.</p>
+          <h3>The Infrastructure Gap in Quantitative Finance</h3>
+          <p>Why the gap between what top-tier quant firms can compute and what everyone else can access is widening &mdash; and how purpose-built GPU-accelerated research platforms can bridge it.</p>
+          <span class="article-link">Read on Docs <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </article>
       </div>
 

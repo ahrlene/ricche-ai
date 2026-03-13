@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Documentation — Ricche</title>
-<meta name="description" content="Documentation, API reference, and changelog for Ricche's GPU-accelerated AI research infrastructure platform.">
+<meta name="description" content="Platform architecture, technology decisions, and development roadmap for Ricche's GPU-accelerated AI research infrastructure.">
 <meta name="robots" content="index, follow">
 <meta name="author" content="Ricche Ltd">
 <meta name="theme-color" content="#0055FF" media="(prefers-color-scheme: light)">
@@ -88,34 +88,63 @@
   font-size: 0.85rem;
   color: var(--neon-bright);
 }
-.changelog-entry {
+.roadmap-phase {
   padding: 24px;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 12px;
   margin-bottom: 20px;
 }
-.changelog-version {
+.roadmap-phase-header {
   display: inline-flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 10px;
 }
-.changelog-version strong {
+.roadmap-phase-header strong {
   font-family: var(--font-display);
   font-size: 1.1rem;
   color: var(--text-strong);
 }
-.changelog-version span {
+.roadmap-phase-header span {
   font-size: 0.78rem;
   color: var(--text-muted);
 }
-.changelog-entry ul {
+.phase-status {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 100px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.phase-complete { background: rgba(118,185,0,0.15); color: #76b900; }
+.phase-active { background: var(--neon-subtle); color: var(--neon-bright); }
+.phase-planned { background: rgba(255,255,255,0.06); color: var(--text-muted); }
+.roadmap-phase ul {
   padding-left: 18px;
   margin: 0;
 }
-.changelog-entry li {
+.roadmap-phase li {
   margin-bottom: 4px;
+}
+.design-block {
+  padding: 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+.design-block h4 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-strong);
+  margin-bottom: 8px;
+}
+.design-block p {
+  margin-bottom: 8px;
 }
 @media (max-width: 768px) {
   .docs-layout {
@@ -163,7 +192,7 @@
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
-      <a href="/contact" class="btn-nav">Request Access</a>
+      <a href="/contact" class="btn-nav">Get in Touch</a>
     </div>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -178,7 +207,8 @@
         <svg class="icon-animated" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M16 13H8M16 17H8M10 9H8"/></svg>
         Documentation
       </div>
-      <h1 class="display-heading" style="text-align:center;">Documentation</h1>
+      <h1 class="display-heading" style="text-align:center;">Platform Documentation</h1>
+      <p class="lead-text" style="text-align:center;max-width:560px;margin:16px auto 0;">Architecture decisions, technology choices, and development roadmap for the Ricche research platform.</p>
     </div>
   </section>
 
@@ -186,142 +216,143 @@
     <div class="container">
       <div class="docs-layout">
         <nav class="docs-nav" aria-label="Documentation sections">
-          <a href="#getting-started" class="active">Getting Started</a>
-          <a href="#platform-overview">Platform Overview</a>
-          <a href="#api-reference">API Reference</a>
-          <a href="#changelog">Changelog</a>
+          <a href="#architecture" class="active">Architecture</a>
+          <a href="#technology">Technology Choices</a>
+          <a href="#design-principles">Design Principles</a>
+          <a href="#roadmap">Development Roadmap</a>
         </nav>
 
         <div class="docs-content">
-          <h2 id="getting-started">Getting Started</h2>
+          <h2 id="architecture">Platform Architecture</h2>
 
-          <h3>System Requirements</h3>
-          <ul>
-            <li>Modern web browser for the research dashboard</li>
-            <li>SSH client for cluster access</li>
-            <li>Python 3.10+ for SDK and local development</li>
-            <li>NVIDIA drivers (if running local GPU workloads)</li>
-          </ul>
+          <p>Ricche is being built as a multi-layered research infrastructure where each layer handles a specific workload and scales independently. The architecture follows a five-stage pipeline from raw market data to validated research outputs.</p>
 
-          <h3>Access &amp; Authentication</h3>
-          <p>All platform access is provisioned through your organisation's admin. Once onboarded, you'll receive:</p>
-          <ul>
-            <li>API credentials (<code>RICCHE_API_KEY</code>)</li>
-            <li>SSH keys for GPU cluster access</li>
-            <li>Dashboard login via SSO (SAML 2.0 / OIDC)</li>
-          </ul>
+          <h3>End-to-End Pipeline</h3>
+          <p>Market Data Ingestion &rarr; Data Infrastructure &rarr; ML Research Environment &rarr; Simulation Framework &rarr; Validation &amp; Governance</p>
 
-          <h3>Quick Start</h3>
-          <p>Install the Ricche SDK and authenticate:</p>
-          <p><code>pip install ricche-sdk</code></p>
-          <p><code>ricche auth login</code></p>
-          <p>Submit your first experiment:</p>
-          <p><code>ricche experiment submit --config experiment.yaml</code></p>
-          <p>This will queue your job on the GPU cluster, stream logs, and store results in the experiment registry.</p>
+          <h3>Data Ingestion Layer</h3>
+          <p>Designed to connect to real-time and historical market data feeds from global exchanges including NYSE, CME, LSE, Eurex, HKEX, and SGX. The pipeline architecture supports tick-level order book data, OHLCV pricing, corporate actions, economic indicators, and alternative data sources. Built for sub-second ingestion latency with exactly-once delivery guarantees and automatic gap detection.</p>
 
-          <h2 id="platform-overview">Platform Overview</h2>
-          <p>Ricche provides five integrated systems that work together as a unified research platform:</p>
-          <ul>
-            <li><strong>Data Infrastructure</strong> — Automated pipelines for market data ingestion, normalisation, and quality validation.</li>
-            <li><strong>ML Research Environment</strong> — GPU-accelerated training on NVIDIA H200 clusters with PyTorch, JAX, and custom CUDA kernels.</li>
-            <li><strong>Simulation Framework</strong> — Backtest across thousands of market scenarios using GPU-parallelised Monte Carlo methods.</li>
-            <li><strong>Validation &amp; Governance</strong> — Experiment tracking, model versioning, and full audit trail for regulatory compliance.</li>
-            <li><strong>Monitoring &amp; Observability</strong> — Real-time dashboards for pipeline health, GPU utilisation, and experiment drift detection.</li>
-          </ul>
+          <h3>GPU Compute Layer</h3>
+          <p>NVIDIA GPU clusters purpose-built for financial machine learning workloads. The storage architecture uses distributed columnar formats (Apache Parquet, Arrow) for petabyte-scale datasets with intelligent tiering across NVMe, SSD, and object storage. Auto-scaling compute allocation with workload-aware priority scheduling ensures optimal GPU utilisation.</p>
 
-          <h2 id="api-reference">API Reference</h2>
-          <p>Full API documentation is available to authenticated users. Key endpoints:</p>
-          <ul>
-            <li><code>POST /v1/experiments</code> — Submit a new experiment</li>
-            <li><code>GET /v1/experiments/{id}</code> — Retrieve experiment status and results</li>
-            <li><code>GET /v1/data/feeds</code> — List available market data feeds</li>
-            <li><code>POST /v1/backtest</code> — Run a GPU-accelerated backtest</li>
-            <li><code>GET /v1/signals</code> — Query the alpha signal library</li>
-          </ul>
+          <h3>Research &amp; Experimentation Layer</h3>
+          <p>CUDA-accelerated PyTorch environments with comprehensive experiment tracking, model versioning, and automated hyperparameter optimisation. Every experiment is reproducible by design &mdash; all code, data, parameters, and results are versioned and auditable. Supports deep learning, gradient boosting, transformers, and ensemble approaches.</p>
 
-          <h3>Example: Submit an Experiment</h3>
-          <p>Create an experiment config file (<code>experiment.yaml</code>):</p>
-          <pre style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:10px;padding:20px;font-size:0.85rem;color:var(--text-body);overflow-x:auto;margin-bottom:16px;"><code>name: momentum_signal_v3
-dataset: equity_us_daily
-gpu: true
-framework: pytorch
-config:
-  lookback: 252
-  universe: sp500
-  features:
-    - returns_1d
-    - volume_zscore
-    - volatility_20d
-  model:
-    type: transformer
-    hidden_dim: 128
-    num_heads: 4
-    dropout: 0.1
-  training:
-    epochs: 50
-    batch_size: 256
-    learning_rate: 0.0003
-    early_stopping: true</code></pre>
-          <p>Submit via the CLI:</p>
-          <pre style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:10px;padding:20px;font-size:0.85rem;color:var(--text-body);overflow-x:auto;margin-bottom:16px;"><code>$ ricche experiment submit --config experiment.yaml
-Experiment queued: exp_3f8a2b1c
-GPU allocation: 1x H200 (141 GB HBM3e)
-Streaming logs to: https://dashboard.ricche.ai/exp/3f8a2b1c</code></pre>
+          <h3>Simulation &amp; Validation</h3>
+          <p>GPU-parallelised Monte Carlo and agent-based simulation engines that stress-test candidate models across thousands of market scenarios before progression. Formal validation stages with statistical significance testing, walk-forward analysis, and peer review ensure only genuinely robust models advance.</p>
 
-          <h3>Example: Query Results</h3>
-          <pre style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:10px;padding:20px;font-size:0.85rem;color:var(--text-body);overflow-x:auto;margin-bottom:16px;"><code>$ ricche experiment results exp_3f8a2b1c --format json
-{
-  "status": "completed",
-  "duration": "4m 32s",
-  "metrics": {
-    "sharpe": 1.82,
-    "max_drawdown": -0.087,
-    "annual_return": 0.143
-  },
-  "artefacts": ["model.pt", "backtest_report.html"]
-}</code></pre>
-          <p>Detailed request/response schemas and authentication guides are provided upon platform access. <a href="/contact" style="color:var(--neon-bright);">Request access</a> to receive full API documentation.</p>
+          <h3>Monitoring &amp; Observability</h3>
+          <p>The Control Room is being developed as a unified operations dashboard providing real-time visibility into GPU memory allocation, data pipeline health, experiment progress, and infrastructure telemetry. Built on Prometheus, Grafana, and OpenTelemetry.</p>
 
-          <h2 id="changelog">Changelog</h2>
+          <h2 id="technology">Technology Choices</h2>
 
-          <div class="changelog-entry">
-            <div class="changelog-version">
-              <strong>v2.4</strong>
-              <span>March 2026</span>
+          <p>Every tool in our stack was selected for a specific reason &mdash; performance, reliability, or researcher productivity. Below are the key decisions and the reasoning behind them.</p>
+
+          <h3>Why NVIDIA CUDA</h3>
+          <p>Financial ML workloads are compute-bound. Training a transformer on tick-level data across multiple instruments can take days on CPUs. CUDA-accelerated training on NVIDIA H200 GPUs with 141 GB HBM3e memory and 400G InfiniBand NDR interconnects compresses this to hours. We use the full NVIDIA ecosystem: CUDA for compute, RAPIDS cuDF for GPU-accelerated data engineering, TensorRT for production inference, and NIM for model serving.</p>
+
+          <h3>Why KDB+/q for Time-Series</h3>
+          <p>KDB+ remains the gold standard for financial time-series storage and querying. Its columnar architecture and vector-native query language handle the analytical patterns common in quant research &mdash; windowed aggregations, temporal joins, and tick replay &mdash; with unmatched efficiency. Arctic provides the Python interface layer.</p>
+
+          <h3>Why Redpanda Over Kafka</h3>
+          <p>Redpanda delivers Kafka-compatible streaming with 10x lower tail latency, zero JVM overhead, and a single binary deployment. For a platform processing high-frequency market data, every millisecond of pipeline latency matters. Redpanda's thread-per-core architecture maps directly to our NUMA-aware infrastructure.</p>
+
+          <h3>Why Rust for Critical Paths</h3>
+          <p>Latency-critical components &mdash; order book reconstruction, feed handlers, protocol parsers &mdash; are written in Rust. Zero-cost abstractions and compile-time memory safety eliminate an entire class of production bugs without sacrificing performance. Python handles research workflows; Rust handles the hot paths.</p>
+
+          <h3>Why PyTorch Over TensorFlow</h3>
+          <p>PyTorch's eager execution model and Pythonic API make it the natural choice for research-heavy workflows where rapid iteration matters more than static graph optimisation. Combined with JAX for differentiable programming and FlashAttention-3 for efficient transformer training, this gives researchers maximum flexibility.</p>
+
+          <h3>Why Kubernetes</h3>
+          <p>GPU workloads are inherently bursty &mdash; a researcher may need 8 GPUs for a training run, then none for a week. Kubernetes with NVIDIA GPU Operator handles scheduling, resource allocation, and auto-scaling. Argo CD manages GitOps-based deployment. Cilium provides eBPF-powered networking with fine-grained security policies.</p>
+
+          <h2 id="design-principles">Design Principles</h2>
+
+          <p>These principles guide every architecture and engineering decision at Ricche.</p>
+
+          <div class="design-block">
+            <h4>Reproducibility First</h4>
+            <p>Every experiment must be reproducible. All code, data versions, hyperparameters, random seeds, and environment configurations are captured automatically. If a result cannot be reproduced, it is not a result &mdash; it is noise.</p>
+          </div>
+
+          <div class="design-block">
+            <h4>No Look-Ahead Bias</h4>
+            <p>The most dangerous bug in quantitative research is invisible: using future information to make past decisions. Our data pipelines enforce strict temporal discipline at every stage. Walk-forward splits, point-in-time datasets, and temporal validation are mandatory, not optional.</p>
+          </div>
+
+          <div class="design-block">
+            <h4>GPU-Native, Not GPU-Bolted</h4>
+            <p>We don't take CPU pipelines and add GPU acceleration as an afterthought. The entire data path &mdash; from ingestion through feature engineering to training and inference &mdash; is designed for GPU execution. Data stays on the GPU between stages. This eliminates the CPU-GPU transfer bottleneck that undermines most "GPU-accelerated" platforms.</p>
+          </div>
+
+          <div class="design-block">
+            <h4>Validate Before You Trust</h4>
+            <p>No model advances without surviving structured validation: out-of-sample testing, walk-forward analysis, Monte Carlo stress testing across regime changes and tail events, and formal peer review. The goal is to kill bad ideas early, not to ship models fast.</p>
+          </div>
+
+          <div class="design-block">
+            <h4>Infrastructure as Code</h4>
+            <p>Every component &mdash; from GPU cluster configuration to data pipeline definitions to monitoring dashboards &mdash; is defined in code, version-controlled, and deployed through automated pipelines. No manual configuration, no snowflake servers, no "it works on my machine."</p>
+          </div>
+
+          <h2 id="roadmap">Development Roadmap</h2>
+
+          <p>Ricche is under active development. Below is our phased approach to building the full platform. We share this transparently because we believe our partners and collaborators deserve to know exactly where we are.</p>
+
+          <div class="roadmap-phase">
+            <div class="roadmap-phase-header">
+              <strong>Phase 1: Foundation</strong>
+              <span class="phase-status phase-complete">Complete</span>
             </div>
             <ul>
-              <li>Expanded NVIDIA H200 cluster capacity (3x compute)</li>
-              <li>Alpha signal library expanded to 10,000+ tracked signals</li>
-              <li>New GPU-accelerated Monte Carlo engine (10B paths/sec)</li>
-              <li>Improved experiment reproducibility with deterministic seeding</li>
+              <li>Platform vision, architecture design, and technology selection</li>
+              <li>Website and public documentation</li>
+              <li>Institutional whitepaper and technical collateral</li>
+              <li>Initial partner and investor outreach</li>
             </ul>
           </div>
 
-          <div class="changelog-entry">
-            <div class="changelog-version">
-              <strong>v2.3</strong>
-              <span>February 2026</span>
+          <div class="roadmap-phase">
+            <div class="roadmap-phase-header">
+              <strong>Phase 2: Core Infrastructure</strong>
+              <span class="phase-status phase-active">In Progress</span>
             </div>
             <ul>
-              <li>Real-time data pipeline latency reduced by 40%</li>
-              <li>Added InfiniBand NDR 400G interconnects to GPU cluster</li>
-              <li>New alternative data feeds: satellite imagery, supply chain telemetry</li>
-              <li>SDK: experiment config validation before submission</li>
+              <li>Data ingestion pipeline &mdash; exchange feed connectivity, normalisation, and quality checks</li>
+              <li>GPU compute environment &mdash; NVIDIA CUDA cluster provisioning and job scheduling</li>
+              <li>Experiment tracking &mdash; versioning, reproducibility, and audit trail</li>
+              <li>Storage layer &mdash; KDB+/q time-series store, Parquet data lake, feature store</li>
             </ul>
           </div>
 
-          <div class="changelog-entry">
-            <div class="changelog-version">
-              <strong>v2.2</strong>
-              <span>January 2026</span>
+          <div class="roadmap-phase">
+            <div class="roadmap-phase-header">
+              <strong>Phase 3: Research Platform</strong>
+              <span class="phase-status phase-planned">Planned</span>
             </div>
             <ul>
-              <li>Model governance dashboard with full experiment lineage</li>
-              <li>Automated drift detection for production models</li>
-              <li>RAPIDS cuDF integration for data preprocessing</li>
-              <li>SSO support via SAML 2.0 and OIDC</li>
+              <li>ML research environment &mdash; PyTorch training pipelines with CUDA acceleration</li>
+              <li>Simulation framework &mdash; GPU-parallelised Monte Carlo and agent-based engines</li>
+              <li>Validation governance &mdash; structured review, walk-forward testing, peer review workflows</li>
+              <li>Research SDK and CLI for experiment submission and results retrieval</li>
             </ul>
           </div>
+
+          <div class="roadmap-phase">
+            <div class="roadmap-phase-header">
+              <strong>Phase 4: Operations &amp; Scale</strong>
+              <span class="phase-status phase-planned">Planned</span>
+            </div>
+            <ul>
+              <li>Control Room dashboard &mdash; real-time GPU, pipeline, and experiment monitoring</li>
+              <li>Auto-scaling and workload-aware resource allocation</li>
+              <li>Multi-asset class coverage expansion</li>
+              <li>Partner onboarding and collaborative research workflows</li>
+            </ul>
+          </div>
+
+          <p style="margin-top:24px;">Interested in our progress or want to discuss partnership opportunities? <a href="/contact" style="color:var(--neon-bright);">Get in touch</a> &mdash; we welcome conversations at any stage.</p>
 
         </div>
       </div>

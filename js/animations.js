@@ -110,15 +110,25 @@
         navToggle.focus();
         return;
       }
+      var focusable = [navToggle].concat(Array.from(navMenu.querySelectorAll('.nav-link')));
+      var first = focusable[0];
+      var last = focusable[focusable.length - 1];
       if (e.key === 'Tab') {
-        var focusable = [navToggle].concat(Array.from(navMenu.querySelectorAll('.nav-link')));
-        var first = focusable[0];
-        var last = focusable[focusable.length - 1];
         if (e.shiftKey) {
           if (document.activeElement === first) { e.preventDefault(); last.focus(); }
         } else {
           if (document.activeElement === last) { e.preventDefault(); first.focus(); }
         }
+      }
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+        e.preventDefault();
+        var idx = focusable.indexOf(document.activeElement);
+        focusable[(idx + 1) % focusable.length].focus();
+      }
+      if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        var idx = focusable.indexOf(document.activeElement);
+        focusable[(idx - 1 + focusable.length) % focusable.length].focus();
       }
     });
   }
@@ -169,22 +179,9 @@
   // ---- Reduced motion preference ----
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // ---- Counter animation (re-triggers every scroll, daily increments) ----
-  // Base values and daily growth rates (proportional to size)
-  const counterConfig = {
-    '128': { base: 128, dailyRate: 2, max: 500 },        // Experiments: +~2/day, cap at 500
-    '2540': { base: 2540, dailyRate: 45, max: 10000 },   // Simulation Jobs: +~45/day, cap at 10k
-    '6': { base: 6, dailyRate: 0.15, max: 24 }           // Active Validations: +~0.15/day, cap at 24
-  };
-
-  // Calculate days since a fixed reference date for consistent growth
-  const refDate = new Date('2025-01-01').getTime();
-  const daysSinceRef = (Date.now() - refDate) / (1000 * 60 * 60 * 24);
-
+  // ---- Counter animation (scroll-triggered) ----
   function getDailyTarget(baseTarget) {
-    const cfg = counterConfig[String(baseTarget)];
-    if (!cfg) return baseTarget;
-    return Math.min(Math.round(cfg.base + cfg.dailyRate * daysSinceRef), cfg.max);
+    return baseTarget;
   }
 
   const counters = document.querySelectorAll('.stat-number[data-target]');
