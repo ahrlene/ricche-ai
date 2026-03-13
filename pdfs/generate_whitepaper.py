@@ -924,6 +924,18 @@ def generate_whitepaper():
     pdf.tech_badge('Veteran & Cleared Workforce Intelligence')
     pdf.ln(10)
 
+    pdf.sub_heading('Adversarial Intelligence Platform Supremacy')
+    pdf.tech_badge('Gotham-Class Financial Intelligence Graph')
+    pdf.tech_badge('Foundry-Class Data Integration (Zero ETL)')
+    pdf.tech_badge('Adversarial Entity Resolution Engine')
+    pdf.tech_badge('Predictive Threat Intelligence (Financial)')
+    pdf.tech_badge('Autonomous Decision Intelligence')
+    pdf.tech_badge('Temporal Causal Reasoning Engine')
+    pdf.tech_badge('Counter-Surveillance Detection System')
+    pdf.tech_badge('Multi-Classification Data Fusion')
+    pdf.tech_badge('Human-on-the-Loop Escalation Architecture')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
