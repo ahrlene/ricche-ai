@@ -1317,6 +1317,7 @@ img { max-width: 100%; display: block; }
 .arch-pipeline {
   max-width: 660px;
   margin: 0 auto;
+  padding-top: 60px;
 }
 
 /* Scroll-driven progress track */
