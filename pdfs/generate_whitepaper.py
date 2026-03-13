@@ -787,6 +787,18 @@ def generate_whitepaper():
     pdf.tech_badge('Consumer Credit Stress Barometer')
     pdf.ln(10)
 
+    pdf.sub_heading('Memory & Storage Supremacy')
+    pdf.tech_badge('In-Memory Computing Fabric')
+    pdf.tech_badge('CXL 3.0 Memory-Semantic Trading')
+    pdf.tech_badge('HBM4-Native Data Structures')
+    pdf.tech_badge('Persistent Memory Trading Journal')
+    pdf.tech_badge('Memory-Tiered Alpha Cache')
+    pdf.tech_badge('3D-Stacked Memory Accelerator')
+    pdf.tech_badge('Bandwidth-Optimised Market Data Bus')
+    pdf.tech_badge('Memory-Mapped Global Order Book')
+    pdf.tech_badge('Cryogenic Memory Subsystem')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
