@@ -37,6 +37,7 @@
 <meta name="twitter:title" content="Ricche — AI Research Infrastructure for Financial Markets">
 <meta name="twitter:description" content="Machine learning infrastructure for analysing market data, running simulations, and validating research — at scale.">
 <meta name="twitter:image" content="https://ricche.ai/assets/og-share.png">
+<meta name="twitter:image:alt" content="Ricche — AI Research Infrastructure for Financial Markets">
 
 <!-- Canonical URL -->
 <link rel="canonical" href="https://ricche.ai/">
@@ -870,28 +871,40 @@
 
     <div class="faq-grid">
       <div class="faq-item reveal">
-        <h3 class="faq-question">What markets do you cover?</h3>
-        <p class="faq-answer">Our data infrastructure supports global equities, futures, options, FX, and fixed income. We ingest feeds from major exchanges and data providers, with coverage spanning developed and emerging markets.</p>
+        <details>
+          <summary>What markets do you cover?</summary>
+          <p class="faq-answer">Our data infrastructure supports global equities, futures, options, FX, and fixed income. We ingest feeds from major exchanges and data providers, with coverage spanning developed and emerging markets.</p>
+        </details>
       </div>
       <div class="faq-item reveal">
-        <h3 class="faq-question">What data sources do you use?</h3>
-        <p class="faq-answer">We work with institutional-grade market data — tick-level order books, end-of-day pricing, economic indicators, and alternative data sets. All data passes through quality checks before entering the research pipeline.</p>
+        <details>
+          <summary>What data sources do you use?</summary>
+          <p class="faq-answer">We work with institutional-grade market data — tick-level order books, end-of-day pricing, economic indicators, and alternative data sets. All data passes through quality checks before entering the research pipeline.</p>
+        </details>
       </div>
       <div class="faq-item reveal">
-        <h3 class="faq-question">How do you handle data security?</h3>
-        <p class="faq-answer">All data is encrypted at rest and in transit. Our infrastructure runs on isolated compute clusters with role-based access controls, audit logging, and strict data governance policies.</p>
+        <details>
+          <summary>How do you handle data security?</summary>
+          <p class="faq-answer">All data is encrypted at rest and in transit. Our infrastructure runs on isolated compute clusters with role-based access controls, audit logging, and strict data governance policies.</p>
+        </details>
       </div>
       <div class="faq-item reveal">
-        <h3 class="faq-question">Who do you work with?</h3>
-        <p class="faq-answer">We partner with quantitative research teams, academic institutions, data scientists, and financial firms exploring AI-driven approaches to market analysis and research.</p>
+        <details>
+          <summary>Who do you work with?</summary>
+          <p class="faq-answer">We partner with quantitative research teams, academic institutions, data scientists, and financial firms exploring AI-driven approaches to market analysis and research.</p>
+        </details>
       </div>
       <div class="faq-item reveal">
-        <h3 class="faq-question">Can I access the platform for my own research?</h3>
-        <p class="faq-answer">Yes — we offer research partnerships for teams and individuals working at the intersection of AI and finance. Get in touch to discuss access and collaboration options.</p>
+        <details>
+          <summary>Can I access the platform for my own research?</summary>
+          <p class="faq-answer">Yes — we offer research partnerships for teams and individuals working at the intersection of AI and finance. Get in touch to discuss access and collaboration options.</p>
+        </details>
       </div>
       <div class="faq-item reveal">
-        <h3 class="faq-question">What makes Ricche different from other platforms?</h3>
-        <p class="faq-answer">Ricche is built for rigour. Every experiment is versioned, every result is reproducible, and every model goes through structured validation before advancing. We're a research-first platform, not a trading tool.</p>
+        <details>
+          <summary>What makes Ricche different from other platforms?</summary>
+          <p class="faq-answer">Ricche is built for rigour. Every experiment is versioned, every result is reproducible, and every model goes through structured validation before advancing. We're a research-first platform, not a trading tool.</p>
+        </details>
       </div>
     </div>
   </div>
@@ -967,9 +980,15 @@
         <input type="hidden" name="_subject" value="Newsletter signup from ricche.ai">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="basic">
+        <input type="text" name="_honey" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
         <input class="newsletter-input" type="email" name="Email" placeholder="Your email address" required autocomplete="email" maxlength="254">
         <button class="newsletter-btn" type="submit">Subscribe</button>
       </form>
+      <div class="newsletter-consent">
+        <input type="checkbox" id="nlConsent" required>
+        <label for="nlConsent">I agree to receive updates per the <a href="/privacy">Privacy Policy</a></label>
+      </div>
+      <div class="newsletter-status" id="nlStatus" aria-live="polite"></div>
     </div>
     <div class="footer-inner">
       <div class="footer-brand">
@@ -1006,10 +1025,16 @@
       <button class="pdf-modal-close" id="pdfModalClose" aria-label="Close document viewer">&times;</button>
     </div>
     <div class="pdf-modal-body">
+      <div class="pdf-modal-loading" id="pdfModalLoading">Loading document...</div>
       <iframe id="pdfModalFrame" src="" loading="lazy" sandbox="allow-same-origin allow-scripts"></iframe>
     </div>
   </div>
 </div>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 16V4M4 10l6-6 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
 
 <!-- Analytics Consent Banner -->
 <div class="consent-banner" id="consentBanner" role="dialog" aria-label="Analytics consent">
@@ -1054,20 +1079,35 @@
 (function(){
   var nf = document.getElementById('newsletterForm');
   if (!nf) return;
+  var nlConsent = document.getElementById('nlConsent');
+  var nlStatus = document.getElementById('nlStatus');
   nf.addEventListener('submit', function(e) {
     e.preventDefault();
+    if (nlConsent && !nlConsent.checked) {
+      if (nlStatus) nlStatus.textContent = 'Please agree to the Privacy Policy first.';
+      return;
+    }
     var btn = nf.querySelector('.newsletter-btn');
     var input = nf.querySelector('.newsletter-input');
     btn.textContent = 'Sending...';
     btn.disabled = true;
+    if (nlStatus) nlStatus.textContent = '';
     fetch(nf.action, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({ Email: input.value, _subject: 'Newsletter signup from ricche.ai' })
     }).then(function(r) {
-      if (r.ok) { btn.textContent = 'Subscribed!'; input.value = ''; input.disabled = true; }
-      else { btn.textContent = 'Subscribe'; btn.disabled = false; }
-    }).catch(function() { btn.textContent = 'Subscribe'; btn.disabled = false; });
+      if (r.ok) {
+        btn.textContent = 'Subscribed!'; input.value = ''; input.disabled = true;
+        if (nlStatus) nlStatus.textContent = 'You have been subscribed successfully.';
+      } else {
+        btn.textContent = 'Subscribe'; btn.disabled = false;
+        if (nlStatus) nlStatus.textContent = 'Something went wrong. Please try again.';
+      }
+    }).catch(function() {
+      btn.textContent = 'Subscribe'; btn.disabled = false;
+      if (nlStatus) nlStatus.textContent = 'Something went wrong. Please try again.';
+    });
   });
 })();
 </script>

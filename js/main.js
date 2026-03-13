@@ -4,9 +4,16 @@
   var frame = document.getElementById('pdfModalFrame');
   var title = document.getElementById('pdfModalTitle');
   var closeBtn = document.getElementById('pdfModalClose');
+  var loading = document.getElementById('pdfModalLoading');
 
   var isMobile = window.innerWidth <= 768;
   var lastTrigger = null;
+
+  if (frame && loading) {
+    frame.addEventListener('load', function() {
+      if (frame.src) loading.style.display = 'none';
+    });
+  }
 
   document.querySelectorAll('.pdf-trigger').forEach(function(el) {
     el.style.cursor = 'pointer';
@@ -30,6 +37,7 @@
 
       lastTrigger = this;
       title.textContent = pdfTitle;
+      if (loading) loading.style.display = '';
       frame.src = pdfSrc;
       overlay.classList.add('active');
       document.body.style.overflow = 'hidden';

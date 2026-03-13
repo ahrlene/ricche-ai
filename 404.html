@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" hreflang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -9,38 +9,18 @@
 <meta name="theme-color" content="#0055FF" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#060a14" media="(prefers-color-scheme: dark)">
 
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="404 — Ricche">
-<meta property="og:description" content="Page not found — return to Ricche's AI research infrastructure for financial markets.">
-<meta property="og:image" content="https://ricche.ai/assets/ricche-logo.png">
-<meta property="og:url" content="https://ricche.ai">
-<meta property="og:site_name" content="Ricche">
-
+<!-- Favicon -->
 <link rel="icon" href="favicon.ico" sizes="32x32">
 <link rel="icon" type="image/png" sizes="512x512" href="assets/ricche-logo.png">
 <link rel="apple-touch-icon" href="assets/ricche-logo.png">
+
+<!-- Self-hosted fonts -->
 <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts/fonts.css">
 <link rel="stylesheet" href="css/styles.min.css">
-<noscript>
-  <style>
-    @media (prefers-color-scheme: dark) {
-      :root { color-scheme: dark; }
-      [data-theme="light"] { --bg:#060a14;--bg-alt:#0c1424;--text:#eef2f8;--text-strong:#fff;--text-body:#c5cdd8;--text-secondary:#a0adc0;--border-color:rgba(255,255,255,.08);--logo-filter:invert(1) brightness(1.8) }
-    }
-  </style>
-</noscript>
+
 <style>
-  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-  :root{--font-display:'Space Grotesk',sans-serif;--font-body:'Inter',sans-serif;--neon:#0055FF;--neon-bright:#0088FF;--neon-cyan:#00C8FF}
-  [data-theme="light"]{--bg:#f5f7fb;--bg-alt:#fff;--text:#0a1628;--text-strong:#000;--text-body:#2d3748;--text-secondary:#4a5568;--border-color:rgba(0,0,0,.1);--logo-filter:none}
-  [data-theme="dark"]{--bg:#060a14;--bg-alt:#0c1424;--text:#eef2f8;--text-strong:#fff;--text-body:#c5cdd8;--text-secondary:#a0adc0;--border-color:rgba(255,255,255,.08);--logo-filter:invert(1) brightness(1.8)}
-  html{-webkit-font-smoothing:antialiased}
-  body{font-family:var(--font-body);background:var(--bg);color:var(--text-body)}
-  img{max-width:100%;display:block}
-  @font-face{font-family:'Space Grotesk';font-display:optional;src:local('Space Grotesk')}
   .error-page {
     min-height: 100vh;
     display: flex;
@@ -93,11 +73,8 @@
   </div>
 </main>
 <script>
-  const saved = localStorage.getItem('ricche-theme');
+  var saved = localStorage.getItem('ricche-theme');
   if (saved) document.documentElement.setAttribute('data-theme', saved);
-  else {
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
 </script>
 </body>
 </html>

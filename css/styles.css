@@ -3018,3 +3018,120 @@ a, button, [role="button"], .nav-toggle, .theme-toggle, .pdf-trigger {
   text-decoration: underline;
 }
 
+/* ---- Honeypot (spam prevention) ---- */
+.form-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* ---- Back to Top ---- */
+.back-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 900;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background: var(--bg-alt);
+  color: var(--text-body);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s, background 0.2s, border-color 0.2s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.back-to-top:hover {
+  background: var(--neon);
+  border-color: var(--neon);
+  color: #fff;
+}
+@media (max-width: 768px) {
+  .back-to-top { bottom: 20px; right: 20px; width: 40px; height: 40px; }
+}
+
+/* ---- PDF Modal Loading ---- */
+.pdf-modal-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  pointer-events: none;
+}
+
+/* ---- Newsletter Consent ---- */
+.newsletter-consent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+.newsletter-consent input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--neon);
+  cursor: pointer;
+}
+.newsletter-consent label {
+  cursor: pointer;
+}
+.newsletter-consent a {
+  color: var(--neon);
+}
+.newsletter-status {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  min-height: 1.2em;
+}
+
+/* ---- FAQ Accordion ---- */
+.faq-item details {
+  cursor: pointer;
+}
+.faq-item summary {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-strong);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--neon);
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+.faq-item details[open] summary::after {
+  content: '−';
+}
+.faq-item .faq-answer {
+  margin-top: 10px;
+}
+
