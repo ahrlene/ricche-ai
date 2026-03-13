@@ -1011,7 +1011,7 @@ def generate_dashboard_pdf():
     )
     pdf.ln(38)
 
-    pdf.ensure_space(65)
+    pdf.content_page()
     pdf.cta_block(
         'Interested in Our Infrastructure Vision?',
         'The Control Room is being built as the operational backbone of our GPU-accelerated '
