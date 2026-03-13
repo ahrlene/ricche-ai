@@ -184,7 +184,7 @@ def generate_whitepaper():
     pdf.ln(2)
 
     pdf.nvidia_badge('NVIDIA CUDA')
-    pdf.nvidia_badge('NVIDIA Blackwell')
+    pdf.nvidia_badge('NVIDIA GB200 NVL72')
     pdf.nvidia_badge('NVIDIA NIM')
     pdf.nvidia_badge('TensorRT')
     pdf.nvidia_badge('RAPIDS cuDF')
@@ -425,7 +425,7 @@ def generate_whitepaper():
 
     pdf.sub_heading('GPU & Accelerated Compute')
     pdf.nvidia_badge('NVIDIA CUDA')
-    pdf.nvidia_badge('NVIDIA Blackwell')
+    pdf.nvidia_badge('NVIDIA GB200 NVL72')
     pdf.nvidia_badge('NVIDIA NIM')
     pdf.nvidia_badge('TensorRT')
     pdf.nvidia_badge('RAPIDS cuDF')
@@ -435,6 +435,8 @@ def generate_whitepaper():
     pdf.sub_heading('Machine Learning & Research')
     pdf.tech_badge('PyTorch')
     pdf.tech_badge('JAX')
+    pdf.tech_badge('Triton')
+    pdf.tech_badge('FlashAttention-3')
     pdf.tech_badge('vLLM')
     pdf.tech_badge('SGLang')
     pdf.tech_badge('Ray')
@@ -448,6 +450,13 @@ def generate_whitepaper():
     pdf.tech_badge('Polars')
     pdf.tech_badge('DuckDB')
     pdf.tech_badge('ClickHouse')
+    pdf.tech_badge('LanceDB')
+    pdf.ln(10)
+
+    pdf.sub_heading('Inference & Compute')
+    pdf.tech_badge('Groq LPU')
+    pdf.tech_badge('Modal')
+    pdf.tech_badge('OpenTelemetry')
     pdf.ln(10)
 
     pdf.sub_heading('Infrastructure & Orchestration')
