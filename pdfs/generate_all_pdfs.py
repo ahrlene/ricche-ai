@@ -797,6 +797,18 @@ def generate_architecture_pdf():
     pdf.tech_badge('Self-Replicating Infrastructure')
     pdf.ln(10)
 
+    pdf.sub_heading('Closed-Ecosystem Supremacy')
+    pdf.tech_badge('Custom Trading SoC (System-on-Chip)')
+    pdf.tech_badge('On-Device Federated Alpha')
+    pdf.tech_badge('Zero-Knowledge Portfolio Proofs')
+    pdf.tech_badge('Unified Trading OS')
+    pdf.tech_badge('Sub-Pixel Market Visualisation Engine')
+    pdf.tech_badge('Biometric Operator Authentication')
+    pdf.tech_badge('Hardware Security Enclave (Trading)')
+    pdf.tech_badge('Silent Intelligence Network')
+    pdf.tech_badge('End-to-End Encrypted Execution Pipeline')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
