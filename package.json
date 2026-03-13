@@ -1,0 +1,11 @@
+{
+  "name": "ricche-website",
+  "version": "2.4.0",
+  "private": true,
+  "description": "Ricche — AI Research Infrastructure for Financial Markets",
+  "scripts": {
+    "build": "npm run build:css && npm run build:js && echo Build complete. Remember to bump CACHE_NAME in sw.js!",
+    "build:css": "cp css/styles.css css/styles.min.css",
+    "build:js": "cp js/animations.js js/animations.min.js && cp js/main.js js/main.min.js && cp js/ai-network.js js/ai-network.min.js"
+  }
+}

@@ -6,8 +6,8 @@
 
   const ctx = canvas.getContext('2d');
   let width, height, particles;
-  const PARTICLE_COUNT = window.innerWidth <= 768 ? 50 : 100;
-  const CONNECT_DIST = window.innerWidth <= 768 ? 120 : 190;
+  const PARTICLE_COUNT = window.innerWidth <= 768 ? 30 : 60;
+  const CONNECT_DIST = window.innerWidth <= 768 ? 120 : 180;
   const MOUSE_RADIUS = 220;
   let mouse = { x: -1000, y: -1000 };
 
@@ -54,8 +54,8 @@
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.18,
-        vy: (Math.random() - 0.5) * 0.18,
+        vx: (Math.random() - 0.5) * 0.12,
+        vy: (Math.random() - 0.5) * 0.12,
         r: Math.random() * 2 + 1.2,
         phase: Math.random() * Math.PI * 2,
         pulseSpeed: 0.0004 + Math.random() * 0.0005
