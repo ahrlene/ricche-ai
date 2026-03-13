@@ -845,6 +845,18 @@ def generate_architecture_pdf():
     pdf.tech_badge('Human Behaviour Foundation Model')
     pdf.ln(10)
 
+    pdf.sub_heading('Custom Silicon Dominance')
+    pdf.tech_badge('Custom Network ASIC (Trading-Optimised)')
+    pdf.tech_badge('Photonic Switching Fabric')
+    pdf.tech_badge('SerDes IP at 224G PAM4')
+    pdf.tech_badge('Custom PCIe Gen 6 Controller')
+    pdf.tech_badge('On-Chip Hardware Timestamping (Sub-Nanosecond)')
+    pdf.tech_badge('Silicon Photonics Co-Packaged Optics')
+    pdf.tech_badge('Custom Memory Controller (HBM4 Interface)')
+    pdf.tech_badge('ASIC-Accelerated Compression Engine')
+    pdf.tech_badge('Chiplet-Based Modular Trading SoC')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
