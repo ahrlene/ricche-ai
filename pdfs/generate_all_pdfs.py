@@ -893,6 +893,18 @@ def generate_architecture_pdf():
     pdf.tech_badge('Longevity & Aging Alpha')
     pdf.ln(10)
 
+    pdf.sub_heading('Energy & Geopolitical Dominance')
+    pdf.tech_badge('Global Energy Flow Mapping (Real-Time)')
+    pdf.tech_badge('Geopolitical Risk Pricing Engine')
+    pdf.tech_badge('OPEC+ Decision Predictor')
+    pdf.tech_badge('Refinery Margin Optimiser')
+    pdf.tech_badge('Carbon Credit & Emissions Trading Intelligence')
+    pdf.tech_badge('Strategic Petroleum Reserve Monitor')
+    pdf.tech_badge('Shale Production Decline Curve AI')
+    pdf.tech_badge('Energy Transition Arbitrage')
+    pdf.tech_badge('Weather-Energy Nexus Engine')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
