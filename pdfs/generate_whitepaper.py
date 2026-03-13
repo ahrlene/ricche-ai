@@ -367,7 +367,7 @@ def generate_whitepaper():
     # ============================================================
     # PAGE 8: Operations & Monitoring
     # ============================================================
-    pdf.content_page()
+    pdf.ensure_space(80)
     pdf.section_heading('Operations & Monitoring')
     pdf.body(
         'Running GPU-accelerated research infrastructure at scale demands complete, real-time '
