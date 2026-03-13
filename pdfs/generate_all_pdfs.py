@@ -821,6 +821,18 @@ def generate_architecture_pdf():
     pdf.nvidia_badge('cuQuantum Financial Simulation')
     pdf.ln(10)
 
+    pdf.sub_heading('Omniscient Data Supremacy')
+    pdf.tech_badge('Global Information Arbitrage Engine')
+    pdf.tech_badge('Exascale Feature Store')
+    pdf.tech_badge('Transformer-Native Trading Architecture')
+    pdf.tech_badge('Real-Time Knowledge Graph (Trillion Edges)')
+    pdf.tech_badge('TPU-Optimised Alpha Discovery')
+    pdf.tech_badge('Synthetic Data Generation at Scale')
+    pdf.tech_badge('Intent-Based Market Search')
+    pdf.tech_badge('Continuous Learning Production Models')
+    pdf.tech_badge('Petabyte-Scale Backtesting Engine')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
