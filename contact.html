@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" hreflang="en" data-theme="light">
+<html lang="en" hreflang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -288,15 +288,14 @@
 
 <script>
 (function() {
-  // Theme toggle (time-based default)
+  // Theme toggle (dark mode default)
   const toggle = document.getElementById('themeToggle');
   const html = document.documentElement;
   const saved = localStorage.getItem('ricche-theme');
   if (saved) {
     html.setAttribute('data-theme', saved);
   } else {
-    const hour = new Date().getHours();
-    html.setAttribute('data-theme', (hour >= 18 || hour < 7) ? 'dark' : 'light');
+    html.setAttribute('data-theme', 'dark');
   }
 
   // Sync aria-checked with initial theme

@@ -16,7 +16,7 @@
     });
   }
 
-  // ---- Theme Toggle (time-based default) ----
+  // ---- Theme Toggle (dark mode default) ----
   const toggle = document.getElementById('themeToggle');
   const html = document.documentElement;
 
@@ -24,9 +24,7 @@
   if (saved) {
     html.setAttribute('data-theme', saved);
   } else {
-    const hour = new Date().getHours();
-    const autoTheme = (hour >= 18 || hour < 7) ? 'dark' : 'light';
-    html.setAttribute('data-theme', autoTheme);
+    html.setAttribute('data-theme', 'dark');
   }
 
   if (toggle) {

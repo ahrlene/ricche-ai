@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -95,8 +95,7 @@
   const saved = localStorage.getItem('ricche-theme');
   if (saved) document.documentElement.setAttribute('data-theme', saved);
   else {
-    const h = new Date().getHours();
-    document.documentElement.setAttribute('data-theme', (h >= 18 || h < 7) ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', 'dark');
   }
 </script>
 </body>
