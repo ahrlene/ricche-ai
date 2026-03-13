@@ -2115,6 +2115,44 @@ button.pdf-trigger { border: none; font-family: inherit; cursor: pointer; }
 /* ========================================
    TECH STACK TAGS
    ======================================== */
+.tech-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 28px;
+  margin-top: 32px;
+  text-align: left;
+}
+.tech-category {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 20px 22px;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+.tech-category:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+}
+.tech-category-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 14px 0;
+}
+.tech-category-label svg {
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+.tech-category-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
 .tech-stack {
   display: flex;
   flex-wrap: wrap;
@@ -2123,14 +2161,19 @@ button.pdf-trigger { border: none; font-family: inherit; cursor: pointer; }
   justify-content: center;
 }
 .tech-tag {
-  padding: 6px 16px;
+  padding: 5px 13px;
   border-radius: 100px;
   border: 1px solid var(--border-color);
   background: var(--bg-alt);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 500;
   color: var(--text-secondary);
   letter-spacing: 0.02em;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+.tech-tag:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--text-primary);
 }
 
 /* ========================================
@@ -2325,6 +2368,10 @@ button.pdf-trigger { border: none; font-family: inherit; cursor: pointer; }
     flex-direction: column;
     gap: 24px;
     align-items: center;
+  }
+  .tech-categories {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
 
