@@ -762,6 +762,17 @@ def generate_architecture_pdf():
     pdf.tech_badge('Self-Healing Infrastructure')
     pdf.ln(10)
 
+    pdf.sub_heading('Talent & Intelligence Warfare')
+    pdf.tech_badge('Automated Talent Acquisition Engine')
+    pdf.tech_badge('Proprietary Knowledge Graph')
+    pdf.tech_badge('Natural Language Strategy Interface')
+    pdf.tech_badge('Real-Time Earnings Call NLP')
+    pdf.tech_badge('Digital Twin of Global Economy')
+    pdf.tech_badge('Autonomous Research Lab')
+    pdf.tech_badge('Enterprise-Grade Audit Trail')
+    pdf.tech_badge('Multi-Modal Data Fusion Engine')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
