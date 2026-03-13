@@ -1186,6 +1186,18 @@ def generate_architecture_pdf():
     pdf.tech_badge('Fee-Justified Performance Benchmarking')
     pdf.ln(10)
 
+    pdf.sub_heading('Why Palantir Can Never Catch Up')
+    pdf.tech_badge('Self-Healing Data Pipeline')
+    pdf.tech_badge('Institutional Memory That Compounds')
+    pdf.tech_badge('Multi-Timeframe Strategy Stacking')
+    pdf.tech_badge('Counterparty Behavioural Fingerprinting')
+    pdf.tech_badge('Dynamic Risk Budget Reallocation')
+    pdf.tech_badge('Sentiment Velocity Detector (Not Just Sentiment)')
+    pdf.tech_badge('Execution Cost Minimisation Engine')
+    pdf.tech_badge('Regime Detection & Automatic Strategy Rotation')
+    pdf.tech_badge('Living Competitive Intelligence Map')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
