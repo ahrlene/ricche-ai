@@ -751,6 +751,17 @@ def generate_architecture_pdf():
     pdf.tech_badge('Proprietary Foundation Model')
     pdf.ln(10)
 
+    pdf.sub_heading('Infrastructure Dominance')
+    pdf.tech_badge('Private Global Backbone Network')
+    pdf.tech_badge('Custom SmartNIC (P4-Programmable)')
+    pdf.tech_badge('In-Network Compute (Switch-Level)')
+    pdf.tech_badge('Liquid / Immersion Cooling')
+    pdf.tech_badge('Edge Inference at Exchange PoPs')
+    pdf.tech_badge('Multi-Region Active-Active Architecture')
+    pdf.tech_badge('Automated Regulatory Compliance Engine')
+    pdf.tech_badge('Self-Healing Infrastructure')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
