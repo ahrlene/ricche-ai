@@ -876,6 +876,18 @@ def generate_whitepaper():
     pdf.tech_badge('Crypto & Stablecoin Substitution Tracker')
     pdf.ln(10)
 
+    pdf.sub_heading('On-Chain Omniscience & Digital Asset Dominance')
+    pdf.tech_badge('Whale Wallet Clustering & Tracking')
+    pdf.tech_badge('MEV Extraction & Protection Engine')
+    pdf.tech_badge('DeFi Protocol Risk Scoring (Real-Time)')
+    pdf.tech_badge('Cross-Chain Liquidity Arbitrage')
+    pdf.tech_badge('Stablecoin De-Peg Early Warning')
+    pdf.tech_badge('On-Chain Derivatives Intelligence')
+    pdf.tech_badge('Token Unlock & Vesting Cliff Predictor')
+    pdf.tech_badge('Regulatory Classification Engine')
+    pdf.tech_badge('Bitcoin Miner Economics Model')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
