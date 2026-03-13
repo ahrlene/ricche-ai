@@ -922,42 +922,40 @@
   </div>
 </section>
 
-<!-- ===================== RESULTS / PROOF ===================== -->
-<section class="section section-alt" id="results" aria-label="Platform results and metrics">
+<!-- ===================== ARCHITECTURE TARGETS ===================== -->
+<section class="section section-alt" id="results" aria-label="Platform architecture targets">
   <div class="section-pattern pattern-lines" aria-hidden="true"></div>
   <div class="container">
     <div class="section-header">
       <div class="eyebrow reveal">
         <svg class="icon-animated" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-        Results
+        Architecture Targets
       </div>
-      <h2 class="display-heading reveal">Measured by outcomes,<br>not promises</h2>
+      <h2 class="display-heading reveal">Designed for performance,<br>built for rigour</h2>
     </div>
 
     <div class="results-grid">
       <div class="result-card reveal">
         <div class="result-metric">47x</div>
-        <div class="result-label">Faster backtesting</div>
-        <p>GPU-accelerated simulation vs CPU-only pipelines, measured on identical tick-level equity datasets.</p>
+        <div class="result-label">GPU vs CPU speedup</div>
+        <p>Target backtesting acceleration using CUDA-parallelised simulation vs CPU-only pipelines on tick-level equity data.</p>
       </div>
       <div class="result-card reveal reveal-d1">
-        <div class="result-metric">&lt; 3 min</div>
-        <div class="result-label">Model retrain cycle</div>
-        <p>End-to-end pipeline from new data ingestion to validated model deployment on NVIDIA H200 clusters.</p>
+        <div class="result-metric">&lt; 2ms</div>
+        <div class="result-label">Inference latency target</div>
+        <p>TensorRT-optimised inference through layer fusion, kernel auto-tuning, and INT8 quantisation on NVIDIA H200 GPUs.</p>
       </div>
       <div class="result-card reveal reveal-d2">
         <div class="result-metric">5</div>
-        <div class="result-label">Asset classes covered</div>
-        <p>Equities, futures, options, FX, and fixed income — with tick-level data from major global exchanges.</p>
+        <div class="result-label">Asset classes</div>
+        <p>Equities, futures, options, FX, and fixed income — with tick-level data architecture spanning 30+ global exchanges.</p>
       </div>
       <div class="result-card reveal reveal-d3">
-        <div class="result-metric">99.97%</div>
-        <div class="result-label">Pipeline uptime</div>
-        <p>Production infrastructure with multi-region failover, automated recovery, and real-time health monitoring.</p>
+        <div class="result-metric">141 GB</div>
+        <div class="result-label">HBM3e per H200</div>
+        <p>NVIDIA H200 GPU memory enabling large-scale model training and feature engineering without data transfer bottlenecks.</p>
       </div>
     </div>
-
-    <!-- Testimonials section — shelved until real quotes are available -->
   </div>
 </section>
 
@@ -980,9 +978,9 @@
         <svg class="icon-animated" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h4v4H6zM14 10h4v4h-4z"/></svg>
         GPU Compute
       </div>
-      <h2 class="section-heading reveal reveal-d1">Built on NVIDIA GPU infrastructure</h2>
+      <h2 class="section-heading reveal reveal-d1">Architected on NVIDIA GPU infrastructure</h2>
       <p class="section-sub reveal reveal-d2">
-        Our entire compute stack is engineered around NVIDIA's GPU ecosystem — from data preprocessing with RAPIDS to model training with CUDA-accelerated PyTorch, optimised inference with TensorRT, and production deployment via NVIDIA NIM.
+        Our compute stack is being engineered around NVIDIA's GPU ecosystem — from data preprocessing with RAPIDS to model training with CUDA-accelerated PyTorch, optimised inference with TensorRT, and deployment via NVIDIA NIM.
       </p>
     </div>
 
@@ -992,7 +990,7 @@
           <svg viewBox="0 0 48 48" fill="none"><rect x="8" y="12" width="32" height="24" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M14 20h6v8h-6zM28 20h6v8h-6z" stroke="currentColor" stroke-width="1.2"/><path d="M14 8v4M24 8v4M34 8v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
         </div>
         <h3>NVIDIA CUDA</h3>
-        <p>All compute-intensive workloads — model training, backtesting, and Monte Carlo simulations — run on CUDA-enabled GPU clusters for massive parallel throughput.</p>
+        <p>All compute-intensive workloads — model training, backtesting, and Monte Carlo simulations — are designed to run on CUDA-enabled GPU clusters for massive parallel throughput.</p>
       </div>
 
       <div class="gpu-card reveal" data-index="1">
@@ -1000,7 +998,7 @@
           <svg viewBox="0 0 48 48" fill="none"><path d="M12 36V20l12-8 12 8v16" stroke="currentColor" stroke-width="1.5"/><path d="M20 36V28h8v8" stroke="currentColor" stroke-width="1.5"/><circle cx="24" cy="18" r="3" stroke="currentColor" stroke-width="1.2"/></svg>
         </div>
         <h3>RAPIDS &amp; cuDF</h3>
-        <p>Financial data preprocessing at GPU speed. RAPIDS cuDF accelerates our data pipelines, transforming billions of market data rows in seconds instead of minutes.</p>
+        <p>Financial data preprocessing at GPU speed. RAPIDS cuDF accelerates data pipelines, transforming billions of market data rows in seconds instead of minutes.</p>
       </div>
 
       <div class="gpu-card reveal" data-index="2">
@@ -1008,7 +1006,7 @@
           <svg viewBox="0 0 48 48" fill="none"><path d="M8 34l8-12 6 8 8-16 10 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="38" cy="14" r="4" stroke="currentColor" stroke-width="1.5"/></svg>
         </div>
         <h3>TensorRT Inference</h3>
-        <p>Trained models are optimised with NVIDIA TensorRT for low-latency inference — enabling real-time market signal generation at production scale.</p>
+        <p>Models are optimised with NVIDIA TensorRT for low-latency inference — targeting real-time market signal generation with sub-2ms response times.</p>
       </div>
 
       <div class="gpu-card reveal" data-index="3">
@@ -1016,7 +1014,7 @@
           <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="1.5"/><path d="M24 14v10l7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M16 8l2 4M32 8l-2 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
         </div>
         <h3>NVIDIA NIM</h3>
-        <p>NVIDIA NIM microservices deliver optimised model inference with one-click deployment, dynamic scaling, and built-in model orchestration for production ML at scale.</p>
+        <p>NVIDIA NIM microservices provide optimised model inference with one-click deployment, dynamic scaling, and built-in model orchestration for production ML.</p>
       </div>
     </div>
 
