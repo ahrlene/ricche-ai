@@ -687,7 +687,7 @@ def generate_overview_pdf():
     pdf.stat_box('24/7', 'Monitoring', 156, pdf.get_y(), 38)
     pdf.ln(30)
 
-    pdf.section_heading('What We Have Built')
+    pdf.section_heading('What We Are Building')
 
     pdf.ensure_space(58)
     pdf.card_box(
@@ -731,9 +731,9 @@ def generate_overview_pdf():
 
     pdf.section_heading('Powered by NVIDIA')
     pdf.body(
-        'We built Ricche on the NVIDIA accelerated computing stack because there is no '
-        'substitute for raw GPU performance when it comes to financial ML. The numbers speak '
-        'for themselves:'
+        'We are building Ricche on the NVIDIA accelerated computing stack because there is no '
+        'substitute for raw GPU performance when it comes to financial ML. The architecture '
+        'targets speak for themselves:'
     )
     pdf.ln(2)
 
