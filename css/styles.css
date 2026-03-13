@@ -2113,67 +2113,193 @@ button.pdf-trigger { border: none; font-family: inherit; cursor: pointer; }
 }
 
 /* ========================================
-   TECH STACK TAGS
+   TECH STACK CATEGORIES
    ======================================== */
+.tech-total-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 20px;
+  padding: 8px 20px;
+  border-radius: 100px;
+  border: 1px solid rgba(0, 136, 255, 0.2);
+  background: rgba(0, 85, 255, 0.06);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+.tech-total-number {
+  font-family: var(--font-display);
+  font-weight: 800;
+  background: linear-gradient(90deg, var(--neon-bright), var(--neon-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 .tech-categories {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 28px;
-  margin-top: 32px;
+  gap: 24px;
+  margin-top: 40px;
   text-align: left;
 }
+
+/* --- Category card --- */
 .tech-category {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
-  padding: 20px 22px;
-  transition: border-color 0.3s ease, background 0.3s ease;
+  position: relative;
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(0, 85, 255, 0.03) 50%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  padding: 24px 24px 22px;
+  transition: transform 0.4s var(--ease), border-color 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+  overflow: hidden;
+}
+/* Subtle top-edge glow line */
+.tech-category::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20%;
+  right: 20%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--neon-bright), var(--neon-cyan), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease, left 0.4s ease, right 0.4s ease;
 }
 .tech-category:hover {
-  border-color: rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-3px);
+  border-color: rgba(0, 136, 255, 0.2);
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(0, 85, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  box-shadow:
+    0 8px 32px rgba(0, 85, 255, 0.08),
+    0 0 0 1px rgba(0, 136, 255, 0.06);
 }
+.tech-category:hover::before {
+  opacity: 0.7;
+  left: 10%;
+  right: 10%;
+}
+
+/* --- Category label with icon --- */
 .tech-category-label {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.7rem;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--accent);
-  margin: 0 0 14px 0;
+  background: linear-gradient(90deg, var(--neon), var(--neon-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 16px 0;
 }
 .tech-category-label svg {
   flex-shrink: 0;
-  opacity: 0.7;
+  width: 18px;
+  height: 18px;
+  -webkit-text-fill-color: initial;
+  color: var(--neon-bright);
+  opacity: 0.8;
+  filter: drop-shadow(0 0 4px rgba(0, 136, 255, 0.3));
 }
+
+/* --- Tag container --- */
 .tech-category-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 7px;
 }
+
+/* --- Individual tags --- */
+.tech-tag {
+  padding: 5px 14px;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.03);
+  font-size: 0.73rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.tech-tag:hover {
+  border-color: rgba(0, 136, 255, 0.35);
+  color: var(--text);
+  background: rgba(0, 85, 255, 0.08);
+  box-shadow: 0 0 12px rgba(0, 85, 255, 0.1);
+}
+
+/* --- NVIDIA-highlighted tags (override in nvidia section below) --- */
+
+/* --- Light theme overrides --- */
+[data-theme="light"] .tech-category {
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(0, 85, 255, 0.03) 50%,
+    rgba(255, 255, 255, 0.6) 100%
+  );
+  border-color: rgba(0, 0, 0, 0.08);
+}
+[data-theme="light"] .tech-category:hover {
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(0, 85, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0.85) 100%
+  );
+  border-color: rgba(0, 85, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 85, 255, 0.08);
+}
+[data-theme="light"] .tech-category::before {
+  background: linear-gradient(90deg, transparent, var(--neon), var(--neon-bright), transparent);
+}
+[data-theme="light"] .tech-tag {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+[data-theme="light"] .tech-tag:hover {
+  background: rgba(0, 85, 255, 0.06);
+  border-color: rgba(0, 85, 255, 0.25);
+  color: var(--text);
+}
+
+/* --- Staggered reveal animation --- */
+.tech-category:nth-child(1) { transition-delay: 0s; }
+.tech-category:nth-child(2) { transition-delay: 0.05s; }
+.tech-category:nth-child(3) { transition-delay: 0.1s; }
+.tech-category:nth-child(4) { transition-delay: 0.15s; }
+.tech-category:nth-child(5) { transition-delay: 0.2s; }
+.tech-category:nth-child(6) { transition-delay: 0.25s; }
+.tech-category:nth-child(7) { transition-delay: 0.3s; }
+.tech-category:nth-child(8) { transition-delay: 0.35s; }
+.tech-category:nth-child(9) { transition-delay: 0.4s; }
+.tech-category:nth-child(10) { transition-delay: 0.45s; }
+.tech-category:nth-child(11) { transition-delay: 0.5s; }
+
+/* --- Legacy tech-stack fallback --- */
 .tech-stack {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 20px;
   justify-content: center;
-}
-.tech-tag {
-  padding: 5px 13px;
-  border-radius: 100px;
-  border: 1px solid var(--border-color);
-  background: var(--bg-alt);
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--text-secondary);
-  letter-spacing: 0.02em;
-  transition: border-color 0.3s ease, color 0.3s ease;
-}
-.tech-tag:hover {
-  border-color: rgba(255, 255, 255, 0.2);
-  color: var(--text-primary);
 }
 
 /* ========================================
@@ -2357,9 +2483,14 @@ button.pdf-trigger { border: none; font-family: inherit; cursor: pointer; }
 
 /* NVIDIA-highlighted tech tags */
 .tech-tag-nvidia {
-  background: rgba(118, 185, 0, 0.1) !important;
-  border-color: rgba(118, 185, 0, 0.3) !important;
+  background: rgba(118, 185, 0, 0.08) !important;
+  border-color: rgba(118, 185, 0, 0.2) !important;
   color: #76b900 !important;
+}
+.tech-tag-nvidia:hover {
+  background: rgba(118, 185, 0, 0.15) !important;
+  border-color: rgba(118, 185, 0, 0.4) !important;
+  box-shadow: 0 0 12px rgba(118, 185, 0, 0.12) !important;
 }
 
 @media (max-width: 768px) {
@@ -2371,7 +2502,11 @@ button.pdf-trigger { border: none; font-family: inherit; cursor: pointer; }
   }
   .tech-categories {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px;
+  }
+  .tech-category {
+    padding: 20px 18px 18px;
+    border-radius: 16px;
   }
 }
 
