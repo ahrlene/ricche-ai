@@ -1018,6 +1018,18 @@ def generate_architecture_pdf():
     pdf.tech_badge('Bitcoin Miner Economics Model')
     pdf.ln(10)
 
+    pdf.sub_heading('Healthcare System Omniscience')
+    pdf.tech_badge('Claims Trajectory Predictor')
+    pdf.tech_badge('Prescription Volume Nowcasting')
+    pdf.tech_badge('Hospital Utilisation & Bed Occupancy Model')
+    pdf.tech_badge('Medicare Advantage Enrolment Predictor')
+    pdf.tech_badge('PBM Rebate & Formulary Alpha')
+    pdf.tech_badge('Telehealth Adoption & Cannibalisation Model')
+    pdf.tech_badge('Value-Based Care Outcome Predictor')
+    pdf.tech_badge('Medical Device Adoption Curve Intelligence')
+    pdf.tech_badge('Healthcare Workforce Shortage Alpha')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
