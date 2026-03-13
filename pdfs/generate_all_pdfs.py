@@ -1013,9 +1013,9 @@ def generate_dashboard_pdf():
 
     pdf.ensure_space(50)
     pdf.cta_block(
-        'See the Control Room in Action',
-        'We would love to walk you through a live demo of the Control Room and show you '
-        'what real-time GPU infrastructure management looks like at scale.',
+        'Interested in Our Infrastructure Vision?',
+        'The Control Room is being built as the operational backbone of our GPU-accelerated '
+        'research platform. Get in touch to learn more about our progress and roadmap.',
         'info@ricche.ai  |  ricche.ai'
     )
 
