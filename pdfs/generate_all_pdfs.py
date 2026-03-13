@@ -773,6 +773,18 @@ def generate_architecture_pdf():
     pdf.tech_badge('Multi-Modal Data Fusion Engine')
     pdf.ln(10)
 
+    pdf.sub_heading('Orbital & Deep-Space Alpha')
+    pdf.tech_badge('LEO Satellite Constellation (Proprietary)')
+    pdf.tech_badge('Space-Based RF Signal Intelligence')
+    pdf.tech_badge('Rocket-Deployed Edge Nodes')
+    pdf.tech_badge('Cislunar Communication Relay')
+    pdf.tech_badge('Radiation-Hardened Trading Core')
+    pdf.tech_badge('Hypersonic Data Couriers')
+    pdf.tech_badge('Planetary-Scale Sensor Mesh')
+    pdf.tech_badge('Launch-on-Demand Infrastructure')
+    pdf.tech_badge('Space Weather Alpha')
+    pdf.ln(10)
+
     pdf.sub_heading('Security & Observability')
     pdf.tech_badge('Homomorphic Encryption')
     pdf.tech_badge('Confidential Computing')
