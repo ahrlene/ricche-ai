@@ -250,7 +250,7 @@
           <p>Every tool in our stack was selected for a specific reason &mdash; performance, reliability, or researcher productivity. Below are the key decisions and the reasoning behind them.</p>
 
           <h3>Why NVIDIA CUDA</h3>
-          <p>Financial ML workloads are compute-bound. Training a transformer on tick-level data across multiple instruments can take days on CPUs. CUDA-accelerated training on NVIDIA H200 GPUs with 141 GB HBM3e memory and 400G InfiniBand NDR interconnects compresses this to hours. We use the full NVIDIA ecosystem: CUDA for compute, RAPIDS cuDF for GPU-accelerated data engineering, TensorRT for production inference, and NIM for model serving.</p>
+          <p>Financial ML workloads are compute-bound. Training a transformer on tick-level data across multiple instruments can take days on CPUs. CUDA-accelerated training on NVIDIA H200 GPUs with 141 GB HBM3e memory and 400G InfiniBand NDR interconnects compresses this to hours. We plan to use the full NVIDIA ecosystem: CUDA for compute, RAPIDS cuDF for GPU-accelerated data engineering, TensorRT for production inference, and NIM for model serving.</p>
 
           <h3>Why KDB+/q for Time-Series</h3>
           <p>KDB+ remains the gold standard for financial time-series storage and querying. Its columnar architecture and vector-native query language handle the analytical patterns common in quant research &mdash; windowed aggregations, temporal joins, and tick replay &mdash; with unmatched efficiency. Arctic provides the Python interface layer.</p>
