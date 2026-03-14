@@ -27,6 +27,16 @@
   top: 16px;
 }
 
+/* ---- Focus-visible (keyboard navigation) ---- */
+:focus-visible {
+  outline: 2px solid var(--neon);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
 /* ---- Theme Variables ---- */
 :root {
   color-scheme: light dark;
@@ -95,6 +105,14 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 body {
@@ -3500,6 +3518,10 @@ a, button, [role="button"], .nav-toggle, .theme-toggle, .pdf-trigger {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 10px;
+  border-radius: 8px;
 }
 .footer-social a:hover {
   color: var(--neon);
