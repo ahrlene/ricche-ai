@@ -126,6 +126,38 @@
         "@type": "Answer",
         "text": "Ricche is focused on intelligence infrastructure — not generic AI tooling. We are building structured systems for signal detection, research automation, and decision support, with an emphasis on data integrity, reproducibility, and analytical rigour rather than speed to market."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "What technology stack is Ricche built on?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our architecture is designed around NVIDIA CUDA for GPU-accelerated compute, PyTorch for machine learning workloads, KDB+ for high-performance time-series storage, Redpanda for real-time data streaming, Ray for distributed computing, and Kubernetes for orchestration — all deployed on AWS infrastructure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the development timeline?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We are building in phases, starting with core data infrastructure and ingestion systems. Signal detection and research automation capabilities will follow as foundational layers mature. We do not publish fixed timelines — we ship when the engineering meets our quality bar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I partner with Ricche?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We are actively seeking research partners, data partners, and institutional collaborators who share our commitment to rigorous, data-driven financial analysis. Reach out at info@ricche.ai or through our contact page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Ricche handle regulatory compliance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Compliance is designed into the architecture from the start. Our systems are being built to meet FCA and MiFID II data governance requirements, with full audit trails, role-based access controls, data lineage tracking, and retention policies."
+      }
     }
   ]
 }
@@ -768,6 +800,127 @@
   </div>
 </section>
 
+<!-- ===================== PLATFORM PREVIEW ===================== -->
+<section class="section" id="preview" aria-label="Platform preview">
+  <div class="section-pattern pattern-hex" aria-hidden="true"></div>
+  <div class="section-divider" aria-hidden="true">
+    <div class="divider-line"></div>
+    <div class="divider-dot"></div>
+    <div class="divider-line"></div>
+  </div>
+  <div class="container">
+
+    <div class="section-intro">
+      <div class="eyebrow reveal">
+        <svg class="icon-animated" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        Platform Preview
+      </div>
+      <h2 class="section-heading reveal reveal-d1">A glimpse of what we are building</h2>
+      <p class="section-sub reveal reveal-d2">
+        An early look at the intelligence dashboard — where structured signals, research outputs, and market data converge into a single operational view.
+      </p>
+    </div>
+
+    <div class="preview-dashboard reveal">
+      <div class="preview-chrome">
+        <div class="preview-dots"><span></span><span></span><span></span></div>
+        <span class="preview-title">Ricche Intelligence Dashboard</span>
+        <span class="preview-badge">Concept</span>
+      </div>
+      <div class="preview-body">
+        <!-- Top metrics row -->
+        <div class="preview-metrics">
+          <div class="preview-metric-card">
+            <span class="preview-metric-label">Active Signals</span>
+            <span class="preview-metric-value preview-pulse">—</span>
+            <span class="preview-metric-sub">Awaiting data</span>
+          </div>
+          <div class="preview-metric-card">
+            <span class="preview-metric-label">Data Sources</span>
+            <span class="preview-metric-value preview-pulse">—</span>
+            <span class="preview-metric-sub">In development</span>
+          </div>
+          <div class="preview-metric-card">
+            <span class="preview-metric-label">Research Jobs</span>
+            <span class="preview-metric-value preview-pulse">—</span>
+            <span class="preview-metric-sub">Planned</span>
+          </div>
+          <div class="preview-metric-card">
+            <span class="preview-metric-label">System Status</span>
+            <span class="preview-metric-value preview-status-dot">Building</span>
+            <span class="preview-metric-sub">Pre-launch</span>
+          </div>
+        </div>
+
+        <!-- Chart area -->
+        <div class="preview-grid">
+          <div class="preview-chart-card preview-chart-wide">
+            <div class="preview-chart-header">
+              <span>Signal Activity</span>
+              <span class="preview-chart-range">Live feed — coming soon</span>
+            </div>
+            <div class="preview-chart-area">
+              <svg class="preview-chart-line" viewBox="0 0 480 120" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="var(--neon)" stop-opacity="0.3"/>
+                    <stop offset="100%" stop-color="var(--neon)" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <path class="preview-chart-fill" d="M0,90 C40,85 80,70 120,65 C160,60 200,45 240,50 C280,55 320,35 360,30 C400,25 440,15 480,20 L480,120 L0,120 Z" fill="url(#chartGrad)"/>
+                <path class="preview-chart-stroke" d="M0,90 C40,85 80,70 120,65 C160,60 200,45 240,50 C280,55 320,35 360,30 C400,25 440,15 480,20" fill="none" stroke="var(--neon-bright)" stroke-width="2"/>
+              </svg>
+            </div>
+          </div>
+          <div class="preview-chart-card">
+            <div class="preview-chart-header">
+              <span>Asset Coverage</span>
+            </div>
+            <div class="preview-bar-list">
+              <div class="preview-bar-item"><span>Equities</span><div class="preview-bar"><div class="preview-bar-fill" style="width:75%"></div></div></div>
+              <div class="preview-bar-item"><span>Fixed Income</span><div class="preview-bar"><div class="preview-bar-fill" style="width:60%"></div></div></div>
+              <div class="preview-bar-item"><span>FX</span><div class="preview-bar"><div class="preview-bar-fill" style="width:50%"></div></div></div>
+              <div class="preview-bar-item"><span>Commodities</span><div class="preview-bar"><div class="preview-bar-fill" style="width:40%"></div></div></div>
+              <div class="preview-bar-item"><span>Crypto</span><div class="preview-bar"><div class="preview-bar-fill" style="width:30%"></div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom row -->
+        <div class="preview-signals">
+          <div class="preview-signal-header">
+            <span>Recent Signals</span>
+            <span class="preview-chart-range">Placeholder data</span>
+          </div>
+          <div class="preview-signal-row">
+            <span class="preview-signal-dot preview-dot-blue"></span>
+            <span class="preview-signal-name">Cross-asset momentum shift detected</span>
+            <span class="preview-signal-asset">Multi-asset</span>
+            <span class="preview-signal-conf">— %</span>
+          </div>
+          <div class="preview-signal-row">
+            <span class="preview-signal-dot preview-dot-cyan"></span>
+            <span class="preview-signal-name">Volatility regime change — emerging markets</span>
+            <span class="preview-signal-asset">FX / EM</span>
+            <span class="preview-signal-conf">— %</span>
+          </div>
+          <div class="preview-signal-row">
+            <span class="preview-signal-dot preview-dot-blue"></span>
+            <span class="preview-signal-name">Sector rotation signal — technology to defensives</span>
+            <span class="preview-signal-asset">Equities</span>
+            <span class="preview-signal-conf">— %</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="preview-disclaimer reveal" style="text-align:center;color:var(--text-muted);font-size:0.8rem;margin-top:20px;">
+      This is a conceptual preview of the planned platform interface. All data shown is illustrative. The platform is currently under development.
+    </p>
+
+  </div>
+</section>
+
 <!-- ===================== RESEARCH DOCUMENTS ===================== -->
 <section class="section" id="documents" tabindex="-1">
   <div class="section-pattern pattern-hex" aria-hidden="true"></div>
@@ -928,21 +1081,82 @@
           <p class="faq-answer">We are focused on intelligence infrastructure — not generic AI tooling or automation services. Our approach emphasises signal detection, structured research, and decision support with an unwavering commitment to data integrity, reproducibility, and analytical rigour.</p>
         </details>
       </div>
+      <div class="faq-item reveal">
+        <details>
+          <summary>What technology stack is Ricche built on?</summary>
+          <p class="faq-answer">Our architecture is designed around NVIDIA CUDA for GPU-accelerated compute, PyTorch for machine learning workloads, KDB+ for high-performance time-series storage, Redpanda for real-time data streaming, Ray for distributed computing, and Kubernetes for orchestration — all deployed on AWS infrastructure. Every technology choice is driven by the specific demands of financial data processing.</p>
+        </details>
+      </div>
+      <div class="faq-item reveal">
+        <details>
+          <summary>What is the development timeline?</summary>
+          <p class="faq-answer">We are building in phases, starting with core data infrastructure and ingestion systems. Signal detection and research automation capabilities will follow as foundational layers mature. We do not publish fixed timelines — we ship when the engineering meets our quality bar. If you would like to track progress, contact us at info@ricche.ai.</p>
+        </details>
+      </div>
+      <div class="faq-item reveal">
+        <details>
+          <summary>How can I partner with Ricche?</summary>
+          <p class="faq-answer">We are actively seeking research partners, data partners, and institutional collaborators who share our commitment to rigorous, data-driven financial analysis. Whether you have domain expertise, proprietary data, or complementary technology — we welcome the conversation. Reach out at info@ricche.ai or through our contact page.</p>
+        </details>
+      </div>
+      <div class="faq-item reveal">
+        <details>
+          <summary>How does Ricche handle regulatory compliance?</summary>
+          <p class="faq-answer">Compliance is designed into the architecture from the start. Our systems are being built to meet FCA and MiFID II data governance requirements, with full audit trails, role-based access controls, data lineage tracking, and retention policies. We treat regulatory alignment as a core engineering requirement, not an afterthought.</p>
+        </details>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== SECTION 8: WHY RICCHE ===================== -->
-<section class="section" id="team" aria-label="Why Ricche">
+<!-- ===================== SECTION 8: TEAM & WHY RICCHE ===================== -->
+<section class="section" id="team" aria-label="Team and why Ricche">
   <div class="section-pattern pattern-graph" aria-hidden="true"></div>
   <div class="container">
     <div class="section-header">
       <div class="eyebrow reveal">
         <svg class="icon-animated" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        The Team
+      </div>
+      <h2 class="display-heading reveal">The people behind<br>the infrastructure.</h2>
+      <p class="lead-text reveal reveal-d1">Ricche is being built by a focused team with deep expertise in financial technology, machine learning, and data engineering.</p>
+    </div>
+
+    <!-- Founder profiles -->
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-avatar" aria-hidden="true">
+          <span class="team-initials">MR</span>
+        </div>
+        <h3>Manfred R.</h3>
+        <p class="team-role">Founder & CEO</p>
+        <p class="team-bio">Leading the vision, strategy, and architecture behind Ricche's intelligence infrastructure. Background in quantitative finance and AI systems engineering.</p>
+        <a href="https://linkedin.com/in/" class="team-social" target="_blank" rel="noopener" aria-label="Manfred's LinkedIn profile">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+      <div class="team-card reveal reveal-d1">
+        <div class="team-avatar" aria-hidden="true">
+          <span class="team-initials">??</span>
+        </div>
+        <h3>Open Position</h3>
+        <p class="team-role">Co-Founder / CTO</p>
+        <p class="team-bio">We are looking for a technical co-founder with deep experience in distributed systems, GPU computing, or financial data infrastructure. If this sounds like you, get in touch.</p>
+        <a href="/contact" class="team-social" aria-label="Apply for this role">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>Get in Touch</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Differentiators -->
+    <div class="section-header" style="margin-top:80px;">
+      <div class="eyebrow reveal">
+        <svg class="icon-animated" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
         Why Ricche
       </div>
-      <h2 class="display-heading reveal">Intelligence infrastructure,<br>not generic AI.</h2>
-      <p class="lead-text reveal reveal-d1">What separates Ricche from the landscape of AI tools and platforms.</p>
+      <h2 class="section-heading reveal reveal-d1">Intelligence infrastructure, not generic AI.</h2>
     </div>
 
     <div class="team-grid">
