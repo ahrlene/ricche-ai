@@ -14,6 +14,18 @@
 <link rel="apple-touch-icon" href="assets/ricche-logo.png">
 <link rel="canonical" href="https://ricche.ai/docs">
 
+<!-- Structured Data: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ricche.ai/" },
+    { "@type": "ListItem", "position": 2, "name": "Documentation" }
+  ]
+}
+</script>
+
 <script>(function(){var t=localStorage.getItem('ricche-theme');document.documentElement.setAttribute('data-theme',t||'dark')})()</script>
 
 <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -58,6 +70,7 @@
   margin: 48px 0 16px;
   padding-top: 24px;
   border-top: 1px solid var(--border-color);
+  scroll-margin-top: 100px;
 }
 .docs-content h2:first-child {
   margin-top: 0;
@@ -183,6 +196,8 @@
     </a>
     <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
       <a href="/" class="nav-link">Home</a>
+      <a href="/#about" class="nav-link">About</a>
+      <a href="/#platform" class="nav-link">Capabilities</a>
       <a href="/research" class="nav-link">Research</a>
       <a href="/docs" class="nav-link active" aria-current="page">Docs</a>
       <a href="/contact" class="nav-link">Contact</a>

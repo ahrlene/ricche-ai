@@ -58,8 +58,21 @@
 }
 </script>
 
+<!-- Structured Data: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ricche.ai/" },
+    { "@type": "ListItem", "position": 2, "name": "Research" }
+  ]
+}
+</script>
+
 <script>(function(){var t=localStorage.getItem('ricche-theme');document.documentElement.setAttribute('data-theme',t||'dark')})()</script>
 
+<link rel="preconnect" href="https://formsubmit.co">
 <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts/fonts.css">
@@ -159,6 +172,8 @@
     </a>
     <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
       <a href="/" class="nav-link">Home</a>
+      <a href="/#about" class="nav-link">About</a>
+      <a href="/#platform" class="nav-link">Capabilities</a>
       <a href="/research" class="nav-link active" aria-current="page">Research</a>
       <a href="/docs" class="nav-link">Docs</a>
       <a href="/contact" class="nav-link">Contact</a>
