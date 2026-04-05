@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ricche.ai — Governed Execution Lifecycle Proof</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #0B0F1A; color: #C8D6E5; line-height: 1.6; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  .page { width: 100%; max-width: 900px; margin: 0 auto; padding: 48px 56px; page-break-after: always; min-height: 100vh; position: relative; }
+  .page:last-child { page-break-after: auto; }
+
+  /* Typography */
+  h1 { color: #00D4FF; font-size: 32px; font-weight: 700; letter-spacing: 1.5px; }
+  h2 { color: #00D4FF; font-size: 17px; font-weight: 700; margin-top: 28px; margin-bottom: 12px; letter-spacing: 0.5px; }
+  h3 { color: #00FF9C; font-size: 13px; font-weight: 600; margin-top: 14px; margin-bottom: 4px; }
+  p { font-size: 13px; color: #8899AA; }
+  .label { font-size: 10px; color: #556677; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; }
+
+  /* Layout */
+  .flex { display: flex; gap: 32px; align-items: flex-start; }
+  .flex-60 { flex: 0 0 58%; }
+  .flex-40 { flex: 0 0 38%; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px; }
+
+  /* Components */
+  .subtitle { color: #7B61FF; font-size: 14px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; margin-bottom: 8px; }
+  .tagline { color: #667788; font-size: 12px; border-left: 3px solid #7B61FF; padding-left: 14px; margin: 16px 0 28px 0; }
+
+  .card { background: #0D1525; border: 1px solid #1A2540; border-radius: 10px; padding: 16px 18px; }
+  .card-accent { border-left: 3px solid #7B61FF; }
+  .card-cyan { border-left: 3px solid #00D4FF; }
+  .card-green { border-left: 3px solid #00FF9C; }
+  .card-title { color: #7B61FF; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
+  .card p { font-size: 12px; margin: 3px 0; }
+
+  .badge { display: inline-block; background: #0D1525; border: 1px solid #1A2540; border-radius: 20px; padding: 6px 16px; font-size: 11px; font-weight: 600; }
+  .badge-red { color: #FF4D4D; border-color: #331111; }
+  .badge-green { color: #00FF9C; border-color: #113311; }
+  .badge-cyan { color: #00D4FF; border-color: #112233; }
+
+  .lifecycle-bar { background: #0D1525; border: 1px solid #1A2540; border-radius: 10px; padding: 16px 24px; text-align: center; margin: 16px 0; }
+  .lifecycle-bar .step { display: inline-block; color: #00D4FF; font-size: 12px; font-weight: 600; }
+  .lifecycle-bar .arrow { color: #334455; margin: 0 6px; font-size: 11px; }
+
+  .screenshot-placeholder { background: #0D1525; border: 2px dashed #1A2540; border-radius: 10px; min-height: 220px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; }
+  .screenshot-placeholder .icon { font-size: 32px; color: #1A2540; }
+  .screenshot-placeholder p { font-size: 11px; color: #334455; text-align: center; }
+
+  .artifact { font-family: 'Courier New', monospace; font-size: 11px; color: #8899AA; background: #0D1525; border: 1px solid #1A2540; border-radius: 6px; padding: 8px 12px; }
+
+  .closing-box { background: #0D1525; border-left: 3px solid #00D4FF; border-radius: 0 10px 10px 0; padding: 20px 24px; margin: 20px 0; }
+  .closing-box p { font-size: 13px; color: #C8D6E5; }
+  .closing-box .hl { color: #00D4FF; font-weight: 600; }
+
+  .footer { text-align: center; padding-top: 20px; border-top: 1px solid #1A2540; margin-top: 32px; }
+  .footer p { font-size: 9px; color: #334455; letter-spacing: 2px; text-transform: uppercase; }
+
+  hr { border: none; border-top: 1px solid #1A2540; margin: 24px 0; }
+
+  /* Lifecycle diagram (mini circular) */
+  .lifecycle-circle { text-align: center; margin: 12px 0; }
+  .lifecycle-circle svg { max-width: 100%; }
+
+  @media print {
+    .page { padding: 32px 40px; min-height: auto; }
+    body { background: #0B0F1A; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- PAGE 1 — EXECUTIVE SUMMARY                                            -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<div class="page">
+
+  <h1>Ricche.ai</h1>
+  <div class="subtitle">Governance-Controlled Execution Lifecycle (Failure &rarr; Recovery &rarr; Certified Re-Entry)</div>
+  <div class="tagline">
+    <strong style="color:#C8D6E5;">Scenario:</strong> Broker Failure &rarr; Controlled Recovery &rarr; Certified Re-Entry<br>
+    <strong style="color:#C8D6E5;">Mode:</strong> Deterministic &nbsp;|&nbsp; <strong style="color:#C8D6E5;">Duration:</strong> ~6 minutes &nbsp;|&nbsp; <strong style="color:#C8D6E5;">Result:</strong> <span style="color:#00FF9C;">15/15 steps passed</span>
+  </div>
+
+  <div class="flex">
+    <div class="flex-60">
+      <h2 style="margin-top:0;">Objective</h2>
+      <p style="font-size:13px; color:#AAB4C2; line-height:1.7;">
+        Demonstrate that the system enforces governance under failure conditions &mdash; automatically blocking unsafe execution, managing incident workflows, validating recovery through structured checks, requiring explicit certification before re-entry, and producing complete audit evidence across the lifecycle.
+      </p>
+
+      <h2>Scenario</h2>
+      <div class="card" style="margin-top:8px;">
+        <div class="grid-3" style="gap:16px;">
+          <div><div class="label">Trigger</div><div style="color:#FF4D4D; font-size:13px; font-weight:600; margin-top:4px;">Broker Disconnect</div></div>
+          <div><div class="label">Injection</div><div style="color:#C8D6E5; font-size:13px; font-weight:500; margin-top:4px;">Deterministic</div></div>
+          <div><div class="label">Steps</div><div style="color:#00FF9C; font-size:13px; font-weight:600; margin-top:4px;">15 / 15 Passed</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-40">
+      <div class="label" style="text-align:center; margin-bottom:8px;">Governance Lifecycle</div>
+      <svg viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif" style="width:100%;">
+        <circle cx="140" cy="140" r="105" fill="none" stroke="#1A2540" stroke-width="1.5"/>
+        <circle cx="140" cy="140" r="105" fill="none" stroke="#00D4FF" stroke-width="1" stroke-dasharray="4,6" opacity="0.3"/>
+        <g font-size="9" font-weight="600" text-anchor="middle">
+          <text x="140" y="38" fill="#FF4D4D">DETECT</text>
+          <text x="230" y="80" fill="#FF4D4D">BLOCK</text>
+          <text x="248" y="150" fill="#00D4FF">RECOVER</text>
+          <text x="218" y="220" fill="#00FF9C">CERTIFY</text>
+          <text x="140" y="252" fill="#00FF9C">RE-ENTER</text>
+          <text x="62" y="220" fill="#00D4FF">MONITOR</text>
+          <text x="32" y="150" fill="#7B61FF">LEARN</text>
+          <text x="58" y="80" fill="#7B61FF">EVOLVE</text>
+        </g>
+        <text x="140" y="136" text-anchor="middle" fill="#334455" font-size="8" font-weight="500">CONTINUOUS</text>
+        <text x="140" y="148" text-anchor="middle" fill="#334455" font-size="8" font-weight="500">GOVERNANCE</text>
+      </svg>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="grid-4" style="margin-top:8px;">
+    <div class="badge badge-red">No blind execution</div>
+    <div class="badge badge-red">No silent failure</div>
+    <div class="badge badge-red">No auto resumption</div>
+    <div class="badge badge-green">Fully auditable</div>
+  </div>
+
+  <div class="footer"><p>Ricche.ai &bull; Governed Execution Intelligence &bull; Confidential</p></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- PAGE 2 — SYSTEM BEHAVIOUR                                             -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<div class="page">
+
+  <h2 style="margin-top:0;">System Behaviour Under Failure</h2>
+
+  <div class="lifecycle-bar">
+    <span class="step" style="color:#00FF9C;">Healthy</span><span class="arrow">&rarr;</span>
+    <span class="step" style="color:#FF4D4D;">Failure</span><span class="arrow">&rarr;</span>
+    <span class="step" style="color:#FF4D4D;">Block</span><span class="arrow">&rarr;</span>
+    <span class="step" style="color:#7B61FF;">Incident</span><span class="arrow">&rarr;</span>
+    <span class="step">Recovery</span><span class="arrow">&rarr;</span>
+    <span class="step">Validation</span><span class="arrow">&rarr;</span>
+    <span class="step" style="color:#00FF9C;">Certification</span><span class="arrow">&rarr;</span>
+    <span class="step" style="color:#00FF9C;">Re-entry</span><span class="arrow">&rarr;</span>
+    <span class="step" style="color:#7B61FF;">Evidence</span>
+  </div>
+
+  <div class="flex" style="margin-top:16px;">
+    <div class="flex-60">
+      <div class="card card-accent" style="margin-bottom:10px;">
+        <div class="card-title">1. Immediate Protection</div>
+        <p>Execution blocked instantly on failure detection</p>
+        <p>Submission eligibility disabled system-wide</p>
+        <p>Assurance score drops from <strong style="color:#00FF9C;">100</strong> to <strong style="color:#FF4D4D;">25</strong> (critical)</p>
+      </div>
+      <div class="card card-accent" style="margin-bottom:10px;">
+        <div class="card-title">2. Incident Governance</div>
+        <p>Critical alert triggers governed incident creation</p>
+        <p>Incident acknowledged by operator</p>
+        <p>Full audit timeline begins recording</p>
+      </div>
+      <div class="card card-cyan" style="margin-bottom:10px;">
+        <div class="card-title">3. Recovery &amp; Validation</div>
+        <p>Evidence-based restoration (3 items collected)</p>
+        <p>7 structured validation checks executed</p>
+        <p>All checks must pass before certification</p>
+      </div>
+      <div class="card card-green" style="margin-bottom:10px;">
+        <div class="card-title">4. Certification &amp; Staged Re-Entry</div>
+        <p>Recovery alone is <strong style="color:#FF4D4D;">not sufficient</strong> to resume</p>
+        <p>Explicit certification required by supervisor</p>
+        <p>Re-entry staged: Limited (cap=1.0) &rarr; Monitored &rarr; Full</p>
+      </div>
+    </div>
+
+    <div class="flex-40">
+      <div class="label" style="margin-bottom:8px;">Control Room During Incident</div>
+      <div class="screenshot-placeholder">
+        <div class="icon">&#9634;</div>
+        <p>INSERT SCREENSHOT HERE<br><br>
+        <span style="color:#556677; font-size:10px;">Show: blocked state + active incident<br>+ broker disconnected + assurance critical</span></p>
+      </div>
+      <div style="margin-top:16px;">
+        <div class="label" style="margin-bottom:6px;">Key Controls Proven</div>
+        <div style="display:flex; flex-direction:column; gap:6px;">
+          <div class="badge badge-cyan" style="text-align:center;">Execution gating</div>
+          <div class="badge badge-cyan" style="text-align:center;">Policy enforcement</div>
+          <div class="badge badge-cyan" style="text-align:center;">Recovery certification</div>
+          <div class="badge badge-cyan" style="text-align:center;">Audit traceability</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer"><p>Ricche.ai &bull; Governed Execution Intelligence &bull; Confidential</p></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- PAGE 3 — EVIDENCE + INSTITUTIONAL VALUE                               -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<div class="page">
+
+  <h2 style="margin-top:0;">Evidence &amp; Institutional Value</h2>
+
+  <div class="flex">
+    <div class="flex-60">
+      <div class="label" style="margin-bottom:8px;">Artifacts Generated Automatically</div>
+      <div class="grid-2" style="margin-bottom:16px;">
+        <div class="artifact">demo_manifest.json</div>
+        <div class="artifact">incident_summary.json</div>
+        <div class="artifact">recovery_summary.json</div>
+        <div class="artifact">certification_summary.json</div>
+        <div class="artifact">assurance_summary.json</div>
+        <div class="artifact">timeline.json</div>
+        <div class="artifact">postmortem.json</div>
+      </div>
+
+      <p style="font-size:12px; color:#667788; margin-top:8px;">
+        Every artifact is machine-readable, auditable, and linked to the incident, recovery, and policy context that produced it. The full lifecycle is captured as a single reviewable evidence pack.
+      </p>
+    </div>
+
+    <div class="flex-40">
+      <div class="label" style="margin-bottom:8px;">Recovery &amp; Re-Entry State</div>
+      <div class="screenshot-placeholder" style="min-height:180px;">
+        <div class="icon">&#9634;</div>
+        <p>INSERT SCREENSHOT HERE<br><br>
+        <span style="color:#556677; font-size:10px;">Show: certified + re-entry stage<br>+ assurance restored</span></p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <h2>Why This Matters</h2>
+
+  <div class="grid-2" style="margin-top:8px;">
+    <div class="card">
+      <div class="card-title" style="color:#FF4D4D;">Traditional Systems</div>
+      <p>Continue operating into failure</p>
+      <p>Recover without validation</p>
+      <p>Lack structured governance</p>
+      <p>Cannot prove correctness</p>
+      <p>Do not learn from incidents</p>
+    </div>
+    <div class="card card-green">
+      <div class="card-title" style="color:#00FF9C;">Ricche.ai</div>
+      <p style="color:#AAB4C2;">Blocks unsafe execution instantly</p>
+      <p style="color:#AAB4C2;">Validates recovery with evidence</p>
+      <p style="color:#AAB4C2;">Requires certification before resume</p>
+      <p style="color:#AAB4C2;">Stages re-entry with rollback</p>
+      <p style="color:#AAB4C2;">Learns and evolves policy</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="closing-box">
+    <p>Most trading systems continue operating into failure, recover without validation, and cannot prove correctness.</p>
+    <p style="margin-top:10px; font-size:12px; color:#8899AA;">Ricche.ai demonstrates a governance-first system that enforces control through failure, recovery, certification, and controlled re-entry &mdash; with full traceability and no bypass paths.</p>
+  </div>
+
+  <div class="footer"><p>Ricche.ai &bull; Governed Execution Intelligence &bull; Confidential</p></div>
+</div>
+
+</body>
+</html>
